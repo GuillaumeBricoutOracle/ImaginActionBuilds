@@ -1,0 +1,3589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImaginAction Wiki</title>
+<link rel="icon" type="image/png" href="/icons/Logo_mini_Noir.png">
+<style>
+:root {
+  --bg:      #1a1b26;
+  --surface: #24283b;
+  --surface2:#2f3350;
+  --border:  #414868;
+  --text:    #c0caf5;
+  --muted:   #565f89;
+  --accent:  #7aa2f7;
+  --green:   #9ece6a;
+  --yellow:  #e0af68;
+  --red:     #f7768e;
+  --purple:  #bb9af7;
+  --cyan:    #7dcfff;
+  --orange:  #ff9e64;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:var(--bg); color:var(--text);
+  height:100vh; display:flex; flex-direction:column; overflow:hidden;
+}
+
+/* ── Header ── */
+#hdr{
+  background:var(--surface); border-bottom:1px solid var(--border);
+  padding:0 18px; height:48px;
+  display:flex; align-items:center; gap:20px; flex-shrink:0;
+}
+.logo{ font-size:15px; font-weight:700; color:var(--accent); letter-spacing:.4px; white-space:nowrap; }
+.logo em{ color:var(--purple); font-style:normal; }
+nav{ display:flex; gap:2px; }
+nav button{
+  background:none; border:none; color:var(--muted);
+  padding:5px 13px; border-radius:6px; cursor:pointer; font-size:13px; transition:.12s;
+}
+nav button:hover{ background:var(--border); color:var(--text); }
+nav button.on{ background:var(--accent); color:#1a1b26; font-weight:600; }
+.hdr-spacer{ flex:1; }
+#refresh-btn{
+  background:none; border:1px solid var(--border); color:var(--muted);
+  padding:4px 10px; border-radius:6px; cursor:pointer; font-size:12px; transition:.12s;
+}
+#refresh-btn:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* ── Layout ── */
+#layout{ display:flex; flex:1; overflow:hidden; }
+
+/* ── Sidebar ── */
+#sb{
+  width:220px; background:var(--surface); border-right:1px solid var(--border);
+  overflow-y:auto; flex-shrink:0; padding:8px 0;
+}
+.sb-title{
+  font-size:10px; font-weight:700; text-transform:uppercase;
+  letter-spacing:1.2px; color:var(--muted); padding:10px 14px 4px;
+}
+.mi{
+  display:flex; align-items:center; gap:7px;
+  padding:5px 14px; border-radius:5px; cursor:pointer; font-size:13px; transition:.1s;
+}
+.mi:hover{ background:var(--border); }
+.mi.on{ background:rgba(122,162,247,.15); color:var(--accent); }
+.dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.badge{
+  margin-left:auto; font-size:10px;
+  background:var(--border); color:var(--muted); border-radius:10px; padding:1px 6px;
+}
+
+/* ── Main ── */
+#main{ flex:1; overflow-y:auto; padding:22px 26px; position:relative; }
+
+/* ── Graph wrapper (replaces main padding) ── */
+#graph-wrap{
+  flex:1; position:relative; overflow:hidden; display:none;
+}
+#graph-canvas{ width:100%; height:100%; position:relative; }
+#graph-ctrl{
+  position:absolute; top:12px; right:12px;
+  display:flex; gap:6px; z-index:10;
+}
+.gbtn{
+  background:var(--surface); border:1px solid var(--border); color:var(--text);
+  padding:5px 12px; border-radius:6px; cursor:pointer; font-size:12px; transition:.12s;
+}
+.gbtn:hover{ border-color:var(--accent); }
+.gbtn.on{ background:var(--accent); color:#1a1b26; border-color:var(--accent); }
+#graph-legend{
+  position:absolute; bottom:12px; right:12px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:10px 14px; font-size:11px; z-index:10;
+}
+.leg{ display:flex; align-items:center; gap:7px; margin-bottom:4px; }
+.leg:last-child{ margin-bottom:0; }
+.leg-line{ width:22px; height:2px; flex-shrink:0; }
+
+/* ── Cards & grids ── */
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:10px; margin-bottom:22px;
+}
+.stat{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:14px; text-align:center;
+}
+.stat-n{ font-size:30px; font-weight:700; color:var(--accent); }
+.stat-l{ font-size:11px; color:var(--muted); margin-top:3px; }
+
+.mgrid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px;
+}
+.mcard{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:14px; cursor:pointer; transition:.12s;
+}
+.mcard:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.mcard-hd{ display:flex; align-items:center; gap:9px; margin-bottom:6px; }
+.mcard-hd .dot{ width:10px; height:10px; }
+.mcard-name{ font-weight:600; font-size:14px; }
+.mcard-meta{ font-size:12px; color:var(--muted); display:flex; gap:12px; }
+.mcard-desc{
+  font-size:11px; color:var(--muted); border-top:1px solid var(--border);
+  padding-top:6px; line-height:1.5;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* ── Class list ── */
+.cls-list{ list-style:none; }
+.cli{
+  display:flex; align-items:center; gap:7px;
+  padding:6px 0; border-bottom:1px solid var(--border);
+  font-size:13px; cursor:pointer;
+}
+.cli:hover .cli-name{ color:var(--accent); }
+.kbadge{
+  font-size:10px; font-weight:600; padding:2px 6px;
+  border-radius:4px; text-transform:uppercase; flex-shrink:0;
+}
+.k-class    { background:rgba(122,162,247,.18); color:var(--accent); }
+.k-interface{ background:rgba(187,154,247,.18); color:var(--purple); }
+.k-abstract { background:rgba(224,175,104,.18); color:var(--yellow); }
+.k-struct   { background:rgba(158,206,106,.18); color:var(--green); }
+.k-enum     { background:rgba(255,158,100,.18); color:var(--orange); }
+.mod-chip{
+  font-size:10px; padding:1px 6px; border-radius:10px; flex-shrink:0;
+}
+
+/* ── File list ── */
+.fentry{
+  display:flex; align-items:center; gap:7px;
+  padding:5px 0; border-bottom:1px solid var(--border);
+  font-size:12px; cursor:pointer; color:var(--muted);
+}
+.fentry:hover{ color:var(--accent); }
+.fext{ font-size:10px; font-weight:600; padding:1px 5px; border-radius:3px;
+       background:var(--border); color:var(--muted); flex-shrink:0; }
+.fpath{ margin-left:auto; font-size:10px; color:var(--border); }
+
+/* ── Card generic ── */
+.card{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:14px; margin-bottom:10px;
+}
+.card-t{ font-size:14px; font-weight:600; margin-bottom:10px; }
+
+/* ── Tabs ── */
+.tabs{ display:flex; gap:2px; border-bottom:1px solid var(--border); margin-bottom:14px; }
+.tab{
+  background:none; border:none; border-bottom:2px solid transparent;
+  color:var(--muted); padding:6px 14px; cursor:pointer; font-size:13px;
+  margin-bottom:-1px; transition:.12s;
+}
+.tab:hover{ color:var(--text); }
+.tab.on{ color:var(--accent); border-bottom-color:var(--accent); }
+
+/* ── Relations ── */
+.rtags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.rtag{
+  font-size:11px; padding:2px 9px; border-radius:12px;
+  border:1px solid var(--border); cursor:pointer; transition:.1s;
+}
+.rtag:hover{ border-color:var(--accent); color:var(--accent); }
+.rtag.inherits  { border-color:var(--cyan);   color:var(--cyan); }
+.rtag.implements{ border-color:var(--purple); color:var(--purple); }
+
+/* ── Page header ── */
+h1.ph{ font-size:20px; font-weight:700; margin-bottom:18px; }
+h1.ph small{ font-size:14px; color:var(--muted); font-weight:400; margin-left:8px; }
+
+/* ── Inputs ── */
+.search{
+  width:100%; background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:7px 13px; color:var(--text); font-size:13px;
+  margin-bottom:14px; outline:none;
+}
+.search:focus{ border-color:var(--accent); }
+
+/* ── Back btn ── */
+.back{
+  background:none; border:1px solid var(--border); color:var(--muted);
+  padding:4px 11px; border-radius:6px; cursor:pointer; font-size:12px;
+  margin-bottom:14px; transition:.12s;
+}
+.back:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* ── File viewer ── */
+pre.code{
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:14px; overflow-x:auto; font-size:12px; line-height:1.6;
+  font-family:'Cascadia Code','Fira Code',Consolas,monospace;
+  white-space:pre; tab-size:4;
+}
+.md-body{ line-height:1.75; max-width:760px; }
+.md-body h1{ font-size:21px; margin-bottom:14px; border-bottom:1px solid var(--border); padding-bottom:7px; }
+.md-body h2{ font-size:17px; margin:22px 0 10px; }
+.md-body h3{ font-size:14px; margin:16px 0 7px; color:var(--accent); }
+.md-body p { margin-bottom:10px; }
+.md-body code{ background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-family:monospace; font-size:12px; }
+.md-body pre{ margin:10px 0; }
+.md-body ul,
+.md-body ol{ margin:7px 0 10px 20px; }
+.md-body li{ margin-bottom:3px; }
+
+/* ── Sidebar graph btn ── */
+.sb-graph-btn{
+  background:none; border:none; color:var(--border); cursor:pointer;
+  font-size:11px; padding:0 2px; line-height:1; transition:.1s; flex-shrink:0;
+}
+.sb-graph-btn:hover{ color:var(--accent); }
+.sb-graph-btn.on{ color:var(--accent); }
+
+/* ── Graph filter bar ── */
+#graph-filter-bar{
+  position:absolute; top:12px; left:12px;
+  display:flex; align-items:center; gap:6px; z-index:10;
+  background:var(--surface); border:1px solid var(--accent);
+  border-radius:6px; padding:4px 10px; font-size:12px; color:var(--accent);
+}
+#graph-filter-bar button{
+  background:none; border:none; color:var(--accent); cursor:pointer; font-size:13px; line-height:1;
+}
+
+/* ── Health bar ── */
+.health-bar{
+  height:3px; border-radius:2px; margin-top:8px;
+  background:var(--border); overflow:hidden;
+}
+.health-fill{ height:100%; border-radius:2px; transition:.3s; }
+
+/* ── Cycle warning ── */
+.cycle-warn{
+  background:rgba(247,118,142,.1); border:1px solid var(--red);
+  border-radius:8px; padding:12px 14px; margin-bottom:12px;
+  font-size:13px;
+}
+.cycle-warn .cycle-t{ color:var(--red); font-weight:600; margin-bottom:6px; }
+.cycle-path{ font-size:11px; color:var(--muted); font-family:monospace; }
+
+/* ── Refs list ── */
+.refs-file{ margin-bottom:10px; }
+.refs-fname{ font-size:12px; color:var(--accent); margin-bottom:4px; cursor:pointer; }
+.refs-fname:hover{ text-decoration:underline; }
+.refs-line{
+  font-size:11px; font-family:monospace; color:var(--muted);
+  padding:2px 8px; line-height:1.5;
+  border-left:2px solid var(--border);
+}
+.refs-line em{ color:var(--yellow); font-style:normal; }
+
+/* ── Loading ── */
+#loading{ display:flex; align-items:center; justify-content:center; flex:1; font-size:14px; color:var(--muted); }
+
+/* ── Wiki links ── */
+.wiki-unresolved{ color:var(--red); opacity:.7; font-family:monospace; font-size:.9em; }
+.md-body a{ color:var(--accent); text-decoration:none; }
+.md-body a:hover{ text-decoration:underline; }
+.md-body table{ border-collapse:collapse; width:100%; margin:10px 0; }
+.md-body th,.md-body td{ border:1px solid var(--border); padding:5px 10px; font-size:12px; }
+.md-body th{ background:var(--surface2); }
+
+/* ── CSV table ── */
+.csv-wrap{ overflow-x:auto; }
+.csv-tbl{ width:100%; border-collapse:collapse; font-size:12px; }
+.csv-tbl th{
+  text-align:left; padding:6px 10px; background:var(--surface2);
+  border:1px solid var(--border); cursor:pointer; white-space:nowrap;
+  user-select:none; position:sticky; top:0;
+}
+.csv-tbl th:hover{ background:var(--border); }
+.csv-tbl td{ padding:5px 10px; border:1px solid var(--border); vertical-align:top; }
+.csv-tbl tr:nth-child(even) td{ background:rgba(255,255,255,.02); }
+
+/* ── Scenario graph ── */
+#scenario-info{
+  position:absolute; left:12px; top:12px; z-index:10; display:none;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:6px 10px;
+  display:none; align-items:center; gap:8px; font-size:12px;
+}
+#scenario-detail{
+  position:absolute; left:12px; bottom:12px; z-index:10; display:none;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:12px 14px; max-width:300px; font-size:12px;
+}
+.sce-leg{ display:flex; align-items:center; gap:6px; margin-bottom:3px; font-size:11px; }
+.sce-node{ width:12px; height:12px; border-radius:2px; flex-shrink:0; }
+
+/* ── Scenario HTML renderer ── */
+#sce-panzoom{ position:absolute; inset:0; overflow:hidden; cursor:grab; user-select:none; }
+#sce-panzoom.pz-dragging{ cursor:grabbing; }
+#sce-viewport{ position:absolute; transform-origin:0 0; }
+.sce-event-node{
+  position:absolute; border-radius:6px; border:1px solid; overflow:hidden;
+  width:210px; cursor:pointer; z-index:1; transition:box-shadow .15s;
+}
+.sce-event-node:hover{ box-shadow:0 0 0 2px rgba(255,255,255,.22); }
+.sce-event-node.sce-sel{ box-shadow:0 0 0 2px #fff; z-index:2; }
+.sce-comment-box{
+  position:absolute; border-radius:4px; border:1px solid; cursor:pointer;
+  padding:8px 10px; max-width:150px; font-size:11px; z-index:1;
+}
+.sce-node-header{ display:flex; align-items:center; gap:5px; padding:6px 8px; }
+.sce-type-icon{ width:16px; height:16px; object-fit:contain; flex-shrink:0; }
+.sce-node-name{ font-size:11px; font-weight:600; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sce-duration-badge{ font-size:10px; background:rgba(0,0,0,.35); padding:1px 5px; border-radius:8px; flex-shrink:0; color:#eee; }
+.sce-node-actions{ display:flex; flex-wrap:wrap; gap:3px; padding:5px; }
+.sce-act-card{
+  display:flex; align-items:center; gap:4px;
+  background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.1);
+  border-radius:4px; padding:3px 5px;
+  width:calc(50% - 1.5px); box-sizing:border-box; overflow:hidden;
+}
+.sce-act-icon{ width:14px; height:14px; object-fit:contain; flex-shrink:0; }
+.sce-act-info{ display:flex; flex-direction:column; overflow:hidden; min-width:0; }
+.sce-act-cmd{ font-size:9px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#eee; }
+.sce-act-hw{ font-size:8px; color:rgba(255,255,255,.45); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* ── Method list ── */
+.method-item{
+  padding:8px 0; border-bottom:1px solid var(--border);
+}
+.method-item:last-child{ border-bottom:none; }
+.method-sig{ font-family:monospace; font-size:12px; line-height:1.5; word-break:break-all; }
+.method-desc{ font-size:12px; color:var(--muted); margin-top:3px; padding-left:4px; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{ width:5px; height:5px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:var(--border); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover{ background:var(--muted); }
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <div class="logo">
+    <img src="/icons/Logo_mini_Noir.png" style="height:22px;width:22px;object-fit:contain;flex-shrink:0" onerror="this.style.display='none'">
+    ImaginAction <em>Wiki</em>
+  </div>
+  <nav>
+    <button id="tn-home"      onclick="go('home')"             class="on">Accueil</button>
+    <button id="tn-graph"     onclick="go('graph')"                    >Architecture</button>
+    <button id="tn-scenarios" onclick="go('scenarios')"               >Scénarios</button>
+    <button id="tn-classes"   onclick="go('classes')"                 >Classes</button>
+    <button id="tn-analyse"   onclick="go('analyse')"                 >Analyse</button>
+    <button id="tn-prefabs"   onclick="go('prefabs')"                 >Ressources</button>
+    <button id="tn-esp"       onclick="go('esp')"                     >ESP</button>
+    <button id="tn-journal"   onclick="go('journal')"                 >Journal</button>
+  </nav>
+  <div class="hdr-spacer"></div>
+  <button id="tn-search" onclick="go('search')" title="Ctrl+K" style="background:none;border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:6px;font-size:12px;cursor:pointer;margin-right:6px">⌕ Recherche</button>
+  <button id="refresh-btn" onclick="reload()">↺ Actualiser</button>
+</div>
+
+<div id="layout">
+  <div id="sb">
+    <div class="sb-title">Modules</div>
+    <div id="sb-mods"></div>
+
+    <div class="sb-title" style="margin-top:14px">Types</div>
+    <div style="padding:2px 14px 10px;display:flex;flex-direction:column;gap:5px">
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <span class="kbadge k-class"    style="font-size:9px">class</span>
+        <span style="color:var(--muted)">sans parent</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <span class="kbadge k-abstract" style="font-size:9px">class</span>
+        <span style="color:var(--muted)">hérite / implémente</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <span class="kbadge k-interface" style="font-size:9px">interface</span>
+        <span style="color:var(--muted)">interface</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <span class="kbadge k-enum"   style="font-size:9px">enum</span>
+        <span style="color:var(--muted)">énumération</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <span class="kbadge k-struct" style="font-size:9px">struct</span>
+        <span style="color:var(--muted)">structure</span>
+      </div>
+    </div>
+
+    <div class="sb-title" style="margin-top:6px">Dépendances</div>
+    <div style="padding:2px 14px 10px;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <div style="width:22px;height:2px;background:var(--cyan);flex-shrink:0"></div>
+        <span style="color:var(--muted)">hérite de</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <div style="width:22px;height:0;border-top:2px dashed var(--purple);flex-shrink:0"></div>
+        <span style="color:var(--muted)">implémente</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:11px">
+        <div style="width:22px;height:0;border-top:2px dotted var(--yellow);flex-shrink:0"></div>
+        <span style="color:var(--muted)">utilise (champ)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- vue normale -->
+  <div id="main"><div id="loading">Chargement…</div></div>
+
+  <!-- vue graphe (remplace main) -->
+  <div id="graph-wrap">
+    <div id="graph-canvas"></div>
+    <!-- Overlay retour scénario -->
+    <div id="scenario-info">
+      <button class="gbtn" style="padding:2px 8px;font-size:11px" onclick="go('scenarios')">← Scénarios</button>
+      <span id="scenario-name" style="color:var(--accent)"></span>
+    </div>
+    <!-- Détail event (clic nœud) -->
+    <div id="scenario-detail"></div>
+    <div id="graph-filter-bar" style="display:none">
+      <span id="graph-filter-label"></span>
+      <button onclick="clearGraphFilter()" title="Effacer le filtre">✕</button>
+    </div>
+    <div id="graph-ctrl">
+      <button class="gbtn on" id="gbn-mod" onclick="switchLevel('module')">Modules</button>
+      <button class="gbtn"    id="gbn-cls" onclick="switchLevel('class')" >Classes</button>
+      <div style="width:1px;background:var(--border);margin:0 2px"></div>
+      <button class="gbtn"    id="gbn-layers" onclick="toggleLayers()" title="Réarranger par couche d'architecture (stable en bas, application en haut)">Couches</button>
+      <button class="gbtn"    id="gbn-uses" onclick="toggleUses()" title="Afficher/masquer les dépendances 'utilise'">Utilise</button>
+      <button class="gbtn"    id="gbn-freeze" onclick="toggleFreeze()" title="Geler/dégeler la physique">❙❙</button>
+    </div>
+    <div id="graph-legend">
+      <div class="leg"><div class="leg-line" style="background:var(--cyan)"></div><span>hérite de</span></div>
+      <div class="leg"><div class="leg-line" style="background:var(--purple);border-top:2px dashed var(--purple)"></div><span>implémente</span></div>
+      <div class="leg"><div class="leg-line" style="background:var(--yellow);border-top:2px dotted var(--yellow)"></div><span>utilise</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Libs locales (servies par server.py depuis Wiki/lib/) — fonctionne hors-ligne -->
+<script src="/lib/vis-network.min.js"></script>
+<script src="/lib/marked.min.js"></script>
+
+<script>
+'use strict';
+
+// ── État ─────────────────────────────────────────────────────────────────────
+let D = null;             // données du scan
+let NET = null;           // instance vis.js
+let LEVEL = 'module';     // niveau du graphe
+let SHOW_USES = false;    // afficher les edges "utilise"
+let FROZEN = false;       // physique gelée
+let FILTER_MOD = null;    // module isolé dans la vue Classes du graphe
+let LAYERED    = false;   // vue par couches architecturales (module seulement)
+let OPEN_IN_EDIT = false; // ouvrir le prochain fichier en mode édition
+let _curFilePath = '';    // fichier .md courant (pour sauvegarde)
+let _curFileMod  = '';    // module du fichier courant
+let GRAPH_MODE = 'deps';  // 'deps' | 'scenario'
+let SHOW_DEAD_ONLY = false;
+let _csvRows = [], _csvSortCol = -1, _csvSortAsc = true;
+let _searchTimer    = null;
+let _espPollTimer    = null;
+let _espEventSource  = null;
+let _espSparkData    = {};
+let _espDetailId     = null;
+let _espFilterMaison = '';
+let _espFilterType   = '';
+let _espFilterStatus = '';
+let _actLog          = [];
+let _espWsPool       = {};
+let _espCmdState     = {};
+let _espCmdLog       = {};
+let _espLatestData   = {};
+let _espTemplates    = {};
+
+function _applyEspFilter() {
+  _espFilterMaison = ($('esp-f-maison') || {value:''}).value;
+  _espFilterType   = ($('esp-f-type')   || {value:''}).value;
+  _espFilterStatus = ($('esp-f-status') || {value:''}).value;
+}
+function _selectEspDetail(id) {
+  var prev = _espDetailId;
+  _espDetailId = (_espDetailId === id) ? null : id;
+  if (prev && prev !== _espDetailId) _espDisconnectWs(prev);
+  var p = $('esp-detail-panel');
+  if (!p) return;
+  if (!_espDetailId) {
+    p.style.display = 'none';
+    p.innerHTML = '';
+    return;
+  }
+  p.style.display = '';
+  var cached = _espLatestData[_espDetailId];
+  if (cached) {
+    var dkey = _espWsKey(_espDetailId);
+    if (!document.getElementById('esp-dc-' + dkey)) {
+      p.innerHTML = _espDetailHtml(cached, dkey);
+      _espConnectWs(cached);
+      _espLoadTemplates(cached);
+    }
+  }
+}
+
+// ── Palette de couleurs par module ───────────────────────────────────────────
+const PAL = ['#7aa2f7','#bb9af7','#9ece6a','#e0af68','#f7768e',
+             '#73daca','#ff9e64','#2ac3de','#a9b1d6','#c3e88d',
+             '#ff6e5b','#1abc9c'];
+const _colCache = {};
+let _colIdx = 0;
+function col(name) {
+  if (!_colCache[name]) _colCache[name] = PAL[_colIdx++ % PAL.length];
+  return _colCache[name];
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+const $  = id => document.getElementById(id);
+const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function kindCss(c) {
+  if (c.kind === 'interface') return 'k-interface';
+  if (c.kind === 'enum')      return 'k-enum';
+  if (c.kind === 'struct')    return 'k-struct';
+  if (c.inherits?.length || c.implements?.length) return 'k-abstract';
+  return 'k-class';
+}
+
+function setNav(view) {
+  ['home','graph','scenarios','classes','analyse','prefabs','esp','journal','search'].forEach(v => $(`tn-${v}`)?.classList.remove('on'));
+  $(`tn-${view}`)?.classList.add('on');
+}
+
+function setSb(name) {
+  document.querySelectorAll('.mi').forEach(el => {
+    el.classList.toggle('on', el.dataset.mod === name);
+  });
+}
+
+function showMain(on) {
+  $('main').style.display       = on ? '' : 'none';
+  $('graph-wrap').style.display = on ? 'none' : 'block';
+}
+
+// ── Deep linking ──────────────────────────────────────────────────────────────
+const SEP = '|';
+
+function buildHash(view, p) {
+  if (view === 'module')    return `module${SEP}${p.n}`;
+  if (view === 'class')     return `class${SEP}${p.n}`;
+  if (view === 'file')      return `file${SEP}${encodeURIComponent(p.path)}${SEP}${p.mod||''}`;
+  if (view === 'scenarios') return p.path ? `scenarios${SEP}${encodeURIComponent(p.path)}` : 'scenarios';
+  if (view === 'search')    return p.q    ? `search${SEP}${encodeURIComponent(p.q)}`       : 'search';
+  return view;
+}
+
+function goFromHash(hash) {
+  if (!hash) { _render('home', {}); return; }
+  const parts = hash.split(SEP);
+  const view  = parts[0];
+  if      (view === 'module')    _render('module',    { n: parts[1] });
+  else if (view === 'class')     _render('class',     { n: parts[1] });
+  else if (view === 'file')      _render('file',      { path: decodeURIComponent(parts[1]), mod: parts[2]||'' });
+  else if (view === 'scenarios') _render('scenarios', { path: parts[1] ? decodeURIComponent(parts[1]) : '' });
+  else if (view === 'search')    _render('search',    { q: parts[1] ? decodeURIComponent(parts[1]) : '' });
+  else                           _render(view, {});
+}
+
+window.addEventListener('popstate', () => goFromHash(location.hash.slice(1)));
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+function go(view, p = {}) {
+  history.pushState(null, '', '#' + buildHash(view, p));
+  _render(view, p);
+}
+
+function _render(view, p) {
+  if (view !== 'esp' && view !== 'journal') {
+    if (_espPollTimer)   { clearInterval(_espPollTimer); _espPollTimer = null; }
+    if (_espEventSource) { _espEventSource.close(); _espEventSource = null; }
+  }
+  if (view !== 'graph' && view !== 'scenarios') showMain(true);
+
+  switch(view) {
+    case 'home':      setNav('home');      setSb(''); renderHome();                   break;
+    case 'graph':     setNav('graph');     setSb(''); renderGraph();                  break;
+    case 'scenarios': setNav('scenarios'); setSb(''); renderScenarios(p.path||'');    break;
+    case 'classes':   setNav('classes');   setSb(''); renderClasses();                break;
+    case 'analyse':   setNav('analyse');   setSb(''); renderAnalyse();                break;
+    case 'prefabs':   setNav('prefabs');   setSb(''); renderRessources();             break;
+    case 'esp':       setNav('esp');       setSb(''); renderEsp();                    break;
+    case 'journal':   setNav('journal');   setSb(''); renderJournal();                break;
+    case 'search':    setNav('search');    setSb(''); renderSearch(p.q||'');          break;
+    case 'module':    setSb(p.n);          renderModule(p.n);                         break;
+    case 'file':      renderFile(p.path, p.mod);                                      break;
+    case 'class':     renderClass(p.n);                                               break;
+  }
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+function renderSidebar() {
+  $('sb-mods').innerHTML = D.modules.map(m => `
+    <div class="mi" data-mod="${m.name}">
+      <div class="dot" style="background:${col(m.name)}" onclick="go('module',{n:'${m.name}'})"></div>
+      <span style="flex:1;cursor:pointer" onclick="go('module',{n:'${m.name}'})">${m.name}</span>
+      <span class="badge">${m.classes.length}</span>
+      <button class="sb-graph-btn" id="sgb-${m.name}"
+              onclick="filterGraph('${m.name}')" title="Isoler dans le graphe">◎</button>
+    </div>`).join('');
+}
+
+// ── Accueil ───────────────────────────────────────────────────────────────────
+function renderHome() {
+  const nCls  = D.classes.length;
+  const nIfc  = D.classes.filter(c => c.kind === 'interface').length;
+  const nMod  = D.modules.length;
+  const nDep  = D.dependencies.length;
+  const nDoc  = D.classes.filter(c => c.description).length;
+
+  $('main').innerHTML = `
+    <h1 class="ph">ImaginAction Wiki <small>${nMod} modules · ${nCls} types</small></h1>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-n">${nMod}</div><div class="stat-l">Modules</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent)">${nCls}</div><div class="stat-l">Classes / Types</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--purple)">${nIfc}</div><div class="stat-l">Interfaces</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--cyan)">${nDep}</div><div class="stat-l">Dépendances</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--green)">${nDoc}</div><div class="stat-l">Documentés</div></div>
+    </div>
+
+    ${(() => {
+      const reach = D.reachable ? new Set(D.reachable) : new Set(D.referenced||[]);
+      const nDead = D.classes.filter(c => !reach.has(c.name) && !(c.inherits||[]).some(p=>['MonoBehaviour','ScriptableObject','EditorWindow','Editor'].includes(p))).length;
+      const nCyc = D.cycles?.length || 0;
+      const nTodo = (D.todos||[]).filter(t=>['FIXME','XXX'].includes(t.tag)).length;
+      if (!nDead && !nCyc && !nTodo) return '';
+      const items = [
+        nCyc  ? `${nCyc} cycle${nCyc>1?'s':''}` : '',
+        nDead ? `${nDead} dead code` : '',
+        nTodo ? `${nTodo} FIXME` : '',
+      ].filter(Boolean);
+      return `<div style="background:rgba(247,118,142,.08);border:1px solid var(--red);border-radius:8px;
+           padding:8px 14px;margin-bottom:16px;font-size:12px;display:flex;align-items:center;gap:10px">
+        <span style="color:var(--red);font-weight:600">⚠</span>
+        <span>${items.join(' · ')}</span>
+        <a href="#analyse" style="margin-left:auto;color:var(--accent);font-size:11px">Voir Analyse →</a>
+      </div>`;
+    })()}
+
+    <div class="mgrid">
+      ${D.modules.map(m => {
+        const h = m.health || {};
+        const desc = m.classes.find(c => c.description)?.description || '';
+        const firstLine = desc.split('\n')[0].substring(0, 72);
+        const { lbl: instLbl, col: instCol } = _coupling(h);
+        const docCol = h.docRate >= 80 ? 'var(--green)'
+          : h.docRate >= 40 ? 'var(--yellow)' : 'var(--red)';
+        return `<div class="mcard" onclick="go('module',{n:'${m.name}'})">
+
+          <!-- Titre + badge couche -->
+          <div class="mcard-hd" style="margin-bottom:4px">
+            <div class="dot" style="background:${col(m.name)};width:10px;height:10px"></div>
+            <div class="mcard-name">${m.name}</div>
+            ${h.rank !== undefined
+              ? `<span class="badge" style="margin-left:auto;background:${col(m.name)}22;color:${col(m.name)}"
+                   title="Couche architecturale ${h.rank} — plus le numéro est élevé, plus le module est proche de l'application">C${h.rank}</span>`
+              : ''}
+          </div>
+
+          <!-- Compteurs -->
+          <div style="font-size:11px;color:var(--muted);display:flex;gap:10px;margin-bottom:10px">
+            <span>${m.classes.length} classe${m.classes.length!==1?'s':''}</span>
+            <span>${m.files.length} fichier${m.files.length!==1?'s':''}</span>
+          </div>
+
+          ${h.docRate !== undefined ? `
+          <!-- Barre documentation -->
+          <div style="margin-bottom:5px">
+            <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px">
+              <span style="color:var(--muted)">Documentation</span>
+              <span style="color:${docCol}">${h.docRate}%</span>
+            </div>
+            <div style="height:4px;border-radius:2px;background:var(--border);overflow:hidden">
+              <div style="width:${h.docRate}%;height:100%;background:${docCol};border-radius:2px"></div>
+            </div>
+          </div>
+
+          <!-- Barre instabilité -->
+          <div style="margin-bottom:8px">
+            <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px">
+              <span style="color:var(--muted)">Instabilité</span>
+              <span style="color:${instCol}">${instLbl}${(h.ce>0&&h.ca>0)?` · ${h.instability.toFixed(2)}`:''}</span>
+            </div>
+            <div style="height:4px;border-radius:2px;background:var(--border);overflow:hidden">
+              <div style="width:${(h.ce===0&&h.ca===0)?50:h.instability*100}%;height:100%;background:${instCol};border-radius:2px"></div>
+            </div>
+          </div>
+
+          <!-- Couplage -->
+          <div style="font-size:11px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap">
+            ${h.ce > 0
+              ? `<span title="Ce module dépend de ${h.ce} autre${h.ce>1?'s':''} module${h.ce>1?'s':''}">→ dépend de <strong style="color:var(--text)">${h.ce}</strong></span>`
+              : ''}
+            ${h.ca > 0
+              ? `<span title="${h.ca} autre${h.ca>1?'s':''} module${h.ca>1?'s':''} dépend${h.ca>1?'ent':''} de celui-ci">← utilisé par <strong style="color:var(--text)">${h.ca}</strong></span>`
+              : ''}
+            ${(h.ce===0&&h.ca===0) ? `<span style="color:var(--border)">Aucune dépendance inter-module</span>` : ''}
+          </div>` : ''}
+
+          ${firstLine ? `<div class="mcard-desc" style="margin-top:7px">${esc(firstLine)}${desc.length>72?'…':''}</div>` : ''}
+        </div>`;
+      }).join('')}
+    </div>
+
+    <!-- Documentation projet -->
+    <div style="margin-top:28px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <h2 style="font-size:16px;font-weight:600;margin:0;color:var(--text)">Documentation du projet</h2>
+        <button class="gbtn" onclick="showNewProjectDocForm()">+ Nouveau</button>
+      </div>
+
+      <div id="proj-doc-form" style="display:none;margin-bottom:14px;background:var(--surface2);
+           border:1px solid var(--border);border-radius:8px;padding:14px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Nouveau document (enregistré dans <code>Wiki/docs/</code>)</div>
+        <input id="proj-doc-name" class="search" placeholder="nom-du-fichier (sans .md)" style="margin-bottom:8px">
+        <textarea id="proj-doc-content" rows="8" spellcheck="false"
+          style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;
+          padding:10px;color:var(--text);font-size:12px;font-family:monospace;resize:vertical;outline:none"
+          placeholder="Contenu Markdown… Les [[WikiLinks]] vers les classes et modules sont supportés."></textarea>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="gbtn on" onclick="saveNewProjectDoc()">Sauvegarder</button>
+          <button class="gbtn" onclick="hideNewProjectDocForm()">Annuler</button>
+        </div>
+      </div>
+
+      ${(D.projectDocs || []).length ? `
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px">
+        ${(D.projectDocs || []).map(d => `
+          <div class="mcard" style="display:flex;align-items:center;gap:8px;padding:10px 12px">
+            <span style="flex:1;cursor:pointer;font-size:13px" onclick="go('file',{path:'${d.path}',mod:''})">${esc(d.name)}</span>
+            <button class="gbtn" style="padding:2px 8px;font-size:11px;flex-shrink:0"
+                    onclick="event.stopPropagation();openFileEdit('${d.path}','')">Éditer</button>
+            <button class="gbtn" style="padding:2px 8px;font-size:11px;flex-shrink:0;color:var(--red);border-color:var(--red)"
+                    onclick="event.stopPropagation();confirmDeleteDoc('${d.path}','')">✕</button>
+          </div>`).join('')}
+      </div>` : `<p style="color:var(--muted);font-size:13px">Aucun document. Cliquez sur <strong>+ Nouveau</strong> pour commencer.</p>`}
+    </div>`;
+}
+
+// ── Module ────────────────────────────────────────────────────────────────────
+function renderModule(name) {
+  const m = D.modules.find(x => x.name === name);
+  if (!m) return;
+
+  const csFiles = m.files.filter(f => f.endsWith('.cs'));
+  const mdFiles = m.files.filter(f => f.endsWith('.md'));
+  const jFiles  = m.files.filter(f => f.endsWith('.json'));
+  const outEdges = (D.moduleEdges || []).filter(e => e.from === name);
+  const inEdges  = (D.moduleEdges || []).filter(e => e.to   === name);
+
+  $('main').innerHTML = `
+    <button class="back" onclick="go('home')">← Accueil</button>
+
+    <h1 class="ph">
+      <span style="display:inline-block;width:12px;height:12px;border-radius:50%;
+        background:${col(name)};margin-right:8px;vertical-align:middle"></span>
+      ${name}
+    </h1>
+    ${(() => {
+      const h = m.health || {};
+      const reach     = D.reachable ? new Set(D.reachable) : null;
+      const ref       = new Set(D.referenced || []);
+      const deadCls   = m.classes.filter(c => !_isUnityEntry(c) && (reach ? !reach.has(c.name) : !ref.has(c.name)));
+      const unDocCls  = m.classes.filter(c => !c.description);
+      if (!h.instability && !deadCls.length) return '';
+
+      const { lbl: instLbl, col: instCol, advice: instAdvice } = _coupling(h);
+
+      // Explication factuelle (Ce/Ca)
+      let instExpl;
+      if (h.ce === 0 && h.ca === 0)
+        instExpl = 'Aucune dépendance inter-module détectée.';
+      else if (h.ce > 0 && h.ca === 0)
+        instExpl = `Dépend de <strong>${h.ce}</strong> module${h.ce>1?'s':''}, mais <strong>aucun</strong> module ne dépend de lui.`;
+      else if (h.ce === 0 && h.ca > 0)
+        instExpl = `<strong>${h.ca}</strong> module${h.ca>1?'s':''} dépend${h.ca>1?'ent':''} de lui, aucune dépendance sortante.`;
+      else
+        instExpl = `Dépend de <strong>${h.ce}</strong> module${h.ce>1?'s':''}, utilisé par <strong>${h.ca}</strong>.`;
+
+      const docCol = h.docRate >= 80 ? 'var(--green)' : h.docRate >= 40 ? 'var(--yellow)' : 'var(--red)';
+
+      return `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:18px">
+
+        <!-- Carte instabilité -->
+        <div style="background:var(--surface2);border:1px solid ${instCol === 'var(--muted)' ? 'var(--border)' : instCol}40;border-radius:8px;padding:12px">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px">
+            <span style="font-size:20px;font-weight:700;color:${instCol}">${(h.ce===0&&h.ca===0) ? '—' : h.instability.toFixed(2)}</span>
+            <span style="font-size:12px;font-weight:600;color:${instCol}">${instLbl}</span>
+            <span style="font-size:10px;color:var(--muted);margin-left:auto">Ce=${h.ce} Ca=${h.ca}</span>
+          </div>
+          <div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:8px">
+            <div style="width:${(h.ce===0&&h.ca===0)?50:h.instability*100}%;height:100%;background:${instCol};border-radius:2px"></div>
+          </div>
+          <div style="font-size:11px;color:var(--text);line-height:1.55;margin-bottom:${instAdvice?'6px':'0'}">${instExpl}</div>
+          ${instAdvice ? `<div style="font-size:11px;color:${instCol};line-height:1.5;padding-top:5px;border-top:1px solid var(--border)">→ ${instAdvice}</div>` : ''}
+          <div style="margin-top:6px;font-size:10px;color:var(--muted)">Couche <strong style="color:${col(name)}">${h.rank}</strong> sur ${(() => { const mx = Math.max(...D.modules.map(x => x.health?.rank||0)); return mx; })()}</div>
+        </div>
+
+        <!-- Carte documentation -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px">
+            <span style="font-size:20px;font-weight:700;color:${docCol}">${h.docRate}%</span>
+            <span style="font-size:12px;color:var(--muted)">Documenté</span>
+            <span style="font-size:10px;color:var(--muted);margin-left:auto">${m.classes.length - unDocCls.length}/${m.classes.length}</span>
+          </div>
+          <div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:8px">
+            <div style="width:${h.docRate}%;height:100%;background:${docCol};border-radius:2px"></div>
+          </div>
+          ${unDocCls.length ? `
+          <div style="font-size:10px;color:var(--muted);margin-bottom:4px">Sans description :</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            ${unDocCls.map(c => `<span style="font-size:10px;padding:1px 6px;border-radius:10px;background:var(--border);color:var(--muted);cursor:pointer"
+              onclick="go('class',{n:'${c.name}'})">${c.name}</span>`).join('')}
+          </div>` : `<div style="font-size:11px;color:var(--green)">Toutes les classes sont documentées ✓</div>`}
+        </div>
+
+        ${deadCls.length ? `
+        <!-- Carte dead code -->
+        <div style="background:rgba(247,118,142,.07);border:1px solid var(--red)40;border-radius:8px;padding:12px">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px">
+            <span style="font-size:20px;font-weight:700;color:var(--red)">${deadCls.length}</span>
+            <span style="font-size:12px;color:var(--red)">Dead code</span>
+            <span style="font-size:10px;color:var(--muted);margin-left:auto">${reach ? 'BFS' : 'token'}</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">
+            ${reach ? 'Non atteignables depuis les entry-points Unity.' : 'Aucune référence trouvée dans le code.'}
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            ${deadCls.map(c => `<span style="font-size:10px;padding:1px 6px;border-radius:10px;background:var(--red)22;color:var(--red);cursor:pointer"
+              onclick="go('class',{n:'${c.name}'})">${c.name}</span>`).join('')}
+          </div>
+          <div style="font-size:11px;color:var(--red);margin-top:7px;padding-top:6px;border-top:1px solid var(--red)30">→ Vérifier et supprimer si inutiles.</div>
+        </div>` : ''}
+
+      </div>`;
+    })()}
+
+    ${(() => {
+      const intraCount = D.dependencies.filter(d => d.fromMod === name && d.toMod === name).length;
+      return `<div class="tabs">
+        <button class="tab on" onclick="modTab(this,'t-cls','${name}')">Classes (${m.classes.length})</button>
+        <button class="tab"    onclick="modTab(this,'t-files','${name}')">Fichiers (${csFiles.length})</button>
+        <button class="tab"    onclick="modTab(this,'t-docs','${name}')">Docs${mdFiles.length ? ` (${mdFiles.length})` : ''}</button>
+        <button class="tab"    onclick="modTab(this,'t-deps','${name}')">Dépendances</button>
+        <button class="tab"    onclick="modTab(this,'t-graph','${name}')">Graphe interne${intraCount ? ` (${intraCount})` : ''}</button>
+      </div>`;
+    })()}
+
+    <!-- Classes -->
+    <div id="t-cls">
+      <ul class="cls-list">
+        ${(() => {
+          const reach2    = D.reachable ? new Set(D.reachable) : null;
+          const ref2      = new Set(D.referenced || []);
+          const intraAll  = D.dependencies.filter(d => d.fromMod === name && d.toMod === name);
+          const intraFOut = {}, intraFIn = {};
+          intraAll.forEach(d => {
+            intraFOut[d.from] = (intraFOut[d.from] || 0) + 1;
+            intraFIn[d.to]    = (intraFIn[d.to]   || 0) + 1;
+          });
+          return m.classes.map(c => {
+            const isDead  = reach2 ? !reach2.has(c.name) : !ref2.has(c.name);
+            const isUnity = _isUnityEntry(c);
+            const badge   = isDead
+              ? (isUnity
+                  ? `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:5px;background:var(--yellow)22;color:var(--yellow)">⚠ Unity</span>`
+                  : `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:5px;background:var(--red)22;color:var(--red)">◎ dead</span>`)
+              : '';
+            const noDoc = !c.description
+              ? `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:5px;background:var(--border);color:var(--muted)">no doc</span>`
+              : '';
+            const fo = intraFOut[c.name] || 0;
+            const fi = intraFIn[c.name]  || 0;
+            const fanBadge = (fo || fi)
+              ? `<span style="font-size:10px;padding:1px 6px;border-radius:4px;margin-left:5px;background:var(--surface2);color:var(--muted);border:1px solid var(--border)" title="Couplage interne : ↗${fo} sortant · ↙${fi} entrant">↗${fo} ↙${fi}</span>`
+              : '';
+            return `
+            <li class="cli" onclick="go('class',{n:'${c.name}'})">
+              <span class="kbadge ${kindCss(c)}">${c.kind}</span>
+              <span class="cli-name">${c.name}</span>
+              ${badge}${noDoc}${fanBadge}
+              ${c.description
+                ? `<span style="color:var(--muted);font-size:11px;margin-left:6px">— ${esc(c.description.split('\n')[0].substring(0,55))}</span>`
+                : ''}
+            </li>`;
+          }).join('');
+        })()}
+      </ul>
+    </div>
+
+    <!-- Fichiers -->
+    <div id="t-files" style="display:none">
+      ${csFiles.map(f => fileRow(f, name)).join('')}
+    </div>
+
+    <!-- Docs md -->
+    <div id="t-docs" style="display:none">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+        <button class="gbtn" onclick="showNewDocForm('${name}')">+ Nouveau .md</button>
+      </div>
+      <div id="new-doc-form" style="display:none;margin-bottom:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Nouveau fichier de documentation</div>
+        <input id="new-doc-name" class="search" placeholder="nom-du-fichier (sans .md)" style="margin-bottom:8px">
+        <textarea id="new-doc-content" rows="10" spellcheck="false"
+          style="width:100%;background:var(--surface);border:1px solid var(--border);
+          border-radius:8px;padding:10px;color:var(--text);font-size:12px;
+          font-family:monospace;resize:vertical;outline:none"
+          placeholder="Contenu Markdown…"></textarea>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="gbtn on" onclick="saveNewDoc('${name}')">Sauvegarder</button>
+          <button class="gbtn" onclick="hideNewDocForm()">Annuler</button>
+        </div>
+      </div>
+      ${mdFiles.length
+        ? mdFiles.map(f => docFileRow(f, name)).join('')
+        : '<p style="color:var(--muted);font-size:13px;margin-top:4px">Aucune documentation — créez votre premier .md !</p>'}
+      ${jFiles.map(f => fileRow(f, name)).join('')}
+    </div>
+
+    <!-- Graphe interne -->
+    <div id="t-graph" style="display:none;height:460px;position:relative;border:1px solid var(--border);border-radius:8px;overflow:hidden"></div>
+
+    <!-- Dépendances -->
+    <div id="t-deps" style="display:none">
+      ${(() => {
+        const mc = (D.cycles||[]).filter(c => c.includes(name));
+        return mc.length ? `<div class="cycle-warn" style="margin-bottom:12px">
+          <div class="cycle-t">&#9888; Impliqué dans ${mc.length} cycle${mc.length>1?'s':''}</div>
+          ${mc.map(c=>`<div class="cycle-path">${c.join(' &rarr; ')} &rarr; ${c[0]}</div>`).join('')}
+        </div>` : '';
+      })()}
+      ${!outEdges.length && !inEdges.length
+        ? '<p style="color:var(--muted);font-size:13px">Aucune dépendance inter-modules détectée.</p>'
+        : `
+        ${outEdges.length ? `
+          <div class="card">
+            <div class="card-t">Dépend de →</div>
+            ${outEdges.map(e => `
+              <div style="margin-bottom:10px">
+                <div class="mi" onclick="go('module',{n:'${e.to}'})"
+                     style="cursor:pointer;background:var(--surface2);border-radius:6px;margin-bottom:4px">
+                  <div class="dot" style="background:${col(e.to)}"></div>
+                  <span>${e.to}</span>
+                  <span class="badge">${e.count} lien${e.count > 1 ? 's' : ''}</span>
+                </div>
+                <div style="padding-left:24px">
+                  ${e.details.slice(0,6).map(d => `
+                    <div style="font-size:11px;color:var(--muted);padding:2px 0">
+                      <span style="color:var(--text)">${d.from}</span>
+                      <span style="color:var(--border)"> → </span>
+                      <span style="color:${d.type==='implements'?'var(--purple)':'var(--cyan)'}">${d.to}</span>
+                      <span style="font-size:10px;color:var(--border)"> (${d.type})</span>
+                    </div>`).join('')}
+                  ${e.details.length > 6
+                    ? `<div style="font-size:11px;color:var(--border)">+${e.details.length-6} autres</div>`
+                    : ''}
+                </div>
+              </div>`).join('')}
+          </div>` : ''}
+        ${inEdges.length ? `
+          <div class="card">
+            <div class="card-t">← Utilisé par</div>
+            ${inEdges.map(e => `
+              <div class="mi" onclick="go('module',{n:'${e.from}'})"
+                   style="cursor:pointer;background:var(--surface2);border-radius:6px;margin-bottom:4px">
+                <div class="dot" style="background:${col(e.from)}"></div>
+                <span>${e.from}</span>
+                <span class="badge">${e.count} lien${e.count > 1 ? 's' : ''}</span>
+              </div>`).join('')}
+          </div>` : ''}
+      `}
+    </div>`;
+}
+
+function fileRow(f, mod) {
+  const fname = f.split('/').pop();
+  const ext   = fname.split('.').pop();
+  const dir   = f.split('/').slice(0,-1).join('/');
+  return `<div class="fentry" onclick="go('file',{path:'${f}',mod:'${mod}'})">
+    <span class="fext">.${ext}</span>
+    <span>${fname}</span>
+    <span class="fpath">${dir}</span>
+  </div>`;
+}
+
+function docFileRow(f, mod) {
+  const fname = f.split('/').pop();
+  return `<div class="fentry" style="justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:7px;flex:1;min-width:0;cursor:pointer"
+         onclick="go('file',{path:'${f}',mod:'${mod}'})">
+      <span class="fext">.md</span>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${fname}</span>
+    </div>
+    <div style="display:flex;gap:4px;flex-shrink:0;margin-left:8px">
+      <button class="gbtn" style="padding:2px 8px;font-size:11px"
+              onclick="event.stopPropagation();openFileEdit('${f}','${mod}')">Éditer</button>
+      <button class="gbtn" style="padding:2px 8px;font-size:11px;color:var(--red);border-color:var(--red)"
+              onclick="event.stopPropagation();confirmDeleteDoc('${f}','${mod}')">✕</button>
+    </div>
+  </div>`;
+}
+
+function modTab(btn, tabId, modName) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  ['t-cls','t-files','t-docs','t-deps','t-graph'].forEach(id => {
+    const el = $(id);
+    if (el) el.style.display = id === tabId ? '' : 'none';
+  });
+  if (tabId === 't-graph' && modName) renderModuleIntraGraph(modName);
+}
+
+function renderModuleIntraGraph(name) {
+  const container = $('t-graph');
+  if (!container) return;
+  const intraDeps = D.dependencies.filter(d => d.fromMod === name && d.toMod === name);
+  if (!intraDeps.length) {
+    container.innerHTML = '<p style="color:var(--muted);font-size:13px;padding:16px">Aucun couplage interne détecté entre les classes de ce module.</p>';
+    return;
+  }
+  const mod = D.modules.find(m => m.name === name);
+  const nodeIds = new Set();
+  intraDeps.forEach(d => { nodeIds.add(d.from); nodeIds.add(d.to); });
+
+  const fanIn  = {}, fanOut = {};
+  intraDeps.forEach(d => {
+    fanOut[d.from] = (fanOut[d.from] || 0) + 1;
+    fanIn[d.to]    = (fanIn[d.to]   || 0) + 1;
+  });
+
+  const maxFan = Math.max(...Object.values({...fanIn,...fanOut}), 1);
+  const clsMap = {};
+  (mod?.classes || D.classes.filter(c => c.module === name)).forEach(c => clsMap[c.name] = c);
+
+  const C = { surf:'#2f3350', surf2:'#24283b', border:'#414868', text:'#c0caf5', cyan:'#7dcfff', yellow:'#e0af68', orange:'#ff9e64' };
+  const nodes = [...nodeIds].map(id => {
+    const out = fanOut[id] || 0;
+    const inp = fanIn[id]  || 0;
+    const heat = (out + inp) / (maxFan * 2);
+    const borderCol = heat > 0.6 ? C.orange : heat > 0.3 ? C.yellow : C.cyan;
+    return {
+      id, label: id,
+      title: `↗${out} sortant · ↙${inp} entrant`,
+      color: { background: C.surf, border: borderCol, highlight: { background: C.surf2, border: borderCol } },
+      font: { color: C.text, size: 12 },
+      shape: 'box', margin: 8, borderWidth: 2,
+    };
+  });
+  const edges = intraDeps.map((d,i) => ({
+    id: i, from: d.from, to: d.to,
+    arrows: 'to',
+    color: { color: C.border, highlight: C.cyan, opacity: 0.9 },
+    smooth: { type: 'curvedCW', roundness: 0.15 },
+    title: d.type || '',
+  }));
+
+  container.innerHTML = '';
+  container.style.background = C.surf2;
+  const net = new vis.Network(container,
+    { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) },
+    {
+      layout: { improvedLayout: true },
+      physics: { solver:'forceAtlas2Based', forceAtlas2Based:{ gravitationalConstant:-80, springLength:100, springConstant:0.05 }, stabilization:{ iterations:250 } },
+      interaction: { hover:true, tooltipDelay:150, navigationButtons:false },
+      edges: { smooth:{ type:'curvedCW', roundness:0.15 } },
+    }
+  );
+  net.on('click', p => {
+    if (p.nodes.length) go('class', { n: p.nodes[0] });
+  });
+}
+
+// ── Classe ────────────────────────────────────────────────────────────────────
+function renderClass(name) {
+  const c = D.classes.find(x => x.name === name);
+  if (!c) return;
+
+  const usedBy         = D.dependencies.filter(d => d.to === name);
+  const uses           = D.dependencies.filter(d => d.from === name);
+  const publicMethods  = (c.methods || []).filter(m => m.access === 'public');
+  const otherMethods   = (c.methods || []).filter(m => m.access !== 'public');
+
+  $('main').innerHTML = `
+    <button class="back" onclick="go('module',{n:'${c.module||''}'})">← ${c.module||'Retour'}</button>
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span class="kbadge ${kindCss(c)}">${c.kind}</span>
+      <h1 class="ph" style="margin:0">${c.name}</h1>
+    </div>
+
+    ${c.description ? `
+      <div class="card">
+        <pre style="background:none;border:none;padding:0;font-family:inherit;
+             font-size:13px;white-space:pre-wrap;color:var(--muted);line-height:1.65">${esc(c.description)}</pre>
+      </div>` : ''}
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      ${(c.inherits?.length || c.implements?.length) ? `
+      <div class="card">
+        <div class="card-t">Relations</div>
+        ${(c.inherits||[]).map(p => `
+          <div style="margin-bottom:7px;font-size:13px">
+            <span style="color:var(--muted);font-size:11px">hérite de </span>
+            <span class="rtag inherits" onclick="go('class',{n:'${p}'})">${p}</span>
+          </div>`).join('')}
+        ${(c.implements||[]).map(i => `
+          <div style="margin-bottom:7px;font-size:13px">
+            <span style="color:var(--muted);font-size:11px">implémente </span>
+            <span class="rtag implements" onclick="go('class',{n:'${i}'})">${i}</span>
+          </div>`).join('')}
+      </div>` : ''}
+
+      <div class="card">
+        <div class="card-t">Fichier source</div>
+        <div class="fentry" onclick="go('file',{path:'${c.file}',mod:'${c.module||''}'})">
+          <span>${(c.file||'').split('/').pop()}</span>
+        </div>
+        ${c.module ? `
+          <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+            Module :
+            <span style="color:${col(c.module)};cursor:pointer"
+                  onclick="go('module',{n:'${c.module}'})">${c.module}</span>
+          </div>` : ''}
+      </div>
+    </div>
+
+    ${usedBy.length ? `
+    <div class="card" style="margin-top:10px">
+      <div class="card-t">Utilisé par</div>
+      <div class="rtags">
+        ${usedBy.map(d => `
+          <span class="rtag ${d.type}" onclick="go('class',{n:'${d.from}'})">${d.from}</span>`).join('')}
+      </div>
+    </div>` : ''}
+
+    ${uses.length ? `
+    <div class="card" style="margin-top:10px">
+      <div class="card-t">Utilise</div>
+      <div class="rtags">
+        ${uses.map(d => `
+          <span class="rtag ${d.type}" onclick="go('class',{n:'${d.to}'})">${d.to}</span>`).join('')}
+      </div>
+    </div>` : ''}
+
+    ${(() => {
+      // Impact analysis — reverse BFS
+      const revAdj = {};
+      D.dependencies.forEach(d => {
+        revAdj[d.to] = revAdj[d.to] || new Set();
+        revAdj[d.to].add(d.from);
+      });
+      const impacted = new Set();
+      const queue = [name];
+      while (queue.length) {
+        const n = queue.pop();
+        for (const nb of (revAdj[n] || [])) {
+          if (!impacted.has(nb)) { impacted.add(nb); queue.push(nb); }
+        }
+      }
+      impacted.delete(name);
+      if (!impacted.size) return '';
+      const direct = new Set(usedBy.map(d => d.from));
+      const indirect = [...impacted].filter(x => !direct.has(x));
+      return `
+      <div class="card" style="margin-top:10px;border-color:var(--yellow)30">
+        <div class="card-t" style="display:flex;align-items:center;gap:8px">
+          Analyse d'impact
+          <span style="font-size:10px;background:var(--yellow)22;color:var(--yellow);padding:1px 6px;border-radius:8px">${impacted.size} classe${impacted.size>1?'s':''} affectée${impacted.size>1?'s':''}</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Modifier <strong style="color:var(--text)">${name}</strong> peut casser ces classes :</div>
+        ${direct.size ? `
+          <div style="font-size:10px;color:var(--muted);margin-bottom:4px">Direct (${direct.size})</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">
+            ${[...direct].map(n => `<span class="rtag uses" style="cursor:pointer" onclick="go('class',{n:'${n}'})">${n}</span>`).join('')}
+          </div>` : ''}
+        ${indirect.length ? `
+          <div style="font-size:10px;color:var(--muted);margin-bottom:4px">Indirect (${indirect.length})</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            ${indirect.slice(0,24).map(n => `<span style="font-size:10px;padding:1px 6px;border-radius:10px;background:var(--border);color:var(--muted);cursor:pointer" onclick="go('class',{n:'${n}'})">${n}</span>`).join('')}
+            ${indirect.length > 24 ? `<span style="font-size:10px;color:var(--border)">+${indirect.length-24} autres</span>` : ''}
+          </div>` : ''}
+      </div>`;
+    })()}
+
+    ${(() => {
+      // Prefabs contenant ce script
+      const myPrefabs = (D.prefabs || []).filter(p => p.scripts.includes(name));
+      if (!myPrefabs.length) return '';
+      return `
+      <div class="card" style="margin-top:10px">
+        <div class="card-t">Prefabs (${myPrefabs.length})</div>
+        ${myPrefabs.map(p => `
+          <div class="fentry">
+            <span class="fext">.prefab</span>
+            <span>${p.name}</span>
+            <span class="fpath">${p.path.split('/').slice(0,-1).join('/')}</span>
+          </div>`).join('')}
+      </div>`;
+    })()}
+
+    ${(() => {
+      // Assets ScriptableObject instances
+      const myAssets = (D.soAssets || []).filter(a => a.scriptClass === name);
+      if (!myAssets.length) return '';
+      return `
+      <div class="card" style="margin-top:10px">
+        <div class="card-t">Assets ScriptableObject (${myAssets.length})</div>
+        ${myAssets.map(a => `
+          <div class="fentry">
+            <span class="fext">.asset</span>
+            <span>${a.name}</span>
+            <span class="fpath">${a.path.split('/').slice(0,-1).join('/')}</span>
+          </div>`).join('')}
+      </div>`;
+    })()}
+
+    ${publicMethods.length ? `
+    <div class="card" style="margin-top:10px">
+      <div class="card-t">Méthodes publiques <small style="font-weight:400;color:var(--muted)">(${publicMethods.length})</small></div>
+      ${publicMethods.map(methodRow).join('')}
+    </div>` : ''}
+
+    ${otherMethods.length ? `
+    <div class="card" style="margin-top:10px">
+      <div class="card-t">Méthodes privées / protégées <small style="font-weight:400;color:var(--muted)">(${otherMethods.length})</small></div>
+      ${otherMethods.map(methodRow).join('')}
+    </div>` : ''}
+
+    <div class="card" style="margin-top:10px">
+      <div class="card-t" style="display:flex;align-items:center;justify-content:space-between">
+        <span>Références dans le code</span>
+        <button class="back" id="refs-btn" onclick="loadRefs('${name}')"
+                style="margin:0;font-size:11px">Charger</button>
+      </div>
+      <div id="refs-result" style="margin-top:8px;font-size:12px;color:var(--muted)">
+        Cliquer sur Charger pour rechercher toutes les occurrences dans les .cs
+      </div>
+    </div>`;
+}
+
+async function loadRefs(name) {
+  $('refs-btn').disabled = true;
+  $('refs-btn').textContent = '…';
+  $('refs-result').innerHTML = '<span style="color:var(--muted)">Recherche en cours…</span>';
+  try {
+    const r = await fetch('/api/refs?name=' + encodeURIComponent(name));
+    const d = await r.json();
+    if (!d.results?.length) {
+      $('refs-result').innerHTML = '<span style="color:var(--muted)">Aucune référence trouvée.</span>';
+      return;
+    }
+    const total = d.results.reduce((s, f) => s + f.matches.length, 0);
+    $('refs-result').innerHTML = `
+      <div style="color:var(--muted);margin-bottom:8px">${total} occurrence${total>1?'s':''} dans ${d.results.length} fichier${d.results.length>1?'s':''}</div>
+      ${d.results.map(f => `
+        <div class="refs-file">
+          <div class="refs-fname" onclick="go('file',{path:'${f.file}',mod:''})">${f.file}</div>
+          ${f.matches.slice(0, 8).map(m => `
+            <div class="refs-line">L${m.line} &nbsp;${esc(m.text).replace(
+              new RegExp('\\b' + name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b', 'g'),
+              `<em>${name}</em>`
+            )}</div>`).join('')}
+          ${f.matches.length > 8 ? `<div style="font-size:11px;color:var(--border);padding:2px 8px">+${f.matches.length-8} lignes</div>` : ''}
+        </div>`).join('')}`;
+  } catch(e) {
+    $('refs-result').innerHTML = `<span style="color:var(--red)">Erreur : ${e.message}</span>`;
+  } finally {
+    if ($('refs-btn')) { $('refs-btn').disabled = false; $('refs-btn').textContent = 'Actualiser'; }
+  }
+}
+
+// ── Docs CRUD ─────────────────────────────────────────────────────────────────
+function showNewDocForm(modName) {
+  const form = $('new-doc-form');
+  if (form) { form.style.display = ''; $('new-doc-name').focus(); }
+}
+
+function hideNewDocForm() {
+  const form = $('new-doc-form');
+  if (form) form.style.display = 'none';
+}
+
+async function saveNewDoc(modName) {
+  const name = $('new-doc-name').value.trim().replace(/\.md$/i, '');
+  if (!name) { $('new-doc-name').focus(); return; }
+  const content = $('new-doc-content').value;
+  const mod = D.modules.find(m => m.name === modName);
+  if (!mod) return;
+  const modRelPath = mod.path.replace(/^Assets\//, '');
+  const filePath   = `${modRelPath}/${name}.md`;
+  try {
+    const r = await fetch('/api/file-write', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({path: filePath, content})
+    });
+    const d = await r.json();
+    if (d.error) { alert('Erreur : ' + d.error); return; }
+    const r2 = await fetch('/api/scan');
+    D = await r2.json();
+    D.modules.forEach(m => col(m.name));
+    renderSidebar();
+    go('module', {n: modName});
+    _switchToDocsTab();
+  } catch(e) { alert('Erreur : ' + e.message); }
+}
+
+async function confirmDeleteDoc(path, mod) {
+  const fname = path.split('/').pop();
+  if (!confirm(`Supprimer "${fname}" ?`)) return;
+  try {
+    const r = await fetch('/api/file-delete', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({path})
+    });
+    const d = await r.json();
+    if (d.error) { alert('Erreur : ' + d.error); return; }
+    const r2 = await fetch('/api/scan');
+    D = await r2.json();
+    D.modules.forEach(m => col(m.name));
+    renderSidebar();
+    if (mod) { go('module', {n: mod}); _switchToDocsTab(); }
+    else go('home');
+  } catch(e) { alert('Erreur : ' + e.message); }
+}
+
+function openFileEdit(path, mod) {
+  OPEN_IN_EDIT = true;
+  go('file', {path, mod});
+}
+
+function _switchToDocsTab() {
+  const docsBtn = Array.from(document.querySelectorAll('.tab'))
+    .find(b => b.getAttribute('onclick')?.includes('t-docs'));
+  if (docsBtn) modTab(docsBtn, 't-docs');
+}
+
+// ── Classes ───────────────────────────────────────────────────────────────────
+// ── Analyse (dead code + cycles) ──────────────────────────────────────────────
+const _UNITY_PARENTS = new Set(['MonoBehaviour','ScriptableObject','EditorWindow','Editor']);
+const _isUnityEntry  = c => (c.inherits||[]).some(p => _UNITY_PARENTS.has(p));
+
+// Catégorie de couplage d'un module — retourne { lbl, col, advice }
+function _coupling(h) {
+  const ce = h.ce || 0, ca = h.ca || 0, i = h.instability || 0;
+  if (ce === 0 && ca === 0)
+    return { lbl:'Autonome',             col:'var(--muted)',
+             advice:'' };
+  if (ce >  0 && ca === 0)
+    return { lbl:'Application',          col:'var(--muted)',
+             advice:'Module feuille — normal. Aucun autre module ne dépend de lui. Vérifier seulement qu\'il est bien utilisé depuis Unity.' };
+  if (ce === 0 && ca >  0)
+    return { lbl:'Fondation',            col:'var(--cyan)',
+             advice:`Module noyau utilisé par ${ca} autre${ca>1?'s':''} module${ca>1?'s':''}. Éviter d'y ajouter des dépendances sortantes : toute modification se propage.` };
+  if (i < 0.4)
+    return { lbl:'Fondation dépendante', col:'var(--yellow)',
+             advice:`Noyau (${ca} utilisateur${ca>1?'s':''}) qui dépend lui-même de ${ce} module${ce>1?'s':''}. Risqué : envisager d'extraire les dépendances sortantes dans un module séparé.` };
+  if (i > 0.6)
+    return { lbl:'Couplé',              col:'var(--orange)',
+             advice:`Couplé dans les deux sens (Ce=${ce}, Ca=${ca}). C'est le cas le plus problématique. Introduire une interface ou abstraire une partie pour casser ce couplage bidirectionnel.` };
+  return   { lbl:'Équilibré',           col:'var(--green)',
+             advice:`Couplage équilibré entre dépendances sortantes (${ce}) et entrantes (${ca}). Surveiller si le rapport évolue.` };
+}
+
+function analyseClsRow(c, kind) {
+  const badge = kind === 'island'
+    ? `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;background:var(--orange)22;color:var(--orange)" title="Référencé mais non atteignable par BFS (îlot isolé)">⬡ îlot</span>`
+    : kind === 'dead'
+    ? `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;background:var(--red)22;color:var(--red)">◎ dead</span>`
+    : `<span style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;background:var(--yellow)22;color:var(--yellow)">⚠ Unity</span>`;
+  return `
+    <li class="cli" onclick="go('class',{n:'${c.name}'})">
+      <span class="kbadge ${kindCss(c)}">${c.kind}</span>
+      <span class="cli-name">${c.name}</span>
+      ${badge}
+      ${c.module ? `<span class="mod-chip" style="background:${col(c.module)}22;color:${col(c.module)}">${c.module}</span>` : ''}
+      ${c.description ? `<span style="color:var(--muted);font-size:11px;margin-left:6px">${esc(c.description.split('\n')[0].substring(0,60))}…</span>` : ''}
+    </li>`;
+}
+
+// ── Ressources (Prefabs + Fichiers) ──────────────────────────────────────────
+function renderRessources(tab) {
+  tab = tab || 'prefabs';
+  $('main').innerHTML =
+    '<h1 class="ph">Ressources</h1>'
+    + '<div class="tabs" style="margin-bottom:14px">'
+    + '<button class="tab' + (tab==='prefabs'?' on':'') + '" onclick="renderRessources(\'prefabs\')">Prefabs</button>'
+    + '<button class="tab' + (tab==='files'?' on':'') + '" onclick="renderRessources(\'files\')">Fichiers runtime</button>'
+    + '<button class="tab' + (tab==='scenes'?' on':'') + '" onclick="renderRessources(\'scenes\')">Scènes</button>'
+    + '</div>'
+    + '<div id="res-content"></div>';
+  if (tab === 'prefabs')      _renderPrefabsInto('res-content');
+  else if (tab === 'scenes')  _renderScenesInto('res-content');
+  else                        _renderFilesInto('res-content');
+}
+
+function _renderPrefabsInto(targetId) {
+  const prefabs = D.prefabs || [];
+  const withScripts = prefabs.filter(p => p.scripts.length);
+  const empty       = prefabs.filter(p => !p.scripts.length);
+
+  // Build reverse index: script → prefabs
+  const scriptToPrefabs = {};
+  withScripts.forEach(p => p.scripts.forEach(s => {
+    scriptToPrefabs[s] = scriptToPrefabs[s] || [];
+    scriptToPrefabs[s].push(p);
+  }));
+
+  $(targetId).innerHTML = `
+    <div class="stats" style="margin-bottom:18px">
+      <div class="stat"><div class="stat-n">${prefabs.length}</div><div class="stat-l">Prefabs</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--cyan)">${withScripts.length}</div><div class="stat-l">Avec scripts</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--muted)">${empty.length}</div><div class="stat-l">Sans script connu</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--accent)">${Object.keys(scriptToPrefabs).length}</div><div class="stat-l">Scripts référencés</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-t">Par prefab</div>
+      ${withScripts.map(p => `
+        <div style="padding:8px 0;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+            <span class="fext">.prefab</span>
+            <strong style="font-size:13px">${p.name}</strong>
+            <span style="font-size:10px;color:var(--muted)">${p.path.split('/').slice(0,-1).join('/')}</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;padding-left:4px">
+            ${p.scripts.map(s => {
+              const cls = D.classes.find(c => c.name === s);
+              return `<span class="rtag ${cls ? kindCss(cls) : 'uses'}" style="cursor:pointer" onclick="go('class',{n:'${s}'})">${s}</span>`;
+            }).join('')}
+          </div>
+        </div>`).join('')}
+      ${empty.length ? `
+        <details style="margin-top:8px">
+          <summary style="font-size:11px;color:var(--muted);cursor:pointer">${empty.length} prefab${empty.length>1?'s':''} sans script reconnu</summary>
+          <div style="padding-top:6px">
+            ${empty.map(p => `<div class="fentry"><span class="fext">.prefab</span><span>${p.name}</span><span class="fpath">${p.path.split('/').slice(0,-1).join('/')}</span></div>`).join('')}
+          </div>
+        </details>` : ''}
+    </div>
+
+    <div class="card">
+      <div class="card-t">Par script</div>
+      ${Object.entries(scriptToPrefabs).sort((a,b) => b[1].length - a[1].length).map(([s, ps]) => `
+        <div style="padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span class="rtag uses" style="cursor:pointer;flex-shrink:0" onclick="go('class',{n:'${s}'})">${s}</span>
+          <span style="font-size:10px;color:var(--muted)">dans</span>
+          ${ps.map(p => `<span style="font-size:11px;color:var(--accent)">${p.name}</span>`).join('<span style="color:var(--border)"> · </span>')}
+        </div>`).join('')}
+    </div>`;
+}
+
+// ── Vue par scène ─────────────────────────────────────────────────────────────
+function _renderScenesInto(targetId) {
+  const el = $(targetId);
+  el.innerHTML = '<div style="color:var(--muted);padding:32px 0;text-align:center;font-size:13px">Chargement des scènes…</div>';
+
+  fetch('/api/scenes').then(r => r.json()).then(scenes => {
+    const classMap = {};
+    (D.classes || []).forEach(c => { classMap[c.name] = c; });
+
+    // Extract module from path: "Modules/Context/…/Foo.cs" → "Context"
+    function moduleOf(path) {
+      const parts = path.split('/');
+      return (parts[0] === 'Modules' && parts.length > 1) ? parts[1] : (parts[0] || '?');
+    }
+
+    // All unique modules (sorted)
+    const allModules = [...new Set(scenes.flatMap(sc => sc.scripts.map(moduleOf)))].sort();
+
+    // script → scenes cross-ref
+    const scriptToScenes = {};
+    scenes.forEach(sc => sc.scripts.forEach(s => {
+      const base = s.split('/').pop().replace('.cs', '');
+      scriptToScenes[base] = scriptToScenes[base] || [];
+      if (!scriptToScenes[base].includes(sc.name)) scriptToScenes[base].push(sc.name);
+    }));
+
+    // ── helpers ──────────────────────────────────────────────────────────────
+    function scriptTag(path) {
+      const base = path.split('/').pop().replace('.cs', '');
+      const cls  = classMap[base];
+      return '<span class="rtag ' + (cls ? kindCss(cls) : 'uses') + '" style="cursor:pointer" '
+        + 'onclick="go(\'class\',{n:\'' + base + '\'})">' + base + '</span>';
+    }
+    function prefabTag(path) {
+      const name = path.split('/').pop().replace('.prefab','').replace('.fbx','');
+      return '<span style="font-size:10px;background:var(--surface2);border:1px solid var(--border);'
+        + 'padding:1px 7px;border-radius:4px;color:var(--muted)">' + esc(name) + '</span>';
+    }
+    function sceneBadge(name) {
+      return '<span style="font-size:10px;background:rgba(122,162,247,.15);border:1px solid #7aa2f755;'
+        + 'padding:1px 7px;border-radius:4px;color:var(--accent)">' + esc(name) + '</span>';
+    }
+    // Module header chip (colored per module index for variety)
+    const MOD_COLORS = ['#7aa2f7','#9ece6a','#e0af68','#bb9af7','#73daca','#f7768e','#7dcfff','#ff9e64'];
+    function modColor(mod) { return MOD_COLORS[allModules.indexOf(mod) % MOD_COLORS.length]; }
+
+    // ── render ───────────────────────────────────────────────────────────────
+    let mode = 'scene';
+    function render(m) {
+      mode = m;
+      const modeBar = '<div style="display:flex;gap:6px;margin-bottom:16px">'
+        + ['scene','matrix','script'].map(v => {
+          const labels = {scene:'Par scène', matrix:'Matrice', script:'Par script'};
+          return '<button onclick="_scenesMode(\'' + v + '\')" class="tab' + (mode===v?' on':'') + '">' + labels[v] + '</button>';
+        }).join('')
+        + '</div>';
+
+      const stats = '<div class="stats" style="margin-bottom:18px">'
+        + '<div class="stat"><div class="stat-n">' + scenes.length + '</div><div class="stat-l">Scènes</div></div>'
+        + '<div class="stat"><div class="stat-n" style="color:var(--cyan)">' + Object.keys(scriptToScenes).length + '</div><div class="stat-l">Scripts uniques</div></div>'
+        + '<div class="stat"><div class="stat-n" style="color:var(--purple)">' + allModules.length + '</div><div class="stat-l">Modules</div></div>'
+        + '</div>';
+
+      let body = '';
+
+      // ── mode : par scène (groupé par module) ─────────────────────────────
+      if (mode === 'scene') {
+        body = scenes.map(sc => {
+          const byMod = {};
+          sc.scripts.forEach(p => {
+            const mod = moduleOf(p);
+            byMod[mod] = byMod[mod] || [];
+            byMod[mod].push(p);
+          });
+          const modEntries = Object.entries(byMod).sort((a,b) => a[0].localeCompare(b[0]));
+          const extraP = sc.unresolved_prefabs
+            ? ' <span style="font-size:10px;color:var(--muted)">+' + sc.unresolved_prefabs + ' non résolus</span>' : '';
+
+          return '<div class="card" style="margin-bottom:12px">'
+            + '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">'
+            +   '<span class="fext">.unity</span>'
+            +   '<strong style="font-size:14px">' + esc(sc.name) + '</strong>'
+            +   '<span style="font-size:11px;color:var(--muted);font-family:monospace">' + esc(sc.path.split('/').slice(0,-1).join('/')) + '/</span>'
+            + '</div>'
+            + (modEntries.length
+              ? modEntries.map(([mod, paths]) =>
+                  '<div style="margin-bottom:10px">'
+                  + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">'
+                  +   '<span style="width:3px;height:14px;border-radius:2px;background:' + modColor(mod) + ';flex-shrink:0;display:inline-block"></span>'
+                  +   '<span style="font-size:9px;font-weight:700;letter-spacing:.8px;color:' + modColor(mod) + '">' + esc(mod.toUpperCase()) + '</span>'
+                  +   '<span style="font-size:10px;color:var(--muted)">(' + paths.length + ')</span>'
+                  + '</div>'
+                  + '<div style="display:flex;flex-wrap:wrap;gap:4px;padding-left:9px">' + paths.map(scriptTag).join('') + '</div>'
+                  + '</div>'
+                ).join('')
+              : '<div style="font-size:11px;color:var(--muted);margin-bottom:10px">Aucun script projet</div>')
+            + (sc.prefabs.length
+              ? '<details style="margin-top:4px"><summary style="font-size:10px;color:var(--muted);cursor:pointer">Prefabs (' + sc.prefabs.length + ')' + extraP + '</summary>'
+              +   '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">' + sc.prefabs.map(prefabTag).join('') + '</div>'
+              + '</details>' : '')
+            + '</div>';
+        }).join('');
+
+      // ── mode : matrice modules × scènes ──────────────────────────────────
+      } else if (mode === 'matrix') {
+        // Matrix: rows=modules, cols=scenes; cell = count of scripts from that module in that scene
+        const shortName = n => n.replace(/^SC_/, '').replace(/^AL_/, 'AL:');
+        const matrix = {};
+        allModules.forEach(mod => {
+          matrix[mod] = {};
+          scenes.forEach(sc => {
+            matrix[mod][sc.name] = sc.scripts.filter(p => moduleOf(p) === mod).length;
+          });
+        });
+        // Only show modules that appear in at least one scene
+        const activeModules = allModules.filter(mod => scenes.some(sc => matrix[mod][sc.name] > 0));
+        const maxVal = Math.max(1, ...activeModules.flatMap(mod => scenes.map(sc => matrix[mod][sc.name])));
+
+        const cellStyle = (count) => {
+          if (count === 0) return 'padding:6px 10px;text-align:center;color:var(--border);font-size:11px;border:1px solid var(--border);background:transparent';
+          const t = count / maxVal;
+          const alpha = (0.15 + t * 0.65).toFixed(2);
+          return 'padding:6px 10px;text-align:center;font-size:11px;font-weight:700;border:1px solid var(--border);background:rgba(122,162,247,' + alpha + ');color:var(--fg)';
+        };
+
+        const thStyle = 'padding:6px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);border:1px solid var(--border);background:var(--surface2);white-space:nowrap';
+        const modThStyle = 'padding:6px 12px;font-size:10px;font-weight:700;letter-spacing:.5px;border:1px solid var(--border);background:var(--surface2);white-space:nowrap;text-align:left';
+
+        body = '<div style="overflow-x:auto">'
+          + '<table style="border-collapse:collapse;width:100%;font-size:11px">'
+          + '<thead><tr>'
+          + '<th style="' + modThStyle + ';color:var(--muted)">Module</th>'
+          + scenes.map(sc =>
+              '<th style="' + thStyle + '" title="' + esc(sc.name) + '">' + esc(shortName(sc.name)) + '</th>'
+            ).join('')
+          + '<th style="' + thStyle + '">Total</th>'
+          + '</tr></thead><tbody>'
+          + activeModules.map(mod => {
+              const rowTotal = scenes.reduce((s, sc) => s + matrix[mod][sc.name], 0);
+              const col = modColor(mod);
+              return '<tr>'
+                + '<td style="' + modThStyle + ';color:' + col + '">'
+                +   '<span style="display:inline-block;width:3px;height:12px;border-radius:2px;background:' + col + ';vertical-align:middle;margin-right:6px"></span>'
+                +   esc(mod)
+                + '</td>'
+                + scenes.map(sc => {
+                    const count = matrix[mod][sc.name];
+                    return '<td style="' + cellStyle(count) + '">' + (count || '·') + '</td>';
+                  }).join('')
+                + '<td style="padding:6px 10px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--border)">' + rowTotal + '</td>'
+                + '</tr>';
+            }).join('')
+          + '<tr>'
+          +   '<td style="' + modThStyle + ';color:var(--muted)">Total</td>'
+          +   scenes.map(sc => {
+                const col = scenes.reduce((s, _) => s, 0);
+                const tot = activeModules.reduce((s, mod) => s + matrix[mod][sc.name], 0);
+                return '<td style="padding:6px 10px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--border);border-top:2px solid var(--border)">' + tot + '</td>';
+              }).join('')
+          +   '<td style="padding:6px 10px;border:1px solid var(--border);border-top:2px solid var(--border)"></td>'
+          + '</tr>'
+          + '</tbody></table></div>';
+
+      // ── mode : par script (cross-ref) ─────────────────────────────────────
+      } else {
+        const entries = Object.entries(scriptToScenes).sort((a,b) => b[1].length - a[1].length);
+        // Group entries by module
+        const byMod = {};
+        entries.forEach(([base, scNames]) => {
+          // find original path to get module
+          let mod = '?';
+          scenes.forEach(sc => sc.scripts.forEach(p => { if (p.split('/').pop().replace('.cs','') === base) mod = moduleOf(p); }));
+          byMod[mod] = byMod[mod] || [];
+          byMod[mod].push([base, scNames]);
+        });
+
+        body = Object.entries(byMod).sort((a,b)=>a[0].localeCompare(b[0])).map(([mod, items]) => {
+          const col = modColor(mod);
+          return '<div class="card" style="margin-bottom:12px">'
+            + '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'
+            +   '<span style="width:4px;height:18px;border-radius:2px;background:' + col + ';flex-shrink:0;display:inline-block"></span>'
+            +   '<span style="font-weight:700;font-size:13px;color:' + col + '">' + esc(mod) + '</span>'
+            +   '<span style="font-size:10px;color:var(--muted)">' + items.length + ' script' + (items.length>1?'s':'') + '</span>'
+            + '</div>'
+            + items.map(([base, scNames]) => {
+                const cls = classMap[base];
+                const sharedColor = scNames.length === 1 ? 'var(--muted)' : scNames.length <= 2 ? 'var(--yellow)' : 'var(--red)';
+                return '<div style="padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+                  + '<span class="rtag ' + (cls ? kindCss(cls) : 'uses') + '" style="cursor:pointer;flex-shrink:0" onclick="go(\'class\',{n:\'' + base + '\'})">' + base + '</span>'
+                  + '<span style="font-size:10px;font-weight:700;color:' + sharedColor + '">' + scNames.length + ' scène' + (scNames.length>1?'s':'') + '</span>'
+                  + scNames.map(sceneBadge).join('')
+                  + '</div>';
+              }).join('')
+            + '</div>';
+        }).join('');
+      }
+
+      el.innerHTML = modeBar + stats + body;
+      window._scenesMode = render;
+    }
+    window._scenesMode = render;
+    render('scene');
+  }).catch(() => {
+    el.innerHTML = '<div style="color:var(--red);padding:24px 0;text-align:center">Erreur de chargement des scènes.</div>';
+  });
+}
+
+// ── Fichiers requis ────────────────────────────────────────────────────────────
+function _renderFilesInto(targetId) {
+  const files   = D.requiredFiles || [];
+  const missing = files.filter(f => f.refs.length && !f.exists);
+  const ok      = files.filter(f => f.refs.length &&  f.exists);
+  const orphan  = files.filter(f => !f.refs.length);
+
+  const hintLabel = h => ({
+    streaming: { lbl:'streamingAssetsPath', col:'var(--cyan)' },
+    resources: { lbl:'Resources.Load',      col:'var(--purple)' },
+    bare:      { lbl:'string littérale',    col:'var(--muted)' },
+    orphan:    { lbl:'non référencé',       col:'var(--border)' },
+  }[h] || { lbl: h, col:'var(--muted)' });
+
+  const fileRow = (f, accent) => {
+    const ext  = f.location.split('.').pop();
+    const name = f.location.split('/').pop();
+    const dir  = f.location.split('/').slice(0,-1).join('/');
+    const owners = [...new Set(f.refs.map(r => r.owner))];
+    const raws  = [...new Set(f.refs.map(r => r.raw))];
+    const hints = [...new Set(f.refs.map(r => r.hint))];
+    return `
+    <div style="padding:10px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap">
+        <span class="fext">.${ext}</span>
+        <strong style="font-size:13px;color:${accent}">${name}</strong>
+        <span style="font-size:10px;color:var(--muted);font-family:monospace">${dir}/</span>
+        ${f.exists
+          ? `<span style="font-size:10px;color:var(--green);margin-left:auto">✓ existe</span>`
+          : `<span style="font-size:10px;color:var(--red);margin-left:auto;font-weight:600">✗ MANQUANT</span>`}
+      </div>
+      ${owners.length ? `
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:5px">
+        <span style="font-size:10px;color:var(--muted)">Chargé par</span>
+        ${owners.map(o => `<span class="rtag uses" style="cursor:pointer;font-size:10px" onclick="go('class',{n:'${o}'})">${o}</span>`).join('')}
+      </div>` : ''}
+      <details style="margin-top:3px">
+        <summary style="font-size:10px;color:var(--border);cursor:pointer;user-select:none">
+          Comment le chemin est écrit dans le code
+        </summary>
+        <div style="padding:6px 0 2px 4px;display:flex;flex-direction:column;gap:5px">
+          ${f.refs.map(r => {
+            const hl = hintLabel(r.hint);
+            return `<div style="font-size:11px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+              <span style="font-family:monospace;color:var(--text)">"${esc(r.raw)}"</span>
+              <span style="font-size:10px;padding:1px 6px;border-radius:8px;background:${hl.col}22;color:${hl.col}">${hl.lbl}</span>
+              <span style="font-size:10px;color:var(--muted)">${r.owner} · ${r.file.split('/').pop()}</span>
+            </div>`;
+          }).join('')}
+          ${!f.exists ? `
+          <div style="font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px solid var(--border)">
+            → Ce fichier doit être placé à : <code style="font-size:11px">${f.location}</code>
+          </div>` : ''}
+        </div>
+      </details>
+    </div>`;
+  };
+
+  $(targetId).innerHTML = `
+    <p style="color:var(--muted);font-size:12px;margin-bottom:16px">
+      Ce que le code tente de charger — chemins détectés, où ils doivent être, et s'ils existent.
+    </p>
+
+    <div class="stats" style="margin-bottom:18px">
+      <div class="stat"><div class="stat-n" style="color:var(--red)">${missing.length}</div><div class="stat-l">Manquants</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--green)">${ok.length}</div><div class="stat-l">OK</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--muted)">${orphan.length}</div><div class="stat-l">Orphelins</div></div>
+    </div>
+
+    ${missing.length ? `
+    <div class="card" style="border-color:var(--red)50;margin-bottom:14px">
+      <div class="card-t" style="color:var(--red)">✗ Fichiers manquants — le code les cherche mais ils n'existent pas (${missing.length})</div>
+      ${missing.map(f => fileRow(f, 'var(--red)')).join('')}
+    </div>` : ''}
+
+    ${ok.length ? `
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-t" style="color:var(--green)">✓ Fichiers référencés et présents (${ok.length})</div>
+      ${ok.map(f => fileRow(f, 'var(--text)')).join('')}
+    </div>` : ''}
+
+    ${orphan.length ? `
+    <details style="margin-bottom:14px">
+      <summary style="font-size:12px;color:var(--muted);cursor:pointer;padding:10px 14px;
+        background:var(--surface);border:1px solid var(--border);border-radius:8px">
+        ${orphan.length} fichier${orphan.length>1?'s':''} dans StreamingAssets sans référence dans le code
+        <span style="font-size:11px;margin-left:8px">(peuvent être chargés dynamiquement ou inutilisés)</span>
+      </summary>
+      <div class="card" style="border-top:none;border-radius:0 0 8px 8px;margin-top:0">
+        ${orphan.map(f => {
+          const ext  = f.location.split('.').pop();
+          const name = f.location.split('/').pop();
+          const dir  = f.location.split('/').slice(0,-1).join('/');
+          return `<div class="fentry"><span class="fext">.${ext}</span><span>${name}</span><span class="fpath">${dir}</span></div>`;
+        }).join('')}
+      </div>
+    </details>` : ''}`;
+}
+
+function renderAnalyse() {
+  const ref       = new Set(D.referenced || []);
+  const reach     = D.reachable ? new Set(D.reachable) : null;
+
+  // dead100 : non atteignables depuis Unity (BFS si dispo, sinon token-scan)
+  const dead100 = D.classes.filter(c => {
+    if (_isUnityEntry(c)) return false;
+    return reach ? !reach.has(c.name) : !ref.has(c.name);
+  });
+  // Îlots isolés : référencés par token-scan MAIS non atteignables par BFS
+  // (A→B→A coupés du reste : détectés uniquement grâce au BFS)
+  const deadIslands = reach
+    ? dead100.filter(c => ref.has(c.name))
+    : [];
+  // deadUnity : entry-points Unity non référencés par d'autres classes C#
+  // (utilise toujours le token-scan : le BFS les rend tous atteignables car ce sont les racines)
+  const deadUnity = D.classes.filter(c => _isUnityEntry(c) && !ref.has(c.name));
+  const cycles     = D.cycles || [];
+  const todos      = D.todos  || [];
+  const nInstable  = D.modules.filter(m => { const l = _coupling(m.health||{}).lbl; return l === 'Couplé' || l === 'Fondation dépendante'; }).length;
+
+  const TAG_COL   = { TODO:'var(--accent)', FIXME:'var(--red)', HACK:'var(--yellow)', NOTE:'var(--cyan)', XXX:'var(--red)' };
+  const TAG_ORDER = ['FIXME','XXX','TODO','HACK','NOTE'];
+  const tagCounts = {};
+  todos.forEach(t => tagCounts[t.tag] = (tagCounts[t.tag]||0) + 1);
+
+  // Group by file, sort files so FIXME/XXX files appear first
+  const byFile = {};
+  todos.forEach(t => (byFile[t.file] = byFile[t.file]||[]).push(t));
+  const fileEntries = Object.entries(byFile).sort(([fa,ia],[fb,ib]) => {
+    const pri = items => Math.min(...items.map(t => ['FIXME','XXX'].includes(t.tag) ? 0 : ['TODO'].includes(t.tag) ? 1 : 2));
+    return pri(ia) - pri(ib) || fa.localeCompare(fb);
+  });
+
+  $('main').innerHTML = `
+    <h1 class="ph">Analyse
+      <small>${dead100.length} dead${deadIslands.length ? ` (dont ${deadIslands.length} îlots)` : ''} · ${deadUnity.length} ⚠ Unity · ${nInstable} instable${nInstable!==1?'s':''} · ${todos.length} todos · ${cycles.length} cycle${cycles.length!==1?'s':''}</small>
+    </h1>
+    ${reach ? '' : '<div style="background:rgba(224,175,104,.1);border:1px solid var(--yellow);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--yellow);margin-bottom:12px">⚠ Données BFS non disponibles — actualise pour utiliser la détection par atteignabilité.</div>'}
+
+    <div class="stats" style="margin-bottom:24px">
+      <div class="stat">
+        <div class="stat-n" style="color:var(--red)">${dead100.length}</div>
+        <div class="stat-l">Dead code${reach ? ' (BFS)' : ''}</div>
+      </div>
+      ${deadIslands.length ? `<div class="stat">
+        <div class="stat-n" style="color:var(--orange)">${deadIslands.length}</div>
+        <div class="stat-l">Îlots isolés</div>
+      </div>` : ''}
+      <div class="stat">
+        <div class="stat-n" style="color:var(--yellow)">${deadUnity.length}</div>
+        <div class="stat-l">⚠ Unity</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" style="color:${nInstable?'var(--red)':'var(--green)'}">${nInstable}</div>
+        <div class="stat-l">Modules instables</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" style="color:var(--accent)">${todos.length}</div>
+        <div class="stat-l">TODOs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" style="color:${cycles.length?'var(--red)':'var(--green)'}">${cycles.length}</div>
+        <div class="stat-l">Cycles dep.</div>
+      </div>
+    </div>
+
+    <!-- TODOs / FIXMEs -->
+    <section style="margin-bottom:28px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        ✎ TODOs / FIXMEs
+        <span style="font-weight:400;color:var(--muted);font-size:12px">${todos.length} entrée${todos.length!==1?'s':''}</span>
+        ${TAG_ORDER.filter(t=>tagCounts[t]).map(tag=>`
+          <span style="font-size:10px;padding:2px 6px;border-radius:4px;
+            background:${TAG_COL[tag]||'var(--muted)'}22;color:${TAG_COL[tag]||'var(--muted)'}"
+          >${tag} ${tagCounts[tag]}</span>`).join('')}
+      </h2>
+      ${todos.length ? `
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${fileEntries.map(([file, items]) => `
+          <div>
+            <div style="font-size:11px;color:var(--muted);padding:3px 0;
+              border-bottom:1px solid var(--border);margin-bottom:4px;font-family:monospace"
+            >${file}</div>
+            ${items.sort((a,b)=>a.line-b.line).map(t=>`
+              <div style="display:flex;align-items:baseline;gap:7px;padding:3px 0;font-size:12px">
+                <span style="flex-shrink:0;padding:1px 5px;border-radius:4px;font-size:10px;
+                  background:${TAG_COL[t.tag]||'var(--muted)'}22;color:${TAG_COL[t.tag]||'var(--muted)'}"
+                >${t.tag}</span>
+                <span style="color:var(--border);font-size:10px;flex-shrink:0;font-family:monospace">${t.line}</span>
+                <span style="color:var(--text)">${esc(t.text||'—')}</span>
+              </div>`).join('')}
+          </div>`).join('')}
+      </div>` : `<p style="color:var(--muted);font-size:13px">Aucun TODO/FIXME/HACK dans les fichiers .cs ✓</p>`}
+    </section>
+
+    <!-- Cycles de dépendance -->
+    <section style="margin-bottom:28px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:10px;color:${cycles.length?'var(--red)':'var(--green)'}">
+        ${cycles.length ? `⚠ ${cycles.length} cycle${cycles.length>1?'s':''} de dépendance détecté${cycles.length>1?'s':''}` : '✓ Aucun cycle de dépendance'}
+      </h2>
+      ${cycles.length ? `
+      <div class="cycle-warn">
+        ${cycles.map(c=>`<div class="cycle-path">${c.join(' → ')} → ${c[0]}</div>`).join('')}
+      </div>` : `
+      <p style="color:var(--muted);font-size:13px">Le graphe de dépendances inter-modules ne contient aucun cycle.</p>`}
+    </section>
+
+    <!-- Couplage des modules -->
+    <section style="margin-bottom:28px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:4px">⚡ Couplage des modules</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px">
+        Instabilité = Ce/(Ca+Ce). <strong style="color:var(--green)">0 = noyau stable</strong> (tout en dépend, risqué à modifier).
+        <strong style="color:var(--red)">1 = instable</strong> (dépend de tout, rien n'en dépend). Cliquer sur un module pour le détailler.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${D.modules.slice().sort((a,b) => (b.health?.instability||0) - (a.health?.instability||0)).map(mod => {
+          const h = mod.health || {};
+          const { lbl: il, col: ic, advice } = _coupling(h);
+          return `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;
+            padding:9px 12px;cursor:pointer;transition:.12s" onclick="go('module',{n:'${mod.name}'})"
+            onmouseover="this.style.borderColor='${ic}'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:5px">
+              <div class="dot" style="background:${col(mod.name)};width:8px;height:8px;flex-shrink:0"></div>
+              <strong style="font-size:13px;flex:1">${mod.name}</strong>
+              <span style="font-size:11px;color:${ic};font-weight:600;min-width:52px;text-align:right">${il}${(h.ce>0&&h.ca>0)?` · ${h.instability.toFixed(2)}`:''}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden">
+                <div style="width:${(h.ce===0&&h.ca===0)?50:h.instability*100}%;height:100%;background:${ic};border-radius:3px"></div>
+              </div>
+              <span style="font-size:10px;color:var(--muted);white-space:nowrap">
+                → ${h.ce} sortant${h.ce>1?'es':''} · ← ${h.ca} entrant${h.ca>1?'es':''}
+              </span>
+            </div>
+            ${advice ? `<div style="font-size:11px;color:${ic};margin-top:5px;padding-top:5px;border-top:1px solid var(--border)30">→ ${advice}</div>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+    </section>
+
+    <!-- Dead code -->
+    <section style="margin-bottom:28px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:4px;color:var(--red)">
+        ◎ Dead code — ${dead100.length} classe${dead100.length!==1?'s':''}
+        ${reach ? '<span style="font-size:10px;font-weight:400;color:var(--muted);margin-left:6px">via BFS depuis Unity</span>' : ''}
+      </h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:10px">
+        ${reach
+          ? 'Non atteignables par BFS depuis les entry-points Unity (MonoBehaviour / ScriptableObject). Candidats à la suppression.'
+          : 'Aucune référence token trouvée dans le code source. Candidats à la suppression.'}
+      </p>
+      ${dead100.length ? `<ul class="cls-list" style="margin:0">${dead100.map(c=>analyseClsRow(c, ref.has(c.name)?'island':'dead')).join('')}</ul>`
+        : `<p style="color:var(--muted);font-size:13px">Aucune. Bien joué !</p>`}
+    </section>
+
+    ${deadIslands.length ? `
+    <!-- Îlots isolés -->
+    <section style="margin-bottom:28px;padding:14px;background:rgba(255,158,100,.06);border:1px solid var(--orange);border-radius:8px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:4px;color:var(--orange)">
+        ⬡ Îlots isolés — ${deadIslands.length} classe${deadIslands.length!==1?'s':''}
+      </h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:10px">
+        Référencées par le scan token (apparaissent "vivantes") mais <strong>non atteignables depuis Unity par BFS</strong>.
+        Ce sont des clusters circulaires coupés du reste (ex : A→B→A). Le scan classique les raterait.
+      </p>
+      <ul class="cls-list" style="margin:0">${deadIslands.map(c=>analyseClsRow(c,'island')).join('')}</ul>
+    </section>` : ''}
+
+    <!-- Unity warnings -->
+    <section>
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:4px;color:var(--yellow)">
+        ⚠ Entry-points Unity non référencés — ${deadUnity.length} classe${deadUnity.length!==1?'s':''}
+      </h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:10px">
+        Héritent de MonoBehaviour, ScriptableObject ou EditorWindow.
+        Unity les instancie directement — l'absence de référence C# ne signifie pas forcément qu'elles sont inutilisées.
+      </p>
+      ${deadUnity.length ? `<ul class="cls-list" style="margin:0">${deadUnity.map(c=>analyseClsRow(c,'unity')).join('')}</ul>`
+        : `<p style="color:var(--muted);font-size:13px">Aucune.</p>`}
+    </section>
+
+    <!-- Fichiers runtime -->
+    ${(() => {
+      const rf      = D.requiredFiles || [];
+      const missing = rf.filter(f => f.refs && f.refs.length && !f.exists);
+      const orphan  = rf.filter(f => f.refs && !f.refs.length);
+      if (!missing.length && !orphan.length) return '';
+      return `
+    <section style="margin-top:28px;margin-bottom:28px">
+      <h2 style="font-size:14px;font-weight:600;margin-bottom:4px;color:${missing.length?'var(--red)':'var(--yellow)'}">
+        ⚠ Fichiers runtime — ${missing.length} manquant${missing.length!==1?'s':''}, ${orphan.length} orphelin${orphan.length!==1?'s':''}
+      </h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:10px">
+        Fichiers chargés par le code mais absents de StreamingAssets — l'application plantera au runtime.
+        <span style="cursor:pointer;color:var(--accent)" onclick="renderRessources('files')">→ Voir le détail dans Ressources</span>
+      </p>
+      ${missing.length ? `
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px">
+        ${missing.map(f => {
+          const owners = f.refs.map(r => r.owner).filter((v,i,a)=>a.indexOf(v)===i);
+          return '<div style="background:rgba(247,118,142,.08);border:1px solid var(--red)40;border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">'
+            + '<span style="font-size:11px;color:var(--red);font-weight:600">✗ ' + esc(f.location) + '</span>'
+            + '<span style="font-size:10px;color:var(--muted)">chargé par ' + owners.map(o => '<span style="cursor:pointer;color:var(--text)" onclick="go(\'class\',{n:\'' + o + '\'})">' + o + '</span>').join(', ') + '</span>'
+            + '</div>';
+        }).join('')}
+      </div>` : ''}
+      ${orphan.length ? `<p style="font-size:11px;color:var(--muted)">${orphan.length} fichier${orphan.length!==1?'s':''} dans StreamingAssets sans aucune référence dans le code (peut-être chargés dynamiquement ou obsolètes).</p>` : ''}
+    </section>`;
+    })()}`;
+}
+
+function renderClasses() {
+  const inbound = new Set(D.referenced || []);
+  const deadCount = D.classes.filter(c => !inbound.has(c.name)).length;
+  SHOW_DEAD_ONLY = false;
+  $('main').innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+      <h1 class="ph" style="margin:0">Classes <small>${D.classes.length} types</small></h1>
+      <button class="gbtn" id="dead-btn" onclick="toggleDeadCode()"
+        title="Classes sans référence entrante">◎ Dead code (${deadCount})</button>
+    </div>
+    <input class="search" placeholder="Rechercher nom, module, type…"
+           id="cls-search" oninput="filterCls(this.value)">
+    <ul class="cls-list" id="cls-list">${clsItems(D.classes)}</ul>`;
+}
+
+function clsItems(list) {
+  const inbound = new Set(D.referenced || []);
+  return list.map(c => {
+    const isDead = !inbound.has(c.name);
+    const isUnity = isDead && (c.inherits||[]).some(p =>
+      ['MonoBehaviour','ScriptableObject','EditorWindow'].includes(p));
+    const deadBadge = isDead
+      ? `<span title="${isUnity ? 'Unity entry-point — peut être normal' : 'Aucune référence entrante'}"
+           style="font-size:10px;padding:1px 5px;border-radius:4px;margin-left:6px;
+           background:${isUnity ? 'var(--yellow)' : 'var(--red)'}22;
+           color:${isUnity ? 'var(--yellow)' : 'var(--red)'}">
+           ${isUnity ? '⚠ Unity' : '◎ dead'}</span>`
+      : '';
+    return `
+    <li class="cli" onclick="go('class',{n:'${c.name}'})">
+      <span class="kbadge ${kindCss(c)}">${c.kind}</span>
+      <span class="cli-name">${c.name}</span>
+      ${deadBadge}
+      ${c.module
+        ? `<span class="mod-chip" style="background:${col(c.module)}22;color:${col(c.module)}">${c.module}</span>`
+        : ''}
+      ${c.description
+        ? `<span style="color:var(--muted);font-size:11px;margin-left:6px">
+            ${esc(c.description.split('\n')[0].substring(0,55))}…
+          </span>`
+        : ''}
+    </li>`;
+  }).join('');
+}
+
+function filterCls(q) {
+  q = q.toLowerCase();
+  const inbound = new Set(D.referenced || []);
+  let filtered = D.classes.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    (c.module||'').toLowerCase().includes(q) ||
+    c.kind.toLowerCase().includes(q));
+  if (SHOW_DEAD_ONLY) filtered = filtered.filter(c => !inbound.has(c.name));
+  $('cls-list').innerHTML = clsItems(filtered);
+}
+
+// ── Graphe ────────────────────────────────────────────────────────────────────
+function renderGraph() {
+  GRAPH_MODE = 'deps';
+  $('scenario-info').style.display   = 'none';
+  $('scenario-detail').style.display = 'none';
+  $('graph-ctrl').style.display      = '';
+  $('graph-legend').style.display    = '';
+  showMain(false);
+  if (NET) { NET.destroy(); NET = null; }
+  requestAnimationFrame(() => buildGraph(LEVEL));
+}
+
+function filterGraph(modName) {
+  FILTER_MOD = FILTER_MOD === modName ? null : modName;
+  document.querySelectorAll('.sb-graph-btn').forEach(b => b.classList.remove('on'));
+  if (FILTER_MOD) {
+    const btn = $(`sgb-${FILTER_MOD}`);
+    if (btn) btn.classList.add('on');
+    $('graph-filter-bar').style.display = '';
+    $('graph-filter-label').textContent = `Filtre : ${FILTER_MOD}`;
+  } else {
+    $('graph-filter-bar').style.display = 'none';
+  }
+  LEVEL = 'class';
+  FROZEN = false;
+  $('gbn-mod').classList.remove('on');
+  $('gbn-cls').classList.add('on');
+  $('gbn-freeze').classList.remove('on');
+  setNav('graph');
+  showMain(false);
+  if (NET) { NET.destroy(); NET = null; }
+  requestAnimationFrame(() => buildGraph('class'));
+}
+
+function clearGraphFilter() {
+  FILTER_MOD = null;
+  $('graph-filter-bar').style.display = 'none';
+  document.querySelectorAll('.sb-graph-btn').forEach(b => b.classList.remove('on'));
+  if (NET) { NET.destroy(); NET = null; }
+  buildGraph(LEVEL);
+}
+
+function toggleUses() {
+  if (GRAPH_MODE !== 'deps') return;
+  SHOW_USES = !SHOW_USES;
+  $('gbn-uses').classList.toggle('on', SHOW_USES);
+  if (NET) { NET.destroy(); NET = null; }
+  buildGraph(LEVEL);
+}
+
+function toggleFreeze() {
+  FROZEN = !FROZEN;
+  $('gbn-freeze').classList.toggle('on', FROZEN);
+  if (NET) NET.setOptions({ physics: { enabled: !FROZEN } });
+}
+
+function switchLevel(lvl) {
+  if (GRAPH_MODE !== 'deps') return;
+  LEVEL = lvl;
+  FROZEN = false;
+  if (lvl !== 'module') { LAYERED = false; }
+  $('gbn-mod').classList.toggle('on', lvl === 'module');
+  $('gbn-cls').classList.toggle('on', lvl === 'class');
+  $('gbn-layers').classList.toggle('on', LAYERED);
+  $('gbn-freeze').classList.remove('on');
+  if (NET) { NET.destroy(); NET = null; }
+  buildGraph(lvl);
+}
+
+function toggleLayers() {
+  if (LEVEL !== 'module' || GRAPH_MODE !== 'deps') return;
+  LAYERED = !LAYERED;
+  FROZEN  = false;
+  $('gbn-layers').classList.toggle('on', LAYERED);
+  $('gbn-freeze').classList.remove('on');
+  if (NET) { NET.destroy(); NET = null; }
+  buildGraph('module');
+}
+
+function buildGraph(lvl) {
+  const container = $('graph-canvas');
+  if (!container) return;
+
+  let nodes, edges;
+
+  if (lvl === 'module') {
+    nodes = new vis.DataSet(D.modules.map(m => {
+      const h = m.health || {};
+      const instTxt = h.instability !== undefined
+        ? `\nInstabilité: ${h.instability.toFixed(2)} (Ce=${h.ce} Ca=${h.ca})\nCouche: ${h.visLevel ?? '?'}` : '';
+      const nd = {
+        id:    m.name,
+        label: m.name,
+        color: { background: col(m.name), border: col(m.name),
+                 highlight: { background: '#fff', border: col(m.name) } },
+        font:  { color: '#c0caf5', size: 13, bold: true },
+        size:  18 + m.classes.length * 1.5,
+        shape: 'dot',
+        title: `${m.name}\n${m.classes.length} classes — ${m.files.length} fichiers${instTxt}`,
+      };
+      if (LAYERED && h.visLevel !== undefined) nd.level = h.visLevel;
+      return nd;
+    }));
+
+    edges = new vis.DataSet((D.moduleEdges||[]).map((e, i) => ({
+      id:     i,
+      from:   e.from,
+      to:     e.to,
+      width:  Math.min(1 + e.count * 0.4, 5),
+      color:  { color: '#414868', highlight: '#7aa2f7', opacity: 0.85 },
+      title:  `${e.count} dépendance(s)\n${e.details.slice(0,5).map(d=>`${d.from} → ${d.to}`).join('\n')}`,
+      arrows: { to: { enabled: true, scaleFactor: 0.55 } },
+      smooth: LAYERED ? { type: 'cubicBezier', forceDirection: 'vertical' } : { type: 'curvedCW', roundness: 0.2 },
+    })));
+
+  } else {
+    // Filtre par module si actif
+    let visibleClasses = D.classes;
+    if (FILTER_MOD) {
+      const modSet = new Set(D.classes.filter(c => c.module === FILTER_MOD).map(c => c.name));
+      const expanded = new Set(modSet);
+      D.dependencies.forEach(d => {
+        if (modSet.has(d.from)) expanded.add(d.to);
+        if (modSet.has(d.to))   expanded.add(d.from);
+      });
+      visibleClasses = D.classes.filter(c => expanded.has(c.name));
+    }
+    const visibleNames = new Set(visibleClasses.map(c => c.name));
+
+    nodes = new vis.DataSet(visibleClasses.map(c => ({
+      id:    c.name,
+      label: c.name,
+      color: { background: col(c.module||'')+'99', border: col(c.module||''),
+               highlight: { background: '#fff', border: col(c.module||'') } },
+      font:  { color: '#c0caf5', size: 11 },
+      shape: c.kind === 'interface' ? 'diamond'
+           : c.kind === 'enum'      ? 'triangle'
+           : c.kind === 'struct'    ? 'square' : 'dot',
+      size:  11,
+      title: `[${c.kind}] ${c.name}  (${c.module||'?'})\n${c.description?.split('\n')[0]||''}`,
+    })));
+
+    const visibleDeps = D.dependencies.filter(d =>
+      (SHOW_USES || d.type !== 'uses') &&
+      (!FILTER_MOD || (visibleNames.has(d.from) && visibleNames.has(d.to)))
+    );
+    edges = new vis.DataSet(visibleDeps.map((d, i) => ({
+      id:     i,
+      from:   d.from, to: d.to,
+      color:  {
+        color: d.type === 'implements' ? '#bb9af7'
+             : d.type === 'uses'       ? '#e0af68'
+             :                          '#7dcfff',
+        opacity: 0.55,
+      },
+      dashes: d.type === 'implements' ? true
+            : d.type === 'uses'       ? [4, 4]
+            : false,
+      arrows: { to: { enabled: true, scaleFactor: 0.45 } },
+      title:  d.type,
+      smooth: { type: 'continuous' },
+      width:  d.type === 'uses' ? 1 : 1.5,
+    })));
+  }
+
+  const netOpts = {
+    layout: (lvl === 'module' && LAYERED) ? {
+      hierarchical: {
+        enabled: true,
+        direction: 'UD',
+        sortMethod: 'directed',
+        levelSeparation: 120,
+        nodeSpacing: 140,
+        treeSpacing: 160,
+      }
+    } : {},
+    physics: (lvl === 'module' && LAYERED) ? { enabled: false } : {
+      solver: 'forceAtlas2Based',
+      forceAtlas2Based: {
+        gravitationalConstant: lvl === 'module' ? -80 : -50,
+        centralGravity: 0.006,
+        springLength:   lvl === 'module' ? 180 : 120,
+        springConstant: 0.08,
+        damping: 0.4,
+      },
+      stabilization: { iterations: 250 },
+    },
+    interaction: {
+      hover: true, tooltipDelay: 180,
+      navigationButtons: false, keyboard: true, zoomView: true,
+    },
+  };
+
+  NET = new vis.Network(container, { nodes, edges }, netOpts);
+
+  if (lvl === 'module' && LAYERED) {
+    requestAnimationFrame(() => {
+      NET.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+      FROZEN = true;
+      $('gbn-freeze').classList.add('on');
+    });
+  } else {
+    NET.once('stabilizationIterationsDone', () => {
+      NET.setOptions({ physics: { enabled: false } });
+      NET.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+      FROZEN = true;
+      $('gbn-freeze').classList.add('on');
+    });
+  }
+
+  NET.on('click', p => {
+    if (!p.nodes.length) return;
+    const id = p.nodes[0];
+    if (lvl === 'module') { showMain(true); go('module', { n: id }); }
+    else                  { showMain(true); go('class',  { n: id }); }
+  });
+}
+
+// ── Fichier ───────────────────────────────────────────────────────────────────
+async function renderFile(path, mod) {
+  _curFilePath = path;
+  _curFileMod  = mod;
+  $('main').innerHTML = '<div id="loading">Chargement du fichier…</div>';
+  try {
+    const r = await fetch('/api/file?path=' + encodeURIComponent(path));
+    const d = await r.json();
+    if (d.error) { $('main').innerHTML = `<p style="color:var(--red)">${d.error}</p>`; return; }
+
+    const fname = path.split('/').pop();
+    const ext   = fname.split('.').pop().toLowerCase();
+    const crumb = path.split('/').map((seg, i, a) =>
+      i === a.length - 1
+        ? `<span style="color:var(--text)">${seg}</span>`
+        : `<span>${seg}</span> <span style="color:var(--border)">/</span>`
+    ).join(' ');
+
+    let body;
+    if (ext === 'md') {
+      body = `
+        <div style="display:flex;gap:6px;margin-bottom:14px">
+          <button class="gbtn on" id="fv-preview-btn" onclick="toggleFileView('preview')">Aperçu</button>
+          <button class="gbtn"    id="fv-edit-btn"    onclick="toggleFileView('edit')">Éditer</button>
+        </div>
+        <div id="fv-body" class="md-body">${parseMd(d.content)}</div>
+        <textarea id="fv-textarea" spellcheck="false"
+          style="display:none;width:100%;min-height:420px;background:var(--surface);
+          border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text);
+          font-size:12px;font-family:monospace;resize:vertical;outline:none;line-height:1.6"
+        >${esc(d.content)}</textarea>
+        <div id="fv-save-row" style="display:none;margin-top:10px">
+          <button class="gbtn on" onclick="saveFileContent()">Sauvegarder</button>
+          <button class="gbtn" onclick="toggleFileView('preview')" style="margin-left:6px">Annuler</button>
+        </div>`;
+    } else if (ext === 'csv') {
+      body = renderCsvContent(d.content);
+    } else {
+      body = `<pre class="code">${esc(d.content)}</pre>`;
+    }
+
+    $('main').innerHTML = `
+      <button class="back" onclick="go('module',{n:'${mod||''}'})">← ${mod||'Retour'}</button>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:14px">${crumb}</div>
+      ${body}`;
+
+    if (OPEN_IN_EDIT && ext === 'md') {
+      OPEN_IN_EDIT = false;
+      toggleFileView('edit');
+    }
+  } catch(e) {
+    $('main').innerHTML = `<p style="color:var(--red)">Erreur : ${e.message}</p>`;
+  }
+}
+
+function toggleFileView(mode) {
+  const preview = $('fv-body');
+  const editor  = $('fv-textarea');
+  const saveRow = $('fv-save-row');
+  const prevBtn = $('fv-preview-btn');
+  const editBtn = $('fv-edit-btn');
+  if (!preview) return;
+  if (mode === 'edit') {
+    preview.style.display  = 'none';
+    editor.style.display   = 'block';
+    saveRow.style.display  = 'flex';
+    prevBtn.classList.remove('on');
+    editBtn.classList.add('on');
+    editor.focus();
+  } else {
+    preview.innerHTML      = parseMd(editor.value);
+    preview.style.display  = 'block';
+    editor.style.display   = 'none';
+    saveRow.style.display  = 'none';
+    prevBtn.classList.add('on');
+    editBtn.classList.remove('on');
+  }
+}
+
+async function saveFileContent() {
+  const content = $('fv-textarea').value;
+  try {
+    const r = await fetch('/api/file-write', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({path: _curFilePath, content})
+    });
+    const d = await r.json();
+    if (d.error) { alert('Erreur : ' + d.error); return; }
+    $('fv-body').innerHTML = parseMd(content);
+    toggleFileView('preview');
+  } catch(e) { alert('Erreur : ' + e.message); }
+}
+
+// ── Scénarios ─────────────────────────────────────────────────────────────────
+// Colors from Assets/StreamingAssets/AppSettings.json > uiColors
+const SCE_COLORS = {
+  Start:            { bg:'#2596BE', border:'#1d7999', text:'#FFFFFF' },
+  Stop:             { bg:'#8F51F3', border:'#7a40d4', text:'#FFFFFF' },
+  ActionEvent:      { bg:'#2F4054', border:'#3d5268', text:'#3BBBCA' },
+  InteractionEvent: { bg:'#396546', border:'#4a8059', text:'#8BCF89' },
+  CommentEvent:     { bg:'#9C7847', border:'#b38f58', text:'#EAA953' },
+  ConditionEvent:   { bg:'#9C7847', border:'#b38f58', text:'#EAA953' },
+};
+const SCE_EVENT_ICON = {
+  ActionEvent:'ActionEvent.png', InteractionEvent:'InterActionEvent.png',
+  CommentEvent:'CommentEvent.png', ConditionEvent:'CommentEvent.png',
+};
+const ACTION_TYPE_ICON = {
+  Led:'Led.png', Son:'Son.png', Capteur_Son:'Capteur_Son.png',
+  Servo:'Servo_Mono.png', Servo_Multi:'Servo_Multi.png',
+  Animatronique:'Animatronique.png', Fumee:'Fumee.png', Parfum:'Parfum.png',
+  Ecran:'Ecran.png', Boitier:'Boitier.png', Bulle:'Bulle.png',
+  RGB:'RGB.png', ESP:'ESP.png', MONO:'MONO.png', Ping:'Ping.png',
+};
+
+function sceNodeCols(ev) {
+  if (ev.event_role === 'Start') return SCE_COLORS.Start;
+  if (ev.event_role === 'Stop')  return SCE_COLORS.Stop;
+  return SCE_COLORS[ev.event_type] || SCE_COLORS.ActionEvent;
+}
+
+function hwCard(h) {
+  const types     = [...new Set(h.uses.map(u=>u.type).filter(Boolean))];
+  const scenarios = [...new Set(h.uses.map(u=>u.scenario))];
+  const icon      = ACTION_TYPE_ICON[types[0]] || 'placeholder.png';
+  return `
+    <div class="mcard hw-card" data-hw="${esc(h.hardware.toLowerCase())}">
+      <div class="mcard-hd">
+        <img src="/icons/${icon}" style="width:16px;height:16px;object-fit:contain;flex-shrink:0">
+        <div class="mcard-name" style="font-size:12px">${esc(h.hardware)}</div>
+        <span style="font-size:10px;color:var(--muted);margin-left:auto;flex-shrink:0">${h.uses.length}×</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">
+        ${types.map(t=>`<span style="font-size:9px;padding:1px 5px;border-radius:3px;
+          background:var(--surface2);color:var(--muted)">${t}</span>`).join('')}
+      </div>
+      <div style="font-size:10px;color:var(--border);margin-top:4px">
+        ${scenarios.map(s=>`<span>${esc(s)}</span>`).join(' · ')}
+      </div>
+    </div>`;
+}
+
+function filterHw(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.hw-card').forEach(c => {
+    c.style.display = (!q || c.dataset.hw.includes(q)) ? '' : 'none';
+  });
+}
+
+// ── ESP Monitor ───────────────────────────────────────────────────────────────
+function _espEffectiveStatus(esp) {
+  if (!esp.updatedAt) return 'unknown';
+  if (esp.status === 'offline') return 'offline';
+  var age = Date.now() / 1000 - esp.updatedAt;
+  if (age > 15 && esp.status === 'online') return 'stale';
+  if (age > 5  && esp.status === 'online') return 'warn';
+  return esp.status || 'unknown';
+}
+function _espStatusColor(st) {
+  if (st === 'online')  return '#9ece6a';
+  if (st === 'warn')    return '#e0af68';
+  if (st === 'stale')   return '#f7768e';
+  if (st === 'offline') return '#f7768e';
+  return '#414868';
+}
+function _espStatusLabel(st) {
+  if (st === 'warn')  return 'online (lent)';
+  if (st === 'stale') return 'silencieux';
+  if (st === 'unknown') return 'inactif';
+  return st;
+}
+function _timeAgo(ts) {
+  if (!ts) return '—';
+  var s = Math.floor(Date.now() / 1000 - ts);
+  if (s < 5)    return 'à l\'instant';
+  if (s < 60)   return 'il y a ' + s + 's';
+  if (s < 3600) return 'il y a ' + Math.floor(s/60) + 'min';
+  return 'il y a ' + Math.floor(s/3600) + 'h';
+}
+function _sparkline(values, w, h, color) {
+  if (!values || values.length < 2) return '';
+  var mx = Math.max.apply(null, values.concat(1));
+  var mn = Math.min.apply(null, values);
+  var rng = mx - mn || 1;
+  var bw = w / values.length;
+  var bars = '';
+  values.forEach(function(v, i) {
+    var bh = Math.max(1, Math.round(((v - mn) / rng) * h));
+    bars += '<rect x="' + Math.round(i * bw) + '" y="' + (h - bh) + '" '
+      + 'width="' + Math.max(1, Math.floor(bw) - 1) + '" height="' + bh + '" fill="' + color + '" opacity=".75"/>';
+  });
+  return '<svg width="' + w + '" height="' + h + '" style="display:block">' + bars + '</svg>';
+}
+function _trackEspSpark(esp) {
+  if (!esp.lastReceived || !esp.updatedAt) return;
+  var obj; try { obj = JSON.parse(esp.lastReceived); } catch(e) { return; }
+  var data = (obj && obj.variables) ? obj.variables : obj;
+  if (typeof data !== 'object' || !data) return;
+  if (!_espSparkData[esp.id]) _espSparkData[esp.id] = {};
+  Object.keys(data).forEach(function(k) {
+    var v = parseFloat(data[k]);
+    if (isNaN(v)) return;
+    if (!_espSparkData[esp.id][k]) _espSparkData[esp.id][k] = [];
+    _espSparkData[esp.id][k].push(v);
+    if (_espSparkData[esp.id][k].length > 30) _espSparkData[esp.id][k].shift();
+  });
+}
+
+function _espKvTable(obj, maxRows) {
+  var entries = Object.entries(obj);
+  if (!entries.length) return '<span style="opacity:.3;font-size:11px">vide</span>';
+  var shown = entries.slice(0, maxRows), rest = entries.length - maxRows;
+  var h = '<table style="font-size:11px;width:100%;border-collapse:collapse">';
+  shown.forEach(function(kv) {
+    h += '<tr>'
+      + '<td style="color:var(--muted);padding:1px 8px 1px 0;white-space:nowrap;vertical-align:top">' + esc(String(kv[0])) + '</td>'
+      + '<td style="font-family:monospace;word-break:break-all">' + esc(String(kv[1])) + '</td>'
+      + '</tr>';
+  });
+  if (rest > 0) h += '<tr><td colspan="2" style="color:var(--muted);font-size:10px">+' + rest + ' champs…</td></tr>';
+  return h + '</table>';
+}
+
+function _renderEspRecv(json) {
+  if (!json) return '<span style="opacity:.3;font-size:11px">—</span>';
+  var obj;
+  try { obj = JSON.parse(json); } catch(e) {
+    return '<span style="font-family:monospace;font-size:10px;word-break:break-all">' + esc(json.slice(0,120)) + '</span>';
+  }
+  var data = (obj && obj.variables) ? obj.variables : obj;
+  if (typeof data !== 'object' || data === null) return '<span style="font-family:monospace;font-size:11px">' + esc(json.slice(0,120)) + '</span>';
+  return _espKvTable(data, 12);
+}
+
+function _renderEspSent(json) {
+  if (!json) return '<span style="opacity:.3;font-size:11px">—</span>';
+  var obj;
+  try { obj = JSON.parse(json); } catch(e) {
+    return '<span style="font-family:monospace;font-size:10px;word-break:break-all">' + esc(json.slice(0,120)) + '</span>';
+  }
+  var action = (obj && obj.action) ? obj.action : '';
+  var opts   = (obj && obj.options && typeof obj.options === 'object') ? obj.options : {};
+  var h = '';
+  if (action) h += '<div style="font-weight:700;font-size:12px;color:var(--accent);margin-bottom:5px">' + esc(action) + '</div>';
+  var optEntries = Object.entries(opts).filter(function(kv){ return kv[0] !== 'hardware'; });
+  if (optEntries.length) h += _espKvTable(Object.fromEntries(optEntries), 12);
+  return h || '<span style="opacity:.3;font-size:11px">—</span>';
+}
+
+function _detailRow(label, items) {
+  if (!items || !items.length) return '';
+  var rows = items.slice().reverse().map(function(it) {
+    var t = it.ts ? new Date(it.ts * 1000).toLocaleTimeString() : '';
+    return '<tr>'
+      + '<td style="color:var(--muted);font-size:10px;white-space:nowrap;padding-right:8px">' + t + '</td>'
+      + '<td style="font-size:11px;font-family:monospace;word-break:break-all">' + esc(it.msg) + '</td>'
+      + '</tr>';
+  }).join('');
+  return '<div style="margin-top:10px">'
+    + '<div style="font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--muted);margin-bottom:4px">' + label + '</div>'
+    + '<table style="width:100%;border-collapse:collapse">' + rows + '</table>'
+    + '</div>';
+}
+
+function _renderEspDetailHeader(esp, key) {
+  var st  = _espEffectiveStatus(esp);
+  var col = _espStatusColor(st);
+  var cat = esp.catalog || {};
+  var type     = cat.type || (esp.meta || {}).type || '';
+  var maison   = cat.maison || '';
+  var ilot     = cat.ilot || '';
+  var location = [maison, ilot].filter(Boolean).join(' › ');
+  var ip  = cat.ip || (esp.meta || {}).ip || '';
+  var mac = cat.mac || '';
+  var h = '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 14px">';
+  h += '<div style="width:9px;height:9px;border-radius:50%;background:' + col + ';flex-shrink:0"></div>';
+  h += '<strong style="font-size:13px">' + esc(esp.id) + '</strong>';
+  h += '<span style="font-size:10px;padding:1px 7px;border-radius:8px;background:rgba(0,0,0,.3);color:' + col + '">' + esc(_espStatusLabel(st)) + '</span>';
+  if (type)     h += '<span style="font-size:10px;padding:1px 7px;border-radius:8px;background:var(--surface2);color:var(--muted)">' + esc(type) + '</span>';
+  if (location) h += '<span style="font-size:11px;color:var(--cyan)">' + esc(location) + '</span>';
+  if (ip || mac) h += '<code style="font-size:10px;color:var(--muted)">' + (ip ? esc(ip) : '') + (mac ? ' · ' + esc(mac) : '') + '</code>';
+  h += '<button onclick="_selectEspDetail(null)" style="margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 4px" title="Fermer">&#10005;</button>';
+  return h + '</div>';
+}
+
+function _renderEspDetailHistory(esp) {
+  var h = '<div style="padding:12px 14px">';
+  var sparkEntry = _espSparkData[esp.id];
+  if (sparkEntry) {
+    var sparkKeys = Object.keys(sparkEntry);
+    if (sparkKeys.length) {
+      h += '<div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px">';
+      sparkKeys.forEach(function(k) {
+        var vals = sparkEntry[k];
+        h += '<div>'
+          + '<div style="font-size:9px;color:var(--muted);margin-bottom:2px">' + esc(k) + '</div>'
+          + _sparkline(vals, 80, 24, '#7aa2f7')
+          + '</div>';
+      });
+      h += '</div>';
+    }
+  }
+  h += _detailRow('↓ HISTORIQUE REÇU', esp.historyReceived);
+  h += _detailRow('↑ HISTORIQUE ENVOYÉ', esp.historySent);
+  return h + '</div>';
+}
+
+function _espDetailHtml(esp, key) {
+  return '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:16px">'
+    + '<div id="esp-dh-' + key + '" style="border-bottom:1px solid var(--border)">'
+    +   _renderEspDetailHeader(esp, key)
+    + '</div>'
+    + '<div style="display:flex;flex-wrap:wrap">'
+    +   '<div id="esp-di-' + key + '" style="flex:1;min-width:220px;border-right:1px solid var(--border)">'
+    +   _renderEspDetailHistory(esp) + '</div>'
+    +   '<div id="esp-dc-' + key + '" style="flex:1.2;min-width:260px">'
+    +   _renderEspConsole(esp) + '</div>'
+    + '</div>'
+    + '</div>';
+}
+
+function _espCard(esp) {
+  var st    = _espEffectiveStatus(esp);
+  var color = _espStatusColor(st);
+  var ago   = _timeAgo(esp.updatedAt);
+  var cat   = esp.catalog || {};
+  var meta  = esp.meta || {};
+  var isInactive = (st === 'unknown');
+  var opacity = isInactive ? 'opacity:.45;' : '';
+
+  var ip       = cat.ip || meta.ip || '';
+  var mac      = cat.mac || '';
+  var type     = cat.type || meta.type || '';
+  var maison   = cat.maison || '';
+  var ilot     = cat.ilot || '';
+  var location = [maison, ilot].filter(Boolean).join(' › ');
+
+  var specParts = [];
+  if (cat.nbLeds > 0)   specParts.push(cat.nbLeds + ' LEDs' + (cat.nbLedsUsed > 0 && cat.nbLedsUsed !== cat.nbLeds ? ' (' + cat.nbLedsUsed + ' utilisées)' : ''));
+  if (cat.nbServos > 0) specParts.push(cat.nbServos + ' servo' + (cat.nbServos > 1 ? 's' : ''));
+  var specLine = specParts.join('  ·  ');
+
+  var servoList = (cat.servoNames && cat.servoNames.length)
+    ? cat.servoNames.map(function(n) { return '<span style="font-size:10px;background:var(--surface2);padding:1px 6px;border-radius:3px;color:var(--muted)">' + esc(n) + '</span>'; }).join('')
+    : '';
+
+  // Sparklines for this card (first numeric variable found)
+  var sparkHtml = '';
+  var sparkEntry = _espSparkData[esp.id];
+  if (sparkEntry) {
+    var firstKey = Object.keys(sparkEntry)[0];
+    if (firstKey) {
+      sparkHtml = '<div style="margin-bottom:6px">'
+        + '<span style="font-size:9px;color:var(--muted)">' + esc(firstKey) + ' </span>'
+        + _sparkline(sparkEntry[firstKey], 60, 18, '#7aa2f7')
+        + '</div>';
+    }
+  }
+
+  var isSelected = (_espDetailId === esp.id);
+  var border = isSelected ? '3px solid var(--accent)' : '3px solid ' + color;
+
+  return '<div class="card" onclick="_selectEspDetail(\'' + esc(esp.id) + '\')" style="' + opacity + 'border-left:' + border + ';margin-bottom:0;padding:12px 14px;cursor:pointer">'
+
+    + '<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'
+    +   '<div style="width:9px;height:9px;border-radius:50%;background:' + color + ';flex-shrink:0"></div>'
+    +   '<span style="font-weight:700;font-size:13px">' + esc(esp.id) + '</span>'
+    +   '<span style="font-size:10px;padding:1px 7px;border-radius:8px;background:rgba(0,0,0,.3);color:' + color + '">' + esc(_espStatusLabel(st)) + '</span>'
+    +   (type ? '<span style="font-size:10px;padding:1px 7px;border-radius:8px;background:var(--surface2);color:var(--muted)">' + esc(type) + '</span>' : '')
+    +   '<span style="margin-left:auto;font-size:11px;color:var(--muted)">' + ago + '</span>'
+    + '</div>'
+
+    + (location ? '<div style="font-size:11px;color:var(--cyan);margin-bottom:3px">' + esc(location) + '</div>' : '')
+
+    + '<div style="font-size:11px;color:var(--muted);font-family:monospace;margin-bottom:5px">'
+    +   (ip  ? '<span>' + esc(ip) + '</span>' : '')
+    +   (mac ? '<span style="opacity:.55"> · ' + esc(mac) + '</span>' : '')
+    + '</div>'
+
+    + (specLine ? '<div style="font-size:11px;margin-bottom:4px">' + esc(specLine) + '</div>' : '')
+    + (servoList ? '<div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px">' + servoList + '</div>' : '')
+    + sparkHtml
+
+    + '<div style="border-top:1px solid var(--border);margin:8px 0"></div>'
+
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">'
+    +   '<div>'
+    +     '<div style="font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--muted);margin-bottom:5px">↓ REÇU DE L\'ESP</div>'
+    +     _renderEspRecv(esp.lastReceived)
+    +   '</div>'
+    +   '<div>'
+    +     '<div style="font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--muted);margin-bottom:5px">↑ ENVOYÉ À L\'ESP</div>'
+    +     _renderEspSent(esp.lastSent)
+    +   '</div>'
+    + '</div>'
+
+    + '</div>';
+}
+
+function renderEsp() {
+  showMain(true);
+  if (_espPollTimer) { clearInterval(_espPollTimer); _espPollTimer = null; }
+  _espDetailId = null;
+
+  var filterBar = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;align-items:center">'
+    + '<select id="esp-f-maison" onchange="_applyEspFilter()" style="background:var(--surface2);border:1px solid var(--border);color:var(--fg);padding:4px 8px;border-radius:6px;font-size:12px">'
+    + '<option value="">Toutes les maisons</option></select>'
+    + '<select id="esp-f-type" onchange="_applyEspFilter()" style="background:var(--surface2);border:1px solid var(--border);color:var(--fg);padding:4px 8px;border-radius:6px;font-size:12px">'
+    + '<option value="">Tous les types</option></select>'
+    + '<select id="esp-f-status" onchange="_applyEspFilter()" style="background:var(--surface2);border:1px solid var(--border);color:var(--fg);padding:4px 8px;border-radius:6px;font-size:12px">'
+    + '<option value="">Tous les statuts</option>'
+    + '<option value="online">En ligne</option>'
+    + '<option value="warn">Lent</option>'
+    + '<option value="stale">Silencieux</option>'
+    + '<option value="offline">Hors ligne</option>'
+    + '<option value="unknown">Inactif</option>'
+    + '</select>'
+    + '<span id="esp-status" style="font-size:12px;color:var(--muted);margin-left:auto">Connexion…</span>'
+    + '<button onclick="_espClear()" style="background:none;border:1px solid var(--border);color:var(--muted);padding:3px 10px;border-radius:6px;font-size:12px;cursor:pointer">&#10005; Effacer</button>'
+    + '</div>';
+
+  $('main').innerHTML = '<h1 class="ph">ESP Monitor</h1>'
+    + filterBar
+    + '<div id="esp-detail-panel" style="display:none"></div>'
+    + '<div id="esp-grid"></div>'
+    + '<details style="margin-top:28px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px">'
+    + '<summary style="cursor:pointer;font-size:12px;color:var(--muted);font-weight:600">Intégration Unity — comment envoyer les données</summary>'
+    + '<div style="margin-top:10px;font-size:12px;color:var(--muted);line-height:1.8">'
+    + '<p>POST vers <code>http://127.0.0.1:5757/api/esp</code> avec <code>espId</code>, <code>status</code>, <code>lastReceived</code>, <code>lastSent</code>, <code>scenario</code>, <code>meta</code>.</p>'
+    + '<p>Pour effacer : POST vers <code>/api/esp/clear</code>.</p>'
+    + '</div>'
+    + '</details>';
+
+  function _refresh() {
+    fetch('/api/esp').then(function(r) { return r.json(); }).then(function(esps) {
+      var grid   = $('esp-grid');
+      var status = $('esp-status');
+      var detail = $('esp-detail-panel');
+      if (!grid) return;
+      esps.forEach(function(e) { _espLatestData[e.id] = e; });
+
+      // Track sparklines
+      esps.forEach(_trackEspSpark);
+
+      // Populate filter dropdowns (only first time each has 1 option)
+      var fMaison = $('esp-f-maison');
+      var fType   = $('esp-f-type');
+      if (fMaison && fMaison.options.length === 1) {
+        var maisons = [];
+        esps.forEach(function(e) { var m = (e.catalog || {}).maison; if (m && maisons.indexOf(m) < 0) maisons.push(m); });
+        maisons.sort().forEach(function(m) { var o = document.createElement('option'); o.value = m; o.textContent = m; fMaison.appendChild(o); });
+      }
+      if (fType && fType.options.length === 1) {
+        var types = [];
+        esps.forEach(function(e) { var t = (e.catalog || {}).type || (e.meta || {}).type; if (t && types.indexOf(t) < 0) types.push(t); });
+        types.sort().forEach(function(t) { var o = document.createElement('option'); o.value = t; o.textContent = t; fType.appendChild(o); });
+      }
+
+      // Apply filters
+      var filtered = esps.filter(function(e) {
+        var cat = e.catalog || {};
+        var meta = e.meta || {};
+        if (_espFilterMaison && cat.maison !== _espFilterMaison) return false;
+        if (_espFilterType   && (cat.type || meta.type) !== _espFilterType) return false;
+        if (_espFilterStatus && _espEffectiveStatus(e) !== _espFilterStatus) return false;
+        return true;
+      });
+
+      var online  = esps.filter(function(e) { return _espEffectiveStatus(e) === 'online'; }).length;
+      var warn    = esps.filter(function(e) { return _espEffectiveStatus(e) === 'warn'; }).length;
+      var offline = esps.filter(function(e) { return _espEffectiveStatus(e) === 'offline'; }).length;
+
+      if (status) status.textContent = esps.length + ' ESP  —  '
+        + online + ' en ligne'
+        + (warn ? '  ·  ' + warn + ' lents' : '')
+        + '  ·  ' + offline + ' hors ligne';
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div style="color:var(--muted);padding:48px 0;text-align:center;font-size:13px">Aucun ESP correspond aux filtres.</div>';
+      } else {
+        grid.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:12px">'
+          + filtered.map(_espCard).join('')
+          + '</div>';
+      }
+
+      // Detail panel
+      if (detail) {
+        if (_espDetailId) {
+          var found = esps.filter(function(e) { return e.id === _espDetailId; })[0];
+          if (!found) {
+            detail.style.display = 'none';
+          } else {
+            detail.style.display = '';
+            var dkey = _espWsKey(_espDetailId);
+            var consoleDiv = document.getElementById('esp-dc-' + dkey);
+            if (!consoleDiv) {
+              detail.innerHTML = _espDetailHtml(found, dkey);
+              _espConnectWs(found);
+              _espLoadTemplates(found);
+            } else {
+              var hdrDiv  = document.getElementById('esp-dh-' + dkey);
+              var infoDiv = document.getElementById('esp-di-' + dkey);
+              if (hdrDiv)  hdrDiv.innerHTML  = _renderEspDetailHeader(found, dkey);
+              if (infoDiv) infoDiv.innerHTML = _renderEspDetailHistory(found);
+            }
+          }
+        } else {
+          detail.style.display = 'none';
+        }
+      }
+    }).catch(function() {
+      var s = $('esp-status');
+      if (s) s.textContent = 'Erreur de connexion au serveur';
+    });
+  }
+
+  _refresh();
+
+  // SSE for instant updates; fallback poll every 15s in case SSE drops
+  if (_espEventSource) { _espEventSource.close(); _espEventSource = null; }
+  _espEventSource = new EventSource('/api/events');
+  _espEventSource.addEventListener('esp-update', _refresh);
+  _espEventSource.addEventListener('clear', function() {
+    _espSparkData = {};
+    _espDetailId  = null;
+    _refresh();
+  });
+  _espPollTimer = setInterval(_refresh, 15000);
+}
+
+function _espClear() {
+  fetch('/api/esp/clear', { method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}' })
+    .then(function() {
+      _espDetailId = null;
+      _espSparkData = {};
+      var g = $('esp-grid');
+      if (g) g.innerHTML = '<div style="color:var(--muted);padding:48px 0;text-align:center;font-size:13px">'
+        + 'Registre effacé. En attente de nouvelles données…</div>';
+      var s = $('esp-status');
+      if (s) s.textContent = '0 ESP';
+      var d = $('esp-detail-panel');
+      if (d) { d.style.display = 'none'; d.innerHTML = ''; }
+    });
+}
+
+// ── ESP Console / WebSocket direct ────────────────────────────────────────────
+
+function _espWsKey(id) {
+  return (id || '').replace(/[^a-zA-Z0-9]/g, '_');
+}
+
+// ESP_ACTIONS removed — now uses textarea JSON editor (universal, works for any ESP type)
+
+function _espConnectWs(esp) {
+  var key = _espWsKey(esp.id);
+  var ip  = (esp.catalog || {}).ip || (esp.meta || {}).ip;
+  if (!ip || _espWsPool[key]) return;
+  function dot() { return document.getElementById('esp-ws-dot-' + key); }
+  var ws = new WebSocket('ws://' + ip + '/ws');
+  _espWsPool[key] = ws;
+  ws.onopen    = function() { var d=dot(); if(d){d.style.background='#9ece6a';d.title='Connecté';} };
+  ws.onclose   = function() { delete _espWsPool[key]; var d=dot(); if(d){d.style.background='#f7768e';d.title='Déconnecté';} };
+  ws.onerror   = function() { var d=dot(); if(d){d.style.background='#f7768e';d.title='Erreur WebSocket';} };
+  ws.onmessage = function(e) {
+    if (!_espCmdLog[key]) _espCmdLog[key] = [];
+    _espCmdLog[key].push({dir:'recv', msg: e.data, ts: Date.now()/1000});
+    if (_espCmdLog[key].length > 30) _espCmdLog[key].shift();
+    _espConsolePushLog(key);
+  };
+}
+
+function _espDisconnectWs(espId) {
+  var key = _espWsKey(espId);
+  var ws  = _espWsPool[key];
+  if (ws) { try { ws.close(); } catch(e2) {} delete _espWsPool[key]; }
+}
+
+function _espConsolePushLog(key) {
+  var el = document.getElementById('esp-ws-log-' + key);
+  if (!el || !_espCmdLog[key]) return;
+  el.innerHTML = _espCmdLog[key].slice(-12).reverse().map(function(entry) {
+    var col = entry.dir === 'sent' ? 'var(--cyan)' : 'var(--green)';
+    var t   = new Date(entry.ts * 1000).toLocaleTimeString();
+    return '<div style="padding:1px 0;border-bottom:1px solid rgba(255,255,255,.04)">'
+      + '<span style="color:var(--muted);margin-right:6px">' + t + '</span>'
+      + '<span style="color:' + col + '">' + (entry.dir==='sent'?'↑ ':'↓ ') + '</span>'
+      + '<span style="word-break:break-all">' + esc(entry.msg.slice(0,160)) + '</span>'
+      + '</div>';
+  }).join('');
+}
+
+function _espSendCmd(espId) {
+  var key = _espWsKey(espId);
+  var ws  = _espWsPool[key];
+  var dot = document.getElementById('esp-ws-dot-' + key);
+  var ta  = document.getElementById('esp-cmd-json-' + key);
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    if (dot) { dot.style.background='#f7768e'; dot.title='Non connecté'; }
+    return;
+  }
+  if (!ta || !ta.value.trim()) return;
+  var payload;
+  try {
+    JSON.parse(ta.value);
+    payload = ta.value.trim();
+  } catch(e) {
+    ta.style.borderColor = '#f7768e';
+    setTimeout(function() { if (ta) ta.style.borderColor = ''; }, 1500);
+    return;
+  }
+  ta.style.borderColor = '';
+  ws.send(payload);
+  if (!_espCmdLog[key]) _espCmdLog[key] = [];
+  _espCmdLog[key].push({dir:'sent', msg: payload, ts: Date.now()/1000});
+  if (_espCmdLog[key].length > 30) _espCmdLog[key].shift();
+  _espConsolePushLog(key);
+}
+
+function _espFormatJson(key) {
+  var ta = document.getElementById('esp-cmd-json-' + key);
+  if (!ta || !ta.value.trim()) return;
+  try {
+    ta.value = JSON.stringify(JSON.parse(ta.value), null, 2);
+    ta.style.borderColor = '';
+  } catch(e) {
+    ta.style.borderColor = '#f7768e';
+    setTimeout(function() { if (ta) ta.style.borderColor = ''; }, 1500);
+  }
+}
+
+function _renderEspConsole(esp) {
+  var key = _espWsKey(esp.id);
+  var ip  = (esp.catalog || {}).ip || (esp.meta || {}).ip || '';
+  var h = '<div style="padding:12px 14px">';
+  h += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">';
+  h += '<div id="esp-ws-dot-' + key + '" style="width:8px;height:8px;border-radius:50%;background:#e0af68;flex-shrink:0" title="Connexion WebSocket…"></div>';
+  h += '<span style="font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--muted)">CONSOLE</span>';
+  if (ip) h += '<code style="font-size:10px;color:var(--muted)">ws://' + esc(ip) + '/ws</code>';
+  h += '</div>';
+  if (!ip) {
+    h += '<p style="font-size:12px;color:var(--muted)">IP inconnue dans le catalogue — connexion directe impossible.</p>';
+  } else {
+    h += '<div style="margin-bottom:8px">';
+    h += '<div style="font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--muted);margin-bottom:5px">TEMPLATES SCÉNARIOS</div>';
+    h += '<div id="esp-tpl-' + key + '" style="font-size:11px;color:var(--muted);font-style:italic">Chargement…</div>';
+    h += '</div>';
+    h += '<textarea id="esp-cmd-json-' + key + '" rows="7" spellcheck="false" '
+      + 'style="width:100%;box-sizing:border-box;background:var(--surface2);border:1px solid var(--border);'
+      + 'color:var(--fg);padding:8px;border-radius:6px;font-size:11px;font-family:monospace;resize:vertical;'
+      + 'margin-bottom:6px;transition:border-color .2s" '
+      + 'placeholder=\'{"action":"transition","options":{"red":255,"green":0,"blue":0}}\'></textarea>';
+    h += '<div style="display:flex;gap:6px;margin-bottom:8px">';
+    h += '<button onclick="_espSendCmd(\'' + esc(esp.id) + '\')" '
+      + 'style="background:var(--accent);border:none;color:#fff;padding:5px 16px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600">&#9654; Envoyer</button>';
+    h += '<button onclick="_espFormatJson(\'' + key + '\')" '
+      + 'style="background:var(--surface2);border:1px solid var(--border);color:var(--fg);'
+      + 'padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">{ } Formater</button>';
+    h += '</div>';
+    h += '<div id="esp-ws-log-' + key + '" style="max-height:130px;overflow-y:auto;'
+      + 'background:var(--surface2);border-radius:4px;padding:6px 8px;font-size:10px;'
+      + 'font-family:monospace;color:var(--fg)"></div>';
+  }
+  return h + '</div>';
+}
+
+function _espLoadTemplates(esp) {
+  var key = _espWsKey(esp.id);
+  fetch('/api/esp-templates?hardware=' + encodeURIComponent(esp.id))
+    .then(function(r) { return r.json(); })
+    .then(function(templates) {
+      _espTemplates[key] = templates;
+      var tplEl = document.getElementById('esp-tpl-' + key);
+      if (!tplEl) return;
+      if (!templates || !templates.length) {
+        tplEl.innerHTML = '<span style="font-size:11px;color:var(--muted);font-style:italic">Aucun template dans les scénarios.</span>';
+        return;
+      }
+      tplEl.innerHTML = templates.map(function(t, i) {
+        return '<button onclick="_espApplyTemplate(\'' + key + '\',' + i + ')" '
+          + 'style="font-size:10px;background:var(--surface2);border:1px solid var(--border);'
+          + 'color:var(--fg);padding:3px 9px;border-radius:4px;cursor:pointer;margin:2px 2px 2px 0">'
+          + esc(t.scenario.replace('.json','')) + ' &middot; ' + esc(t.event || '?') + ' &middot; <b>' + esc(t.action) + '</b>'
+          + '</button>';
+      }).join('');
+    }).catch(function() {
+      var tplEl = document.getElementById('esp-tpl-' + key);
+      if (tplEl) tplEl.innerHTML = '<span style="font-size:11px;color:var(--muted)">Erreur de chargement.</span>';
+    });
+}
+
+function _espApplyTemplate(key, idx) {
+  var templates = _espTemplates[key];
+  if (!templates || !templates[idx]) return;
+  var tmpl = templates[idx];
+  var ta = document.getElementById('esp-cmd-json-' + key);
+  if (!ta) return;
+  ta.value = JSON.stringify({action: tmpl.action, options: tmpl.options || {}}, null, 2);
+}
+
+// ── Journal d'activité ────────────────────────────────────────────────────────
+
+function _actEntry(act) {
+  var col = _espStatusColor(_espEffectiveStatus({ status: act.status, updatedAt: act.ts }));
+  var t = act.ts ? new Date(act.ts * 1000).toLocaleTimeString() : '';
+  var scenario = act.scenario ? '<span style="font-size:9px;color:var(--muted);opacity:.6"> [' + esc(act.scenario) + ']</span>' : '';
+  var recvHtml = '';
+  var sentHtml = '';
+  if (act.received) {
+    var rObj; try { rObj = JSON.parse(act.received); } catch(ex) { rObj = null; }
+    var rPrev = rObj ? JSON.stringify(rObj).slice(0, 100) : act.received.slice(0, 100);
+    recvHtml = '<div style="font-family:monospace;font-size:10px;opacity:.75;margin-top:2px">'
+      + '<span style="color:var(--green)">↓ </span>' + esc(rPrev) + '</div>';
+  }
+  if (act.sent) {
+    var sObj; try { sObj = JSON.parse(act.sent); } catch(ex2) { sObj = null; }
+    var sLabel = (sObj && sObj.action) ? sObj.action : act.sent.slice(0, 80);
+    sentHtml = '<div style="font-family:monospace;font-size:10px;opacity:.75;margin-top:2px">'
+      + '<span style="color:var(--cyan)">↑ </span>' + esc(sLabel) + '</div>';
+  }
+  return '<div style="display:flex;gap:10px;padding:6px 10px;border-radius:4px;border-left:2px solid ' + col + ';background:var(--surface);margin-bottom:2px">'
+    + '<span style="font-size:10px;color:var(--muted);white-space:nowrap;min-width:64px;padding-top:1px">' + t + '</span>'
+    + '<div style="flex:1;min-width:0">'
+    +   '<span style="font-weight:700;font-size:11px;color:' + col + '">' + esc(act.espId) + '</span>'
+    +   scenario
+    +   recvHtml
+    +   sentHtml
+    + '</div>'
+    + '</div>';
+}
+
+function _actRender() {
+  var feed = $('act-feed');
+  var status = $('act-status');
+  if (!feed) return;
+  if (!_actLog.length) {
+    feed.innerHTML = '<div style="color:var(--muted);padding:48px 0;text-align:center;font-size:13px">Aucune activité. Lancez un scénario dans Unity.</div>';
+    if (status) status.textContent = '0 événements';
+    return;
+  }
+  var atBottom = (feed.scrollHeight - feed.scrollTop - feed.clientHeight) < 60;
+  feed.innerHTML = '<div style="display:flex;flex-direction:column-reverse;gap:0">'
+    + _actLog.slice(-200).reverse().map(_actEntry).join('')
+    + '</div>';
+  if (atBottom) feed.scrollTop = 0;
+  if (status) status.textContent = _actLog.length + ' événements';
+}
+
+function renderJournal() {
+  showMain(true);
+  if (_espEventSource) { _espEventSource.close(); _espEventSource = null; }
+  if (_espPollTimer)   { clearInterval(_espPollTimer); _espPollTimer = null; }
+
+  $('main').innerHTML = '<h1 class="ph">Journal d\'activité</h1>'
+    + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">'
+    + '<span id="act-status" style="font-size:12px;color:var(--muted)">Connexion…</span>'
+    + '<span style="font-size:11px;color:var(--muted);opacity:.6;margin-left:8px">Mise à jour en temps réel via SSE</span>'
+    + '<button onclick="_actClear()" style="margin-left:auto;background:none;border:1px solid var(--border);color:var(--muted);padding:3px 10px;border-radius:6px;font-size:12px;cursor:pointer">&#10005; Effacer</button>'
+    + '</div>'
+    + '<div id="act-feed" style="max-height:calc(100vh - 160px);overflow-y:auto"></div>';
+
+  fetch('/api/activity').then(function(r) { return r.json(); }).then(function(entries) {
+    _actLog = entries;
+    _actRender();
+  }).catch(function() {
+    var s = $('act-status');
+    if (s) s.textContent = 'Erreur de connexion';
+  });
+
+  var es = new EventSource('/api/events');
+  es.addEventListener('activity', function(e) {
+    var entry = JSON.parse(e.data);
+    _actLog.push(entry);
+    if (_actLog.length > 500) _actLog.splice(0, 100);
+    _actRender();
+  });
+  es.addEventListener('clear', function() {
+    _actLog = [];
+    _actRender();
+  });
+  es.onerror = function() {
+    var s = $('act-status');
+    if (s) s.textContent = (_actLog.length || '0') + ' événements (reconnexion SSE…)';
+  };
+  _espEventSource = es;
+}
+
+function _actClear() {
+  fetch('/api/esp/clear', { method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}' })
+    .then(function() {
+      _actLog = [];
+      _actRender();
+    });
+}
+
+function _scenarioCard(f) {
+  const badge = f.registered
+    ? '<span style="color:var(--green);font-size:10px">&#10003; dans ScenarioSettings.json</span>'
+    : '<span style="color:var(--yellow);font-size:10px">&#9888; non enregistré</span>';
+  return '<div class="mcard" onclick="go(\'scenarios\',{path:\'' + f.path + '\'})">'
+    + '<div class="mcard-hd"><div class="dot" style="background:var(--accent);width:10px;height:10px"></div>'
+    + '<div class="mcard-name">' + esc(f.name) + '</div></div>'
+    + '<div class="mcard-meta">' + badge + '</div></div>';
+}
+
+function _scenarioList(files) {
+  if (!files.length) return '<p style="color:var(--muted);font-size:13px">Aucun scénario trouvé dans StreamingAssets.</p>';
+  const unreg = files.filter(function(f) { return !f.registered; });
+  let html = '<div class="mgrid">' + files.map(_scenarioCard).join('') + '</div>';
+  if (unreg.length) {
+    html += '<div style="margin-top:10px;padding:10px 14px;background:var(--surface);border:1px solid var(--yellow)40;border-radius:8px;font-size:12px">'
+      + '<strong style="color:var(--yellow)">&#9888; ' + unreg.length + ' scénario' + (unreg.length > 1 ? 's' : '') + ' non enregistré' + (unreg.length > 1 ? 's' : '') + '</strong>'
+      + '<span style="color:var(--muted);margin-left:8px">— présents dans StreamingAssets mais absents de <code>ScenarioSettings.json</code>. Ils ne seront pas chargés par l\'application.</span>'
+      + '</div>';
+  }
+  return html;
+}
+
+function renderScenarios(filePath) {
+  const files = D.scenarioFiles || [];
+  if (filePath) { openScenario(filePath); return; }
+  showMain(true);
+  $('main').innerHTML = `
+    <h1 class="ph">Scénarios <small>${files.length} fichier${files.length!==1?'s':''}</small></h1>
+    ${_scenarioList(files)}
+
+    <div style="margin-top:20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600">Légende</div>
+      ${[
+        ['ActionEvent',      'ActionEvent.png',      SCE_COLORS.ActionEvent],
+        ['InteractionEvent', 'InterActionEvent.png', SCE_COLORS.InteractionEvent],
+        ['CommentEvent',     'CommentEvent.png',     SCE_COLORS.CommentEvent],
+        ['Start Event',      'ActionEvent.png',      SCE_COLORS.Start],
+        ['Stop Event',       'ActionEvent.png',      SCE_COLORS.Stop],
+      ].map(([lbl, ico, c]) => `
+        <div class="sce-leg">
+          <img src="/icons/${ico}" style="width:14px;height:14px;object-fit:contain;flex-shrink:0">
+          <div class="sce-node" style="background:${c.bg};border:1px solid ${c.border}"></div>
+          <span style="color:${c.text}">${lbl}</span>
+        </div>`).join('')}
+    </div>
+
+    <!-- Inventaire hardware -->
+    ${(() => {
+      const hw = D.hardwareInventory || [];
+      if (!hw.length) return '';
+      const byType = {};
+      hw.forEach(h => {
+        const t = [...new Set(h.uses.map(u=>u.type).filter(Boolean))][0] || '?';
+        (byType[t] = byType[t]||[]).push(h);
+      });
+      return `
+    <div style="margin-top:28px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+        <h2 style="font-size:16px;font-weight:600;margin:0">Inventaire hardware</h2>
+        <span style="font-size:12px;color:var(--muted)">${hw.length} device${hw.length!==1?'s':''}</span>
+        ${Object.entries(byType).map(([t,items])=>`
+          <span style="font-size:10px;padding:2px 6px;border-radius:4px;background:var(--surface2);color:var(--muted)"
+          >${t} ${items.length}</span>`).join('')}
+      </div>
+      <input class="search" placeholder="Filtrer…" oninput="filterHw(this.value)"
+             style="margin-bottom:10px">
+      <div id="hw-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px">
+        ${hw.map(h => hwCard(h)).join('')}
+      </div>
+    </div>`;
+    })()}
+  `;
+}
+
+async function openScenario(filePath) {
+  showMain(false);
+  GRAPH_MODE = 'scenario';
+  $('graph-ctrl').style.display   = 'none';
+  $('graph-legend').style.display = 'none';
+  $('graph-filter-bar').style.display = 'none';
+  $('scenario-detail').style.display = 'none';
+  $('scenario-info').style.display   = 'flex';
+  $('scenario-name').textContent = filePath.split('/').pop();
+  if (NET) { NET.destroy(); NET = null; }
+
+  try {
+    const r = await fetch('/api/file?path=' + encodeURIComponent(filePath));
+    const d = await r.json();
+    if (d.error) { alert('Erreur : ' + d.error); return; }
+    const data   = JSON.parse(d.content);
+    const events = data.events || [];
+    buildScenarioHTML(events);
+  } catch(e) { alert('Impossible de charger le scénario : ' + e.message); }
+}
+
+function actionCardHTML(a) {
+  const icon = ACTION_TYPE_ICON[a.type] || 'placeholder.png';
+  const parts = (a.options?.hardware || '').split('_');
+  const hw = parts.length > 2 ? parts.slice(-2).join('_') : (a.options?.hardware || '');
+  const cmd = (a.action || a.type || '').replace(/_/g, ' ');
+  return `<div class="sce-act-card">
+    <img src="/icons/${icon}" class="sce-act-icon" onerror="this.src='/icons/placeholder.png'">
+    <div class="sce-act-info">
+      <div class="sce-act-cmd">${esc(cmd)}</div>
+      ${hw ? `<div class="sce-act-hw">${esc(hw)}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+function buildScenarioHTML(events) {
+  const container = $('graph-canvas');
+  if (!container) return;
+  if (NET) { NET.destroy(); NET = null; }
+  container.innerHTML = '';
+
+  const SCALE = 65, PAD = 60;
+  const xs = events.map(e => (e.interface?.coordinate||[0,0])[0]);
+  const ys = events.map(e => (e.interface?.coordinate||[0,0])[1]);
+  const minX = Math.min(...xs), maxY = Math.max(...ys);
+
+  const pz = document.createElement('div');
+  pz.id = 'sce-panzoom';
+
+  const vp = document.createElement('div');
+  vp.id = 'sce-viewport';
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.id = 'sce-edges';
+  svg.style.cssText = 'position:absolute;top:0;left:0;overflow:visible;pointer-events:none;z-index:0';
+  svg.innerHTML = `<defs><marker id="sce-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+    <polygon points="0 0,7 3,0 6" fill="rgba(255,255,255,.55)"/></marker></defs>`;
+  vp.appendChild(svg);
+
+  events.forEach(ev => {
+    const [cx, cy] = ev.interface?.coordinate || [0,0];
+    const x = (cx - minX) * SCALE + PAD;
+    const y = (maxY - cy) * SCALE + PAD;
+    const cols = sceNodeCols(ev);
+    const nd = document.createElement('div');
+    nd.dataset.id = ev.id;
+    nd.style.left = x + 'px';
+    nd.style.top  = y + 'px';
+
+    if (ev.event_type === 'CommentEvent') {
+      nd.className = 'sce-comment-box';
+      nd.style.background  = cols.bg;
+      nd.style.borderColor = cols.border;
+      nd.innerHTML = `<span style="color:${cols.text}">${esc(ev.interface?.name||'')}</span>`;
+    } else {
+      nd.className = 'sce-event-node';
+      nd.style.background  = cols.bg;
+      nd.style.borderColor = cols.border;
+      const typeIcon = SCE_EVENT_ICON[ev.event_type] || 'placeholder.png';
+      const acts = ev.actions || [];
+      nd.innerHTML = `
+        <div class="sce-node-header" style="border-bottom:1px solid rgba(255,255,255,.08)">
+          <img src="/icons/${typeIcon}" class="sce-type-icon" onerror="this.style.display='none'">
+          <span class="sce-node-name" style="color:${cols.text}">${esc(ev.interface?.name||'')}</span>
+          <span class="sce-duration-badge">${ev.duration}s</span>
+        </div>
+        ${acts.length
+          ? `<div class="sce-node-actions">${acts.map(a => actionCardHTML(a)).join('')}</div>`
+          : `<div style="padding:3px 8px;font-size:9px;color:rgba(255,255,255,.2)">—</div>`}`;
+    }
+    nd.addEventListener('click', e => { e.stopPropagation(); showSceNodeDetail(ev, cols); });
+    vp.appendChild(nd);
+  });
+
+  // Fit button
+  const fitBtn = document.createElement('button');
+  fitBtn.className = 'gbtn';
+  fitBtn.style.cssText = 'position:absolute;bottom:10px;right:10px;z-index:10;padding:4px 10px;font-size:14px';
+  fitBtn.title = 'Ajuster la vue'; fitBtn.textContent = '⤢';
+  pz.appendChild(vp);
+  pz.appendChild(fitBtn);
+  container.appendChild(pz);
+
+  requestAnimationFrame(() => {
+    _drawSceEdges(events, vp, svg, svgNS);
+    const { fit } = _setupScePanZoom(pz, vp);
+    fitBtn.addEventListener('click', e => { e.stopPropagation(); fit(); });
+    fit();
+  });
+  pz.addEventListener('click', () => { const d=$('scenario-detail'); if(d) d.style.display='none'; });
+}
+
+function showSceNodeDetail(ev, cols) {
+  const detail = $('scenario-detail');
+  if (!detail) return;
+  const acts = ev.actions || [];
+  detail.style.display = 'block';
+  detail.innerHTML = `
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+      <div style="width:10px;height:10px;border-radius:2px;background:${cols.bg};border:1px solid ${cols.border};flex-shrink:0"></div>
+      <strong>${esc(ev.interface?.name || ev.id)}</strong>
+      <button onclick="this.parentElement.parentElement.style.display='none'"
+        style="margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer">✕</button>
+    </div>
+    <div style="color:var(--muted);margin-bottom:6px">
+      ${ev.event_type} · <span style="color:${cols.text}">${ev.event_role}</span> · ${ev.duration}s
+    </div>
+    ${acts.length ? `
+      <div style="font-weight:600;margin-bottom:4px">Actions (${acts.length})</div>
+      ${acts.slice(0,10).map(a => `
+        <div style="padding:2px 0;border-bottom:1px solid var(--border);color:var(--muted)">
+          <span style="color:var(--text)">${esc(a.action||'?')}</span>
+          <span style="font-size:10px"> · ${esc(a.type||'')}</span>
+          ${a.options?.hardware
+            ? `<div style="font-size:10px;color:var(--border)">${esc(a.options.hardware)}</div>` : ''}
+        </div>`).join('')}
+      ${acts.length>10?`<div style="font-size:11px;color:var(--border);padding-top:3px">+${acts.length-10} autres</div>`:''}
+    ` : '<span style="color:var(--muted)">Aucune action</span>'}`;
+}
+
+function _drawSceEdges(events, vp, svg, svgNS) {
+  events.filter(ev => ev.next_event_id).forEach(ev => {
+    const src = vp.querySelector(`[data-id="${ev.id}"]`);
+    const dst = vp.querySelector(`[data-id="${ev.next_event_id}"]`);
+    if (!src || !dst) return;
+    const fx = src.offsetLeft + src.offsetWidth / 2;
+    const fy = src.offsetTop  + src.offsetHeight;
+    const tx = dst.offsetLeft + dst.offsetWidth / 2;
+    const ty = dst.offsetTop;
+    const bend = Math.max(Math.abs(ty - fy) * 0.35, 30);
+    const d = `M ${fx} ${fy} C ${fx} ${fy+bend}, ${tx} ${ty-bend}, ${tx} ${ty}`;
+    const cols = sceNodeCols(ev);
+    const path = document.createElementNS(svgNS, 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', cols.text);
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.6');
+    path.setAttribute('marker-end', 'url(#sce-arr)');
+    svg.appendChild(path);
+  });
+}
+
+function _setupScePanZoom(pz, vp) {
+  let tx=0, ty=0, sc=1, drag=false, lx=0, ly=0;
+  const apply = () => { vp.style.transform = `translate(${tx}px,${ty}px) scale(${sc})`; };
+
+  function fit() {
+    const cr = pz.getBoundingClientRect();
+    const nodes = Array.from(vp.querySelectorAll('.sce-event-node,.sce-comment-box'));
+    if (!nodes.length) return;
+    let x1=Infinity,y1=Infinity,x2=-Infinity,y2=-Infinity;
+    nodes.forEach(n => {
+      const l=parseFloat(n.style.left)||0, t=parseFloat(n.style.top)||0;
+      x1=Math.min(x1,l); y1=Math.min(y1,t);
+      x2=Math.max(x2,l+(n.offsetWidth||210)); y2=Math.max(y2,t+(n.offsetHeight||80));
+    });
+    const P=50, cw=x2-x1+P*2, ch=y2-y1+P*2;
+    sc = Math.min(cr.width/cw, cr.height/ch, 1.1);
+    tx = (cr.width  - cw*sc)/2 - (x1-P)*sc;
+    ty = (cr.height - ch*sc)/2 - (y1-P)*sc;
+    apply();
+  }
+
+  pz.addEventListener('mousedown', e => {
+    if (e.target.closest('.sce-event-node,.sce-comment-box,.gbtn')) return;
+    drag=true; lx=e.clientX; ly=e.clientY;
+    pz.classList.add('pz-dragging'); e.preventDefault();
+  });
+  document.addEventListener('mouseup', () => { drag=false; pz.classList.remove('pz-dragging'); });
+  document.addEventListener('mousemove', e => {
+    if (!drag) return;
+    tx+=e.clientX-lx; ty+=e.clientY-ly; lx=e.clientX; ly=e.clientY; apply();
+  });
+  pz.addEventListener('wheel', e => {
+    e.preventDefault();
+    const r=pz.getBoundingClientRect();
+    const mx=e.clientX-r.left, my=e.clientY-r.top;
+    const f=e.deltaY>0?.85:1.18, ns=Math.max(.1,Math.min(3,sc*f));
+    tx=mx-(mx-tx)*(ns/sc); ty=my-(my-ty)*(ns/sc); sc=ns; apply();
+  }, {passive:false});
+
+  return { fit };
+}
+
+
+// ── Recherche full-text ───────────────────────────────────────────────────────
+function renderSearch(q) {
+  showMain(true);
+  $('main').innerHTML = `
+    <h1 class="ph">Recherche <small style="font-size:12px">Ctrl+K</small></h1>
+    <input class="search" id="global-search" value="${esc(q)}"
+           placeholder="Rechercher dans tout le code, docs, JSON… (min. 2 car.)"
+           oninput="onSearchInput(this.value)">
+    <div id="search-results" style="margin-top:4px">
+      ${q.length >= 2 ? '<span style="color:var(--muted);font-size:13px">Recherche…</span>' : ''}
+    </div>`;
+  $('global-search').focus();
+  if (q.length >= 2) doSearch(q);
+}
+
+function onSearchInput(q) {
+  clearTimeout(_searchTimer);
+  history.replaceState(null, '', '#search' + (q ? SEP + encodeURIComponent(q) : ''));
+  if (q.length < 2) { $('search-results').innerHTML = ''; return; }
+  $('search-results').innerHTML = '<span style="color:var(--muted);font-size:13px">Recherche…</span>';
+  _searchTimer = setTimeout(() => doSearch(q), 280);
+}
+
+async function doSearch(q) {
+  try {
+    const r = await fetch('/api/search?q=' + encodeURIComponent(q));
+    const d = await r.json();
+    const el = $('search-results');
+    if (!el) return;
+    if (!d.results?.length) {
+      el.innerHTML = '<span style="color:var(--muted);font-size:13px">Aucun résultat.</span>';
+      return;
+    }
+    const qEsc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re   = new RegExp(qEsc, 'gi');
+    el.innerHTML = `
+      <div style="color:var(--muted);font-size:12px;margin-bottom:10px">
+        ${d.total} occurrence${d.total>1?'s':''} dans ${d.results.length} fichier${d.results.length>1?'s':''}
+      </div>
+      ${d.results.map(f => `
+        <div class="refs-file">
+          <div class="refs-fname" onclick="go('file',{path:'${f.file}',mod:''})">${esc(f.file)}</div>
+          ${f.matches.map(m => `
+            <div class="refs-line">L${m.line}&nbsp; ${esc(m.text).replace(re, match => `<em>${match}</em>`)}</div>
+          `).join('')}
+          ${f.total > f.matches.length ? `<div style="font-size:11px;color:var(--border);padding:2px 8px">+${f.total-f.matches.length} lignes</div>` : ''}
+        </div>`).join('')}`;
+  } catch(e) {
+    const el = $('search-results');
+    if (el) el.innerHTML = `<span style="color:var(--red)">Erreur : ${esc(e.message)}</span>`;
+  }
+}
+
+// ── CSV ───────────────────────────────────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (!lines.length) return { headers: [], rows: [] };
+  const nComma = (lines[0].match(/,/g)||[]).length;
+  const nSemi  = (lines[0].match(/;/g)||[]).length;
+  const sep    = nSemi > nComma ? ';' : ',';
+  function parseLine(line) {
+    const cells = []; let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+      else if (ch === sep && !inQ) { cells.push(cur); cur = ''; }
+      else cur += ch;
+    }
+    cells.push(cur);
+    return cells;
+  }
+  return { headers: parseLine(lines[0]), rows: lines.slice(1).map(parseLine) };
+}
+
+function renderCsvContent(content) {
+  const { headers, rows } = parseCSV(content);
+  _csvRows = rows.slice(); _csvSortCol = -1; _csvSortAsc = true;
+  return `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <input class="search" id="csv-filter" style="margin:0;flex:1"
+             placeholder="Filtrer les lignes…" oninput="filterCsvRows(this.value)">
+      <span style="font-size:12px;color:var(--muted);flex-shrink:0" id="csv-count">${rows.length} lignes</span>
+    </div>
+    <div class="csv-wrap">
+      <table class="csv-tbl">
+        <thead><tr>${headers.map((h,i) => `<th onclick="sortCsv(${i})">${esc(h)} <span style="color:var(--border)">↕</span></th>`).join('')}</tr></thead>
+        <tbody id="csv-body">${csvRowsHtml(_csvRows)}</tbody>
+      </table>
+    </div>`;
+}
+
+function csvRowsHtml(rows) {
+  const q = $('csv-filter')?.value.toLowerCase() || '';
+  const visible = q ? rows.filter(r => r.some(c => c.toLowerCase().includes(q))) : rows;
+  if ($('csv-count')) $('csv-count').textContent = `${visible.length} / ${_csvRows.length} lignes`;
+  return visible.map(row => `<tr>${row.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('');
+}
+
+function filterCsvRows(q) {
+  const el = $('csv-body'); if (!el) return;
+  q = q.toLowerCase();
+  const visible = q ? _csvRows.filter(r => r.some(c => c.toLowerCase().includes(q))) : _csvRows;
+  if ($('csv-count')) $('csv-count').textContent = `${visible.length} / ${_csvRows.length} lignes`;
+  el.innerHTML = visible.map(row => `<tr>${row.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('');
+}
+
+function sortCsv(col) {
+  _csvSortAsc = _csvSortCol === col ? !_csvSortAsc : true;
+  _csvSortCol = col;
+  _csvRows.sort((a, b) => {
+    const va = a[col] || '', vb = b[col] || '';
+    const n = parseFloat(va) - parseFloat(vb);
+    if (!isNaN(n)) return _csvSortAsc ? n : -n;
+    return _csvSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+  filterCsvRows($('csv-filter')?.value || '');
+}
+
+// ── Dead code ─────────────────────────────────────────────────────────────────
+function toggleDeadCode() {
+  SHOW_DEAD_ONLY = !SHOW_DEAD_ONLY;
+  $('dead-btn').classList.toggle('on', SHOW_DEAD_ONLY);
+  filterCls($('cls-search')?.value || '');
+}
+
+// ── Wiki Links ────────────────────────────────────────────────────────────────
+function resolveWikiLinks(text) {
+  if (!D) return text;
+  return text.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, label) => {
+    const name    = target.trim();
+    const display = (label || target).trim();
+    const cls = D.classes.find(c => c.name === name);
+    if (cls) return `[${display}](#class${SEP}${name})`;
+    const mod = D.modules.find(m => m.name === name);
+    if (mod) return `[${display}](#module${SEP}${name})`;
+    const doc = (D.projectDocs || []).find(d => d.name === name);
+    if (doc) return `[${display}](#file${SEP}${encodeURIComponent(doc.path)}${SEP})`;
+    return `<span class="wiki-unresolved" title="Lien non résolu">[[${display}]]</span>`;
+  });
+}
+
+function parseMd(text) {
+  return marked.parse(resolveWikiLinks(text));
+}
+
+// ── Methods ───────────────────────────────────────────────────────────────────
+function methodRow(m) {
+  const mods = m.mods.length ? m.mods.join(' ') + ' ' : '';
+  const acc  = m.access === 'public' ? `<span style="color:var(--green)">${m.access}</span>`
+             : m.access === 'protected' ? `<span style="color:var(--yellow)">${m.access}</span>`
+             : `<span style="color:var(--muted)">${m.access}</span>`;
+  return `<div class="method-item">
+    <div class="method-sig">${acc}${mods
+      ? ` <span style="color:var(--muted);font-style:italic">${esc(mods)}</span>` : ''
+    } <span style="color:var(--cyan)">${esc(m.ret)}</span> <span style="color:var(--accent);font-weight:600">${esc(m.name)}</span><span style="color:var(--muted)">(${esc(m.params)})</span></div>
+    ${m.desc ? `<div class="method-desc">${esc(m.desc)}</div>` : ''}
+  </div>`;
+}
+
+// ── Project Docs ──────────────────────────────────────────────────────────────
+function showNewProjectDocForm() {
+  const form = $('proj-doc-form');
+  if (form) { form.style.display = ''; $('proj-doc-name').focus(); }
+}
+function hideNewProjectDocForm() {
+  const form = $('proj-doc-form');
+  if (form) form.style.display = 'none';
+}
+
+async function saveNewProjectDoc() {
+  const name = $('proj-doc-name').value.trim().replace(/\.md$/i, '');
+  if (!name) { $('proj-doc-name').focus(); return; }
+  const content = $('proj-doc-content').value;
+  const filePath = `_wiki/${name}.md`;
+  try {
+    const r = await fetch('/api/file-write', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({path: filePath, content})
+    });
+    const d = await r.json();
+    if (d.error) { alert('Erreur : ' + d.error); return; }
+    const r2 = await fetch('/api/scan');
+    D = await r2.json();
+    D.modules.forEach(m => col(m.name));
+    renderSidebar();
+    go('home');
+  } catch(e) { alert('Erreur : ' + e.message); }
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function load() {
+  // Intercepteur de clics sur liens wiki rendus dans le markdown
+  $('main').addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) { e.preventDefault(); goFromHash(a.getAttribute('href').slice(1)); }
+  });
+
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      go('search');
+    }
+  });
+
+  try {
+    const r = await fetch('/api/scan');
+    D = await r.json();
+    D.modules.forEach(m => col(m.name));
+    renderSidebar();
+    const initHash = location.hash.slice(1);
+    if (initHash) goFromHash(initHash);
+    else _render('home', {});
+  } catch(e) {
+    $('loading').textContent = 'Impossible de joindre le serveur : ' + e.message;
+  }
+}
+
+async function reload() {
+  const btn = $('refresh-btn');
+  btn.textContent = '…';
+  btn.disabled = true;
+  try {
+    const r = await fetch('/api/scan');
+    D = await r.json();
+    D.modules.forEach(m => col(m.name));
+    renderSidebar();
+    go('home');
+  } finally {
+    btn.textContent = '↺ Actualiser';
+    btn.disabled = false;
+  }
+}
+
+load();
+</script>
+</body>
+</html>

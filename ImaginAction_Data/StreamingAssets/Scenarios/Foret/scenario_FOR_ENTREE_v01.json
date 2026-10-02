@@ -1,0 +1,1166 @@
+{
+    "events": [
+        {
+            "id": "PmsRvyh-zES5HokX_BYQX",
+            "next_event_id": "1PIk3HYYmL6tdfH3hPHWB",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Start",
+            "interface": {
+                "name": "PmsRvyh-zES5HokX_BYQX",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "huCzb6Te5lhzGOqPaWQcQ",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1PIk3HYYmL6tdfH3hPHWB",
+            "next_event_id": "1xaGr1-VPYI9I5ykzi5Lf",
+            "event_type": "ActionEvent",
+            "duration": 13,
+            "event_role": "None",
+            "interface": {
+                "name": "1PIk3HYYmL6tdfH3hPHWB",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Lj8qjKQsw89aFkz6409dx",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "1",
+                        "transition_time": "3"
+                    }
+                },
+                {
+                    "id": "sbj4k_6RtUkPG0NExarU4",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "30",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Entree_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "mbUZbKz5qBji8esoFBPEc",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Entree_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1xaGr1-VPYI9I5ykzi5Lf",
+            "next_event_id": "DBXJ9AOfYIDXLd206Ciqj",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "1xaGr1-VPYI9I5ykzi5Lf",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EYtT_c5Pqc0LsF5_Rpgd8",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "60",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "DBXJ9AOfYIDXLd206Ciqj",
+            "next_event_id": "32jx8550-pV5Z5fVBGBdd",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "DBXJ9AOfYIDXLd206Ciqj",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Q2bTbK93Vkbrdd2U3VU5F",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "8B2Tj8E9DwD_twfM_gsUq",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "2",
+                        "transition_time": "4"
+                    }
+                },
+                {
+                    "id": "v80N3JnamwBORgcRjEcRq",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "1",
+                        "diffusion": "10000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "Rz86MgpuPwnopMjGgLCjU",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_02.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "32jx8550-pV5Z5fVBGBdd",
+            "next_event_id": "M_17_8WjdFiWPfFL2A3uH",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "32jx8550-pV5Z5fVBGBdd",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "FeO4Y6l5kzmdZ1bIkOX0V",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_01.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "MO2U1_wq9UUnamI_0hFLw",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "30",
+                        "fade_time": "4",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "M_17_8WjdFiWPfFL2A3uH",
+            "next_event_id": "XRiTwebVrWrvhEr41H6oE",
+            "event_type": "ActionEvent",
+            "duration": 13,
+            "event_role": "None",
+            "interface": {
+                "name": "M_17_8WjdFiWPfFL2A3uH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DthypOLu72XHLZKJOgQsc",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_01.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XRiTwebVrWrvhEr41H6oE",
+            "next_event_id": "P6OP8hf73J-YndsYPX20l",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "XRiTwebVrWrvhEr41H6oE",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6lRnr9n2yRSee5T7QRSAl",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_02.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P6OP8hf73J-YndsYPX20l",
+            "next_event_id": "Cm0h9itlzcPAFc0cila32",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "P6OP8hf73J-YndsYPX20l",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "nxnIly0LvSEBfOqOhabCK",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_02.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Cm0h9itlzcPAFc0cila32",
+            "next_event_id": "ujBkp_ILBcVZpGPEWTLOq",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Cm0h9itlzcPAFc0cila32",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "QFK5Yt5IZUj6QgvAmpWB8",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_03.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "jShLyvGGKsTCvZaHyoB1A",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "3",
+                        "diffusion": "3000",
+                        "pause": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ujBkp_ILBcVZpGPEWTLOq",
+            "next_event_id": "2qDwxZD_n71jqxYuZhkKF",
+            "event_type": "ActionEvent",
+            "duration": 15,
+            "event_role": "None",
+            "interface": {
+                "name": "ujBkp_ILBcVZpGPEWTLOq",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -90.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NcpprtZ2S0G0KThkBrwrt",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_03.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2qDwxZD_n71jqxYuZhkKF",
+            "next_event_id": "CoO-mg1gdCE0Kr0ZpvIgT",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "2qDwxZD_n71jqxYuZhkKF",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -100.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vl8nbd__jbUWg8Z8z2WCH",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_04.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "CoO-mg1gdCE0Kr0ZpvIgT",
+            "next_event_id": "4bPHG6pCbL0RTR06OpjwF",
+            "event_type": "ActionEvent",
+            "duration": 12,
+            "event_role": "None",
+            "interface": {
+                "name": "CoO-mg1gdCE0Kr0ZpvIgT",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -110.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0bXSkGV3CZ62PN7zcXmaw",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_04.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4bPHG6pCbL0RTR06OpjwF",
+            "next_event_id": "KBK3lPawJrlSJqO6rsy6n",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "4bPHG6pCbL0RTR06OpjwF",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -120.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "qgkF8SxCqnUwFBibqz2k_",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_05.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "KBK3lPawJrlSJqO6rsy6n",
+            "next_event_id": "LqfRN4m34-mHAq0O57T_o",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "KBK3lPawJrlSJqO6rsy6n",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -130.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "zXaG_MKcvIRajZkdsidQw",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_05.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "LqfRN4m34-mHAq0O57T_o",
+            "next_event_id": "GxuUcooGWj4PosqS3joHH",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "LqfRN4m34-mHAq0O57T_o",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -140.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7K7tA3O0EqvsuWbPZgIFT",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_06.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "GxuUcooGWj4PosqS3joHH",
+            "next_event_id": "GL_unNovmVToNnVPZx2dU",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "GxuUcooGWj4PosqS3joHH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -150.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "bOnPBy0FDTR4pxZvX7GQv",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_06.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "GL_unNovmVToNnVPZx2dU",
+            "next_event_id": "x23JEvK64oTJY8v0S8OGs",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "GL_unNovmVToNnVPZx2dU",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -160.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "iEfObv75p0xXoM2vAQebw",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_07.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "x23JEvK64oTJY8v0S8OGs",
+            "next_event_id": "nCqGP3IJZL0wih-6AGqky",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "x23JEvK64oTJY8v0S8OGs",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -170.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-GAZvK5QhURW74V3F965W",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "70",
+                        "fade_time": "4",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                },
+                {
+                    "id": "kQNq5PVOUn8LbBNTZRkTU",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "150",
+                        "green": "1",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Entree_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "n0qE-aMBAcaAwKWmbXqI5",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "255",
+                        "blue": "50",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Entree_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "0qSnOQCfaP6nqGsPYNUiz",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_01.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nCqGP3IJZL0wih-6AGqky",
+            "next_event_id": "CEag55XsrzewiAq0JpEOJ",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "nCqGP3IJZL0wih-6AGqky",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -180.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "LJ6KH67xMcFtDADLOVC8U",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "100",
+                        "fade_time": "4",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                },
+                {
+                    "id": "PLkZ87ofqWpONGlmuDMm3",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_08.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "CEag55XsrzewiAq0JpEOJ",
+            "next_event_id": "oVuk8hb1B7g2L_xKSIcFm",
+            "event_type": "ActionEvent",
+            "duration": 11,
+            "event_role": "None",
+            "interface": {
+                "name": "CEag55XsrzewiAq0JpEOJ",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -190.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0zGhWDM7jTM_jwJZkQw9d",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_08.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "oVuk8hb1B7g2L_xKSIcFm",
+            "next_event_id": "9W37yMI8Zvy0sXODz3obf",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "oVuk8hb1B7g2L_xKSIcFm",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -200.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Wo96IIJs3t8hm1_0tRhIJ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_09.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9W37yMI8Zvy0sXODz3obf",
+            "next_event_id": "wa9e3gBNzFPEe0GIl6VuX",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "9W37yMI8Zvy0sXODz3obf",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -210.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VogW5v2qKg5tx3zwTUJgE",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_09.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "wa9e3gBNzFPEe0GIl6VuX",
+            "next_event_id": "8nu6VylzutdF9-AFY8QYv",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "wa9e3gBNzFPEe0GIl6VuX",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -220.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "f7Ar8CroVtsz29-ezXbRv",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "1",
+                        "blue": "50",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Entree_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "Co3nixKqjvUHX64NrS0Re",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "1",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Entree_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "OJulipSBQtuxJLelfNrd9",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_03.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8nu6VylzutdF9-AFY8QYv",
+            "next_event_id": "2ykvuslawQ34KJiimPMTu",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "8nu6VylzutdF9-AFY8QYv",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -230.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "pByOVGxYelXAnqAv5eucb",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "2",
+                        "diffusion": "5000",
+                        "pause": "3000"
+                    }
+                },
+                {
+                    "id": "zOdegtTay_VdciOWZpb_n",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "10",
+                        "fade_time": "3",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2ykvuslawQ34KJiimPMTu",
+            "next_event_id": "z5G_BkUsVyU4mjCHqL0Ff",
+            "event_type": "ActionEvent",
+            "duration": 15,
+            "event_role": "None",
+            "interface": {
+                "name": "2ykvuslawQ34KJiimPMTu",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -240.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "GTX9A3ONcIP7TNzfXk49P",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_10.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "z5G_BkUsVyU4mjCHqL0Ff",
+            "next_event_id": "-Uzi7VCA94kLG4vyAwL63",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "z5G_BkUsVyU4mjCHqL0Ff",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -250.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "qWy2RoxJTsCoStErPDQ9G",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_10.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "-iNd3pZpGGq4UcB4qzKEm",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_Orage-Loin.wav",
+                        "volume": "60"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-Uzi7VCA94kLG4vyAwL63",
+            "next_event_id": "a4csbskQxAA7fJUj9Ml38",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "-Uzi7VCA94kLG4vyAwL63",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -260.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "SktB5e7hmpP3SovO-OKWh",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHENILLE/AL_DIAL_FOR_CHENILLE_11.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "CxNYenY7G9TQv5TzY8FIR",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "u-NZpMaQ8_LQ-1qlHgRk0",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "1",
+                        "diffusion": "6000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "7JltH5nKPedpkCQ204P4v",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "40",
+                        "fade_time": "2",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "a4csbskQxAA7fJUj9Ml38",
+            "next_event_id": "qxIpm7tV0OzpQOyJP75qi",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "a4csbskQxAA7fJUj9Ml38",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -270.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EjSqF2H0h3HEXzaxsCafi",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_11.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qxIpm7tV0OzpQOyJP75qi",
+            "next_event_id": "XWOIX17C04_XvuS1xvO-m",
+            "event_type": "ActionEvent",
+            "duration": 25,
+            "event_role": "None",
+            "interface": {
+                "name": "qxIpm7tV0OzpQOyJP75qi",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -280.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "w4pnY6FPPefDVJofELi9D",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "_ay8UXR5don6CccEKLdX4",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "0",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XWOIX17C04_XvuS1xvO-m",
+            "next_event_id": "BerZWPH0kqw-MQ2qUd4y0",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "XWOIX17C04_XvuS1xvO-m",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -290.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "o89Le8CIqarfWcCJ7ipZ1",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_12.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "cqL2-82ZIJEttlhyi2VBj",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "BerZWPH0kqw-MQ2qUd4y0",
+            "next_event_id": "nJQN2RhKTgGUlSMFnQzQv",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "BerZWPH0kqw-MQ2qUd4y0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -300.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-yQh-HjdaAuKIs-xTXo2b",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "fade_time": "4",
+                        "is_rgb": "false",
+                        "hardware": "For_Entree_MONO_Global"
+                    }
+                },
+                {
+                    "id": "8K4vUBOxBUOWCbO1ElBiy",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "fade_time": "6",
+                        "is_rgb": "true",
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nJQN2RhKTgGUlSMFnQzQv",
+            "next_event_id": "5f0e2b7c9a414d3f8c6b1d2e4a597013",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "nJQN2RhKTgGUlSMFnQzQv",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -310.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7NZ9mp0-zl4_AK8QDpa1a",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "0",
+                        "fade_time": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5f0e2b7c9a414d3f8c6b1d2e4a597013",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -320.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7c1d3e5f8a924b6c0d2e4f6a8c1b3d50",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "9e2f4a6c8b135d7e0f2a4c6e8b0d2f47",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Entree_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                }
+            ]
+        }
+    ]
+}

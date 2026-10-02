@@ -1,0 +1,125 @@
+{
+    "events": [
+        {
+            "id": "fb2d05f89a8845668d8b26f11c38a3d6",
+            "next_event_id": "15afaf7ebfd14bc0b9c6855f3c48d8f5",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "event_role": "Start",
+            "interface": {
+                "name": "start",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -67.2526931762695,
+                    67.0207901000977
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "15afaf7ebfd14bc0b9c6855f3c48d8f5",
+            "next_event_id": "8fb83a3ef7074ff882ccc1c28ac7ccbd",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "omg",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -67.0475540161133,
+                    52.914794921875
+                ]
+            },
+            "actions": [
+                {
+                    "id": "30d83208d20e42429fa7856e51cfd6a1",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8fb83a3ef7074ff882ccc1c28ac7ccbd",
+            "next_event_id": "2a14e43f91d54480b0e50b1dd117a3b0",
+            "event_type": "ActionEvent",
+            "duration": 35,
+            "event_role": "Stop",
+            "interface": {
+                "name": "8fb83a3ef7074ff882ccc1c28ac7ccbd",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -68.6556930541992,
+                    44.2199325561523
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c9788fa652454f9ca24b552550b4af31",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "0",
+                        "taille_vague": "10"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2a14e43f91d54480b0e50b1dd117a3b0",
+            "next_event_id": "",
+            "event_type": "InteractionEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "2a14e43f91d54480b0e50b1dd117a3b0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -69.3636169433594,
+                    36.0278511047363
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "c42cc3cafe9f4febbeef9a62d96f5632",
+            "next_event_id": "15afaf7ebfd14bc0b9c6855f3c48d8f5",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -58.8488388061523,
+                    56.3867340087891
+                ]
+            },
+            "actions": [
+                
+            ]
+        }
+    ]
+}

@@ -1,0 +1,689 @@
+{
+    "events": [
+        {
+            "id": "f7c2bfeec0774b39b0cc0179d6642f1e",
+            "next_event_id": "3eef0f6838664ef6a57cad04584e06e9",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "BLEU",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -29.6056976318359,
+                    -7.5406813621521
+                ]
+            },
+            "actions": [
+                {
+                    "id": "d4ec9d8a37d14f5abb5c4630789727ce",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3eef0f6838664ef6a57cad04584e06e9",
+            "next_event_id": "22436997e9674e6296baf9b852f12a58",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "ROUGE",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -22.1715431213379,
+                    -6.39783668518066
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6d34ec77d3ab4dfb9d49e7ef36360b02",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "3000",
+                        "taille_vague": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "22436997e9674e6296baf9b852f12a58",
+            "next_event_id": "f7c2bfeec0774b39b0cc0179d6642f1e",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "VERT",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -22.032190322876,
+                    -11.6456060409546
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5cb07ee303d84dc0a943058964dce619",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "41964baa56df479d8c771bf8265340eb",
+            "next_event_id": "7c92f52e366246c5abaebd22a4a8b206",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "Start",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -28.1306705474854,
+                    11.3577966690063
+                ]
+            },
+            "actions": [
+                {
+                    "id": "cb4fde4b2c5d4774acca0c29e26d48ae",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "100",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6b94fc0eb3804f37a6f9838c7d6c8dc3",
+            "next_event_id": "3eef0f6838664ef6a57cad04584e06e9",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "BLEU_copy",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -22.362117767334,
+                    -1.24568295478821
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c3a03e78ccb443a1821c59f9340b7755",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7c92f52e366246c5abaebd22a4a8b206",
+            "next_event_id": "41964baa56df479d8c771bf8265340eb",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "SERVO TEST",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -26.3508605957031,
+                    4.96446990966797
+                ]
+            },
+            "actions": [
+                {
+                    "id": "d22c52e8a5544e3e8e4bd4e179bf00ed",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Ban_Central_Servo_Lievre",
+                        "num": "[1,1,1,1,1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps": "1500",
+                        "temps2": "2000",
+                        "delai": "500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ef1e82501c11466f831763b6043daf60",
+            "next_event_id": "ff2343ee2cd64d5f9d231635d894d611",
+            "event_type": "InteractionEvent",
+            "duration": 30,
+            "interface": {
+                "name": "ef1e82501c11466f831763b6043daf60",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -5.88476991653442,
+                    23.0066776275635
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9b1add7299024095a1481345b250590f",
+                    "refresh_rate": "10",
+                    "action": "log",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "message": "Test"
+                    }
+                },
+                {
+                    "id": "7d3915fa668f46ad97957494df656328",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "68df61542aeb494d840c468be02bd774",
+                        "sensor_hardware": "For_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "42644bf76f9548ee9f13d936493acef4",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "76c6d2ef8c3547b2b6e73cd0e2395981",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "9c952a6230e1468181dd35d3a5f1db82",
+                        "sensor_hardware": "For_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "88c509f182f24829982c72e9acedeff7",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ff2343ee2cd64d5f9d231635d894d611",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "interface": {
+                "name": "Magenta",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -2.11724424362183,
+                    9.802321434021
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5d6dc0417a51453c81aa658a1484fe26",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "569b72120dbd4537b783c3d677fae684",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud,For_Central_Led_Fleurs_Est,For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "c15565ef21b14d41979510f1b41c7929",
+            "next_event_id": "ef1e82501c11466f831763b6043daf60",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "interface": {
+                "name": "Start",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -4.14102840423584,
+                    30.653263092041
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8e1c7d0f8e8045699261bfaa3d6f423a",
+                    "refresh_rate": "0",
+                    "action": "log",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "message": "START"
+                    }
+                },
+                {
+                    "id": "a42a6f4875274705830017aa41a10a21",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud,For_Central_Led_Fleurs_Est,For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "75298ca940ac4ae39ac0712dbbdf2117",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "68df61542aeb494d840c468be02bd774",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "interface": {
+                "name": "Jaune",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -14.3432807922363,
+                    9.87294769287109
+                ]
+            },
+            "actions": [
+                {
+                    "id": "56413103287748ff9e02ad3a64186a12",
+                    "refresh_rate": "0",
+                    "action": "log",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "message": "FIN"
+                    }
+                },
+                {
+                    "id": "420e3eb3ec314d73985d4e53ed5bcaca",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "bfe8b35363d64b93b4b5d926046a4b83",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud,For_Central_Led_Fleurs_Est,For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9c952a6230e1468181dd35d3a5f1db82",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "interface": {
+                "name": "Cyan",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    6.22533988952637,
+                    10.0806617736816
+                ]
+            },
+            "actions": [
+                {
+                    "id": "89f79795b77848c986282722a26fca02",
+                    "refresh_rate": "0",
+                    "action": "log",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "message": "FIN"
+                    }
+                },
+                {
+                    "id": "27a4e9accb1d495ca530a3a7e984fd51",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "269bc5622e794cc88850bf0615ef4adc",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud,For_Central_Led_Fleurs_Est,For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "54dcf7aab5244d30bafce2f9ddd7945b",
+            "next_event_id": "bc287cd05edf45498778769a90be7b28",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "54dcf7aab5244d30bafce2f9ddd7945b",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    33.5344314575195,
+                    29.496114730835
+                ]
+            },
+            "actions": [
+                {
+                    "id": "58a05951b3884a5ba620ef9e0590a4b3",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "Assets/StreamingAssets/Test_Media/Audio/AL_DIAL_FOR_CHENILLE_01.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bc287cd05edf45498778769a90be7b28",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "interface": {
+                "name": "54dcf7aab5244d30bafce2f9ddd7945b_copy",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    33.7611770629883,
+                    24.9379749298096
+                ]
+            },
+            "actions": [
+                {
+                    "id": "a8985b991e014c26885f5d6ddc05eed3",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "Assets/StreamingAssets/Test_Media/Audio/AL_DIAL_FOR_CHENILLE_ILO_01.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0245c83b34f94087ac78e575088b3678",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "interface": {
+                "name": "0245c83b34f94087ac78e575088b3678",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    42.2197570800781,
+                    29.8726177215576
+                ]
+            },
+            "actions": [
+                {
+                    "id": "f44bb758eac947d79764883a87e00943",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musique",
+                        "media_index": "1",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "c91aa8e61cc142d99796a5ec92f9a8ac",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "interface": {
+                "name": "START BULBS",
+                "color": "#FFFFFF",
+                "start_event": false,
+                "coordinate": [
+                    -25.7739849090576,
+                    29.2014923095703
+                ]
+            },
+            "actions": [
+                {
+                    "id": "44b78e10b0484e7db78f3c56f913e6ce",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "smooth",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "d2dc03e632df4d238251d822d53fdd76",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
+                        "effect": "smooth",
+                        "duration": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "912309b807784dda8ad03a2019705e53",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "interface": {
+                "name": "STOP BULBS",
+                "color": "#FFFFFF",
+                "start_event": true,
+                "coordinate": [
+                    -21.1507472991943,
+                    29.3141670227051
+                ]
+            },
+            "actions": [
+                {
+                    "id": "33d56f7fcd7e403d809826f104c74047",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "9cae0045ebfb4ceb8498074e4d6548e1",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        }
+    ]
+}

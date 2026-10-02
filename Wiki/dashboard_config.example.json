@@ -1,0 +1,28 @@
+{
+  "_comment": "Copie ce fichier en dashboard_config.json (jamais commité) et remplis-le.",
+  "email_enabled": false,
+  "_comment_alert_emails": "true = les alertes temps reel (ESP muet, Unity crashe) partent aussi par mail. false = seul le rapport quotidien est envoye.",
+  "alert_emails": false,
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "user": "ton.adresse@gmail.com",
+    "app_password": "xxxx xxxx xxxx xxxx (mot de passe d'application Google, PAS ton mot de passe)",
+    "from": ""
+  },
+  "recipients": ["destinataire@exemple.com"],
+  "daily_report_time": "22:00",
+  "log_sources": [
+    {
+      "_comment": "Fichiers de logs d'autres machines (copies, cles USB, partages reseau montes). Un selecteur 'Machine' apparait dans le dashboard. Les archives scenario_console_*.txt a cote du fichier sont lues aussi.",
+      "name": "PC Banquise",
+      "path": "D:/Copies/Banquise/Logs/scenario_console.txt"
+    }
+  ],
+  "alert_cooldown_min": 30,
+  "thresholds": {
+    "esp_silence_min": 10,
+    "loop_drift_pct": 20,
+    "log_frozen_s": 180
+  }
+}

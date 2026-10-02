@@ -1,0 +1,97 @@
+{
+    "events": [
+        {
+            "id": "d16abd73819f4cc5a6f5dad085c03d68",
+            "next_event_id": "67fe015242074964a53c8fc22bb45109",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "Start_copy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -24.9327640533447,
+                    38.4081840515137
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0b39fec5fb0545eab81490e7adb21ec1",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "1",
+                        "green": "0",
+                        "blue": "1",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "67fe015242074964a53c8fc22bb45109",
+            "next_event_id": "",
+            "event_type": "InteractionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "test son",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -28.7066688537598,
+                    32.8823471069336
+                ]
+            },
+            "actions": [
+                {
+                    "id": "689ea82650a148be95a3a92401e7600e",
+                    "refresh_rate": "0",
+                    "action": "start_record",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
+                {
+                    "id": "9a867c7042b84e5d94612394dfa5bdac",
+                    "refresh_rate": "0",
+                    "action": "stop_record",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
+                {
+                    "id": "ea5b2cc743d246e18939e12417be27eb",
+                    "refresh_rate": "0.5",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "=CLAMP(=FLOOR(=REMAP((For_Central_CapteurSon.sound_level; 5); 0; 10000; 0; 255)); 0; 255)|0",
+                        "green": "0",
+                        "blue": "100",
+                        "brightness": "100",
+                        "temps": "0"
+                    }
+                }
+            ]
+        }
+    ]
+}

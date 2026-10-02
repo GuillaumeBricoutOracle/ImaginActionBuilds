@@ -1,0 +1,85 @@
+{
+    "events": [
+        {
+            "id": "41964baa56df479d8c771bf8265340eb",
+            "next_event_id": "d29d241d521349e09b73f658f3361668",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "Start",
+            "interface": {
+                "name": "Start",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -20.8802108764648,
+                    30.5379619598389
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "65ae785f423d4b62b213e6e04fcc1dbc",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "2",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -20.5039367675781,
+                    9.4066915512085
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "d29d241d521349e09b73f658f3361668",
+            "next_event_id": "65ae785f423d4b62b213e6e04fcc1dbc",
+            "event_type": "InteractionEvent",
+            "duration": 30,
+            "event_role": "None",
+            "interface": {
+                "name": "test son",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -14.2242774963379,
+                    24.2000007629395
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1e7916f342324bacb10580bff6e9542c",
+                    "refresh_rate": "0",
+                    "action": "start_record",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
+                {
+                    "id": "4113c3f93dba481491149eafc5fc0d0c",
+                    "refresh_rate": "0",
+                    "action": "stop_record",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
+                {
+                    "id": "ad898802051f40d18a77b020e11fa13a",
+                    "refresh_rate": "1",
+                    "action": "log",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "message": "$sensor:For_Central_CapteurSon.sound_level"
+                    }
+                }
+            ]
+        }
+    ]
+}

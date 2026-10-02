@@ -1,0 +1,211 @@
+{
+    "events": [
+        {
+            "id": "a1d77fdcb0f4411c8d8e753ff174079d",
+            "next_event_id": "e3f0254ad10f4edeba4290c92414d723",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "Start",
+            "interface": {
+                "name": "Start",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -21.8241081237793,
+                    27.8024578094482
+                ]
+            },
+            "actions": [
+                {
+                    "id": "b64f5eb556014e83bf8ff5562d1d033e",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_Servo_Mono_Petit_Papillon",
+                        "num": "1",
+                        "angle": "max",
+                        "angle2": "min",
+                        "ntours": "3",
+                        "temps": "700",
+                        "temps2": "100",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "5a75575025f74594812da21c0f56a752",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_Servo_Mono_Petit_Papillon",
+                        "num": "1",
+                        "angle": "max",
+                        "angle2": "min",
+                        "ntours": "3",
+                        "temps": "700",
+                        "temps2": "500",
+                        "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "b54569c158e547a7855a873b9a0fd302",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "End",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -22.4578151702881,
+                    3.37366199493408
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "e3f0254ad10f4edeba4290c92414d723",
+            "next_event_id": "",
+            "event_type": "InteractionEvent",
+            "duration": 30,
+            "event_role": "None",
+            "interface": {
+                "name": "Test Son",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -29.2823467254639,
+                    17.4936256408691
+                ]
+            },
+            "actions": [
+                {
+                    "id": "59e7f0c3ef3e40dfa0e66676a893cfba",
+                    "refresh_rate": "1",
+                    "action": "couleur_leds",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "leds": "[]",
+                        "led_debut": "0",
+                        "led_fin": "$Sensor:test.db",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100"
+                    }
+                },
+                {
+                    "id": "4c628e618f6d454c9ad15ee16437ef58",
+                    "refresh_rate": "0",
+                    "action": "start_record",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
+                {
+                    "id": "0b84618aab0440fbaeae4256b200abed",
+                    "refresh_rate": "1",
+                    "action": "couleur_leds",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "leds": "[]",
+                        "led_debut": "0",
+                        "led_fin": "$Sensor:test.db",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100"
+                    }
+                },
+                {
+                    "id": "1da2a849155c4c81919fa8e3bd88db52",
+                    "refresh_rate": "1",
+                    "action": "couleur_leds",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "leds": "[]",
+                        "led_debut": "0",
+                        "led_fin": "$Sensor:test.db",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100"
+                    }
+                },
+                {
+                    "id": "d250da8599354106ab345cc5d88f162e",
+                    "refresh_rate": "1",
+                    "action": "couleur_leds",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "leds": "[]",
+                        "led_debut": "0",
+                        "led_fin": "$Sensor:test.db",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100"
+                    }
+                },
+                {
+                    "id": "8b154dba14ae4f32bb0a8e0e3e4d9636",
+                    "refresh_rate": "1",
+                    "action": "couleur_leds",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "leds": "[]",
+                        "led_debut": "0",
+                        "led_fin": "$Sensor:test.db",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100"
+                    }
+                },
+                {
+                    "id": "31ecc42a096b4560956619ede740c659",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_Servo_Mono_Petit_Papillon",
+                        "num": "1",
+                        "angle": "max",
+                        "angle2": "min",
+                        "ntours": "3",
+                        "temps": "700",
+                        "temps2": "500",
+                        "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e7c96606d3c243e0affc1b1d90680f47",
+            "next_event_id": "e3f0254ad10f4edeba4290c92414d723",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent_copy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -12.1650114059448,
+                    23.8304958343506
+                ]
+            },
+            "actions": [
+                
+            ]
+        }
+    ]
+}

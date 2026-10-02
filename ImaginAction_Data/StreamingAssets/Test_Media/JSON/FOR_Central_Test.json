@@ -1,0 +1,760 @@
+{
+    "events": [
+        {
+            "id": "41964baa56df479d8c771bf8265340eb",
+            "next_event_id": "f9f9c94885fd48cfae0d14ac0e6109be",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Start",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -11.767183303833,
+                    22.5483264923096
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "298f3da52b3448d78827401a654ee546",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Start ALL LED",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -11.4347324371338,
+                    16.2724761962891
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4f8c00a5f0f74890befd61a1ef287dcc",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "5a34029a172148588aab64af158f46e3",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "30a10a4145034628b4248729e59e5767",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Petit_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "221f0775b9b04b34997b4fc9be64be84",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "971a297426e645e8a42ca2f92e0e138e",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Est",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "b12ef68d7ca44283818090d6fac8aa08",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Chenille",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "6e8010efd23c49b7a5f3b96f6d06c859",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Grand_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "7c1110fc0aae47569f89da3ee1598733",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "a274866b93f74081ba5fc1c1833efb5c",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "6288260e387847988535f9ed7fe9cb5c",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Arbre_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0a785f5621af4ff89b61b313c34718fe",
+            "next_event_id": "43eb25c0842f44069b4a663cb77f373c",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "START ALL SERVO",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -38.2141952514648,
+                    16.6133251190186
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c5e4cadf6d5c4e14a8632095831fbf88",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "max",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "e6e53a2afb3f43a08aaf1d81b20882b7",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord2",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "max",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "3cba6e2ce3254ba390619f9400c77add",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord1",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "max",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "52ac5917acdb432f92deda7d87f796a0",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord3",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "max",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "43eb25c0842f44069b4a663cb77f373c",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "STOP ALL SERVO",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -38.9345016479492,
+                    8.22292709350586
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9e77a672af20488094917d84b7169f67",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "66c4be821e9b4cc38616cbf2e84ff32a",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord2",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "1478553c25974bc282dd7ffb0c24a857",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord1",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "463e3399b65e46dbbd0fa152c422dd32",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord3",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "3000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "f9f9c94885fd48cfae0d14ac0e6109be",
+            "next_event_id": "0a785f5621af4ff89b61b313c34718fe",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "STOP ALL LED",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -11.5077266693115,
+                    8.37337017059326
+                ]
+            },
+            "actions": [
+                {
+                    "id": "f4e7659811584d12a4a75c21b3568ea8",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "8875e5b67e4b469180fb96e8e75167e2",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "842abb271976470bbb2ef88584be1d29",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Petit_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "00b0f4b1da5d42dd9a79461bf64fc90e",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "e71c9c3842934c64b8f033f7a22fabae",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Est",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "ef30f6febff84397a315e9b3adfd8dbf",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Chenille",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "3766adf390fa4343a284772c26f0a8fc",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Grand_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "009184a0c7064ce5aa373ac726e03832",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "8e1647ce2e2b4ae6b03bf28cace6fbd0",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "cc77530a23964192806fe38ff3b8bbe9",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Arbre_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "d16abd73819f4cc5a6f5dad085c03d68",
+            "next_event_id": "da265ba5ba834efaa447e0f29f433b13",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Start",
+            "interface": {
+                "name": "Start_copy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -18.9189701080322,
+                    21.084041595459
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0073a2eec76445128af4f78e868f23e1",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "da265ba5ba834efaa447e0f29f433b13",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "Start_copy_copy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -24.9993286132813,
+                    20.9813632965088
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6e31842392bc47e0a968431d73ccf54a",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1"
+                    }
+                }
+            ]
+        }
+    ]
+}

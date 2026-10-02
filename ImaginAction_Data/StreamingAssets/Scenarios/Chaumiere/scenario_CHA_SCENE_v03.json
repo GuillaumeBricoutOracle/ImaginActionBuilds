@@ -1,0 +1,3743 @@
+{
+    "events": [
+        {
+            "id": "IZaIiy6xIIzDLGJa4pMsp",
+            "next_event_id": "T3bHNRLH1SbuVW0Q0Hxs9",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "IZaIiy6xIIzDLGJa4pMsp",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "QvjVJ8medJMS4oPM-Tcac",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "kp36pbUAtUJns-y30dfHa",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "loop_mode": "repeat"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "T3bHNRLH1SbuVW0Q0Hxs9",
+            "next_event_id": "CWQ8JnVQwZjhJHDNCSmwL",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "T3bHNRLH1SbuVW0Q0Hxs9",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -10
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PQ8O_9_rvnrCxF9xejsT2",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "10",
+                        "transition_time": "3"
+                    }
+                },
+                {
+                    "id": "gfafNtaRcttIvYsyqK_-0",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "MC8aWTx3gt9XxxjvPyjeZ",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "CWQ8JnVQwZjhJHDNCSmwL",
+            "next_event_id": "UOnMv5C56J5wKV0Av2vUS",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "CWQ8JnVQwZjhJHDNCSmwL",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -20
+                ]
+            },
+            "actions": [
+                {
+                    "id": "tMhnW59xn_tAB3PxXV__G",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "E2EVVxgIKZ-QA6Kqx6Tb0",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_360.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "aCPLYRHaa8p1KLwbMr8jy",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "UOnMv5C56J5wKV0Av2vUS",
+            "next_event_id": "WeE5ILbwMFq7Osp-M5Ghg",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "UOnMv5C56J5wKV0Av2vUS",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -30
+                ]
+            },
+            "actions": [
+                {
+                    "id": "m5e1406iSS-fT41i2f0y9",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "yLJFvlhVKDSmkpC1qmQcy",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "30",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WeE5ILbwMFq7Osp-M5Ghg",
+            "next_event_id": "gUgadSjIgcS6gwQcHkrIy",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "WeE5ILbwMFq7Osp-M5Ghg",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -40
+                ]
+            },
+            "actions": [
+                {
+                    "id": "UdQsJx_7UjqOCBMZaKJRH",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "ghv0fn0-71_Kf6GYkaRmK",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "2",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gUgadSjIgcS6gwQcHkrIy",
+            "next_event_id": "4dbgZ23DcGNH6UhKc5yAu",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "gUgadSjIgcS6gwQcHkrIy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -50
+                ]
+            },
+            "actions": [
+                {
+                    "id": "63nwlIhh40MEzscxMMPFc",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_01.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "O8RS2CsuLr9W4XRB-ghCz",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4dbgZ23DcGNH6UhKc5yAu",
+            "next_event_id": "O2swJhSRNsHgMkIetOA1p",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "4dbgZ23DcGNH6UhKc5yAu",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -60
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EUVGeQaGQkwHBtl-8Ho4w",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_React.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "lNIqRNcYd_0FNdjDaRE7S",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg"
+                    }
+                },
+                {
+                    "id": "uI2ZdOmp8zrZv6jeB7Ccw",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "O2swJhSRNsHgMkIetOA1p",
+            "next_event_id": "UiceD4XWkyNiNR2pw9OF0",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "O2swJhSRNsHgMkIetOA1p",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -70
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9OoeyVLIpfLRoBIA68mNb",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "50",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "UiceD4XWkyNiNR2pw9OF0",
+            "next_event_id": "8CKdvd2rbf-jQHt1aC4QZ",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "UiceD4XWkyNiNR2pw9OF0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -80
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BJN_onpLVH1jdsRRH2sDj",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8CKdvd2rbf-jQHt1aC4QZ",
+            "next_event_id": "hgl5q5ipehP0MqLJSJLU3",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "8CKdvd2rbf-jQHt1aC4QZ",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -90
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vnmIh-JfRP8EjMYLwfvcq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_02.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hgl5q5ipehP0MqLJSJLU3",
+            "next_event_id": "IHV1DCwZohPHflLE5gACU",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "hgl5q5ipehP0MqLJSJLU3",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -100
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OvsL5BLjM1a-Fc0COtBkm",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "40",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "v2h_B-nTKZZ9hha8f4GLU",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IHV1DCwZohPHflLE5gACU",
+            "next_event_id": "OdrTiVUaxxPc7XAn_I6uX",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "IHV1DCwZohPHflLE5gACU",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -110
+                ]
+            },
+            "actions": [
+                {
+                    "id": "h9W8fMFEfUJXubKtg5KF8",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_React_Happy_02.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "OdrTiVUaxxPc7XAn_I6uX",
+            "next_event_id": "zxIQHckfAOKJ6j8lmtORS",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "OdrTiVUaxxPc7XAn_I6uX",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -120
+                ]
+            },
+            "actions": [
+                {
+                    "id": "elkjK_97h8CAIpS6saTwl",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "brightness": "50",
+                        "fade_time": "2",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "04ALjBETilS-6S3TtkQ62",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zxIQHckfAOKJ6j8lmtORS",
+            "next_event_id": "Du5zHZlCPiSmqCUjvkgK7",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "zxIQHckfAOKJ6j8lmtORS",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -130
+                ]
+            },
+            "actions": [
+                {
+                    "id": "lSV06pL4bC9dl7HIIqdsQ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_03.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Du5zHZlCPiSmqCUjvkgK7",
+            "next_event_id": "63wzSQCskEQdZws-cabQG",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Du5zHZlCPiSmqCUjvkgK7",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -140
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hf170e-oNSsxcI9AzabNH",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_SCENE_ALICE_01.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "XYqAKLxckEPtesdSy7Den",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg"
+                    }
+                },
+                {
+                    "id": "P-bLnU0VuSDry6nVVY_an",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "63wzSQCskEQdZws-cabQG",
+            "next_event_id": "vMXvjznzPhz5ZI_lrxQZp",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "63wzSQCskEQdZws-cabQG",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -150
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7k4oKptYrZFjQG7Smo19h",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "oQyfvMM0z3RGhRM_ptOMC",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "7CaobbnRmuqEgRKcuxnHe",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_React_Unhappy.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "vMXvjznzPhz5ZI_lrxQZp",
+            "next_event_id": "izRx7BN13_jZth4FcSLJH",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "vMXvjznzPhz5ZI_lrxQZp",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -160
+                ]
+            },
+            "actions": [
+                {
+                    "id": "aLiSPbXPXMPA0QaPA91jW",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "VV_-0VQ8Kzryr22M2E5St",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "waR8G7j_EtxRdzRSbp3C4",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "9",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "izRx7BN13_jZth4FcSLJH",
+            "next_event_id": "F5Wry-H53IL7jSOfjDFzl",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "izRx7BN13_jZth4FcSLJH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -170
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4cx9g-nWNqOx18LjdX2gf",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_04.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "9fFIckWehhZpdB-sVGWyP",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "GAXF4CfNwMp6gWmZ-a6p5",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "F5Wry-H53IL7jSOfjDFzl",
+            "next_event_id": "3Ppc98SYzJjP8XXv94Eh9",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "F5Wry-H53IL7jSOfjDFzl",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -180
+                ]
+            },
+            "actions": [
+                {
+                    "id": "yveaY7cI7qNHnaWh7MCEQ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3Ppc98SYzJjP8XXv94Eh9",
+            "next_event_id": "NdXQwrImrmx8G7aKcdfyM",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "3Ppc98SYzJjP8XXv94Eh9",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -190
+                ]
+            },
+            "actions": [
+                {
+                    "id": "J5lUvNDbtSY6MhOV179YW",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "NdXQwrImrmx8G7aKcdfyM",
+            "next_event_id": "YTKSzUKRDWiPXhmMfK7k6",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "NdXQwrImrmx8G7aKcdfyM",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -200
+                ]
+            },
+            "actions": [
+                {
+                    "id": "FrwRcrJ_msmcWKi_kJ6zq",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "150",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "YTKSzUKRDWiPXhmMfK7k6",
+            "next_event_id": "ecxC0nROD4qVoKvfMRkmz",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "YTKSzUKRDWiPXhmMfK7k6",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -210
+                ]
+            },
+            "actions": [
+                {
+                    "id": "saLpZZ0wYz-klMWaj48b9",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "DdpJMGU3dc2t_ojIzDyZd",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "ObbLEXpARZCzlD5t7rfAG",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_React.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ecxC0nROD4qVoKvfMRkmz",
+            "next_event_id": "sIt2znGzsTn4BpNyuepsu",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "ecxC0nROD4qVoKvfMRkmz",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -220
+                ]
+            },
+            "actions": [
+                {
+                    "id": "37nOT79-lqkmKEI6RD8mh",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "UoSevXOOP49Zxl7k-sbJt",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "blue": "255",
+                        "green": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "lMvk2cFObrSMJC5F3ss5o",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_SCENE_ALICE_02.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sIt2znGzsTn4BpNyuepsu",
+            "next_event_id": "TmT9qOYKiLMbJu-VffhIw",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "sIt2znGzsTn4BpNyuepsu",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -230
+                ]
+            },
+            "actions": [
+                {
+                    "id": "iPB3ld-hwOlGgaEZ7f8C4",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_SCENE_Maison_React_Happy_02.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "AYp0jJZDlBs0BdE2rOdfh",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TmT9qOYKiLMbJu-VffhIw",
+            "next_event_id": "8zybhaWtEVIJa8JF12xLs",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "TmT9qOYKiLMbJu-VffhIw",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -240
+                ]
+            },
+            "actions": [
+                {
+                    "id": "bytLumci4DA-XWZ6Iz2PC",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "40",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "FBJdfoDKDmdhOd0mjV0XL",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8zybhaWtEVIJa8JF12xLs",
+            "next_event_id": "iE60xi2Xy8DJL9G1tjaPz",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "8zybhaWtEVIJa8JF12xLs",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -250
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DbvRNrnXZAzycNqfgBogL",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_05.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "iE60xi2Xy8DJL9G1tjaPz",
+            "next_event_id": "pczfsmqXfjRuHNRJRGzbl",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "iE60xi2Xy8DJL9G1tjaPz",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -260
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PAbxGv3N92avNZHIsVNTk",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_03.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "FLmBUCSlEZpokyhpUzyYb",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "40",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "lC1xD_5mybRc8HNwt3C3E",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "yJ98M19y1stSEwzfJNaRf",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pczfsmqXfjRuHNRJRGzbl",
+            "next_event_id": "KgG7Jx4I3o-Xmsm2Gb-VN",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "pczfsmqXfjRuHNRJRGzbl",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -270
+                ]
+            },
+            "actions": [
+                {
+                    "id": "CKT7RLWbYW0D280HpuXeg",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_06.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "Z0JjCUrkBxqqs8egN17lG",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "40",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "KgG7Jx4I3o-Xmsm2Gb-VN",
+            "next_event_id": "8tb61NRAn7ypoeRS74cHt",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "KgG7Jx4I3o-Xmsm2Gb-VN",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -280
+                ]
+            },
+            "actions": [
+                {
+                    "id": "RQEUwMBdpzzmdoheUtK9h",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "60JCtDnaGB8cqXTyMFZwt",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8tb61NRAn7ypoeRS74cHt",
+            "next_event_id": "T4b8MC1jjlkYbd-iJ1k46",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "8tb61NRAn7ypoeRS74cHt",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    -290
+                ]
+            },
+            "actions": [
+                {
+                    "id": "AeseJ8_WWOlf_AXsWF5Gu",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "93EWdtRd8bolyiiHj8tUj",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "T4b8MC1jjlkYbd-iJ1k46",
+            "next_event_id": "P242ntfLEeVG33X_vFwzA",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX",
+                "color": "#212529",
+                "coordinate": [
+                    0,
+                    -300
+                ]
+            },
+            "actions": [
+                {
+                    "id": "97d2c58a049d4f54929bbac103a44475",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche,Cha_Scene_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "59155d29e405450398227909acb5e455",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "1_loob5iY8fuDE2sr9BJJ",
+                        "sensor_hardware": "Cha_Scene_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "0ebf224b93f74b93acfe1c1dd7987f22",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "P242ntfLEeVG33X_vFwzA",
+                        "sensor_hardware": "Cha_Scene_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1_loob5iY8fuDE2sr9BJJ",
+            "next_event_id": "30oIAJVPPAbzWybzGx4YV",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #A",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -310
+                ]
+            },
+            "actions": [
+                {
+                    "id": "wiGH9CP8L9Zmp2TwuffwK",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "0",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "70",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "Rk58DNkar4Ulq0feNsCJW",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "OXZbQXDzDDDRGiFvnfTq1",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "is_rgb": "true",
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg,Cha_Scene_RGB_Alice_Oeil",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "2e2a58020f294a59b883b2fd6195f701",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit,Cha_Scene_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "30oIAJVPPAbzWybzGx4YV",
+            "next_event_id": "mVPDSaZ8ByEZUiPQQGZHb",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "30oIAJVPPAbzWybzGx4YV",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -320
+                ]
+            },
+            "actions": [
+                {
+                    "id": "gwfe4bj4hlpJj2oijDFSI",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "1",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "mVPDSaZ8ByEZUiPQQGZHb",
+            "next_event_id": "XuHKfBKlSdA0O5zJGwffe",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "mVPDSaZ8ByEZUiPQQGZHb",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -330
+                ]
+            },
+            "actions": [
+                {
+                    "id": "nIwdfWUp8FR8gwXIdiBl4",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "155",
+                        "green": "0",
+                        "blue": "200",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "5zwDlc99tLiTczTVQhmsS",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "1",
+                        "diffusion": "2000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "lJpexda4cyUS5ZRLeqvG6",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XuHKfBKlSdA0O5zJGwffe",
+            "next_event_id": "zzf5UcEU1ECL6LMFjeiiP",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "XuHKfBKlSdA0O5zJGwffe",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -340
+                ]
+            },
+            "actions": [
+                {
+                    "id": "T8An6jqSvzjPGVeN-kKew",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_SCENE_Maison_Mesuree.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "Uqult2kCyAdRO4VHwvSC4",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "8"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zzf5UcEU1ECL6LMFjeiiP",
+            "next_event_id": "1ldunI0hBo2YiERAEveRY",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "zzf5UcEU1ECL6LMFjeiiP",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -350
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Sje0UOIiL45qMKlwg5Y6M",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Pos",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1ldunI0hBo2YiERAEveRY",
+            "next_event_id": "uz-uY6S_R9fm8_iLEYtIV",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "1ldunI0hBo2YiERAEveRY",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -360
+                ]
+            },
+            "actions": [
+                {
+                    "id": "jwHZE6zBM56ZD79gJpR78",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Pos",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "uz-uY6S_R9fm8_iLEYtIV",
+            "next_event_id": "DZnQ3KoW7quwGIA9DskZy",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "uz-uY6S_R9fm8_iLEYtIV",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -370
+                ]
+            },
+            "actions": [
+                {
+                    "id": "pNeSJtzferTizw_444U8N",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "DZnQ3KoW7quwGIA9DskZy",
+            "next_event_id": "TUVpz-Rl9q_I5CnjlDx2T",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "DZnQ3KoW7quwGIA9DskZy",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -380
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Q5a52W6C-ODRP_SsVyXv6",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "1",
+                        "diffusion": "3000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "yLhKf6WDX_PSKQmGRx1LZ",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Pos",
+                        "fade_time": "2",
+                        "is_rgb": "true"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TUVpz-Rl9q_I5CnjlDx2T",
+            "next_event_id": "y0YSWGduhl-80yL0Qm4c8",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "TUVpz-Rl9q_I5CnjlDx2T",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -390
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4UBNUGIKQcD5MmRcwkLbM",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "y0YSWGduhl-80yL0Qm4c8",
+            "next_event_id": "tUcgClKvV8MnVFj0JxEP9",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "y0YSWGduhl-80yL0Qm4c8",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -400
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ZRNdMTkKGWa6RJgOTyL7S",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "100",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "bs3Eo8M-ZjvkTwEAfZCRH",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tUcgClKvV8MnVFj0JxEP9",
+            "next_event_id": "Cu_fD1BeotNhYZG64FX0a",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "tUcgClKvV8MnVFj0JxEP9",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -410
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1ni6MByDhhlX-xtfxEAPe",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "0",
+                        "green": "255",
+                        "brightness": "100",
+                        "fade_time": "2",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "XNm9sgXf8ObOBXU03Hy74",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "QIyIdrBPFTnqAtBT2Ki1W",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "AuPjI_LXkKXBuS17ghMSQ",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "1",
+                        "diffusion": "6000",
+                        "pause": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Cu_fD1BeotNhYZG64FX0a",
+            "next_event_id": "HWp1xURqqqC-tlYWUdL0u",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Cu_fD1BeotNhYZG64FX0a",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -420
+                ]
+            },
+            "actions": [
+                {
+                    "id": "yTqa8a-t0MlcyUEw_wITA",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "QB56vmcjBKEKem5xqQYs0",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche",
+                        "red": "50",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "x1P3xDR1Jiv3LSd81F6nJ",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "HWp1xURqqqC-tlYWUdL0u",
+            "next_event_id": "Xmc3S6OpvKG3dmOF-yN91",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "HWp1xURqqqC-tlYWUdL0u",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40,
+                    -430
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-kQn3r3bBGMZHqq_tf0wb",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "X59CVRtuIU06Xq-7qQGBj",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Xmc3S6OpvKG3dmOF-yN91",
+            "next_event_id": "ISOrKftaI2L8aoiLqAhz1",
+            "event_type": "InteractionEvent",
+            "duration": 15,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX #A",
+                "color": "#212529",
+                "coordinate": [
+                    40,
+                    -440
+                ]
+            },
+            "actions": [
+                {
+                    "id": "30361176d2da41e3a02fa5f575a92027",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche,Cha_Scene_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "8b32bbebd5ef4a97ac271a5d366851d3",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "ISOrKftaI2L8aoiLqAhz1",
+                        "sensor_hardware": "Cha_Scene_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "f58bbd3a702c4abcac4c4f757c7506c9",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "nNKDClYtoCK41WdNsVsL9",
+                        "sensor_hardware": "Cha_Scene_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P242ntfLEeVG33X_vFwzA",
+            "next_event_id": "NMVDDwKEPxdEapo6T_Rjg",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #B",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -310
+                ]
+            },
+            "actions": [
+                {
+                    "id": "r01fShSFCfdUYeNMqPUj8",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg,Cha_Scene_RGB_Alice_Oeil",
+                        "fade_time": "2",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "ol3HDicyJsmhAOm3KNndG",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "RWjMA8octbALLE9RSsoKM",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "e670ab96e2294acdace25c3198258af4",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit,Cha_Scene_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "NMVDDwKEPxdEapo6T_Rjg",
+            "next_event_id": "M7-csdl4tjISiJAoJgX52",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "NMVDDwKEPxdEapo6T_Rjg",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -320
+                ]
+            },
+            "actions": [
+                {
+                    "id": "yit7PhrRSxuM4FTSXhA0N",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "M7-csdl4tjISiJAoJgX52",
+            "next_event_id": "jmWeQOWNyJjAdAomQT_nP",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "M7-csdl4tjISiJAoJgX52",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -330
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JF5Fs14Q7Q2U_w7VOcJ1e",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "2",
+                        "diffusion": "3000",
+                        "pause": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "jmWeQOWNyJjAdAomQT_nP",
+            "next_event_id": "EfO8lK-0YYbEmgayKRkP5",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "jmWeQOWNyJjAdAomQT_nP",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -340
+                ]
+            },
+            "actions": [
+                {
+                    "id": "jT7QsLo0peJ8j2yyzdEfV",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_SCENE_Maison_Pleine_Puissance.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "Ble3ewIEfUd-fsrf4ECgq",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "3jaw-ldm_vbRwmXZexuYr",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "150",
+                        "brightness": "80",
+                        "fade_time": "2",
+                        "blue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EfO8lK-0YYbEmgayKRkP5",
+            "next_event_id": "83frC7uyvT7XXTy-6zEeF",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "EfO8lK-0YYbEmgayKRkP5",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -350
+                ]
+            },
+            "actions": [
+                {
+                    "id": "lohCEi2kQwqefUCPBRsk1",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "3-FzOJJ8btp2z2SRbtIqQ",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "83frC7uyvT7XXTy-6zEeF",
+            "next_event_id": "f7X7U67Tlhn2vbohFMJy7",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "83frC7uyvT7XXTy-6zEeF",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -360
+                ]
+            },
+            "actions": [
+                {
+                    "id": "veT_RNOhhnDRYUoZWdDxs",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "FCX7hN3WACti6bzG7jYPb",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "f7X7U67Tlhn2vbohFMJy7",
+            "next_event_id": "cMUJwQeopW5-ZerdYEcfE",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "f7X7U67Tlhn2vbohFMJy7",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -370
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Fdv1e8K6GD0O1abp83eJe",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "kgF4unHjVg-8gAqVxYkgW",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "eySiXjjh8_zJriMC2MifB",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "d6dktx-qGbG_XBCU1Gfma",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "cMUJwQeopW5-ZerdYEcfE",
+            "next_event_id": "xXW53YMH2G4VBajQ1wYya",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "cMUJwQeopW5-ZerdYEcfE",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -380
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EkPSALqR5jkVLg6EFxKQr",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "R07-yaSq8VZMePn4w1p08",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xXW53YMH2G4VBajQ1wYya",
+            "next_event_id": "ZxEgkvDZZ5LlMqDluRczJ",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "xXW53YMH2G4VBajQ1wYya",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -390
+                ]
+            },
+            "actions": [
+                {
+                    "id": "YXkWJwVjVnSFWBYKCJ9FV",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_11.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ZxEgkvDZZ5LlMqDluRczJ",
+            "next_event_id": "Q-sUCKvsDkbGA-9pJLRC8",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "ZxEgkvDZZ5LlMqDluRczJ",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -400
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kZWEl71iJsWhIoSiVMG0z",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche",
+                        "red": "0",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "yvO9TT-IFEbxIgJtmZaBx",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Q-sUCKvsDkbGA-9pJLRC8",
+            "next_event_id": "4KJCXJVb0dclA_AjGSsdM",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Q-sUCKvsDkbGA-9pJLRC8",
+                "color": "#DC3545",
+                "coordinate": [
+                    0,
+                    -410
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ZkD9H4SvDCHpVHZIEWjP4",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite",
+                        "red": "255",
+                        "green": "50",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "M9KHx8F3GtFP8ztFTRlnq",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4KJCXJVb0dclA_AjGSsdM",
+            "next_event_id": "nNKDClYtoCK41WdNsVsL9",
+            "event_type": "InteractionEvent",
+            "duration": 15,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX #B",
+                "color": "#212529",
+                "coordinate": [
+                    0,
+                    -420
+                ]
+            },
+            "actions": [
+                {
+                    "id": "19c5195781e74e22927fbe9edc729d31",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche,Cha_Scene_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "80803541f5b240ec8df9fcce02412e67",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "ISOrKftaI2L8aoiLqAhz1",
+                        "sensor_hardware": "Cha_Scene_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "f50d696919f74a51a90d0912bf5293ec",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "nNKDClYtoCK41WdNsVsL9",
+                        "sensor_hardware": "Cha_Scene_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ISOrKftaI2L8aoiLqAhz1",
+            "next_event_id": "N4G610wKBxrYILYWJHHCY",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #C",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -450
+                ]
+            },
+            "actions": [
+                {
+                    "id": "TRCHfD57_ygA4yCsIyJNl",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "10",
+                        "transition_time": "1"
+                    }
+                },
+                {
+                    "id": "bc44a07cd9ca466c824b664c67960525",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit,Cha_Scene_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "N4G610wKBxrYILYWJHHCY",
+            "next_event_id": "xN8zd45cIZ7x3lx0PDPtL",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "N4G610wKBxrYILYWJHHCY",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -460
+                ]
+            },
+            "actions": [
+                {
+                    "id": "HJv-05x8Rp7XAo5AyYHvM",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite,Cha_Scene_RGB_Global",
+                        "red": "0",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "70",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "VWQX08goTSjfyowwI4nuc",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "200",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "35",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "P51IkAzl3oQp_hQowBvlX",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xN8zd45cIZ7x3lx0PDPtL",
+            "next_event_id": "0Sda140AnyJX-dE3qWcVH",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "xN8zd45cIZ7x3lx0PDPtL",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -470
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8TukqGCmz_CcoUbcKP0bz",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Droite,Cha_Scene_RGB_Global",
+                        "red": "100",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "OTc39fNu9wnKGipNO_9Dp",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "3",
+                        "diffusion": "2500",
+                        "pause": "4000"
+                    }
+                },
+                {
+                    "id": "HosOfixdYnX_rjXYJg9tT",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0Sda140AnyJX-dE3qWcVH",
+            "next_event_id": "apBrv2nuk_Lq1IHVzSpf3",
+            "event_type": "ActionEvent",
+            "duration": 12,
+            "event_role": "None",
+            "interface": {
+                "name": "0Sda140AnyJX-dE3qWcVH",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -480
+                ]
+            },
+            "actions": [
+                {
+                    "id": "KhaQC9hlxX5R25AWFBMBr",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "WmQ_SpGr4RrTh3mMSv_hS",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_SCENE_Maison_Fiable.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "apBrv2nuk_Lq1IHVzSpf3",
+            "next_event_id": "qMOaK69afoz5Gp27nsCXX",
+            "event_type": "ActionEvent",
+            "duration": 13,
+            "event_role": "None",
+            "interface": {
+                "name": "apBrv2nuk_Lq1IHVzSpf3",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -490
+                ]
+            },
+            "actions": [
+                {
+                    "id": "h7dajBnaAr0cLhNkT6TJo",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_12.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "0HXXtT5gvG7z7B_7caw1d",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Pos",
+                        "red": "200",
+                        "green": "250",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qMOaK69afoz5Gp27nsCXX",
+            "next_event_id": "IfDkD0s4HYT8gBnedV3Ix",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "qMOaK69afoz5Gp27nsCXX",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -500
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3k16DVnhXOo0v4TkRIMf9",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_SCENE_ALICE_06.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "sgByHmumLpJOzZ12wtL0x",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "200",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "9vfAj1N0AoZZJ0mXRsHt0",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IfDkD0s4HYT8gBnedV3Ix",
+            "next_event_id": "9xYwJLtMSKfg3nimPc6Eq",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "IfDkD0s4HYT8gBnedV3Ix",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -510
+                ]
+            },
+            "actions": [
+                {
+                    "id": "_b15Hj9vHD174TV2YtOuA",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9xYwJLtMSKfg3nimPc6Eq",
+            "next_event_id": "EgAGwEmBegMaIGm7n2upe",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "9xYwJLtMSKfg3nimPc6Eq",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -520
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Gvi4Sd6k_SN9YJiG_Ag17",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "57XkHcoBKfeFkfo1AE-Bt",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "150",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EgAGwEmBegMaIGm7n2upe",
+            "next_event_id": "TNYl1xOYO3PSyepygmokD",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "EgAGwEmBegMaIGm7n2upe",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -530
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3CHCyF_H9qNIO7f1InR6m",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "qw-Hsi1d42zvW6Esnhf4X",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_SCENE_LAPIN_13.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "xv9574vqHQ_d7shDzZ8LN",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Pos",
+                        "red": "200",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TNYl1xOYO3PSyepygmokD",
+            "next_event_id": "iYcimBziIP43meHV71SRd",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "TNYl1xOYO3PSyepygmokD",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -540
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4qctxGfBhEpeLBXOT_ZS7",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "45",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "fQBrv9Co1XWWG7bjcTXf7",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "iYcimBziIP43meHV71SRd",
+            "next_event_id": "hQrgt2jwQbbrvJF9SCMJz",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "iYcimBziIP43meHV71SRd",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -550
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EnHPmcyhy7HVd_gdDqmdv",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "fade_time": "3",
+                        "is_rgb": "true",
+                        "hardware": "Cha_Scene_RGB_Cheminee,Cha_Scene_RGB_Lapin_Pos"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hQrgt2jwQbbrvJF9SCMJz",
+            "next_event_id": "8T5eBLC0G698YDeiQj7lS",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "hQrgt2jwQbbrvJF9SCMJz",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -560
+                ]
+            },
+            "actions": [
+                {
+                    "id": "imOVTyuHo6jokBJyVEmpp",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "200",
+                        "green": "200",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "2WLtjvRxiLsM-Kgmcv6y4",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8T5eBLC0G698YDeiQj7lS",
+            "next_event_id": "6k5FQoFHR1Xrw-wvKMWUt",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "8T5eBLC0G698YDeiQj7lS",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -570
+                ]
+            },
+            "actions": [
+                {
+                    "id": "yD1usG2jT40Zy8zmKT8HW",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_SCENE_ALICE_07.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6k5FQoFHR1Xrw-wvKMWUt",
+            "next_event_id": "yAOPj5yWa3m61FTvHEAgX",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "6k5FQoFHR1Xrw-wvKMWUt",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -580
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VdYGYWP8yh2DtjtxUAIWE",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "45",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "FAlwTqj2Rawpvqjrbs21c",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "fade_time": "3",
+                        "is_rgb": "true"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "yAOPj5yWa3m61FTvHEAgX",
+            "next_event_id": "W12ZPUNdaR0c12kLN7E9h",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "yAOPj5yWa3m61FTvHEAgX",
+                "color": "#198754",
+                "coordinate": [
+                    40,
+                    -590
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OMi9xsENMzLfF7AUVAE95",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche Cha_Scene_RGB_Droite",
+                        "fade_time": "5",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "uAxXmjImVaaPTq-t9M-XM",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nNKDClYtoCK41WdNsVsL9",
+            "next_event_id": "9lNCoTw_OA_W3YqVRfTtG",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #D ",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -458.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ZwrqRUkMpEtNYK8aTIrpv",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite,Cha_Scene_RGB_Global Cha_Scene_RGB_Cheminee,Cha_Scene_RGB_Lapin_Neg,Cha_Scene_RGB_Lapin_Pos,Cha_Scene_RGB_Alice_Oeil"
+                    }
+                },
+                {
+                    "id": "054954e6ec624ed097f8862a84312c39",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Droit,Cha_Scene_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9lNCoTw_OA_W3YqVRfTtG",
+            "next_event_id": "7K2CT4zvVviABOk9I9EKb",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "9lNCoTw_OA_W3YqVRfTtG",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -468.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "q7q05FLQkMM9eMUgTWRNI",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "6",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7K2CT4zvVviABOk9I9EKb",
+            "next_event_id": "tTiQdlEe346a18uRuNc19",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "7K2CT4zvVviABOk9I9EKb",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -478.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "RM6nHw6hwLktrHwLYnHkr",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "200",
+                        "brightness": "60",
+                        "fade_time": "3",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "WysA2cBjfifQHjESgXQm_",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "45",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tTiQdlEe346a18uRuNc19",
+            "next_event_id": "XkZZzVnzvojqYMsATXVtl",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "tTiQdlEe346a18uRuNc19",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -488.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PPeUUL1rjB-picBtUuEMD",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "1",
+                        "diffusion": "4000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "8fW8re6UgMoFNFOFN0W_z",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_SCENE_Explosion_Maison.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XkZZzVnzvojqYMsATXVtl",
+            "next_event_id": "pWG6F_XOvE2ZgRW7Bceh7",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "XkZZzVnzvojqYMsATXVtl",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -498.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "khu5SLr6eIc5f-zipnlxL",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "35",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "NJGlfxhGud5UyTZEbdA-q",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pWG6F_XOvE2ZgRW7Bceh7",
+            "next_event_id": "1jHzlRc-p98Lh05MC9joZ",
+            "event_type": "ActionEvent",
+            "duration": 12,
+            "event_role": "None",
+            "interface": {
+                "name": "pWG6F_XOvE2ZgRW7Bceh7",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -508.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "irA9N2PvTfZls-Q_6eM3H",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "blAZoZwihs2PfhxjXzv5_",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "fade_time": "3",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "5bGtdirVyQ2Hv9W5U3kx2",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1jHzlRc-p98Lh05MC9joZ",
+            "next_event_id": "9cpbwZx5fWFfIArSk75vR",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "1jHzlRc-p98Lh05MC9joZ",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -518.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5JeulQrqttiumknB5zoCr",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite",
+                        "red": "200",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "98uHQfL-hnMTlgScUZ0Nw",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Alice_Oeil",
+                        "fade_time": "3",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "C6QOpVOgTTi10LTL6cPG9",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "80",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9cpbwZx5fWFfIArSk75vR",
+            "next_event_id": "rK3_XJto195CNEn6JMiBm",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "9cpbwZx5fWFfIArSk75vR",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -528.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "i1GUkid1vfPpfP5HVo4IB",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "3",
+                        "diffusion": "2000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "BOEEvyROBh6o_zmDVOAJC",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite,Cha_Scene_RGB_Cheminee",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "KdSM3YmZd6zp49K_skhKt",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Lapin_Neg",
+                        "fade_time": "2",
+                        "is_rgb": "true"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "rK3_XJto195CNEn6JMiBm",
+            "next_event_id": "Mk9MZUDSsuFBQaMFVWA2i",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "rK3_XJto195CNEn6JMiBm",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -538.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "postDalA1hHNvGZqsxTCu",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite,Cha_Scene_RGB_Cheminee"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Mk9MZUDSsuFBQaMFVWA2i",
+            "next_event_id": "5XoWe2c0rN3MmFw4of48Y",
+            "event_type": "ActionEvent",
+            "duration": 20,
+            "event_role": "None",
+            "interface": {
+                "name": "Mk9MZUDSsuFBQaMFVWA2i",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -548.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "QbGon2PNeUaJxQcn7A5LI",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "Cha_Scene_Fumee",
+                        "ntours": "1",
+                        "diffusion": "3000",
+                        "pause": "1000"
+                    }
+                },
+                {
+                    "id": "Meh8SD7SptBX-m-FYS2qu",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Global",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "255",
+                        "brightness": "50",
+                        "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "W4X6rJ2LO2Jd9iKJkxgsg",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "10"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5XoWe2c0rN3MmFw4of48Y",
+            "next_event_id": "iPacbV1VD01tNLKDN-j_k",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "5XoWe2c0rN3MmFw4of48Y",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -558.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VTOpTHJFbSf25U903jN5q",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "iPacbV1VD01tNLKDN-j_k",
+            "next_event_id": "kYFvwyp61agUlouCJeNjY",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "iPacbV1VD01tNLKDN-j_k",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -0.216583251953125,
+                    -568.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BfuU2Sqv4dqz5S0gPt8lQ",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "kYFvwyp61agUlouCJeNjY",
+            "next_event_id": "d3u_J4NlKS1B_S6ne6TOq",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "kYFvwyp61agUlouCJeNjY",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -578.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "rENdfwy6d2KFeBK_lEfUq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_SCENE_ALICE_10.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "d3u_J4NlKS1B_S6ne6TOq",
+            "next_event_id": "p41ip2pAZk75f96d5938k",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "d3u_J4NlKS1B_S6ne6TOq",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -588.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ja93BTmbbLbMIB6serFmz",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "p41ip2pAZk75f96d5938k",
+            "next_event_id": "W12ZPUNdaR0c12kLN7E9h",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "p41ip2pAZk75f96d5938k",
+                "color": "#FFC107",
+                "coordinate": [
+                    -0.216583251953125,
+                    -598.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "uYK5MNNwZL_P_HThrR24T",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Global",
+                        "fade_time": "7",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "dh7cVzlJj1Evw28rNxDw8",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "W12ZPUNdaR0c12kLN7E9h",
+            "next_event_id": "9973f797de4041fe9b644675064cd509",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "W12ZPUNdaR0c12kLN7E9h",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -0.216583251953125,
+                    -608.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "QCtCty3Tbvh9oVGKXDKRB",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9973f797de4041fe9b644675064cd509",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -0.216583251953125,
+                    -618.704528808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7e6cd8ad8bf04370ab1c5268367a2cf0",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Scene_RGB_Gauche,Cha_Scene_RGB_Droite,Cha_Scene_RGB_Cheminee,Cha_Scene_RGB_Lapin_Neg,Cha_Scene_RGB_Alice_Oeil,Cha_Scene_RGB_Lapin_Pos,Cha_Scene_RGB_Global,Cha_Scene_RGB_Gauche Cha_Scene_RGB_Droite,Cha_Scene_RGB_Global Cha_Scene_RGB_Cheminee",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "66b87c755ff94e2e85b4fe2f4823f79d",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Scene_Boitier_Gauche,Cha_Scene_Boitier_Droit"
+                    }
+                }
+            ]
+        }
+    ]
+}

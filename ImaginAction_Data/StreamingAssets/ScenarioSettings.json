@@ -1,0 +1,23 @@
+{
+    "dataSources": {
+        "hardwareActionsCsv": "Test_Media/CSV/Hardware_Action.csv",
+        "electronicsCsv": "Test_Media/CSV/List_Electronic.csv"
+    },
+    "audio": {
+        "rootFolder": "C:\\Users\\Admin\\Documents\\02 ALICE\\MEDIAS",
+        "catalogCsv": "Test_Media/CSV/List_Son.csv"
+    },
+    "scenarios": {
+        "files": [
+            "Scenarios/Foret/scenario_FOR_ENTREE_v01.json",
+            "Scenarios/Foret/scenario_FOR_CENTRAL_v04.json",
+            "Scenarios/Foret/scenario_FOR_SCENE_v01.json"
+        ]
+    },
+    "controller": {
+        "espTestConfigJson": "ControllerActions.json"
+    },
+    "appSettings": {
+        "settingsJson": "AppSettings.json"
+    }
+}

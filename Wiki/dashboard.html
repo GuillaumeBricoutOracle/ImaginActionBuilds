@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImaginAction Supervision</title>
+<!-- Icône inline : sans ça le navigateur réclame /favicon.ico que le serveur
+     ne sert pas, et la console se remplit de 404 à chaque chargement. -->
+<link rel="icon" href="data:image/svg+xml,
+  %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E
+  %3Crect width='32' height='32' rx='7' fill='%231c5cab'/%3E
+  %3Ccircle cx='16' cy='16' r='7' fill='%23f5b942'/%3E%3C/svg%3E">
+<style>
+  /* Supervision : design sombre assumé (salle de contrôle), palettes validées dataviz */
+  :root {
+    color-scheme: dark;
+    --page:        #0d0d0d;
+    --surface:     #1a1a19;
+    --surface-2:   #222221;
+    --ink:         #ffffff;
+    --ink-2:       #c3c2b7;
+    --muted:       #898781;
+    --grid:        #2c2c2a;
+    --baseline:    #383835;
+    --border:      rgba(255,255,255,0.10);
+    --series-1:    #3987e5;   /* palette catégorielle validée (mode sombre) */
+    --series-2:    #d95926;
+    --series-3:    #199e70;
+    --status-good:     #0ca30c;
+    --status-warning:  #fab219;
+    --status-serious:  #ec835a;
+    --status-critical: #d03b3b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink);
+         font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  header { padding: 10px 20px 0; background: var(--surface);
+           border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 5; }
+  .head-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  header h1 { font-size: 17px; margin: 0; font-weight: 600; }
+  .spacer { flex: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 7px; padding: 3px 11px;
+          border-radius: 999px; background: var(--surface-2);
+          border: 1px solid var(--border); font-size: 12.5px; color: var(--ink-2); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .dot.good { background: var(--status-good); }
+  .dot.warning { background: var(--status-warning); }
+  .dot.critical { background: var(--status-critical); }
+  .dot.off { background: var(--muted); }
+
+  nav { display: flex; gap: 2px; margin-top: 9px; }
+  nav button { background: none; border: none; border-bottom: 2px solid transparent;
+               color: var(--muted); padding: 8px 16px; font: 13.5px system-ui, sans-serif;
+               cursor: pointer; border-radius: 0; }
+  nav button:hover { color: var(--ink); }
+  nav button.active { color: var(--ink); border-bottom-color: var(--series-1); font-weight: 600; }
+  nav button .badge { background: var(--status-critical); color: #fff; border-radius: 999px;
+                      font-size: 10.5px; padding: 1px 6px; margin-left: 5px; }
+
+  main { padding: 18px 20px 60px; max-width: 1560px; margin: 0 auto; }
+  .tab { display: none; }
+  .tab.active { display: block; }
+  section { margin-bottom: 24px; }
+  h2 { font-size: 13px; font-weight: 600; color: var(--muted);
+       text-transform: uppercase; letter-spacing: .07em; margin: 0 0 10px; }
+
+  .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+             background: var(--surface); border: 1px solid var(--border);
+             border-radius: 10px; padding: 9px 12px; }
+  .toolbar .lbl { color: var(--muted); font-size: 12.5px; }
+  input, select, textarea {
+    background: var(--surface-2); color: var(--ink); border: 1px solid var(--border);
+    border-radius: 7px; padding: 5px 8px; font: 12.5px system-ui, sans-serif;
+  }
+  button { background: var(--surface-2); color: var(--ink-2); cursor: pointer;
+           border: 1px solid var(--border); border-radius: 7px;
+           padding: 5px 11px; font: 12.5px system-ui, sans-serif; }
+  button:hover { color: var(--ink); border-color: rgba(255,255,255,.25); }
+  button.primary { background: #1c5cab; color: #fff; border-color: transparent; }
+  button.primary:hover { background: #256abf; }
+  button.on { background: #1c5cab; color: #fff; border-color: transparent; }
+  /* Action de masse : visuellement distincte, on ne la clique pas par erreur. */
+  button.danger { background: #6d2b25; color: #ffd9d4; border-color: transparent; }
+  button.danger:hover { background: #8a362e; color: #fff; }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .tile { background: var(--surface); border: 1px solid var(--border);
+          border-radius: 10px; padding: 12px 16px; }
+  .tile .label { font-size: 12px; color: var(--muted); }
+  .tile .value { font-size: 25px; font-weight: 600; margin-top: 2px; }
+  .tile .value.bad { color: var(--status-critical); }
+  .tile .value.ok { color: var(--status-good); }
+  .tile .sub { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 1000px) { .split { grid-template-columns: 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--border);
+           border-radius: 10px; padding: 14px 16px; }
+  .panel h3 { margin: 0 0 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+  svg text { font: 11px system-ui, sans-serif; fill: var(--muted); }
+  .chart-wrap { overflow-x: auto; }
+  svg.resp { width: 100%; height: auto; }
+  .tile .valrow { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+  .tile .spark { flex: none; opacity: .85; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  th { text-align: left; color: var(--muted); font-weight: 500;
+       border-bottom: 1px solid var(--baseline); padding: 5px 9px;
+       position: sticky; top: 0; background: var(--surface); }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--ink); }
+  td { padding: 5px 9px; border-bottom: 1px solid var(--grid); color: var(--ink-2);
+       font-variant-numeric: tabular-nums; }
+  td.mono { font-family: Consolas, monospace; font-size: 12px; }
+  tr.selected td { background: rgba(57,135,229,.12); }
+  .scroll-y { max-height: 380px; overflow-y: auto; }
+  .num-bad { color: var(--status-critical); font-weight: 600; }
+  .num-warn { color: var(--status-warning); }
+  table.esp-fused td { padding: 9px 9px; }         /* lignes plus hautes */
+  table.esp-fused tbody tr:hover td { background: rgba(255,255,255,.03); }
+
+  /* Table ESP */
+  #esp-table tbody tr.esp-row { cursor: pointer; }
+  #esp-table tbody tr.esp-row:hover td { background: rgba(255,255,255,.04); }
+  #esp-table tr.detail td { background: var(--surface-2); font-size: 12px;
+                            padding: 10px 14px; }
+  .st { display: inline-flex; align-items: center; gap: 6px; }
+  .kv { color: var(--muted); }
+  .hist { font-family: Consolas, monospace; font-size: 11.5px; color: var(--ink-2);
+          margin: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hist .t { color: var(--muted); }
+
+  #alerts .alert { display: flex; gap: 10px; padding: 7px 10px; border-radius: 8px;
+                   margin-bottom: 6px; background: var(--surface-2); align-items: baseline; }
+  #alerts .alert .when { color: var(--muted); font-size: 12px; flex: none; }
+  #alerts .alert.error { border-left: 3px solid var(--status-critical); }
+  #alerts .alert.warn { border-left: 3px solid var(--status-warning); }
+  .empty { color: var(--muted); }
+
+  #feed { max-height: 340px; overflow-y: auto; font-size: 12.5px; }
+  #feed .row { padding: 3px 0; border-bottom: 1px solid var(--grid); color: var(--ink-2); }
+  #feed .row .t { color: var(--muted); margin-right: 8px; }
+
+  #tip { position: fixed; pointer-events: none; z-index: 20; display: none;
+         background: #000; color: #fff; border: 1px solid var(--border);
+         border-radius: 6px; padding: 5px 9px; font-size: 12px; white-space: nowrap; }
+
+  #modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 30;
+              display: none; align-items: center; justify-content: center; }
+  #modal { background: var(--surface); border: 1px solid var(--border);
+           border-radius: 12px; padding: 18px 20px; width: min(600px, 92vw);
+           max-height: 86vh; overflow-y: auto; }
+  #modal h3 { margin: 0 0 12px; font-size: 15px; }
+  #modal .preset { display: block; width: 100%; text-align: left; margin-bottom: 6px; }
+  #modal .preset .pa { color: var(--ink); font-weight: 600; }
+  #modal .preset .po { color: var(--muted); font-size: 11.5px; display: block;
+                       white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #modal input, #modal textarea { width: 100%; font-family: Consolas, monospace;
+                                  font-size: 13px; margin: 4px 0 10px; }
+  #modal label { font-size: 12px; color: var(--muted); }
+  #modal-fields { display: grid; grid-auto-rows: min-content; row-gap: 4px; margin: 6px 0 10px; }
+  #modal-fields .frow { display: grid; grid-template-columns: 150px 1fr; align-items: center;
+                        column-gap: 8px; }
+  #modal-fields .frow label { font-size: 12.5px; color: var(--ink-2); cursor: help; }
+  #modal-fields .frow input, #modal-fields .frow select { width: 100%; margin: 0;
+    font-family: Consolas, monospace; font-size: 12.5px; padding: 5px 8px; }
+  #modal button.src-on { background: #1c5cab; color: #fff; border-color: transparent; }
+  #send-result { font-size: 12.5px; margin-top: 8px; }
+  .r-ok { color: var(--status-good); }
+  .r-ko { color: var(--status-critical); }
+
+  #report-frame { width: 100%; height: 900px; border: none; border-radius: 10px;
+                  background: #fff; margin-top: 12px; }
+
+  /* Barre d'envoi flottante : toujours visible, pensée tactile */
+  #send-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 25;
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: flex; gap: 10px; align-items: center;
+    box-shadow: 0 -8px 22px rgba(0,0,0,.45);
+  }
+  #send-bar .count { font-weight: 600; white-space: nowrap; }
+  #send-bar .chips { display: flex; gap: 6px; overflow-x: auto; flex: 1;
+                     scrollbar-width: thin; }
+  #send-bar .chips button { white-space: nowrap; flex: none; }
+  #send-bar .big { padding: 12px 26px; font-size: 15px; font-weight: 700;
+                   border-radius: 10px; }
+  main { padding-bottom: 110px; }
+
+  /* Mode capture (?capture=1) : la page est photographiée par un navigateur
+     headless pour le rapport du jour. On ne garde de l'onglet Spectacles que
+     les tuiles et les deux premiers graphiques ; tout ce qui est interactif
+     ou verbeux disparaît. */
+  body.capture header, body.capture #send-bar, body.capture #tip,
+  body.capture .toolbar { display: none !important; }
+  body.capture main { padding: 14px 18px 18px; max-width: 1280px; }
+  body.capture #tab-spectacles > section:not(:nth-of-type(2)):not(:nth-of-type(4)) { display: none; }
+  body.capture #capture-title { margin: 0 0 12px; font-size: 20px; }
+  /* Dans le rapport, seules les tuiles qui parlent des spectacles et des
+     anomalies restent ; warnings, erreurs, sons, capteurs, volume d'actions
+     ont été explicitement écartés du rapport. */
+  body.capture #tiles .tile:not([data-label="Spectacles"]):not([data-label="Dérive boucle"]):not([data-label="Actions perdues"]) { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-row">
+    <h1>ImaginAction Supervision</h1>
+    <span class="pill" id="pill-unity"><span class="dot off"></span>Unity : …</span>
+    <span class="pill" id="pill-session">Session : …</span>
+    <span class="pill" id="pill-esp"><span class="dot off"></span>ESP : …</span>
+    <span class="pill" id="pill-mail">✉️ …</span>
+    <span class="spacer"></span>
+    <button onclick="testEmail()">Mail de test</button>
+    <button onclick="location.href='/'">Wiki</button>
+  </div>
+  <nav id="tabs">
+    <button data-tab="vue" class="active">Vue d'ensemble<span class="badge" id="alert-badge" hidden></span></button>
+    <button data-tab="spectacles">Spectacles &amp; Stats</button>
+    <button data-tab="esp">ESP</button>
+    <button data-tab="firmware">Firmware</button>
+    <button data-tab="rapports">Rapports</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ═══ ONGLET : VUE D'ENSEMBLE ═══════════════════════════════════════ -->
+<div class="tab active" id="tab-vue">
+  <section><div class="tiles" id="vue-tiles"></div></section>
+  <section>
+    <div style="display:flex;align-items:baseline;gap:12px">
+      <h2 style="flex:1">Alertes</h2>
+      <button id="btn-clear-alerts" onclick="clearAlerts()" hidden>Tout effacer</button>
+    </div>
+    <div id="alerts"><div class="empty">Aucune alerte.</div></div>
+  </section>
+  <section>
+    <div style="display:flex;align-items:baseline;gap:12px">
+      <h2 style="margin-right:4px">Passages hors ligne</h2>
+      <span class="lbl" style="flex:1">comptés uniquement pendant une lecture de
+        scénario, et seulement pour les appareils de ce scénario</span>
+      <button onclick="resetOfflineStats()" title="Remet les compteurs à zéro">Réinitialiser</button>
+    </div>
+    <div class="panel" style="padding:0">
+      <div class="scroll-y" style="max-height:320px">
+      <table id="offline-table">
+        <thead><tr>
+          <th>Appareil</th><th>État</th><th>Passages hors ligne</th>
+          <th>Temps hors ligne cumulé</th><th>Dernière absence</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+  <section class="split">
+    <div class="panel">
+      <h3>Activité live</h3>
+      <div id="feed"></div>
+    </div>
+    <div class="panel">
+      <h3>Dernières erreurs / warnings</h3>
+      <div class="scroll-y">
+      <table id="errors-table">
+        <thead><tr><th>Heure</th><th>Niv.</th><th>Message</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ONGLET : SPECTACLES & STATS ══════════════════════════════════ -->
+<div class="tab" id="tab-spectacles">
+  <section>
+    <div class="toolbar" id="period-bar">
+      <span class="lbl" id="src-lbl">Machines</span>
+      <span id="src-bar" style="display:flex;gap:6px;flex-wrap:wrap"
+        title="Coche une ou plusieurs machines : les stats sont agrégées. Sources déclarées dans dashboard_config.json (log_sources)"></span>
+      <button data-preset="today">Aujourd'hui</button>
+      <button data-preset="yesterday">Hier</button>
+      <button data-preset="24h" class="on">24 h</button>
+      <button data-preset="7d">7 jours</button>
+      <button data-preset="all">Tout le log</button>
+      <span class="lbl">· jour précis</span>
+      <select id="period-day"><option value="">—</option></select>
+      <span class="lbl">· du</span>
+      <input type="date" id="range-from">
+      <span class="lbl">au</span>
+      <input type="date" id="range-to">
+      <button onclick="applyCustomRange()">Appliquer</button>
+      <span class="lbl" id="analysis-label" style="margin-left:auto"></span>
+    </div>
+  </section>
+
+  <section><h2 id="capture-title" hidden></h2><div class="tiles" id="tiles"></div></section>
+
+  <section>
+    <h2>Spectacles</h2>
+    <div class="toolbar" style="margin-bottom:10px">
+      <button onclick="selectAllShows(true)">Tout cocher</button>
+      <button onclick="selectAllShows(false)">Tout décocher</button>
+      <button class="primary" id="btn-analyze-shows" onclick="analyzeSelectedShows()">
+        Analyser la sélection (0)</button>
+      <button onclick="exportShowsCsv()">⬇ CSV spectacles</button>
+      <button onclick="exportEspCsv()">⬇ CSV ESP</button>
+      <span class="lbl">Le tableau suit la période choisie ci-dessus. Une analyse par
+        sélection ne compte que ce qui se passe pendant les spectacles cochés
+        (l'init de session et l'entre-spectacles sont exclus).</span>
+    </div>
+    <div class="panel scroll-y">
+      <table id="shows-table">
+        <thead><tr><th></th><th>#</th><th>Machine</th><th>Jour</th><th>Début</th><th>Scénario</th><th>Durée</th>
+        <th>Actions</th><th>Sons</th><th>Warns</th><th>Erreurs</th><th>Perdues</th><th>État</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="panel">
+      <h3>Durée des spectacles — anomalies en rouge, médiane en pointillés</h3>
+      <div class="chart-wrap"><svg id="chart-loops" height="200"></svg></div>
+    </div>
+    <div class="panel">
+      <h3>Activité par heure</h3>
+      <svg id="chart-activity" class="resp" height="200"></svg>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="panel">
+      <h3>Warnings &amp; erreurs par heure</h3>
+      <svg id="chart-levels" class="resp" height="200"></svg>
+    </div>
+    <div class="panel">
+      <h3>Audio &amp; boîtier Controller</h3>
+      <svg id="chart-audio" class="resp"></svg>
+      <div id="buttons-panel" style="margin:10px 0"></div>
+      <div class="scroll-y" style="max-height:150px">
+      <table id="top-sounds-table">
+        <thead><tr><th>Fichier audio</th><th>Lectures</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h3>ESP sur la période — fiabilité &amp; profil horaire</h3>
+      <div class="scroll-y" style="max-height:calc(100vh - 240px);overflow-x:auto">
+      <table id="esp-stats-table" class="esp-fused">
+        <thead><tr>
+          <th class="sortable" data-k="health" title="Verdict : 🟢 OK · 🟡 à surveiller · 🔴 problème">Santé</th>
+          <th class="sortable" data-k="name">ESP</th>
+          <th>Profil horaire <span style="color:var(--series-1)">↥env</span> <span style="color:var(--series-3)">↧reçu</span> <span style="color:var(--status-warning)">échecs</span> <span style="color:var(--status-critical)">perdus</span></th>
+          <th class="sortable" data-k="ws_out" title="Actions envoyées par Unity à cet ESP">↥ env.</th>
+          <th class="sortable" data-k="ws_in" title="Messages reçus de cet ESP (capteurs, réponses)">↧ reçu</th>
+          <th class="sortable" data-k="rx_active_h" title="Nombre d'heures où l'ESP a reçu au moins un message">h. actives</th>
+          <th class="sortable" data-k="rx_gaps" title="Heures muettes entre deux heures actives (décrochages)">décroch.</th>
+          <th class="sortable" data-k="lost" title="Actions non livrées (ESP injoignable)">perdues</th>
+          <th class="sortable" data-k="failures" title="Tentatives de connexion échouées">échecs</th>
+          <th class="sortable" data-k="connects" title="Connexions établies — 1 = stable toute la période">reconn.</th>
+          <th class="sortable" data-k="connect_ms_avg" title="Temps moyen d'établissement de la connexion">conn. moy.</th>
+          <th class="sortable" data-k="connect_ms_trend" title="Dernières vs premières connexions : ↗ rouge = lien qui se dégrade">tendance</th>
+          <th class="sortable" data-k="downtime_s" title="Temps total injoignable (nb de pannes)">indispo.</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <p class="empty" style="font-size:11.5px;margin:8px 0 0">
+        Profil horaire : ↥ envoyés (bleu), ↧ reçus (vert), échecs connexion (orange),
+        actions perdues (rouge) — chacun normalisé sur son propre max. Un
+        <b style="color:var(--status-critical)">point rouge</b> = heure muette après activité
+        (décrochage). Survole la courbe pour le détail heure par heure. Trié par santé ;
+        clique un en-tête pour trier.</p>
+      <p id="esp-rx-note" class="empty" style="font-size:11.5px;margin:4px 0 0;color:var(--status-warning)"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h3>Events du scénario (durée réelle)</h3>
+      <div class="scroll-y">
+      <table id="events-table">
+        <thead><tr><th>Nom</th><th>Passages</th>
+          <th>Durée moyenne par heure (dans le temps →)</th>
+          <th>Moy.</th><th>Min</th><th>Max</th><th>σ</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <div id="events-unreached" class="empty" style="font-size:12px;margin-top:8px"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h3>Points de choix du scénario — toutes les options, empruntées ou non</h3>
+      <div id="branches-panel"><span class="empty">Aucun point de choix dans le scénario.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <h3>Incidents groupés sur la période</h3>
+      <p id="inc-note" class="empty" style="font-size:11.5px;margin:0 0 8px;color:var(--status-warning)" hidden></p>
+      <div id="inc-content"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ONGLET : ESP ═════════════════════════════════════════════════ -->
+<div class="tab" id="tab-esp">
+  <section>
+    <div class="toolbar" style="margin-bottom:8px">
+      <input type="search" id="esp-q" placeholder="recherche…" style="width:150px">
+      <span class="lbl">Statut</span>
+      <select id="esp-statut"><option value="">tous</option>
+        <option value="online">en ligne</option><option value="offline">hors ligne</option>
+        <option value="unknown">inconnu</option></select>
+      <span class="lbl">Univers</span>
+      <span id="univers-bar" style="display:flex;gap:6px;flex-wrap:wrap"></span>
+      <span class="lbl">Scène</span>
+      <span id="scene-bar" style="display:flex;gap:6px;flex-wrap:wrap"></span>
+    </div>
+    <div class="toolbar" style="margin-bottom:10px">
+      <span class="lbl">Sélection rapide</span>
+      <span id="type-shortcuts" style="display:flex;gap:6px;flex-wrap:wrap"></span>
+      <button onclick="selectAllEsp(true)">Tous les filtrés</button>
+      <span style="flex:1"></span>
+      <button class="danger" onclick="resetOnlineEsp()"
+              title="Envoie l'action reset à tout le matériel en ligne : les ESP32 réinitialisent leurs modules, les ampoules s'éteignent.">
+        Reset matériel en ligne</button>
+      <span id="reset-result" class="lbl"></span>
+    </div>
+    <div class="panel" style="padding:0">
+      <div class="scroll-y" style="max-height:calc(100vh - 280px)">
+      <table id="esp-table">
+        <thead><tr>
+          <th style="width:30px"></th>
+          <th class="sortable" data-k="status">Statut</th>
+          <th class="sortable" data-k="name">Nom</th>
+          <th class="sortable" data-k="type">Type</th>
+          <th class="sortable" data-k="univers">Univers</th>
+          <th class="sortable" data-k="scene">Scène</th>
+          <th>IP</th>
+          <th>Dernière action</th>
+          <th class="sortable" data-k="lost">Perdues</th>
+          <th class="sortable" data-k="failures">Échecs</th>
+          <th>Conn. moy.</th>
+          <th></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+    <p class="empty" style="font-size:12px">Clique sur une ligne pour voir le détail
+      (derniers messages échangés, historique). La case sélectionne pour l'envoi groupé.</p>
+  </section>
+</div>
+
+<!-- ═══ ONGLET : FIRMWARE (OTA) ══════════════════════════════════════ -->
+<div class="tab" id="tab-firmware">
+  <section>
+    <div class="toolbar" style="margin-bottom:10px">
+      <span class="lbl" id="fw-dir-label">Dossier : …</span>
+      <button onclick="refreshFirmware()">↻ Rafraîchir</button>
+      <span class="lbl" id="fw-updated" style="color:var(--muted)"></span>
+      <span class="spacer"></span>
+      <button class="primary" id="btn-deploy-multi" onclick="deploySelected()">
+        Déployer la sélection (0)</button>
+    </div>
+    <div class="panel" style="padding:0">
+      <div class="scroll-y" style="max-height:calc(100vh - 300px);overflow-x:auto">
+      <table id="fw-table">
+        <thead><tr>
+          <th style="width:30px"></th>
+          <th>ESP</th><th>Type</th><th>IP</th><th>Statut</th>
+          <th>Binaire</th><th>Taille</th><th>Compilé le</th><th>MD5</th>
+          <th>Déploiement</th><th></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+    <p class="empty" style="font-size:12px">Binaires nominatifs produits par
+      <span class="mono">compilesketchs.py</span> (un .bin par ESP, flashé via
+      l'endpoint /update d'AsyncElegantOTA déjà présent sur le parc). Le
+      déploiement groupé procède par vagues de 3 ; commence toujours par
+      <b>un seul ESP canari</b> et vérifie sa reconnexion dans l'onglet ESP
+      avant d'élargir. L'ESP redémarre après flash (~10-20 s d'absence normale).</p>
+  </section>
+</div>
+
+<!-- ═══ ONGLET : RAPPORTS ════════════════════════════════════════════ -->
+<div class="tab" id="tab-rapports">
+  <section>
+    <div class="toolbar">
+      <span class="lbl">Jour</span>
+      <select id="report-day"></select>
+      <button class="primary" onclick="viewReport()">Afficher</button>
+      <button onclick="mailReport()">Envoyer par mail</button>
+      <span class="lbl" id="report-status"></span>
+    </div>
+    <iframe id="report-frame" hidden></iframe>
+  </section>
+
+  <section>
+    <h2>Comparer deux jours</h2>
+    <div class="toolbar" style="margin-bottom:10px">
+      <select id="cmp-a"></select>
+      <span class="lbl">vs</span>
+      <select id="cmp-b"></select>
+      <button class="primary" onclick="compareDays()">Comparer</button>
+      <span class="lbl">Δ = jour B − jour A (utile pour valider un correctif d'une nuit à l'autre)</span>
+    </div>
+    <div class="panel" id="cmp-result"><span class="empty">Choisis deux jours et compare.</span></div>
+  </section>
+</div>
+
+</main>
+
+<div id="tip"></div>
+
+<div id="send-bar" hidden>
+  <span class="count" id="send-bar-count">0 ESP</span>
+  <span class="chips" id="sel-chips"></span>
+  <button onclick="selectAllEsp(false)" title="Tout désélectionner">×</button>
+  <button class="primary big" onclick="openModalMulti()">📤 Envoyer</button>
+</div>
+
+<div id="modal-bg">
+  <div id="modal">
+    <h3 id="modal-title">Envoyer une action</h3>
+    <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+      <button id="src-hardware" onclick="setModalSource('hardware')">🔧 Hardware Actions</button>
+      <button id="src-scenario" onclick="setModalSource('scenario')">📜 Tirées des scénarios</button>
+      <button id="src-history" onclick="setModalSource('history')">🕑 Historique</button>
+      <span style="flex:1"></span>
+      <button id="btn-prev-action" class="primary" onclick="useHistoryEntry(0)"
+              title="Recharge la dernière action envoyée à cet appareil">↩ Action précédente</button>
+    </div>
+    <div id="modal-presets"></div>
+    <hr style="border-color:var(--grid)">
+    <label>Action</label>
+    <input id="in-action" placeholder="ex : couleur_leds, balayage, reset…">
+    <div id="modal-fields"></div>
+    <details id="json-details">
+      <summary style="cursor:pointer;font-size:12px;color:var(--muted)">JSON (avancé)</summary>
+      <textarea id="in-options" rows="5">{}</textarea>
+    </details>
+    <div style="display:flex;gap:10px;margin-top:10px">
+      <button class="primary" onclick="sendAction()">Envoyer</button>
+      <button onclick="closeModal()">Fermer</button>
+    </div>
+    <div id="send-result"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+
+let live = null, registry = [], showsData = { shows: [], days: [] }, stats = null;
+let currentSources = [''];   // machines sélectionnées ('' = cette machine)
+const srcParam = () => currentSources.join(',');
+let analysis = { mode: 'range', preset: '24h', from: null, to: null, showStarts: [] };
+const selShows = new Set(), selEsp = new Set();
+let espSortStats = { k: 'health', dir: -1 };   // les ESP à problème d'abord
+let espSortTable = { k: 'name', dir: 1 };
+let expandedEsp = null;
+
+/* ─── Onglets ─────────────────────────────────────────────────────────── */
+function showTab(name) {
+  $$('.tab').forEach((t) => t.classList.toggle('active', t.id === 'tab-' + name));
+  $$('#tabs button').forEach((b) => b.classList.toggle('active', b.dataset.tab === name));
+  try { history.replaceState(null, '', '#' + name); } catch { }
+  try { updateEspButtons(); } catch { }  // la barre d'envoi ne vit que dans l'onglet ESP
+  if (name === 'firmware') { try { refreshFirmware(); } catch { } }
+}
+$$('#tabs button').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab)));
+if (location.hash.length > 1) showTab(location.hash.slice(1));
+
+/* ─── Helpers ─────────────────────────────────────────────────────────── */
+const fmtDur = (s) => {
+  if (s == null) return '—';
+  s = Math.round(s);
+  if (s < 90) return s + 's';
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+  return h ? `${h}h${String(m).padStart(2, '0')}` : `${m}min${String(s % 60).padStart(2, '0')}`;
+};
+const timePart = (iso) => (iso || '').slice(11, 19) || '—';
+const ago = (iso) => {
+  if (!iso) return '—';
+  const d = (Date.now() - new Date(iso).getTime()) / 1000;
+  if (d < 0 || isNaN(d)) return '—';
+  if (d < 60) return Math.round(d) + 's';
+  if (d < 3600) return Math.round(d / 60) + 'min';
+  return Math.round(d / 3600) + 'h';
+};
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g,
+  (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const tip = $('#tip');
+function showTip(evt, html) {
+  tip.innerHTML = html; tip.style.display = 'block';
+  tip.style.left = Math.min(evt.clientX + 14, innerWidth - 230) + 'px';
+  tip.style.top = (evt.clientY + 14) + 'px';
+}
+function hideTip() { tip.style.display = 'none'; }
+function hookTips(svg) {
+  svg.querySelectorAll('[data-tip]').forEach((el) => {
+    el.addEventListener('mousemove', (e) => showTip(e, el.dataset.tip));
+    el.addEventListener('mouseleave', hideTip);
+    // Mobile : un tap sur une barre/un point affiche le tooltip
+    el.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      showTip({ clientX: t.clientX, clientY: t.clientY - 50 }, el.dataset.tip);
+      e.stopPropagation();
+    }, { passive: true });
+  });
+}
+document.addEventListener('touchstart', (e) => {
+  if (!e.target.closest('[data-tip]')) hideTip();
+}, { passive: true });
+
+// Sparkline inline pour les tuiles (60×22)
+function spark(values, color) {
+  if (!values || values.length < 2) return '';
+  const max = Math.max(...values, 1);
+  const pts = values.map((v, i) =>
+    `${(i / (values.length - 1)) * 58 + 1},${21 - (v / max) * 18}`).join(' ');
+  return `<svg class="spark" width="60" height="22" viewBox="0 0 60 22">
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5"/></svg>`;
+}
+
+// Barres horizontales génériques : rows = [{label, value, red, tip}]
+function hbars(el, rows, color) {
+  const W = 660, rowH = 24, labelW = 190;
+  const H = Math.max(40, rows.length * rowH + 8);
+  el.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  if (rows.length === 0) { el.innerHTML = '<text x="10" y="24">Rien sur la période.</text>'; return; }
+  const maxV = Math.max(...rows.map((r) => r.value), 1);
+  const barMax = W - labelW - 70;
+  el.innerHTML = rows.map((r, i) => {
+    const y = i * rowH + 6;
+    const w = Math.max(2, (r.value / maxV) * barMax);
+    const redW = r.red ? Math.max(2, (r.red / maxV) * barMax) : 0;
+    return `<g data-tip="${esc(r.tip || r.label + ' : ' + r.value)}">
+      <rect x="0" y="${y - 4}" width="${W}" height="${rowH}" fill="transparent"/>
+      <text x="${labelW - 8}" y="${y + 9}" text-anchor="end">${esc(String(r.label).slice(0, 26))}</text>
+      <rect x="${labelW}" y="${y}" width="${w}" height="12" rx="3" fill="${color || 'var(--series-1)'}"/>
+      ${redW ? `<rect x="${labelW}" y="${y + 13}" width="${redW}" height="3" rx="1.5" fill="var(--status-critical)"/>` : ''}
+      <text x="${labelW + w + 6}" y="${y + 10}" fill="var(--ink-2)">${r.value}${r.red ? ' ⚠' + r.red : ''}</text>
+    </g>`;
+  }).join('');
+  hookTips(el);
+}
+
+function espUnivers(e) {
+  const maison = e.catalog && e.catalog.maison;
+  if (maison) return maison;
+  const m = /^([A-Za-z]+)_/.exec(e.id || '');
+  return m ? m[1] : '?';
+}
+function espType(e) { return (e.catalog && e.catalog.type) || ''; }
+// Scène/zone : colonne ILOT du CSV (Entree, Central, Scene...), sinon le
+// 2e segment du nom (For_Central_... -> Central).
+function espScene(e) {
+  const ilot = e.catalog && e.catalog.ilot;
+  if (ilot) return ilot;
+  const parts = (e.id || '').split('_');
+  return parts.length > 2 ? parts[1] : '?';
+}
+// Emojis par type — hérités de l'ancienne interface de debug ESP32.
+function typeEmoji(type) {
+  switch (String(type || '')) {
+    case 'Led':            return '💡';
+    case 'ServoCard':
+    case 'Servo_Multi':
+    case 'Servo_Mono':     return '🦾';
+    case 'Parfum':         return '🌸';
+    case 'Fumee':          return '💨';
+    case 'Audio':          return '🔊';
+    case 'Controller':     return '🧭';
+    case 'PC':             return '💻';
+    case 'Boitier':        return '🧰';
+    case 'Distance':       return '📡';
+    case 'Animatronique':  return '🤖';
+    case 'Bulle':          return '🧼';
+    case 'RGB':            return '✨';
+    case 'MONO':           return '🎇';
+    default:               return '📟';
+  }
+}
+function espIp(e) { return (e.catalog && e.catalog.ip) || (((live || {}).esp || {})[e.id] || {}).ip || ''; }
+
+/* ─── Vue d'ensemble ──────────────────────────────────────────────────── */
+function unityState() {
+  if (!live.session_open) return ['off', 'fermé'];
+  // Le silence du log est normal (scénario en attente d'interaction) ;
+  // le vrai signal de crash, c'est l'absence du process Unity.
+  if (live.unity_running === false) return ['critical', 'crashé ? (process absent)'];
+  const age = live.last_line_age_s;
+  if (age != null && age > 180) return ['good', `en cours — calme depuis ${fmtDur(age)}`];
+  return ['good', 'en cours'];
+}
+function renderLive() {
+  if (!live) return;
+  const [cls, label] = unityState();
+  $('#pill-unity').innerHTML = `<span class="dot ${cls}"></span>Unity : ${label}`;
+  const cur = (live.sessions || []).find((s) => s.open);
+  $('#pill-session').textContent = cur
+    ? `Spectacle #${cur.loops + 1} — session de ${fmtDur(cur.duration_s)}`
+    : 'Session : aucune';
+  const online = registry.filter((e) => e.status === 'online').length;
+  const known = registry.length;
+  const espCls = known === 0 ? 'off' : (online === 0 ? 'critical' : (online < known ? 'warning' : 'good'));
+  $('#pill-esp').innerHTML = `<span class="dot ${espCls}"></span>ESP : ${online}/${known}`;
+  $('#pill-mail').textContent = live.email_enabled
+    ? (live.mail_last_result ? (live.mail_last_result.ok ? '✉️ mails OK' : '✉️ échec dernier mail') : '✉️ mails prêts')
+    : '✉️ mails désactivés';
+
+  // Tuiles de la vue d'ensemble (état instantané)
+  const alerts = live.alerts || [];
+  const badge = $('#alert-badge');
+  badge.hidden = alerts.length === 0;
+  badge.textContent = alerts.length;
+  const lostTotal = Object.values(live.esp || {}).reduce((a, e) => a + e.lost, 0);
+  const lastEv = (live.events || {}).last;
+  const vueTiles = [
+    ['Unity', label, cur ? `spectacle #${cur.loops + 1}` : '', cls === 'critical' ? 'bad' : (cls === 'good' ? 'ok' : '')],
+    ['ESP en ligne', `${online}/${known}`, known - online ? `${known - online} absent(s)` : 'tous présents',
+      online < known ? 'bad' : 'ok'],
+    ['Alertes actives', alerts.length, alerts.length ? esc(alerts[alerts.length - 1].title) : 'rien à signaler',
+      alerts.length ? 'bad' : 'ok'],
+    ['Actions perdues', lostTotal, 'depuis le début du log', lostTotal ? 'bad' : 'ok'],
+    ['Dernier event', lastEv ? timePart(lastEv.ts) : '—', lastEv ? `il y a ${ago(lastEv.ts)}` : '', ''],
+    ['Log', fmtDur(live.last_line_age_s) + ' ', 'depuis la dernière ligne', ''],
+  ];
+  $('#vue-tiles').innerHTML = vueTiles.map(([l, v, s, mood]) =>
+    `<div class="tile"><div class="label">${l}</div>
+     <div class="value ${mood}">${v}</div><div class="sub">${s}</div></div>`).join('');
+
+  $('#btn-clear-alerts').hidden = alerts.length === 0;
+  $('#alerts').innerHTML = alerts.length === 0
+    ? '<div class="empty">Aucune alerte.</div>'
+    : alerts.slice().reverse().map((a) => `<div class="alert ${a.severity}">
+        <span class="when">${(a.iso || '').slice(11, 19)}</span>
+        <span style="flex:1"><b>${esc(a.title)}</b> — ${esc(a.detail)}</span>
+        <button data-dismiss="${a.id}" title="Supprimer cette alerte"
+          style="flex:none;padding:2px 9px">×</button></div>`).join('');
+  $('#alerts').querySelectorAll('button[data-dismiss]').forEach((b) =>
+    b.addEventListener('click', async () => {
+      await fetch('/api/dashboard/alerts/dismiss', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: parseInt(b.dataset.dismiss, 10) }),
+      });
+      refreshLive();
+    }));
+
+  renderOfflineTable(live.offline_stats || {});
+
+  const rows = (live.errors_recent || []).slice(-40).reverse().map((e) =>
+    `<tr><td>${esc(timePart(e.ts))}</td><td>${esc(e.level)}</td>
+     <td class="mono" title="${esc(e.msg)}">${esc(e.msg.slice(0, 110))}</td></tr>`);
+  $('#errors-table tbody').innerHTML = rows.join('') || '<tr><td colspan="3">—</td></tr>';
+}
+
+/* ─── Passages hors ligne ────────────────────────────────────────────── */
+// Les durées utilisent fmtDur(), déjà défini plus haut avec le reste des
+// helpers : le dashboard affiche partout le même format.
+function renderOfflineTable(stats) {
+  // Les plus pénibles d'abord : d'abord ceux encore absents, puis par nombre
+  // de décrochages, puis par temps cumulé.
+  const rows = Object.entries(stats).sort((a, b) =>
+    (b[1].currently_off - a[1].currently_off)
+    || (b[1].count - a[1].count)
+    || (b[1].total_s - a[1].total_s));
+
+  $('#offline-table tbody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="5" class="empty">Aucun passage hors ligne enregistré.</td></tr>'
+    : rows.map(([name, s]) => {
+        const state = s.currently_off
+          ? `<span class="st"><span class="dot critical"></span>hors ligne depuis ${esc(fmtDur(s.current_s))}</span>`
+          : '<span class="st"><span class="dot good"></span>revenu en ligne</span>';
+        const last = s.last_duration_s != null
+          ? esc(fmtDur(s.last_duration_s))
+          : (s.currently_off ? 'en cours' : '—');
+        return `<tr><td><b>${esc(name)}</b></td><td>${state}</td>
+                <td class="${s.count > 1 ? 'num-bad' : ''}">${s.count}</td>
+                <td>${esc(fmtDur(s.total_s))}</td><td>${last}</td></tr>`;
+      }).join('');
+}
+
+async function resetOfflineStats() {
+  if (!confirm('Remettre à zéro les compteurs de passages hors ligne ?')) return;
+  await fetch('/api/offline/reset', { method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, body: '{}' });
+  refreshLive();
+}
+
+/* ─── Période d'analyse ───────────────────────────────────────────────── */
+function presetRange(preset) {
+  const now = new Date(), day = 86400000;
+  const startOfDay = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; };
+  switch (preset) {
+    case 'today': return [startOfDay(now), now];
+    case 'yesterday': { const y0 = startOfDay(new Date(now - day)); return [y0, startOfDay(now)]; }
+    case '7d': return [new Date(now - 7 * day), now];
+    case 'all': return [new Date(2000, 0, 1), now];
+    default: return [new Date(now - day), now];
+  }
+}
+const isoLocal = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60000)
+  .toISOString().slice(0, 19);
+
+$$('#period-bar [data-preset]').forEach((btn) => btn.addEventListener('click', () => {
+  analysis = { mode: 'range', preset: btn.dataset.preset, showStarts: [] };
+  $('#period-day').value = '';
+  $$('#period-bar [data-preset]').forEach((b) => b.classList.toggle('on', b === btn));
+  refreshStats();
+}));
+
+// Jour précis : couvre le jour entier (00:00:00 → 23:59:59).
+$('#period-day').addEventListener('change', () => {
+  const day = $('#period-day').value;
+  if (!day) return;
+  analysis = { mode: 'range', preset: null, from: day + 'T00:00:00',
+               to: day + 'T23:59:59', label: day, showStarts: [] };
+  $$('#period-bar [data-preset]').forEach((b) => b.classList.remove('on'));
+  $('#range-from').value = ''; $('#range-to').value = '';
+  refreshStats();
+});
+
+// Plage de jours (inclusive) : du jour A 00:00:00 au jour B 23:59:59.
+function applyCustomRange() {
+  let from = $('#range-from').value, to = $('#range-to').value;
+  if (!from && !to) { alert('Choisis au moins une date.'); return; }
+  from = from || to;   // une seule date = ce jour-là
+  to = to || from;
+  if (from > to) { const t = from; from = to; to = t; }   // ordre tolérant
+  analysis = { mode: 'range', preset: null,
+               from: from + 'T00:00:00', to: to + 'T23:59:59',
+               label: from === to ? from : `${from} → ${to}`, showStarts: [] };
+  $('#period-day').value = '';
+  $$('#period-bar [data-preset]').forEach((b) => b.classList.remove('on'));
+  refreshStats();
+}
+function analyzeSelectedShows() {
+  if (currentSources.length > 1) {
+    alert('L\'analyse par sélection de spectacles se fait machine par machine — '
+      + 'garde une seule machine cochée (les périodes, elles, s\'agrègent).');
+    return;
+  }
+  if (selShows.size === 0) { alert('Coche au moins un spectacle.'); return; }
+  // La sélection est mémorisée par timestamp de début (stable) ; les ids
+  // serveur sont recalculés à chaque requête car ils peuvent se décaler.
+  analysis = { mode: 'shows', showStarts: [...selShows] };
+  $$('#period-bar [data-preset]').forEach((b) => b.classList.remove('on'));
+  refreshStats();
+}
+async function refreshStats() {
+  let url;
+  if (analysis.mode === 'shows') {
+    const ids = showsData.shows
+      .filter((s) => selShowsHas(s.start, analysis.showStarts))
+      .map((s) => s.id);
+    url = '/api/dashboard/stats?shows=' + ids.join(',');
+    $('#analysis-label').textContent = `analyse : ${ids.length} spectacle(s) — hors-spectacle exclu`;
+  } else {
+    let from, to;
+    if (analysis.preset) { const [a, b] = presetRange(analysis.preset); from = isoLocal(a); to = isoLocal(b); }
+    else { from = analysis.from; to = analysis.to; }
+    url = `/api/dashboard/stats?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+    const srcLabel = currentSources.length > 1
+      ? ` · ${currentSources.length} machines agrégées`
+      : (currentSources[0] ? ` · ${currentSources[0]}` : '');
+    const periodLabel = analysis.label
+      || `${from.replace('T', ' ')} → ${to.replace('T', ' ')}`;
+    $('#analysis-label').textContent = periodLabel + srcLabel;
+  }
+  url += '&src=' + encodeURIComponent(srcParam());
+  try {
+    stats = await fetch(url).then((x) => x.json());
+    renderStats();
+    // La table des spectacles ne dépend de la période qu'en mode plage ;
+    // en mode "sélection", on n'y touche pas (les cases restent en place).
+    if (analysis.mode !== 'shows') renderShows();
+  } catch { }
+}
+// Comparaison de timestamps avec tolérance (sérialisation JSON de floats).
+function selShowsHas(start, list) {
+  return (list || []).some((v) => Math.abs(v - start) < 0.01);
+}
+
+/* ─── Spectacles ──────────────────────────────────────────────────────── */
+// Bornes (ms epoch) de la période analysée ; null en mode "sélection de spectacles".
+function currentRangeBounds() {
+  if (analysis.mode === 'shows') return null;
+  if (analysis.preset) {
+    const [a, b] = presetRange(analysis.preset);
+    return [a.getTime(), b.getTime()];
+  }
+  return [new Date(analysis.from).getTime(), new Date(analysis.to).getTime()];
+}
+function visibleShows() {
+  const bounds = currentRangeBounds();
+  return showsData.shows.filter((s) => {
+    if (bounds) {
+      const t = s.start * 1000;
+      if (t < bounds[0] || t >= bounds[1]) return false;
+    }
+    return true;
+  });
+}
+function renderShows() {
+  const shows = visibleShows();
+  const rows = shows.slice().reverse().map((s) => {
+    const state = s.open ? '🟢 en cours' : (s.partial ? '◔ partiel' : '✔');
+    const checked = selShows.has(s.start);
+    return `<tr class="${checked ? 'selected' : ''}">
+      <td><input type="checkbox" data-show="${s.start}" ${checked ? 'checked' : ''}></td>
+      <td>${s.n}</td>
+      <td title="${esc(s.src || '')}">${esc((s.src || '—').replace('Cette machine', 'locale').slice(0, 14))}</td>
+      <td>${s.day.slice(5)}</td><td>${timePart(s.start_iso)}</td>
+      <td title="${esc(s.scenario || '')}">${esc((s.scenario || '—').slice(0, 22))}</td>
+      <td>${fmtDur(s.duration_s)}</td><td>${s.ws_out}</td><td>${s.sounds}</td>
+      <td class="${s.warns ? 'num-warn' : ''}">${s.warns || ''}</td>
+      <td class="${s.errors ? 'num-bad' : ''}">${s.errors || ''}</td>
+      <td class="${s.lost ? 'num-bad' : ''}">${s.lost || ''}</td><td>${state}</td></tr>`;
+  });
+  $('#shows-table tbody').innerHTML = rows.join('') || '<tr><td colspan="13">Aucun spectacle.</td></tr>';
+  $('#shows-table tbody').querySelectorAll('input[data-show]').forEach((cb) =>
+    cb.addEventListener('change', () => {
+      const key = parseFloat(cb.dataset.show);
+      cb.checked ? selShows.add(key) : selShows.delete(key);
+      cb.closest('tr').classList.toggle('selected', cb.checked);
+      $('#btn-analyze-shows').textContent = `Analyser la sélection (${selShows.size})`;
+    }));
+  const repSel = $('#report-day');
+  const repCur = repSel.value;
+  repSel.innerHTML = showsData.days.slice().reverse()
+    .map((d) => `<option value="${d}" ${d === repCur ? 'selected' : ''}>${d}</option>`).join('');
+  // Sélecteur "jour précis" de la barre de période (le plus récent en tête)
+  const pdSel = $('#period-day');
+  const pdCur = pdSel.value;
+  pdSel.innerHTML = '<option value="">—</option>' + showsData.days.slice().reverse()
+    .map((d) => `<option value="${d}" ${d === pdCur ? 'selected' : ''}>${d}</option>`).join('');
+  // Sélecteurs de comparaison : par défaut avant-dernier jour vs dernier jour
+  const days = showsData.days;
+  [['cmp-a', days[days.length - 2] || days[0]], ['cmp-b', days[days.length - 1]]]
+    .forEach(([id, def]) => {
+      const sel = $('#' + id);
+      const cur = sel.value || def || '';
+      sel.innerHTML = days.slice().reverse()
+        .map((d) => `<option ${d === cur ? 'selected' : ''}>${d}</option>`).join('');
+    });
+  $('#btn-analyze-shows').textContent = `Analyser la sélection (${selShows.size})`;
+}
+function selectAllShows(on) {
+  visibleShows().forEach((s) => on ? selShows.add(s.start) : selShows.delete(s.start));
+  if (!on) selShows.clear();
+  renderShows();
+}
+
+/* ─── Stats (tuiles, graphiques, tables) ─────────────────────────────── */
+function renderStats() {
+  if (!stats) return;
+  const lp = stats.loops || {};
+  const espStats = stats.esp || {};
+  const lost = Object.values(espStats).reduce((a, e) => a + e.lost, 0);
+  const fails = Object.values(espStats).reduce((a, e) => a + e.failures, 0);
+  const wsOut = Object.values(espStats).reduce((a, e) => a + e.ws_out, 0);
+  const counts = stats.counts || {};
+  const errs = (counts.ERROR || 0) + (counts.EXCPT || 0) + (counts.ASSERT || 0);
+  // Dérive : moyenne des 3 derniers spectacles vs médiane de la période
+  const durs = (lp.recent || []).map((l) => l.duration_s).filter((d) => d != null);
+  let drift = null;
+  if (lp.median_s && durs.length >= 6) {
+    const recent3 = durs.slice(-3).reduce((a, b) => a + b, 0) / 3;
+    drift = Math.round((recent3 - lp.median_s) / lp.median_s * 1000) / 10;
+  }
+  // Séries horaires pour les sparklines des tuiles
+  const actH = stats.activity_per_hour || {};
+  const lvlH = stats.level_per_hour || {};
+  const hoursKeys = [...new Set([...Object.keys(actH), ...Object.keys(lvlH)])].sort();
+  const serie = (src, key) => hoursKeys.map((h) => (src[h] || {})[key] || 0);
+  const errSerie = hoursKeys.map((h) => {
+    const c = lvlH[h] || {};
+    return (c.ERROR || 0) + (c.EXCPT || 0) + (c.ASSERT || 0);
+  });
+
+  const tiles = [
+    ['Spectacles', lp.count ?? 0, `médiane ${fmtDur(lp.median_s)} · max ${fmtDur(lp.max_s)}`, '',
+      spark(durs.slice(-40), 'var(--series-1)')],
+    ['Dérive boucle', drift == null ? '—' : (drift > 0 ? '+' : '') + drift + '%',
+      '3 derniers vs médiane', Math.abs(drift || 0) > 20 ? 'bad' : '', ''],
+    ['Actions ESP', wsOut, Object.entries(stats.actions_total || {}).slice(0, 2)
+      .map(([a, n]) => `${a}:${n}`).join(' · ') || '—', '',
+      spark(serie(actH, 'ws_out'), 'var(--series-1)')],
+    ['Actions perdues', lost, `${fails} échec(s) de connexion`, lost ? 'bad' : 'ok', ''],
+    ['Sons joués', (stats.sound || {}).plays ?? 0,
+      `${(stats.sound || {}).errors ?? 0} erreur(s) audio`, '',
+      spark(serie(actH, 'sound'), 'var(--series-2)')],
+    ['Msgs capteurs', (stats.ws_in || {}).count ?? 0, 'reçus des ESP', '',
+      spark(serie(actH, 'ws_in'), 'var(--series-3)')],
+    ['Warnings', counts.WARN || 0, 'sur la période', '',
+      spark(serie(lvlH, 'WARN'), 'var(--status-warning)')],
+    ['Erreurs', errs, 'sur la période', errs ? 'bad' : 'ok',
+      spark(errSerie, 'var(--status-critical)')],
+  ];
+  // data-label : le mode capture (rapport) ne garde que certaines tuiles.
+  $('#tiles').innerHTML = tiles.map(([l, v, s, mood, sp]) =>
+    `<div class="tile" data-label="${esc(l)}"><div class="label">${l}</div>
+     <div class="valrow"><div class="value ${mood}">${v}</div>${sp || ''}</div>
+     <div class="sub">${s}</div></div>`).join('');
+  renderLoopChart(); renderActivityChart(); renderLevelChart(); renderEspStatsTable();
+  renderEvents(); renderIncidents(); renderAudioPanel(); renderBranches();
+}
+
+function renderBranches() {
+  const choices = stats.choices || [];
+  const label = (name, id) => (name && name !== id) ? name : (id || '').slice(0, 12) + '…';
+  const kindBadge = { choix: '🎯 choix', defaut: '⏱ défaut', autre: '↯ autre' };
+  $('#branches-panel').innerHTML = choices.map((c) => {
+    const rows = c.rows.map((r) => {
+      const dim = r.count === 0 ? 'opacity:.45' : '';
+      const barW = Math.max(3, Math.round((r.pct || 0) * 2.2));
+      const barColor = r.kind === 'choix' ? 'var(--series-1)'
+        : (r.kind === 'defaut' ? 'var(--muted)' : 'var(--status-warning)');
+      return `<div style="display:flex;align-items:center;gap:10px;margin:3px 0 3px 18px;${dim}">
+        <span style="min-width:78px;flex:none;font-size:12px">${kindBadge[r.kind] || r.kind}</span>
+        <span style="min-width:200px;overflow:hidden;text-overflow:ellipsis;
+              white-space:nowrap" title="${esc(r.target)}">→ ${esc(label(r.name, r.target))}</span>
+        <div style="background:${barColor};height:12px;border-radius:3px;width:${barW}px;flex:none"></div>
+        <span style="color:var(--ink-2);flex:none">${r.count} <span class="kv">(${r.pct}%)</span></span>
+        <span class="kv" style="flex:none">${r.avg_s != null ? '⌀ ' + r.avg_s + 's' : ''}</span>
+        <span class="kv" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+              font-size:11.5px">${esc(r.condition || '')}</span>
+      </div>`;
+    }).join('');
+    return `<div style="margin-bottom:16px">
+      <div style="font-weight:600" title="${esc(c.id)}">🔀 ${esc(label(c.name, c.id))}
+        <span class="kv" style="font-weight:400">— ${c.total} passage(s) sur la période
+        ${c.timeout_s ? '· timeout ' + c.timeout_s + 's' : ''}</span></div>
+      ${rows}</div>`;
+  }).join('') || '<span class="empty">Aucun point de choix détecté dans le scénario joué sur cette période.</span>';
+}
+
+function renderAudioPanel() {
+  const chans = Object.entries((stats.sound || {}).by_channel || {})
+    .sort((a, b) => b[1] - a[1])
+    .map(([c, n]) => ({ label: c, value: n, tip: `${c} : ${n} lecture(s)` }));
+  hbars($('#chart-audio'), chans, 'var(--series-2)');
+
+  const btns = Object.entries(stats.buttons || {}).sort((a, b) => b[1] - a[1]);
+  $('#buttons-panel').innerHTML = btns.length
+    ? '<span class="lbl" style="color:var(--muted);font-size:12px" title="Appuis sur le boîtier de contrôle physique des médiateurs (For_Controller)">Boutons du boîtier Controller : </span>'
+      + btns.map(([b, n]) =>
+        `<span class="pill" style="margin:2px">${esc(b.replace('CONTROLLER_BUTTON_', ''))} ×${n}</span>`).join(' ')
+    : '<span class="empty" style="font-size:12px" title="Le boîtier de contrôle physique des médiateurs (For_Controller) — pas les boîtiers d\'interaction visiteurs">Aucun appui sur les boutons du boîtier Controller sur la période.</span>';
+  const files = (stats.sound || {}).top_files || [];
+  $('#top-sounds-table tbody').innerHTML = files.map(([f, n]) =>
+    `<tr><td class="mono" title="${esc(f)}">${esc(f.slice(0, 50))}</td><td>${n}</td></tr>`)
+    .join('') || '<tr><td colspan="2" class="empty">Aucun son sur la période.</td></tr>';
+}
+
+// Courbes d'activité par heure : 3 séries, légende, points survolables/tapables
+function renderActivityChart() {
+  const svg = $('#chart-activity');
+  const hours = Object.entries(stats.activity_per_hour || {});   // toute la période
+  const W = 680, H = 200, pad = { l: 46, r: 10, t: 26, b: 28 };
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  if (hours.length < 2) { svg.innerHTML = '<text x="10" y="24">Pas assez de données horaires.</text>'; return; }
+  const series = [
+    { key: 'ws_out', label: 'actions ESP', color: 'var(--series-1)' },
+    { key: 'sound', label: 'sons', color: 'var(--series-2)' },
+    { key: 'ws_in', label: 'msgs capteurs', color: 'var(--series-3)' },
+  ];
+  const maxV = Math.max(...hours.map(([, c]) =>
+    Math.max(...series.map((s) => c[s.key] || 0))), 1);
+  const x = (i) => pad.l + i * ((W - pad.l - pad.r) / (hours.length - 1));
+  const y = (v) => H - pad.b - (v / maxV) * (H - pad.t - pad.b);
+  // Points survolables seulement si assez espacés (sinon polyline seule + curseur).
+  const dense = hours.length > 72;
+  let out = `<line x1="${pad.l}" y1="${H - pad.b}" x2="${W - pad.r}" y2="${H - pad.b}" stroke="var(--baseline)"/>
+    <text x="${pad.l - 6}" y="${y(maxV) + 4}" text-anchor="end">${maxV}</text>
+    <text x="${pad.l - 6}" y="${H - pad.b + 4}" text-anchor="end">0</text>`;
+  series.forEach((s, si) => {
+    out += `<rect x="${pad.l + si * 120}" y="8" width="9" height="9" rx="2" fill="${s.color}"/>
+            <text x="${pad.l + si * 120 + 14}" y="16">${s.label}</text>`;
+    const pts = hours.map(([, c], i) => `${x(i)},${y(c[s.key] || 0)}`).join(' ');
+    out += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2"/>`;
+    if (!dense) {
+      hours.forEach(([hour, c], i) => {
+        const v = c[s.key] || 0;
+        out += `<circle cx="${x(i)}" cy="${y(v)}" r="8" fill="transparent"
+          data-tip="${esc(hour.slice(5))}h — ${s.label} : ${v}"/>
+          <circle cx="${x(i)}" cy="${y(v)}" r="2.5" fill="${s.color}" pointer-events="none"/>`;
+      });
+    }
+  });
+  const everyN = Math.ceil(hours.length / 8);
+  hours.forEach(([hour], i) => {
+    if (i % everyN === 0) {
+      // Beaucoup de jours -> étiquette jour+heure ; sinon juste l'heure.
+      const lbl = hours.length > 48 ? hour.slice(8).replace(' ', ' ') + 'h' : hour.slice(11) + 'h';
+      out += `<text x="${x(i)}" y="${H - pad.b + 16}" text-anchor="middle">${lbl}</text>`;
+    }
+  });
+  svg.innerHTML = out;
+  hookTips(svg);
+  // Curseur : survol n'importe où -> valeurs des 3 séries pour l'heure la plus proche.
+  attachIndexCursor(svg, hours.length, { pad, W, H, xOf: x }, (i) => {
+    const [hour, c] = hours[i];
+    return `<b>${esc(hour.slice(5))}h</b><br>`
+      + series.map((s) => `${s.label} : ${c[s.key] || 0}`).join('<br>');
+  });
+}
+
+// Étiquette courte et lisible d'un message groupé (module + essentiel).
+function incidentLabel(msg) {
+  let m = msg || '';
+  // "[Module] reste" -> "Module · reste"
+  const mm = /^\[([^\]]+)\]\s*(.*)$/.exec(m);
+  let mod = '', rest = m;
+  if (mm) { mod = mm[1]; rest = mm[2]; }
+  rest = rest.replace(/\s+/g, ' ').trim();
+  if (rest.length > 90) rest = rest.slice(0, 90) + '…';
+  return { mod, rest };
+}
+
+function renderIncidents() {
+  const all = stats.errors_top || [];
+  const errs = all.filter((g) => g.level !== 'WARN');
+  const warns = all.filter((g) => g.level === 'WARN');
+  const counts = stats.counts || {};
+  const nErr = (counts.ERROR || 0) + (counts.EXCPT || 0) + (counts.ASSERT || 0);
+  const nWarn = counts.WARN || 0;
+
+  // Verdict en une ligne.
+  const verdict = (nErr === 0 && nWarn === 0)
+    ? '<span style="color:var(--status-good)">🎉 Aucun incident sur la période.</span>'
+    : `<span class="${nErr ? 'num-bad' : 'kv'}">🔴 ${nErr} erreur(s)</span> · `
+      + `<span class="num-warn">🟠 ${nWarn} warning(s)</span>`
+      + `<span class="kv"> — ${all.length} type(s) distinct(s)</span>`;
+
+  // Bloc erreurs : rare et prioritaire, toujours détaillé.
+  let errHtml = '';
+  if (errs.length) {
+    errHtml = `<div style="margin:12px 0 4px;font-weight:600;color:var(--status-critical)">
+      À regarder en priorité — erreurs</div>`
+      + errs.map((g) => {
+        const { mod, rest } = incidentLabel(g.example);
+        return `<div style="display:flex;gap:10px;align-items:baseline;padding:4px 0;
+            border-left:3px solid var(--status-critical);padding-left:10px;margin-bottom:3px">
+          <span class="num-bad" style="flex:none;min-width:46px">${g.count}×</span>
+          <span style="flex:none;color:var(--status-critical);font-size:11px">${esc(g.level)}</span>
+          <span class="mono" style="font-size:12px" title="${esc(g.example)}">
+            ${mod ? `<b>${esc(mod)}</b> · ` : ''}${esc(rest)}</span>
+          <span class="kv" style="margin-left:auto;flex:none">${esc(timePart(g.last_ts))}</span>
+        </div>`;
+      }).join('');
+  }
+
+  // Bloc warnings : barres proportionnelles pour voir ce qui domine d'un coup.
+  let warnHtml = '';
+  if (warns.length) {
+    const max = Math.max(...warns.map((g) => g.count), 1);
+    warnHtml = `<div style="margin:14px 0 4px;font-weight:600;color:var(--status-warning)">
+      Warnings — par volume (souvent du bruit d'exploitation connu)</div>`
+      + warns.map((g) => {
+        const { mod, rest } = incidentLabel(g.example);
+        const w = Math.max(3, Math.round(g.count / max * 100));
+        return `<div style="display:flex;gap:10px;align-items:center;padding:3px 0"
+            title="${esc(g.example)}&#10;dernier : ${esc(timePart(g.last_ts))}">
+          <span style="flex:none;min-width:56px;text-align:right" class="num-warn">${g.count}×</span>
+          <div style="flex:none;width:120px;background:var(--surface-2);border-radius:3px">
+            <div style="width:${w}%;height:10px;background:var(--status-warning);
+              border-radius:3px;opacity:.7"></div></div>
+          <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">
+            ${mod ? `<b>${esc(mod)}</b> · ` : ''}${esc(rest)}</span>
+        </div>`;
+      }).join('');
+  }
+
+  $('#inc-content').innerHTML = `<div style="font-size:13.5px;margin-bottom:4px">${verdict}</div>`
+    + errHtml + warnHtml
+    + (all.length === 0 ? '' : '');
+
+  // Honnêteté : si la période analysée commence avant le plus vieux enregistrement
+  // encore en mémoire, les incidents/activité de cette portion ont été purgés.
+  const note = $('#inc-note');
+  const from = analysis.mode === 'range'
+    ? (analysis.from || (analysis.preset ? isoLocal(presetRange(analysis.preset)[0]) : null))
+    : null;
+  if (note) {
+    if (from && stats.records_from && from < stats.records_from) {
+      note.hidden = false;
+      note.innerHTML = `⚠ Détails d'incidents et d'activité disponibles seulement à partir du `
+        + `<b>${esc(stats.records_from.replace('T', ' ').slice(0, 16))}</b> `
+        + `(données plus anciennes purgées de la mémoire ; les spectacles, eux, sont conservés). `
+        + `Analyse une période plus récente pour le détail complet.`;
+    } else {
+      note.hidden = true;
+    }
+  }
+}
+
+function renderLoopChart() {
+  const svg = $('#chart-loops');
+  const loops = ((stats.loops || {}).recent || []).filter((l) => l.duration_s != null);
+  svg.innerHTML = '';
+  const title = $('#chart-loops').closest('.panel').querySelector('h3');
+  if (loops.length === 0) {
+    svg.removeAttribute('width');
+    svg.setAttribute('viewBox', '0 0 680 200');
+    svg.innerHTML = '<text x="10" y="24">Aucun spectacle complet sur la période.</text>';
+    return;
+  }
+  const H = 200, pad = { l: 52, r: 10, t: 12, b: 24 };
+  const med = (stats.loops || {}).median_s || 1;
+  const maxV = Math.max(...loops.map((l) => l.duration_s), med) * 1.12;
+  const isAnomaly = (d) => med && (d > med * 1.5 || d < med * 0.5);
+  // Peu de spectacles -> barres discrètes ; beaucoup -> courbe temporelle.
+  const asBars = loops.length <= 60;
+
+  const W = asBars ? Math.max(680, loops.length * 12) : 680;
+  if (asBars) {
+    svg.classList.remove('resp');
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.removeAttribute('preserveAspectRatio');
+  } else {
+    svg.classList.add('resp');
+    svg.removeAttribute('width');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+  }
+
+  const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+  const yOf = (d) => H - pad.b - (d / maxV) * plotH;
+  const yMed = yOf(med);
+  let out = `<line x1="${pad.l}" y1="${H - pad.b}" x2="${W - pad.r}" y2="${H - pad.b}" stroke="var(--baseline)"/>
+    <text x="${pad.l - 4}" y="${pad.t + 8}" text-anchor="end">${fmtDur(maxV)}</text>
+    <text x="${pad.l - 4}" y="${H - pad.b + 4}" text-anchor="end">0</text>`;
+
+  if (asBars) {
+    const step = plotW / loops.length;
+    const bw = Math.max(4, Math.min(18, step - 2));
+    out += `<line x1="${pad.l}" y1="${yMed}" x2="${W - pad.r}" y2="${yMed}" stroke="var(--grid)" stroke-dasharray="4 3"/>
+      <text x="${pad.l - 4}" y="${yMed + 4}" text-anchor="end">${fmtDur(med)}</text>`;
+    loops.forEach((l, i) => {
+      const x = pad.l + i * step + 1, an = isAnomaly(l.duration_s);
+      out += `<rect x="${x.toFixed(1)}" y="${yOf(l.duration_s).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, (H - pad.b) - yOf(l.duration_s)).toFixed(1)}" rx="3"
+        fill="${an ? 'var(--status-critical)' : 'var(--series-1)'}"
+        data-tip="Spectacle #${l.n}${l.src ? ' · ' + esc(l.src) : ''} — ${fmtDur(l.duration_s)}&lt;br&gt;${esc((l.ts || '').replace('T', ' ').slice(5, 19))}${an ? ' — ⚠ anomalie' : ''}"/>`;
+    });
+    svg.innerHTML = out;
+    hookTips(svg);
+  } else {
+    // Courbe temporelle : bande ±50% autour de la médiane (zone "normale"),
+    // ligne de durée, points rouges seulement sur les anomalies (peu nombreux).
+    const step = plotW / (loops.length - 1 || 1);
+    const xOf = (i) => pad.l + i * step;
+    const bandTop = yOf(med * 1.5), bandBot = yOf(med * 0.5);
+    out += `<rect x="${pad.l}" y="${bandTop.toFixed(1)}" width="${plotW}" height="${(bandBot - bandTop).toFixed(1)}"
+        fill="var(--series-1)" opacity="0.08"/>
+      <line x1="${pad.l}" y1="${yMed}" x2="${W - pad.r}" y2="${yMed}" stroke="var(--grid)" stroke-dasharray="4 3"/>
+      <text x="${pad.l - 4}" y="${yMed + 4}" text-anchor="end">${fmtDur(med)}</text>`;
+    const pts = loops.map((l, i) => `${xOf(i).toFixed(1)},${yOf(l.duration_s).toFixed(1)}`).join(' ');
+    out += `<polyline points="${pts}" fill="none" stroke="var(--series-1)" stroke-width="1.5" opacity="0.9"/>`;
+    loops.forEach((l, i) => {
+      if (!isAnomaly(l.duration_s)) return;
+      out += `<circle cx="${xOf(i).toFixed(1)}" cy="${yOf(l.duration_s).toFixed(1)}" r="3.5"
+        fill="var(--status-critical)"
+        data-tip="Spectacle #${l.n}${l.src ? ' · ' + esc(l.src) : ''} — ${fmtDur(l.duration_s)}&lt;br&gt;${esc((l.ts || '').replace('T', ' ').slice(5, 19))} — ⚠ anomalie"/>`;
+    });
+    // Curseur de survol : ligne verticale + point + tooltip du spectacle le plus proche.
+    out += `<line id="loop-cursor" x1="0" y1="${pad.t}" x2="0" y2="${H - pad.b}" stroke="var(--ink-2)" stroke-width="1" opacity="0"/>
+      <circle id="loop-cursor-dot" r="3" fill="var(--ink)" opacity="0"/>`;
+    svg.innerHTML = out;
+    hookTips(svg);   // pour les points d'anomalie
+    attachLoopCursor(svg, loops, { pad, W, H, xOf, yOf });
+  }
+
+  if (title) title.textContent = asBars
+    ? 'Durée des spectacles — anomalies en rouge, médiane en pointillés'
+    : `Durée des ${loops.length} spectacles — courbe temporelle, anomalies en rouge`;
+}
+
+// Curseur interactif sur la courbe de durées (souris + tactile).
+function attachLoopCursor(svg, loops, geo) {
+  const cursor = svg.querySelector('#loop-cursor');
+  const dot = svg.querySelector('#loop-cursor-dot');
+  const onMove = (clientX, clientY) => {
+    const xView = (clientX - svg.getBoundingClientRect().left)
+      / svg.getBoundingClientRect().width * geo.W;
+    const step = (geo.W - geo.pad.l - geo.pad.r) / (loops.length - 1 || 1);
+    let i = Math.round((xView - geo.pad.l) / step);
+    i = Math.max(0, Math.min(loops.length - 1, i));
+    const l = loops[i];
+    if (!l) return;
+    const cx = geo.xOf(i), cy = geo.yOf(l.duration_s);
+    cursor.setAttribute('x1', cx); cursor.setAttribute('x2', cx); cursor.setAttribute('opacity', '0.5');
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy); dot.setAttribute('opacity', '1');
+    const an = geo && (l.duration_s > (stats.loops.median_s || 1) * 1.5
+      || l.duration_s < (stats.loops.median_s || 1) * 0.5);
+    showTip({ clientX, clientY }, `Spectacle #${l.n}${l.src ? ' · ' + esc(l.src) : ''} — `
+      + `${fmtDur(l.duration_s)}<br>${esc((l.ts || '').replace('T', ' ').slice(5, 19))}`
+      + (an ? ' — ⚠ anomalie' : ''));
+  };
+  svg.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
+  svg.addEventListener('mouseleave', () => {
+    cursor.setAttribute('opacity', '0'); dot.setAttribute('opacity', '0'); hideTip();
+  });
+  svg.addEventListener('touchstart', (e) => {
+    const t = e.touches[0]; onMove(t.clientX, t.clientY - 40); e.stopPropagation();
+  }, { passive: true });
+  svg.addEventListener('touchmove', (e) => {
+    const t = e.touches[0]; onMove(t.clientX, t.clientY - 40); e.preventDefault();
+  }, { passive: false });
+}
+
+// Curseur générique pour un graphe indexé (activité, niveaux) : ligne verticale
+// suivant le curseur/doigt + tooltip du point le plus proche. geo = {pad, W, H,
+// xOf(i)}. tipFor(i) renvoie le HTML du tooltip. `n` = nombre de points.
+function attachIndexCursor(svg, n, geo, tipFor) {
+  if (n < 1) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const cursor = document.createElementNS(NS, 'line');
+  cursor.setAttribute('y1', geo.pad.t); cursor.setAttribute('y2', geo.H - geo.pad.b);
+  cursor.setAttribute('stroke', 'var(--ink-2)'); cursor.setAttribute('stroke-width', '1');
+  cursor.setAttribute('opacity', '0');
+  svg.appendChild(cursor);
+  const step = n > 1 ? (geo.W - geo.pad.l - geo.pad.r) / (n - 1) : 0;
+  const onMove = (clientX, clientY) => {
+    const r = svg.getBoundingClientRect();
+    const xv = (clientX - r.left) / r.width * geo.W;
+    let i = step ? Math.round((xv - geo.pad.l) / step) : 0;
+    i = Math.max(0, Math.min(n - 1, i));
+    const cx = geo.xOf(i);
+    cursor.setAttribute('x1', cx); cursor.setAttribute('x2', cx); cursor.setAttribute('opacity', '0.5');
+    showTip({ clientX, clientY }, tipFor(i));
+  };
+  svg.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
+  svg.addEventListener('mouseleave', () => { cursor.setAttribute('opacity', '0'); hideTip(); });
+  svg.addEventListener('touchstart', (e) => {
+    const t = e.touches[0]; onMove(t.clientX, t.clientY - 40); e.stopPropagation();
+  }, { passive: true });
+  svg.addEventListener('touchmove', (e) => {
+    const t = e.touches[0]; onMove(t.clientX, t.clientY - 40); e.preventDefault();
+  }, { passive: false });
+}
+
+function renderLevelChart() {
+  const svg = $('#chart-levels');
+  const hours = Object.entries(stats.level_per_hour || {});   // toute la période
+  svg.innerHTML = '';
+  if (hours.length === 0) {
+    svg.classList.add('resp'); svg.removeAttribute('width');
+    svg.setAttribute('viewBox', '0 0 680 200');
+    svg.innerHTML = '<text x="10" y="24">Aucun warning/erreur sur la période.</text>';
+    return;
+  }
+  const H = 200, pad = { l: 44, r: 8, t: 26, b: 30 };
+  // Peu d'heures -> barres larges + scroll ; beaucoup -> fit-to-width fines.
+  const many = hours.length > 60;
+  const W = many ? 680 : Math.max(680, hours.length * 16);
+  if (many) {
+    svg.classList.add('resp'); svg.removeAttribute('width');
+    svg.setAttribute('preserveAspectRatio', 'none');
+  } else {
+    svg.classList.remove('resp'); svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.removeAttribute('preserveAspectRatio');
+  }
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const maxV = Math.max(...hours.map(([, c]) =>
+    (c.WARN || 0) + (c.ERROR || 0) + (c.EXCPT || 0) + (c.ASSERT || 0)), 1);
+  const slot = (W - pad.l - pad.r) / hours.length;
+  const bw = many ? Math.max(0.7, slot) : Math.max(6, slot - 4);
+  let out = `<rect x="${pad.l}" y="8" width="9" height="9" rx="2" fill="var(--status-warning)"/>
+    <text x="${pad.l + 14}" y="16">warnings</text>
+    <rect x="${pad.l + 84}" y="8" width="9" height="9" rx="2" fill="var(--status-critical)"/>
+    <text x="${pad.l + 98}" y="16">erreurs</text>
+    <line x1="${pad.l}" y1="${H - pad.b}" x2="${W - pad.r}" y2="${H - pad.b}" stroke="var(--baseline)"/>`;
+  hours.forEach(([hour, c], i) => {
+    const warn = c.WARN || 0;
+    const err = (c.ERROR || 0) + (c.EXCPT || 0) + (c.ASSERT || 0);
+    const x = pad.l + i * slot + (many ? 0 : 1);
+    const hW = (warn / maxV) * (H - pad.t - pad.b);
+    const hE = (err / maxV) * (H - pad.t - pad.b);
+    const label = (hours.length > 48 ? hour.slice(8) : hour.slice(5)) + 'h';
+    const tip = many ? '' : ` data-tip="${label} — ${warn} warning(s), ${err} erreur(s)"`;
+    if (warn) out += `<rect x="${x.toFixed(2)}" y="${(H - pad.b - hW).toFixed(2)}" width="${bw.toFixed(2)}" height="${Math.max(1, hW).toFixed(2)}" ${many ? '' : 'rx="3"'}
+      fill="var(--status-warning)"${tip}/>`;
+    if (err) out += `<rect x="${x.toFixed(2)}" y="${(H - pad.b - hW - (many ? 0 : 2) - hE).toFixed(2)}" width="${bw.toFixed(2)}" height="${Math.max(1, hE).toFixed(2)}" ${many ? '' : 'rx="3"'}
+      fill="var(--status-critical)"${tip}/>`;
+    if (i % Math.ceil(hours.length / 8) === 0)
+      out += `<text x="${(x + bw / 2).toFixed(1)}" y="${H - pad.b + 15}" text-anchor="middle">${label}</text>`;
+  });
+  svg.innerHTML = out;
+  if (!many) {
+    hookTips(svg);
+  } else {
+    // Barres trop fines pour être pointées -> curseur qui donne l'heure la plus proche.
+    attachIndexCursor(svg, hours.length,
+      { pad, W, H, xOf: (i) => pad.l + i * slot + slot / 2 }, (i) => {
+        const [hour, c] = hours[i];
+        const warn = c.WARN || 0;
+        const err = (c.ERROR || 0) + (c.EXCPT || 0) + (c.ASSERT || 0);
+        return `<b>${esc((hours.length > 48 ? hour.slice(8) : hour.slice(5)))}h</b><br>`
+          + `${warn} warning(s)<br>${err} erreur(s)`;
+      });
+  }
+}
+
+// Verdict synthétique par ESP : la première colonne dit l'essentiel.
+function espHealth(e) {
+  if ((e.lost || 0) > 0 || (e.downtime_s || 0) > 120)
+    return [2, '🔴', 'Problème : ' + [
+      e.lost ? `${e.lost} action(s) perdue(s)` : '',
+      (e.downtime_s || 0) > 120 ? `${fmtDur(e.downtime_s)} injoignable` : '']
+      .filter(Boolean).join(' + ')];
+  if ((e.failures || 0) > 0 || (e.connect_ms_trend || 0) > 50 || (e.connects || 0) > 10)
+    return [1, '🟡', 'À surveiller : ' + [
+      e.failures ? `${e.failures} échec(s) de connexion` : '',
+      (e.connect_ms_trend || 0) > 50 ? 'connexion de plus en plus lente' : '',
+      (e.connects || 0) > 10 ? `${e.connects} reconnexions` : '']
+      .filter(Boolean).join(', ')];
+  return [0, '🟢', 'OK : aucune perte, connexion stable'];
+}
+
+// Mini-courbe multi-séries (par ESP) : ↥env bleu, ↧reçu vert, échecs orange,
+// perdus rouge — chaque série normalisée sur SON propre max (les échelles
+// diffèrent trop pour un axe commun). Points rouges = heure muette après activité.
+function espProfileSpark(series, name) {
+  const hours = stats.esp_rx_hours || [];
+  if (hours.length < 2 || !series) return '';
+  const W = 300, H = 40;
+  const line = (arr, color, sw) => {
+    const max = Math.max(...arr, 1);
+    const pts = arr.map((v, i) => `${((i / (arr.length - 1)) * (W - 4) + 2).toFixed(1)},`
+      + `${(H - 3 - (v / max) * (H - 8)).toFixed(1)}`).join(' ');
+    return `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="${sw}" opacity="0.9"/>`;
+  };
+  const recv = series.recv || [];
+  let dots = '';
+  recv.forEach((v, i) => {
+    if (v === 0 && i > 0 && i < recv.length - 1 && (recv[i - 1] > 0 || recv[i + 1] > 0)) {
+      const x = (i / (recv.length - 1)) * (W - 4) + 2;
+      dots += `<circle cx="${x.toFixed(1)}" cy="${H - 4}" r="2.5" fill="var(--status-critical)"/>`;
+    }
+  });
+  return `<svg class="esp-spark" data-name="${esc(name)}" width="${W}" height="${H}"
+    viewBox="0 0 ${W} ${H}" style="vertical-align:middle;cursor:crosshair">
+    ${line(series.sent || [], 'var(--series-1)', 1.3)}
+    ${line(series.recv || [], 'var(--series-3)', 1.5)}
+    ${(series.fail || []).some((v) => v) ? line(series.fail, 'var(--status-warning)', 1.3) : ''}
+    ${(series.lost || []).some((v) => v) ? line(series.lost, 'var(--status-critical)', 1.3) : ''}
+    ${dots}<line class="esp-cur" y1="0" y2="${H}" stroke="var(--ink-2)" opacity="0"/></svg>`;
+}
+
+function renderEspStatsTable() {
+  const rxSeries = stats.esp_rx_series || {};
+  const rxHours = stats.esp_rx_hours || [];
+  const gaps = (arr) => {   // nb d'heures muettes entre deux heures actives
+    let seen = false, g = 0;
+    (arr || []).forEach((v) => { if (v > 0) seen = true; else if (seen) g++; });
+    // ne compte pas les zéros de fin (au-delà de la dernière activité)
+    let trailing = 0;
+    for (let i = (arr || []).length - 1; i >= 0 && arr[i] === 0; i--) trailing++;
+    return Math.max(0, g - trailing);
+  };
+  const entries = Object.entries(stats.esp || {}).map(([name, e]) => {
+    const [health, healthIcon, healthTip] = espHealth(e);
+    const recv = (rxSeries[name] || {}).recv || [];
+    return { name, ...e, health, healthIcon, healthTip,
+             rx_active_h: recv.filter((v) => v > 0).length,
+             rx_gaps: gaps(recv) };
+  });
+  const { k, dir } = espSortStats;
+  entries.sort((a, b) => {
+    const va = a[k] ?? -1, vb = b[k] ?? -1;
+    return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * dir;
+  });
+  const typeByName = {};
+  registry.forEach((r) => { typeByName[r.id] = espType(r); });
+  const fmtTrend = (t) => {
+    if (t == null) return '—';
+    if (t > 50) return `<span class="num-bad" title="Connexions qui ralentissent (+${t} ms) — lien radio qui se dégrade">↗ +${t}</span>`;
+    if (t < -50) return `<span style="color:var(--status-good)" title="Connexions qui accélèrent (démarrage lent puis rapide) — bon signe">↘ ${t}</span>`;
+    return `<span title="Temps de connexion stable">≈ ${t > 0 ? '+' : ''}${t}</span>`;
+  };
+  $('#esp-stats-table tbody').innerHTML = entries.map((e) =>
+    `<tr><td title="${esc(e.healthTip)}" style="cursor:help;font-size:16px">${e.healthIcon}</td>
+     <td title="${esc(e.name)}">${typeEmoji(typeByName[e.name])} <b>${esc(e.name.replace(/^For_/, ''))}</b></td>
+     <td>${espProfileSpark(rxSeries[e.name], e.name)}</td>
+     <td>${e.ws_out || ''}</td>
+     <td>${e.ws_in || ''}</td>
+     <td>${e.rx_active_h || ''}</td>
+     <td class="${e.rx_gaps ? 'num-bad' : ''}">${e.rx_gaps ? '⚠ ' + e.rx_gaps : ''}</td>
+     <td class="${e.lost ? 'num-bad' : ''}">${e.lost || ''}</td>
+     <td class="${e.failures ? 'num-warn' : ''}">${e.failures || ''}</td>
+     <td class="${(e.connects || 0) > 10 ? 'num-warn' : ''}">${e.connects || ''}</td>
+     <td>${e.connect_ms_avg != null ? e.connect_ms_avg + ' ms' : '—'}</td>
+     <td>${fmtTrend(e.connect_ms_trend)}</td>
+     <td class="${e.downtime_s > 60 ? 'num-bad' : ''}">${e.downtime_s ? fmtDur(e.downtime_s) + (e.outages ? ` (${e.outages}×)` : '') : ''}</td></tr>`).join('')
+    || '<tr><td colspan="13">Aucune activité ESP sur la période.</td></tr>';
+
+  // Tooltip de survol sur chaque profil : valeurs des 4 séries à l'heure pointée.
+  $$('#esp-stats-table .esp-spark').forEach((svg) => {
+    const s = rxSeries[svg.dataset.name] || {};
+    const cur = svg.querySelector('.esp-cur');
+    const nH = rxHours.length;
+    const show = (clientX, clientY) => {
+      if (nH < 1) return;
+      const r = svg.getBoundingClientRect();
+      let i = Math.round((clientX - r.left) / r.width * (nH - 1));
+      i = Math.max(0, Math.min(nH - 1, i));
+      const cx = (i / (nH - 1 || 1)) * 296 + 2;
+      cur.setAttribute('x1', cx); cur.setAttribute('x2', cx); cur.setAttribute('opacity', '0.5');
+      const g = (k) => (s[k] || [])[i] || 0;
+      showTip({ clientX, clientY }, `<b>${esc(svg.dataset.name.replace(/^For_/, ''))}</b> · `
+        + `${esc((rxHours[i] || '').slice(5))}h<br>`
+        + `↥ ${g('sent')} env. · ↧ ${g('recv')} reçu`
+        + (g('fail') ? `<br>⚠ ${g('fail')} échec(s) conn.` : '')
+        + (g('lost') ? `<br>❌ ${g('lost')} perdue(s)` : '')
+        + (g('recv') === 0 && (s.recv || []).some((v) => v) ? '<br>— muet cette heure' : ''));
+    };
+    svg.addEventListener('mousemove', (e) => show(e.clientX, e.clientY));
+    svg.addEventListener('mouseleave', () => { cur.setAttribute('opacity', '0'); hideTip(); });
+    svg.addEventListener('touchstart', (e) => {
+      const t = e.touches[0]; show(t.clientX, t.clientY - 40); e.stopPropagation();
+    }, { passive: true });
+    svg.addEventListener('touchmove', (e) => {
+      const t = e.touches[0]; show(t.clientX, t.clientY - 40); e.preventDefault();
+    }, { passive: false });
+  });
+
+  const wsInTotal = (stats.ws_in || {}).count || 0;
+  const attributed = entries.reduce((acc, e) => acc + (e.ws_in || 0), 0);
+  $('#esp-rx-note').textContent = (wsInTotal > 0 && attributed === 0)
+    ? "⚠ Les messages reçus de cette période datent d'avant l'attribution par ESP : "
+      + "les colonnes ↧ et le profil se rempliront à partir des prochaines sessions Unity."
+    : '';
+}
+$$('#esp-stats-table th.sortable').forEach((th) => th.addEventListener('click', () => {
+  const k = th.dataset.k;
+  espSortStats = { k, dir: espSortStats.k === k ? -espSortStats.dir : (k === 'name' ? 1 : -1) };
+  renderEspStatsTable();
+}));
+
+function renderEvents() {
+  const top = (stats.events || {}).top || [];
+  const evHours = (stats.events || {}).hours || [];
+  // Mini-courbe de la durée moyenne par heure d'un event. Normalisée sur sa
+  // propre étendue (0 -> son max) : on voit SA variation dans le temps. Points
+  // rouges = heures nettement au-dessus de sa moyenne (l'event a traîné).
+  const durSpark = (e, idx) => {
+    const arr = e.dur_hourly || [];
+    const vals = arr.filter((v) => v != null);
+    if (vals.length < 2) return '<span class="kv">—</span>';
+    const W = 260, H = 22, pad = 2, max = Math.max(...vals), avg = e.avg_s || 0;
+    const xy = (i, v) => [(i / (arr.length - 1)) * (W - 2 * pad) + pad,
+                          H - 2 - (v / (max || 1)) * (H - 5)];
+    // polyligne en ignorant les trous (segments séparés)
+    let segs = '', cur = [];
+    arr.forEach((v, i) => {
+      if (v == null) { if (cur.length) { segs += `<polyline points="${cur.join(' ')}" fill="none" stroke="var(--series-1)" stroke-width="1.5"/>`; cur = []; } }
+      else cur.push(xy(i, v).join(','));
+    });
+    if (cur.length) segs += `<polyline points="${cur.join(' ')}" fill="none" stroke="var(--series-1)" stroke-width="1.5"/>`;
+    let dots = '';
+    arr.forEach((v, i) => {
+      if (v != null && avg && v > avg * 1.5) {
+        const [x, y] = xy(i, v);
+        dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="var(--status-critical)"/>`;
+      }
+    });
+    return `<svg class="ev-spark" data-idx="${idx}" width="${W}" height="${H}"
+      viewBox="0 0 ${W} ${H}" style="vertical-align:middle;cursor:crosshair">
+      ${segs}${dots}<line class="ev-cur" y1="0" y2="${H}" stroke="var(--ink-2)" opacity="0"/></svg>`;
+  };
+  const rows = top.map((e, idx) =>
+    `<tr><td title="${esc(e.name || '')}${e.id ? ' · ' + esc(e.id) : ''}">${esc(e.name || e.id.slice(0, 12))}</td>
+     <td>${e.count}</td>
+     <td>${durSpark(e, idx)}</td>
+     <td>${e.avg_s ?? '—'}</td><td>${e.min_s ?? '—'}</td>
+     <td>${e.max_s ?? '—'}</td>
+     <td class="${(e.stdev_s || 0) > (e.avg_s || 1) * 0.3 ? 'num-warn' : ''}">${e.stdev_s ?? '—'}</td></tr>`);
+  $('#events-table tbody').innerHTML = rows.join('') || '<tr><td colspan="7">—</td></tr>';
+
+  // Tooltip de survol : heure pointée + durée moyenne de l'event cette heure-là.
+  $$('#events-table .ev-spark').forEach((svg) => {
+    const e = top[+svg.dataset.idx];
+    const arr = e.dur_hourly || [];
+    const cur = svg.querySelector('.ev-cur');
+    const show = (clientX, clientY) => {
+      if (arr.length < 1) return;
+      const r = svg.getBoundingClientRect();
+      let i = Math.round((clientX - r.left) / r.width * (arr.length - 1));
+      i = Math.max(0, Math.min(arr.length - 1, i));
+      const cx = (i / (arr.length - 1 || 1)) * 256 + 2;
+      cur.setAttribute('x1', cx); cur.setAttribute('x2', cx); cur.setAttribute('opacity', '0.5');
+      const v = arr[i], h = (evHours[i] || '').slice(5);
+      showTip({ clientX, clientY }, `<b>${esc(e.name || e.id.slice(0, 12))}</b> · ${esc(h)}h<br>`
+        + (v == null ? 'pas joué cette heure'
+           : `durée moyenne : ${v}s` + (e.avg_s && v > e.avg_s * 1.5 ? ' — ⚠ nettement au-dessus' : '')));
+    };
+    svg.addEventListener('mousemove', (ev) => show(ev.clientX, ev.clientY));
+    svg.addEventListener('mouseleave', () => { cur.setAttribute('opacity', '0'); hideTip(); });
+    svg.addEventListener('touchstart', (ev) => {
+      const t = ev.touches[0]; show(t.clientX, t.clientY - 40); ev.stopPropagation();
+    }, { passive: true });
+    svg.addEventListener('touchmove', (ev) => {
+      const t = ev.touches[0]; show(t.clientX, t.clientY - 40); ev.preventDefault();
+    }, { passive: false });
+  });
+
+  const un = (stats.events || {}).unreached;
+  if (un && un.length) {
+    const total = stats.events.unreached_total || un.length;
+    $('#events-unreached').innerHTML =
+      `⚠ <b>${total} event(s) jamais atteint(s)</b> sur la période
+       (scénario ${esc(stats.events.scenario_guess || '?')}) :
+       ${un.slice(0, 15).map((e) => esc(e.name)).join(', ')}${total > 15 ? '…' : ''}`;
+  } else {
+    $('#events-unreached').textContent = (stats.events || {}).fired_ids?.length
+      ? 'Tous les events du scénario ont été atteints sur la période. ✔' : '';
+  }
+}
+
+/* ─── Onglet ESP : table de contrôle ─────────────────────────────────── */
+let universFilter = '';   // '' = tous ; piloté par les pills d'univers
+let sceneFilter = '';     // '' = toutes ; piloté par les pills de scène
+function filteredEsp() {
+  const q = $('#esp-q').value.toLowerCase();
+  const statut = $('#esp-statut').value;
+  const { k, dir } = espSortTable;
+  const liveEsp = (live && live.esp) || {};
+  return registry
+    .filter((e) => e.id && !/^For_(PC|Controller)$/i.test(e.id))
+    .filter((e) => !q || e.id.toLowerCase().includes(q))
+    .filter((e) => !universFilter || espUnivers(e) === universFilter)
+    .filter((e) => !sceneFilter || espScene(e) === sceneFilter)
+    .filter((e) => !statut || (e.status || 'unknown') === statut)
+    .sort((a, b) => {
+      const sa = liveEsp[a.id] || {}, sb = liveEsp[b.id] || {};
+      let va, vb;
+      switch (k) {
+        case 'type': va = espType(a); vb = espType(b); break;
+        case 'univers': va = espUnivers(a); vb = espUnivers(b); break;
+        case 'scene': va = espScene(a); vb = espScene(b); break;
+        case 'status': va = a.status || 'z'; vb = b.status || 'z'; break;
+        case 'lost': va = sa.lost || 0; vb = sb.lost || 0; break;
+        case 'failures': va = sa.failures || 0; vb = sb.failures || 0; break;
+        default: va = a.id; vb = b.id;
+      }
+      const c = (typeof va === 'string' ? va.localeCompare(vb) : va - vb);
+      return (c || a.id.localeCompare(b.id)) * dir;
+    });
+}
+function renderEspTable() {
+  // Pills d'univers (maisons) : sélection en un clic, héritée de l'ancienne interface
+  const univs = [...new Set(registry.filter((e) => !/^For_(PC|Controller)$/i.test(e.id || ''))
+    .map(espUnivers).filter(Boolean))].sort();
+  $('#univers-bar').innerHTML =
+    `<button class="${universFilter === '' ? 'on' : ''}" data-univ="">Toutes</button>` +
+    univs.map((u) => `<button class="${universFilter === u ? 'on' : ''}"
+      data-univ="${esc(u)}">${esc(u)}</button>`).join('');
+  $('#univers-bar').querySelectorAll('button').forEach((b) =>
+    b.addEventListener('click', () => { universFilter = b.dataset.univ; renderEspTable(); }));
+
+  // Pills de scène (colonne ILOT du CSV : Entree, Central, Scene...)
+  const scenes = [...new Set(registry.filter((e) => !/^For_(PC|Controller)$/i.test(e.id || ''))
+    .map(espScene).filter((s) => s && s !== '?'))].sort();
+  $('#scene-bar').innerHTML =
+    `<button class="${sceneFilter === '' ? 'on' : ''}" data-scene="">Toutes</button>` +
+    scenes.map((s) => `<button class="${sceneFilter === s ? 'on' : ''}"
+      data-scene="${esc(s)}">${esc(s)}</button>`).join('');
+  $('#scene-bar').querySelectorAll('button').forEach((b) =>
+    b.addEventListener('click', () => { sceneFilter = b.dataset.scene; renderEspTable(); }));
+
+  // Raccourcis "sélectionner tous les <type>" sur l'ensemble filtré
+  const filtered = filteredEsp();
+  const byType = {};
+  filtered.forEach((e) => { const t = espType(e) || '?'; (byType[t] = byType[t] || []).push(e); });
+  $('#type-shortcuts').innerHTML = Object.keys(byType).sort().map((t) =>
+    `<button data-seltype="${esc(t)}">${typeEmoji(t)} ${esc(t)} (${byType[t].length})</button>`).join('');
+  $('#type-shortcuts').querySelectorAll('button').forEach((b) =>
+    b.addEventListener('click', () => {
+      byType[b.dataset.seltype].forEach((e) => selEsp.add(e.id));
+      renderEspTable();
+    }));
+
+  const liveEsp = (live && live.esp) || {};
+  const rows = [];
+  for (const e of filtered) {
+    const st = liveEsp[e.id] || {};
+    const cls = e.status === 'online' ? 'good' : (e.status === 'offline' ? 'critical' : 'off');
+    const label = e.status === 'online' ? 'en ligne' : (e.status === 'offline' ? 'hors ligne' : 'inconnu');
+    const checked = selEsp.has(e.id);
+    rows.push(`<tr class="esp-row ${checked ? 'selected' : ''}" data-id="${esc(e.id)}">
+      <td><input type="checkbox" data-esp="${esc(e.id)}" ${checked ? 'checked' : ''}></td>
+      <td><span class="st"><span class="dot ${cls}"></span>${label}</span></td>
+      <td title="${esc(e.id)}">${typeEmoji(espType(e))} <b>${esc(e.id.replace(/^For_/, ''))}</b></td>
+      <td>${esc(espType(e))}</td>
+      <td>${esc(espUnivers(e))}</td>
+      <td>${esc(espScene(e))}</td>
+      <td class="mono">${esc(espIp(e))}</td>
+      <td>${esc(st.last_out_action ?? '—')} <span class="kv">il y a ${ago(st.last_out)}</span></td>
+      <td class="${st.lost ? 'num-bad' : ''}">${st.lost || ''}</td>
+      <td class="${st.failures ? 'num-warn' : ''}">${st.failures || ''}</td>
+      <td>${st.connect_ms_avg != null ? st.connect_ms_avg + ' ms' : '—'}</td>
+      <td><button data-send="${esc(e.id)}">▶ Envoyer</button></td>
+    </tr>`);
+    if (expandedEsp === e.id) rows.push(espDetailRow(e, st));
+  }
+  $('#esp-table tbody').innerHTML = rows.join('') ||
+    '<tr><td colspan="12" class="empty">Aucun ESP ne correspond aux filtres.</td></tr>';
+
+  const tbody = $('#esp-table tbody');
+  tbody.querySelectorAll('input[data-esp]').forEach((cb) => {
+    cb.addEventListener('click', (ev) => ev.stopPropagation());
+    cb.addEventListener('change', () => {
+      cb.checked ? selEsp.add(cb.dataset.esp) : selEsp.delete(cb.dataset.esp);
+      cb.closest('tr').classList.toggle('selected', cb.checked);
+      updateEspButtons();
+    });
+  });
+  tbody.querySelectorAll('button[data-send]').forEach((btn) => {
+    btn.addEventListener('click', (ev) => { ev.stopPropagation(); openModalSingle(btn.dataset.send); });
+  });
+  tbody.querySelectorAll('tr.esp-row').forEach((tr) => {
+    tr.addEventListener('click', () => {
+      expandedEsp = expandedEsp === tr.dataset.id ? null : tr.dataset.id;
+      renderEspTable();
+    });
+  });
+  updateEspButtons();
+}
+function espDetailRow(e, st) {
+  const fmtHist = (h) => (h || []).slice(-5).reverse().map((x) =>
+    `<div class="hist"><span class="t">${new Date(x.ts * 1000).toLocaleTimeString('fr-FR')}</span> ${esc(String(x.msg).slice(0, 160))}</div>`).join('')
+    || '<div class="kv">—</div>';
+  const actions = Object.entries(st.actions || {}).map(([a, n]) => `${esc(a)} ×${n}`).join(' · ') || '—';
+  return `<tr class="detail"><td colspan="12">
+    <div class="split">
+      <div>
+        <div><span class="kv">Dernier envoyé :</span></div>
+        <div class="hist">${esc(String(e.lastSent || '—').slice(0, 220))}</div>
+        <div style="margin-top:6px"><span class="kv">Historique envoyé :</span></div>
+        ${fmtHist(e.historySent)}
+      </div>
+      <div>
+        <div><span class="kv">Dernier reçu :</span></div>
+        <div class="hist">${esc(String(e.lastReceived || '—').slice(0, 220))}</div>
+        <div style="margin-top:6px"><span class="kv">Historique reçu :</span></div>
+        ${fmtHist(e.historyReceived)}
+      </div>
+    </div>
+    <div style="margin-top:8px"><span class="kv">Actions (log entier) :</span> ${actions}
+      · <span class="kv">connexions :</span> ${st.connects ?? 0}
+      · <span class="kv">dernière cause d'échec :</span> ${esc(st.failure_last_cause || '—')}</div>
+  </td></tr>`;
+}
+function updateEspButtons() {
+  // Barre d'envoi flottante : visible seulement dans l'onglet ESP, dès 1 sélection
+  const bar = $('#send-bar');
+  const espTabActive = $('#tab-esp').classList.contains('active');
+  bar.hidden = selEsp.size === 0 || !espTabActive;
+  $('#send-bar-count').textContent = `${selEsp.size} ESP`;
+
+  const typeOf = {};
+  registry.forEach((e) => { typeOf[e.id] = espType(e); });
+  $('#sel-chips').innerHTML = [...selEsp].sort().map((id) =>
+    `<button data-chip="${esc(id)}" title="Retirer de la sélection">
+       ${typeEmoji(typeOf[id])} ${esc(id.replace(/^For_/, ''))} ×</button>`).join('');
+  $('#sel-chips').querySelectorAll('button[data-chip]').forEach((b) =>
+    b.addEventListener('click', () => { selEsp.delete(b.dataset.chip); renderEspTable(); }));
+}
+function selectAllEsp(on) {
+  if (on) filteredEsp().forEach((e) => selEsp.add(e.id));
+  else selEsp.clear();
+  renderEspTable();
+}
+['esp-q', 'esp-statut'].forEach((id) =>
+  $('#' + id).addEventListener('input', renderEspTable));
+$$('#esp-table th.sortable').forEach((th) => th.addEventListener('click', () => {
+  const k = th.dataset.k;
+  espSortTable = { k, dir: espSortTable.k === k ? -espSortTable.dir : 1 };
+  renderEspTable();
+}));
+
+/* ─── Modale d'envoi (1..n cibles, 2 sources de presets) ─────────────── */
+let modalTargets = [], modalSource = 'hardware', modalDtype = '';
+let modalScenarioPresets = [], modalHardwareActions = [], modalHistory = [];
+
+/* Historique des envois d'un appareil : même liste que « Historique envoyé »
+ * du détail ESP (historySent), alimentée par Unity ET par les envois du
+ * dashboard. Chaque entrée est le JSON réellement émis -> réinjectable tel
+ * quel dans le formulaire. Plus récent en premier. */
+function loadModalHistory(espId) {
+  const entry = registry.find((e) => e.id === espId);
+  const raw = (entry && entry.historySent) || [];
+  const out = [];
+  for (let i = raw.length - 1; i >= 0; i--) {
+    try {
+      const msg = JSON.parse(raw[i].msg);
+      if (msg && msg.action)
+        out.push({ action: String(msg.action), options: msg.options || {}, ts: raw[i].ts || 0 });
+    } catch { /* entrée non JSON (ancien format) : ignorée */ }
+  }
+  return out;
+}
+
+async function openModalCommon(targets) {
+  modalTargets = targets;
+  const entry = registry.find((e) => e.id === targets[0]);
+  modalDtype = entry ? espType(entry) : '';
+  $('#modal-title').textContent = targets.length === 1
+    ? `Envoyer une action → ${typeEmoji(modalDtype)} ${targets[0]}`
+    : `Envoyer une action → ${targets.length} ESP`;
+  $('#send-result').textContent = '';
+  $('#modal-fields').innerHTML = '';
+  $('#in-action').value = '';
+  $('#in-options').value = '{}';
+  $('#modal-presets').innerHTML = '<span class="empty">Chargement…</span>';
+
+  // Historique de la 1re cible : disponible immédiatement (déjà dans registry).
+  modalHistory = loadModalHistory(targets[0]);
+  const prevBtn = $('#btn-prev-action');
+  prevBtn.disabled = modalHistory.length === 0;
+  prevBtn.style.opacity = modalHistory.length === 0 ? 0.45 : 1;
+  prevBtn.textContent = modalHistory.length
+    ? `↩ Action précédente (${modalHistory[0].action})`
+    : '↩ Aucune action précédente';
+
+  $('#modal-bg').style.display = 'flex';
+  try {
+    const [scen, hw] = await Promise.all([
+      fetch(`/api/esp-templates?hardware=${encodeURIComponent(targets[0])}`)
+        .then((x) => x.json()).catch(() => []),
+      fetch(`/api/hardware-actions?type=${encodeURIComponent(modalDtype)}`)
+        .then((x) => x.json()).catch(() => []),
+    ]);
+    modalScenarioPresets = Array.isArray(scen) ? scen : [];
+    modalHardwareActions = Array.isArray(hw) ? hw : [];
+    if (modalHardwareActions.length === 0 && modalScenarioPresets.length > 0)
+      modalSource = 'scenario';
+    renderModalPresets();
+  } catch { $('#modal-presets').innerHTML = ''; }
+}
+function openModalSingle(name) { openModalCommon([name]); }
+function openModalMulti() {
+  if (selEsp.size === 0) { alert('Coche au moins un ESP.'); return; }
+  openModalCommon([...selEsp]);
+}
+
+/* ─── Reset du matériel joignable ────────────────────────────────────── */
+// Tout le parc est visé, ampoules comprises : côté Yeelight, « reset » est
+// mappé sur une extinction (yeelightcontrol.py / YeelightActionMapper.cs).
+// On vise « en ligne » ET « inconnu » : un appareil dont on n'a pas de
+// nouvelles n'est pas forcément éteint, et tenter ne coûte qu'un échec.
+// Seuls les « hors ligne » (Unity les a vus tomber, ou rien depuis 1 h) sont
+// écartés.
+function resetTargets() {
+  return registry.filter((e) => e.status !== 'offline').map((e) => e.id);
+}
+
+async function resetOnlineEsp() {
+  const out = $('#reset-result');
+  const targets = resetTargets();
+
+  if (targets.length === 0) {
+    out.textContent = 'Tout le parc est hors ligne — rien à reset.';
+    return;
+  }
+
+  const nbOnline = registry.filter((e) => e.status === 'online').length;
+  const nbUnknown = targets.length - nbOnline;
+
+  if (!confirm(`Envoyer « reset » à ${targets.length} appareil(s) `
+             + `(${nbOnline} en ligne, ${nbUnknown} au statut inconnu) ?\n\n`
+             + `Les ESP32 remettent tous leurs modules à l’état initial, `
+             + `les ampoules s’éteignent. À éviter pendant un spectacle.\n`
+             + `Les injoignables seront simplement signalés en échec.`)) return;
+
+  out.textContent = `… reset de ${targets.length} ESP32`;
+  try {
+    const res = await fetch('/api/esp/send', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ names: targets, action: 'reset', options: {} }),
+    });
+    const d = await res.json();
+    const ko = (d.results || []).filter((r) => !r.ok);
+    out.innerHTML = `<b>${d.sent}/${d.total} reset envoyé(s)</b>`
+      + (ko.length ? ` — échec : ${ko.map((r) => esc(r.name)).join(', ')}` : '');
+  } catch (e) {
+    out.textContent = '❌ ' + e;
+  }
+}
+function setModalSource(src) { modalSource = src; renderModalPresets(); }
+
+function renderModalPresets() {
+  $('#src-hardware').classList.toggle('src-on', modalSource === 'hardware');
+  $('#src-scenario').classList.toggle('src-on', modalSource === 'scenario');
+  $('#src-history').classList.toggle('src-on', modalSource === 'history');
+  if (modalSource === 'history') {
+    const note = modalTargets.length > 1
+      ? `<div class="empty" style="font-size:11.5px;margin-bottom:6px">Historique du 1er
+         appareil sélectionné ; l'envoi ira bien aux ${modalTargets.length} cibles.</div>` : '';
+    $('#modal-presets').innerHTML = note + (modalHistory.map((h, i) =>
+      `<button class="preset" onclick="useHistoryEntry(${i})">
+         <span class="pa">${esc(h.action)}</span>
+         <span class="po">${h.ts ? 'il y a ' + esc(ago(h.ts * 1000)) + ' — ' : ''}${esc(JSON.stringify(h.options))}</span>
+       </button>`).join('')
+      || `<span class="empty">Rien n'a encore été envoyé à cet appareil
+          (ni par le dashboard, ni par Unity depuis le démarrage du serveur).</span>`);
+  } else if (modalSource === 'hardware') {
+    const note = modalTargets.length > 1
+      ? `<div class="empty" style="font-size:11.5px;margin-bottom:6px">Actions du type
+         « ${esc(modalDtype)} » (type du 1er ESP sélectionné).</div>` : '';
+    $('#modal-presets').innerHTML = note + (modalHardwareActions.map((a, i) =>
+      `<button class="preset" onclick="useHardwareAction(${i})">
+         <span class="pa">${esc(a.label)}</span>
+         <span class="po">${esc(a.action)} — ${a.params.length} paramètre(s)</span></button>`).join('')
+      || `<span class="empty">Aucune action pour le type « ${esc(modalDtype)} » dans Hardware_Action.csv.</span>`);
+  } else {
+    $('#modal-presets').innerHTML = modalScenarioPresets.slice(0, 12).map((p, i) =>
+      `<button class="preset" onclick="useScenarioPreset(${i})">
+         <span class="pa">${esc(p.action)}</span>
+         <span class="po">${esc(JSON.stringify(p.options))}</span></button>`).join('')
+      || '<span class="empty">Aucun preset trouvé dans les scénarios pour cet ESP.</span>';
+  }
+}
+
+function useHardwareAction(i) {
+  const a = modalHardwareActions[i];
+  $('#in-action').value = a.action;
+  renderFieldEditor(a.params.map((p) => ({ ...p, value: p.default })));
+}
+function useScenarioPreset(i) {
+  const p = modalScenarioPresets[i];
+  $('#in-action').value = p.action;
+  renderFieldEditor(Object.entries(p.options || {}).map(([k, v]) =>
+    ({ key: k, label: k, type: 'text', value: String(v), description: '' })));
+}
+
+// Recharge une action déjà envoyée. On repart de la description de paramètres
+// du CSV quand elle existe (dropdowns, bornes), en y réinjectant les valeurs
+// de l'historique : on garde l'éditeur typé plutôt que des champs texte bruts.
+// Ajoute en tête l'action qu'on vient d'envoyer (le serveur l'a enregistrée de
+// son côté ; ceci évite d'attendre le prochain rafraîchissement de registry).
+function pushLocalHistory(action, options) {
+  if (modalHistory.length && modalHistory[0].action === action
+      && JSON.stringify(modalHistory[0].options) === JSON.stringify(options))
+    return; // pas de doublon consécutif, comme côté serveur
+
+  modalHistory.unshift({ action, options, ts: Date.now() / 1000 });
+  modalHistory = modalHistory.slice(0, 10);
+
+  const prevBtn = $('#btn-prev-action');
+  prevBtn.disabled = false;
+  prevBtn.style.opacity = 1;
+  prevBtn.textContent = `↩ Action précédente (${modalHistory[0].action})`;
+  if (modalSource === 'history') renderModalPresets();
+}
+
+function useHistoryEntry(i) {
+  const h = modalHistory[i];
+  if (!h) return;
+
+  $('#in-action').value = h.action;
+
+  const model = modalHardwareActions.find((a) => a.action === h.action);
+  if (model) {
+    renderFieldEditor(model.params.map((p) => ({
+      ...p,
+      value: h.options[p.key] !== undefined ? String(h.options[p.key]) : p.default,
+    })));
+    // Une option de l'historique absente du CSV serait perdue : on la rajoute.
+    const known = new Set(model.params.map((p) => p.key));
+    const extra = Object.entries(h.options).filter(([k]) => !known.has(k));
+    if (extra.length) {
+      $('#modal-fields').insertAdjacentHTML('beforeend', extra.map(([k, v]) =>
+        `<div class="frow"><label title="${esc(k)}">${esc(k)}</label>
+         <input type="text" data-fkey="${esc(k)}" value="${esc(String(v))}"></div>`).join(''));
+      $('#modal-fields').querySelectorAll('[data-fkey]').forEach((el) =>
+        el.addEventListener('input', syncFieldsToJson));
+      syncFieldsToJson();
+    }
+  } else {
+    renderFieldEditor(Object.entries(h.options).map(([k, v]) =>
+      ({ key: k, label: k, type: 'text', value: String(v), description: '' })));
+  }
+
+  if (modalSource !== 'history') setModalSource('history');
+}
+
+// Éditeur de champs typés : dropdown pour les enums, nombre borné pour les
+// int/float, texte sinon. Chaque saisie régénère le JSON (source de l'envoi).
+function renderFieldEditor(params) {
+  $('#modal-fields').innerHTML = params.map((p) => {
+    let input;
+    if (Array.isArray(p.allowed) && p.allowed.length) {
+      input = `<select data-fkey="${esc(p.key)}">` + p.allowed.map((v) =>
+        `<option ${String(v) === String(p.value) ? 'selected' : ''}>${esc(String(v))}</option>`)
+        .join('') + '</select>';
+    } else if (p.type === 'int' || p.type === 'float' || p.type === 'number') {
+      const minAttr = p.min !== '' && p.min != null ? `min="${esc(p.min)}"` : '';
+      const maxAttr = p.max !== '' && p.max != null ? `max="${esc(p.max)}"` : '';
+      input = `<input type="number" data-fkey="${esc(p.key)}" value="${esc(p.value ?? '')}" ${minAttr} ${maxAttr}>`;
+    } else {
+      input = `<input type="text" data-fkey="${esc(p.key)}" value="${esc(p.value ?? '')}">`;
+    }
+    return `<div class="frow">
+      <label title="${esc(p.description || p.key)}">${esc(p.label || p.key)}</label>${input}</div>`;
+  }).join('');
+  $('#modal-fields').querySelectorAll('[data-fkey]').forEach((el) =>
+    el.addEventListener('input', syncFieldsToJson));
+  syncFieldsToJson();
+}
+
+function syncFieldsToJson() {
+  const fields = $('#modal-fields').querySelectorAll('[data-fkey]');
+  if (fields.length === 0) return;
+  const options = {};
+  fields.forEach((el) => { options[el.dataset.fkey] = String(el.value); });
+  $('#in-options').value = JSON.stringify(options, null, 2);
+}
+
+function closeModal() { $('#modal-bg').style.display = 'none'; }
+$('#modal-bg').addEventListener('click', (e) => { if (e.target.id === 'modal-bg') closeModal(); });
+
+async function sendAction() {
+  const action = $('#in-action').value.trim();
+  let options;
+  try { options = JSON.parse($('#in-options').value || '{}'); }
+  catch { $('#send-result').textContent = '❌ Options : JSON invalide.'; return; }
+  if (!action) { $('#send-result').textContent = '❌ Action manquante.'; return; }
+  $('#send-result').textContent = `… envoi vers ${modalTargets.length} cible(s)`;
+  try {
+    const res = await fetch('/api/esp/send', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ names: modalTargets, action, options }),
+    });
+    const d = await res.json();
+    $('#send-result').innerHTML =
+      `<b>${d.sent}/${d.total} envoyé(s)</b><br>` +
+      (d.results || []).map((r) =>
+        `<span class="${r.ok ? 'r-ok' : 'r-ko'}">${r.ok ? '✅' : '❌'} ${esc(r.name)} — ${esc(r.detail)}</span>`)
+        .join('<br>');
+
+    // Historique à jour tout de suite : registry n'est rafraîchi que toutes
+    // les 5 s, et la modale reste ouverte après un envoi.
+    if (d.sent > 0) pushLocalHistory(action, options);
+  } catch (e) { $('#send-result').textContent = '❌ ' + e; }
+}
+
+/* ─── Export CSV (généré côté client, télécharge un fichier) ─────────── */
+function downloadCsv(filename, rows) {
+  const csv = rows.map((r) => r.map((v) => {
+    const s = String(v ?? '');
+    return /[";\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }).join(';')).join('\r\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+function exportShowsCsv() {
+  const rows = [['n', 'machine', 'jour', 'debut', 'scenario', 'duree_s', 'actions_esp',
+                 'sons', 'warnings', 'erreurs', 'perdues', 'partiel']];
+  visibleShows().forEach((s) => rows.push([s.n, s.src || '', s.day, timePart(s.start_iso),
+    s.scenario || '', s.duration_s ?? '', s.ws_out, s.sounds, s.warns,
+    s.errors, s.lost, s.partial ? 1 : 0]));
+  downloadCsv('spectacles.csv', rows);
+}
+function exportEspCsv() {
+  const rows = [['esp', 'actions', 'perdues', 'echecs_connexion', 'connexions',
+                 'conn_moy_ms', 'tendance_ms', 'indispo_s', 'pannes']];
+  Object.entries((stats || {}).esp || {}).forEach(([name, e]) => rows.push([
+    name, e.ws_out, e.lost, e.failures, e.connects, e.connect_ms_avg ?? '',
+    e.connect_ms_trend ?? '', e.downtime_s ?? '', e.outages ?? '']));
+  downloadCsv('esp_fiabilite.csv', rows);
+}
+
+/* ─── Comparaison de deux jours ──────────────────────────────────────── */
+async function compareDays() {
+  const dayA = $('#cmp-a').value, dayB = $('#cmp-b').value;
+  if (!dayA || !dayB) return;
+  const fetchDay = (d) => fetch(`/api/dashboard/stats?from=${d}T00:00:00&to=${d}T23:59:59`
+    + '&src=' + encodeURIComponent(srcParam())).then((x) => x.json());
+  const [A, B] = await Promise.all([fetchDay(dayA), fetchDay(dayB)]);
+  const espTotal = (s, key) => Object.values(s.esp || {}).reduce((a, e) => a + (e[key] || 0), 0);
+  const metric = (label, fa, fmt) => {
+    const va = fa(A), vb = fa(B);
+    const delta = (typeof va === 'number' && typeof vb === 'number') ? vb - va : null;
+    const dCls = delta > 0 ? 'num-warn' : (delta < 0 ? '' : '');
+    const dTxt = delta == null ? '—' : (delta > 0 ? '+' : '') + (fmt ? fmt(delta) : delta);
+    return `<tr><td>${label}</td><td>${fmt ? fmt(va) : va}</td>
+      <td>${fmt ? fmt(vb) : vb}</td><td class="${dCls}">${dTxt}</td></tr>`;
+  };
+  $('#cmp-result').innerHTML = `<table>
+    <thead><tr><th>Métrique</th><th>${dayA}</th><th>${dayB}</th><th>Δ</th></tr></thead>
+    <tbody>
+    ${metric('Spectacles', (s) => s.loops.count)}
+    ${metric('Durée médiane', (s) => s.loops.median_s ?? 0, fmtDur)}
+    ${metric('Actions ESP', (s) => espTotal(s, 'ws_out'))}
+    ${metric('Actions perdues', (s) => espTotal(s, 'lost'))}
+    ${metric('Échecs connexion', (s) => espTotal(s, 'failures'))}
+    ${metric('Indispo. ESP cumulée', (s) => espTotal(s, 'downtime_s'), fmtDur)}
+    ${metric('Sons joués', (s) => s.sound.plays)}
+    ${metric('Msgs capteurs', (s) => (s.ws_in || {}).count || 0)}
+    ${metric('Warnings', (s) => (s.counts || {}).WARN || 0)}
+    ${metric('Erreurs', (s) => ((s.counts || {}).ERROR || 0) + ((s.counts || {}).EXCPT || 0) + ((s.counts || {}).ASSERT || 0))}
+    </tbody></table>`;
+}
+
+/* ─── Firmware (OTA de masse) ─────────────────────────────────────────── */
+let fwData = { firmwares: [], scenario_running: false };
+const selFw = new Set();
+const fwStatus = {};   // esp -> html du statut de déploiement
+let _fwDeploying = false;   // suspend l'auto-refresh pendant un flash en cours
+
+async function refreshFirmware() {
+  try {
+    fwData = await fetch('/api/firmware').then((x) => x.json());
+    renderFirmware();
+  } catch { }
+}
+
+function renderFirmware() {
+  $('#fw-dir-label').textContent = 'Dossier : ' + (fwData.dir || '?')
+    + (fwData.dir_exists ? ` — ${fwData.firmwares.length} binaire(s)` : ' (introuvable !)');
+  $('#fw-updated').textContent = fwData.scenario_running
+    ? '· scénario en cours de lecture' : '';
+
+  const rows = (fwData.firmwares || []).map((f) => {
+    const checked = selFw.has(f.esp);
+    const stCls = f.status === 'online' ? 'good' : (f.status === 'offline' ? 'critical' : 'off');
+    const stLbl = f.status === 'online' ? 'en ligne' : (f.status === 'offline' ? 'hors ligne' : 'inconnu');
+    const deployable = f.known && f.ip;
+    return `<tr class="${checked ? 'selected' : ''}">
+      <td><input type="checkbox" data-fw="${esc(f.esp)}" ${checked ? 'checked' : ''}
+           ${deployable ? '' : 'disabled'}></td>
+      <td title="${esc(f.esp)}">${typeEmoji(f.type)} <b>${esc(f.esp.replace(/^For_/, ''))}</b></td>
+      <td>${esc(f.type || '—')}</td>
+      <td class="mono">${esc(f.ip || 'absent du CSV')}</td>
+      <td><span class="st"><span class="dot ${stCls}"></span>${stLbl}</span></td>
+      <td class="mono">${esc(f.file)}</td>
+      <td>${Math.round(f.size / 1024)} Ko</td>
+      <td>${new Date(f.mtime * 1000).toLocaleString('fr-FR').slice(0, 17)}</td>
+      <td class="mono" title="${esc(f.md5 || '')}">${esc((f.md5 || '').slice(0, 8))}</td>
+      <td id="fw-st-${esc(f.esp)}">${fwStatus[f.esp] || ''}</td>
+      <td><button data-deploy="${esc(f.esp)}" ${deployable ? '' : 'disabled'}>⚡ Flasher</button></td>
+    </tr>`;
+  });
+  $('#fw-table tbody').innerHTML = rows.join('')
+    || `<tr><td colspan="11" class="empty">Aucun binaire — lance compilesketchs.py
+        (les .bin apparaissent dans ${esc(fwData.dir || 'le dossier configuré')}).</td></tr>`;
+
+  const tbody = $('#fw-table tbody');
+  tbody.querySelectorAll('input[data-fw]').forEach((cb) =>
+    cb.addEventListener('change', () => {
+      cb.checked ? selFw.add(cb.dataset.fw) : selFw.delete(cb.dataset.fw);
+      cb.closest('tr').classList.toggle('selected', cb.checked);
+      updateFwButtons();
+    }));
+  tbody.querySelectorAll('button[data-deploy]').forEach((btn) =>
+    btn.addEventListener('click', () => deployOne(btn.dataset.deploy)));
+  updateFwButtons();
+}
+function updateFwButtons() {
+  $('#btn-deploy-multi').textContent = `Déployer la sélection (${selFw.size})`;
+}
+
+function setFwStatus(esp, html) {
+  fwStatus[esp] = html;
+  const cell = document.getElementById('fw-st-' + esp);
+  if (cell) cell.innerHTML = html;
+}
+
+async function pushOne(esp) {
+  setFwStatus(esp, '⏳ envoi + flash…');
+  try {
+    const res = await fetch('/api/firmware/deploy', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ esp }),
+    });
+    const d = await res.json();
+    setFwStatus(esp, d.ok
+      ? `<span class="r-ok">✅ ${esc(d.detail)}</span>`
+      : `<span class="r-ko">❌ ${esc(d.detail || d.error || '')}</span>`);
+    return !!d.ok;
+  } catch (e) {
+    setFwStatus(esp, `<span class="r-ko">❌ ${esc(String(e))}</span>`);
+    return false;
+  }
+}
+
+function fwGuard(count) {
+  return confirm(`Flasher ${count} ESP par OTA ?\n\nChaque ESP redémarre après le `
+    + `flash (~10-20 s hors ligne). Conseil : un canari d'abord, vérifie sa `
+    + `reconnexion dans l'onglet ESP, puis élargis.`);
+}
+
+async function deployOne(esp) {
+  if (!fwGuard(1)) return;
+  _fwDeploying = true;
+  try { await pushOne(esp); } finally { _fwDeploying = false; }
+}
+
+async function deploySelected() {
+  const targets = [...selFw];
+  if (targets.length === 0) { alert('Coche au moins un ESP.'); return; }
+  if (!fwGuard(targets.length)) return;
+  _fwDeploying = true;
+  try {
+    // Vagues de 3 : ménage la bande passante WiFi et limite le rayon d'un raté.
+    for (let i = 0; i < targets.length; i += 3) {
+      const wave = targets.slice(i, i + 3);
+      wave.forEach((esp) => setFwStatus(esp, '🕓 en file…'));
+      await Promise.all(wave.map((esp) => pushOne(esp)));
+    }
+  } finally {
+    _fwDeploying = false;
+  }
+}
+
+/* ─── Rapports ────────────────────────────────────────────────────────── */
+async function viewReport() {
+  const date = $('#report-day').value;
+  if (!date) return;
+  $('#report-status').textContent = 'chargement…';
+  const d = await fetch(`/api/dashboard/report?date=${date}&src=${encodeURIComponent(srcParam())}`)
+    .then((x) => x.json());
+  const frame = $('#report-frame');
+  frame.hidden = false;
+  frame.srcdoc = `<!doctype html><meta charset="utf-8">
+    <body style="margin:16px;background:#fff">${d.html}</body>`;
+  $('#report-status').textContent = '';
+}
+async function mailReport() {
+  const date = $('#report-day').value;
+  const res = await fetch('/api/dashboard/report-now', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ date }),
+  });
+  alert((await res.json()).detail);
+}
+async function clearAlerts() {
+  await fetch('/api/dashboard/alerts/clear', { method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, body: '{}' });
+  refreshLive();
+}
+async function testEmail() {
+  const res = await fetch('/api/dashboard/test-email', { method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, body: '{}' });
+  alert((await res.json()).detail);
+}
+
+/* ─── Flux live (SSE) + polling ──────────────────────────────────────── */
+function addFeedRow(html) {
+  const feed = $('#feed');
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = html;
+  feed.prepend(row);
+  while (feed.children.length > 120) feed.lastChild.remove();
+}
+function startSse() {
+  const src = new EventSource('/api/events');
+  src.addEventListener('activity', (e) => {
+    const a = JSON.parse(e.data);
+    const t = new Date((a.ts || 0) * 1000).toLocaleTimeString('fr-FR');
+    const what = a.sent ? ('↥ ' + a.sent) : (a.received ? ('↧ ' + a.received) : a.status);
+    addFeedRow(`<span class="t">${t}</span><b>${esc(a.espId)}</b> ${esc(String(what).slice(0, 140))}`);
+  });
+  src.addEventListener('alert', (e) => {
+    const a = JSON.parse(e.data);
+    addFeedRow(`<span class="t">${(a.iso || '').slice(11, 19)}</span>🚨 <b>${esc(a.title)}</b> ${esc(a.detail)}`);
+    refreshLive();
+  });
+  src.onerror = () => { };
+}
+async function refreshLive() {
+  try {
+    const [s, r] = await Promise.all([
+      fetch('/api/dashboard/summary').then((x) => x.json()),
+      fetch('/api/esp').then((x) => x.json()),
+    ]);
+    live = s; registry = Array.isArray(r) ? r : [];
+    renderLive(); renderEspTable();
+  } catch { }
+}
+let _showsRaw = '';
+async function refreshShows() {
+  try {
+    const raw = await fetch('/api/dashboard/shows?src=' + encodeURIComponent(srcParam()))
+      .then((x) => x.text());
+    if (raw === _showsRaw) return;   // rien de neuf : on ne re-rend pas la table
+    _showsRaw = raw;
+    showsData = JSON.parse(raw);
+    renderShows();
+  } catch { }
+}
+
+// Sélecteur de machines : pills à cocher, agrégation multi-sources.
+let _sourcesList = [];
+function renderSourcePills() {
+  const bar = $('#src-bar');
+  bar.innerHTML = _sourcesList.map((s) =>
+    `<button class="${currentSources.includes(s.src) ? 'on' : ''}"
+       data-src="${esc(s.src)}" ${s.exists ? '' : 'disabled'}
+       title="${esc(s.path || '')}">${esc(s.name)}${s.exists ? '' : ' ⚠'}</button>`).join('');
+  bar.querySelectorAll('button[data-src]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const src = b.dataset.src;
+      if (currentSources.includes(src)) {
+        if (currentSources.length === 1) return;   // toujours au moins une machine
+        currentSources = currentSources.filter((x) => x !== src);
+      } else {
+        currentSources.push(src);
+      }
+      selShows.clear();
+      _showsRaw = '';
+      analysis = { mode: 'range', preset: analysis.preset || '24h', showStarts: [] };
+      renderSourcePills();
+      refreshShows();
+      refreshStats();
+    }));
+}
+async function loadSources() {
+  try {
+    _sourcesList = await fetch('/api/dashboard/sources').then((x) => x.json());
+    const single = _sourcesList.length <= 1;
+    $('#src-bar').hidden = single;
+    $('#src-lbl').hidden = single;
+    if (!single) renderSourcePills();
+  } catch { }
+}
+
+/* ─── Paramètres d'URL : ?day=AAAA-MM-JJ ouvre l'onglet Spectacles sur ce jour,
+   ?capture=1 passe en mode capture (rapport du jour en image). ─────────── */
+const _urlParams = new URLSearchParams(location.search);
+const captureMode = _urlParams.get('capture') === '1';
+const _urlDay = _urlParams.get('day');
+if (_urlDay && /^\d{4}-\d{2}-\d{2}$/.test(_urlDay)) {
+  // Même objet que le sélecteur « jour précis » : jour entier.
+  analysis = { mode: 'range', preset: null, from: _urlDay + 'T00:00:00',
+               to: _urlDay + 'T23:59:59', label: _urlDay, showStarts: [] };
+  $$('#period-bar [data-preset]').forEach((b) => b.classList.remove('on'));
+  showTab('spectacles');
+}
+if (captureMode) {
+  document.body.classList.add('capture');
+  const t = $('#capture-title');
+  t.textContent = `Spectacles & stats — ${_urlDay || 'dernières 24 h'}`;
+  t.hidden = false;
+}
+
+loadSources(); refreshLive(); refreshShows(); refreshStats();
+
+// En capture, pas de flux SSE ni de minuteries : le navigateur headless attend
+// que le réseau soit au repos pour prendre la photo, et un EventSource ne se
+// termine jamais — c'est ce qui bloquait la capture indéfiniment.
+if (!captureMode) {
+  setInterval(refreshLive, 5000);
+  setInterval(refreshShows, 15000);
+  setInterval(refreshStats, 30000);
+  // Onglet Firmware : se tient à jour seul quand il est visible (état
+  // scenario_running, statuts en ligne), sauf pendant un flash en cours.
+  setInterval(() => {
+    if (!_fwDeploying && $('#tab-firmware').classList.contains('active'))
+      refreshFirmware();
+  }, 5000);
+  startSse();
+}
+</script>
+</body>
+</html>

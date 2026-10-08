@@ -1,13 +1,15 @@
 {
     "palettes": [
         {
-            "name": "Palette Par Défaut",
+            "name": "ALICE",
             "colors": [
-                "#FF0000",
-                "#0000FF",
-                "#00FF00",
-                "#FFFFFF",
-                "#E08C8C"
+                "#F0628D",
+                "#8CD08D",
+                "#6B72FF",
+                "#F0B24C",
+                "#705C5F",
+                "#A360A6",
+                "#061929"
             ]
         },
         {
@@ -16,7 +18,17 @@
                 "#FFFFFF",
                 "#FF0000",
                 "#00FF00",
-                "#A37F7F"
+                "#A37F7F",
+                "#287CFF"
+            ]
+        },
+        {
+            "name": "Palette 3",
+            "colors": [
+                "#FFFFFF",
+                "#FF0000",
+                "#00FF00",
+                "#0000FF"
             ]
         }
     ]

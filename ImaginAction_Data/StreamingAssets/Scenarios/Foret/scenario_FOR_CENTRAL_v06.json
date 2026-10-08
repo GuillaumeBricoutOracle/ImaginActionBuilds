@@ -5,7 +5,7 @@
             "next_event_id": "QgZGml4BtJeFadeNECZ98",
             "event_type": "ActionEvent",
             "duration": 2,
-            "event_role": "Start",
+            "event_role": "None",
             "interface": {
                 "name": "NLWkR6GADI4rdCGhnJSb3",
                 "color": "#F0B24C",
@@ -38,7 +38,7 @@
                         "blue": "255",
                         "brightness": "50",
                         "fade_time": "3",
-                        "hardware": "For_Central_RGB_Droite"
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite"
                     }
                 },
                 {
@@ -2540,8 +2540,8 @@
                     "type": "MONO",
                     "options": {
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "1",
                         "temps": "2500",
                         "temps2": "1500",
@@ -2623,8 +2623,8 @@
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon",
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "1",
                         "temps": "300",
                         "temps2": "4000",
@@ -2692,8 +2692,8 @@
                     "type": "MONO",
                     "options": {
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "2",
                         "temps": "500",
                         "temps2": "1000",
@@ -2811,8 +2811,8 @@
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon",
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "4",
                         "temps": "500",
                         "temps2": "200",
@@ -2880,10 +2880,10 @@
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon",
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "10",
-                        "temps": "250",
+                        "temps": "350",
                         "temps2": "250",
                         "delai": "0"
                     }
@@ -3011,14 +3011,14 @@
             "id": "Ubii9YnaPfDYHuFRVVy2H",
             "next_event_id": "bM25p2_Gk9ZDI8zEGPM6G",
             "event_type": "ActionEvent",
-            "duration": 4,
-            "event_role": "None",
+            "duration": 3,
+            "event_role": "Start",
             "interface": {
                 "name": "PARTIE 2 - FLEURS",
-                "color": "secondary",
+                "color": "#061929",
                 "coordinate": [
-                    3.63241767883301,
-                    -165.324127197266
+                    -4.78764677047729,
+                    -175.178466796875
                 ]
             },
             "actions": [
@@ -3030,27 +3030,30 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "5",
-                        "transition_time": "4",
+                        "transition_time": "6",
                         "hardware": ""
                     }
-                }
-            ]
-        },
-        {
-            "id": "bM25p2_Gk9ZDI8zEGPM6G",
-            "next_event_id": "yySU2O77u-S7Fa4Yrodn2",
-            "event_type": "ActionEvent",
-            "duration": 5,
-            "event_role": "None",
-            "interface": {
-                "name": "bM25p2_Gk9ZDI8zEGPM6G",
-                "color": "#FFFFFF",
-                "coordinate": [
-                    0.158493041992188,
-                    -171.915893554688
-                ]
-            },
-            "actions": [
+                },
+                {
+                    "id": "78ab504ea0884bc1bdb40695ce549e91",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Sud,For_Central_Led_Riviere_Ouest,For_Central_Led_Riviere_Est",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "3000"
+                    }
+                },
                 {
                     "id": "miGHOLhV_MSg8GoP9iaRF",
                     "refresh_rate": "0",
@@ -3080,62 +3083,63 @@
                     }
                 },
                 {
-                    "id": "TWJEcDJ0wamlnS_lyDchY",
+                    "id": "f35a953dc3604e2d91930ecbf2a089c7",
                     "refresh_rate": "0",
-                    "action": "balayage",
-                    "type": "Led",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
                     "options": {
-                        "leds": "",
-                        "red1": "0",
-                        "green1": "0",
-                        "blue1": "255",
-                        "brightness1": "0",
-                        "red": "0",
-                        "green": "0",
-                        "blue": "0",
-                        "brightness": "0",
-                        "delai": "200",
-                        "temps": "1",
-                        "hardware": "For_Central_Led_Riviere_Sud"
+                        "hardware": "For_Central_MONO_Global",
+                        "fade_time": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bM25p2_Gk9ZDI8zEGPM6G",
+            "next_event_id": "yySU2O77u-S7Fa4Yrodn2",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "bM25p2_Gk9ZDI8zEGPM6G",
+                "color": "#A360A6",
+                "coordinate": [
+                    -4.30618858337402,
+                    -182.08317565918
+                ]
+            },
+            "actions": [
+                {
+                    "id": "825c285a74bd48e1987d57988ba693fb",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "4",
+                        "hardware": ""
                     }
                 },
                 {
-                    "id": "HHRKcq9CGWfEKcdgy0Lfc",
+                    "id": "ca5caf5957af4f1593d7d08255fe5120",
                     "refresh_rate": "0",
                     "action": "balayage",
                     "type": "Led",
                     "options": {
-                        "leds": "",
-                        "red1": "0",
-                        "blue1": "255",
-                        "brightness1": "0",
-                        "red": "0",
-                        "green": "0",
-                        "blue": "0",
-                        "brightness": "0",
-                        "delai": "200",
-                        "temps": "1",
-                        "hardware": "For_Central_Led_Riviere_Ouest"
-                    }
-                },
-                {
-                    "id": "Ih10fGRcUOcKRR5sqrOMW",
-                    "refresh_rate": "0",
-                    "action": "balayage",
-                    "type": "Led",
-                    "options": {
-                        "leds": "",
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
                         "red1": "0",
                         "green1": "0",
-                        "blue1": "255",
-                        "brightness1": "0",
-                        "red": "0",
-                        "green": "0",
-                        "blue": "0",
-                        "brightness": "0",
-                        "delai": "200",
-                        "temps": "1",
-                        "hardware": "For_Central_Led_Riviere_Ouest"
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
+                        "brightness": "100",
+                        "delai": "400",
+                        "temps": "7000"
                     }
                 }
             ]
@@ -3144,53 +3148,14 @@
             "id": "yySU2O77u-S7Fa4Yrodn2",
             "next_event_id": "ZXTHESAHnmqb21ZigHEby",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "yySU2O77u-S7Fa4Yrodn2",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -181.915893554688
-                ]
-            },
-            "actions": [
-                {
-                    "id": "_joFL1bgAO29n4PBLSq8T",
-                    "refresh_rate": "0",
-                    "action": "balayage",
-                    "type": "Led",
-                    "options": {
-                        "leds": "",
-                        "code1": "rose",
-                        "red1": "150",
-                        "green1": "0",
-                        "blue1": "200",
-                        "code": "rose",
-                        "red": "150",
-                        "green": "0",
-                        "blue": "200",
-                        "brightness": "60",
-                        "delai": "6000",
-                        "temps": "6000",
-                        "brightness1": "0",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "ZXTHESAHnmqb21ZigHEby",
-            "next_event_id": "ptTFdHwdCGi0EGuTk3_Zn",
-            "event_type": "ActionEvent",
-            "duration": 2,
-            "event_role": "None",
-            "interface": {
-                "name": "ZXTHESAHnmqb21ZigHEby",
-                "color": "#FFFFFF",
-                "coordinate": [
-                    0.158493041992188,
-                    -191.915893554688
+                    0.383650302886963,
+                    -189.120162963867
                 ]
             },
             "actions": [
@@ -3200,7 +3165,7 @@
                     "action": "set_angle",
                     "type": "Servo_Multi",
                     "options": {
-                        "num": "[1,1,1,1,1,1]",
+                        "num": "[1,0,0,0,0,0]",
                         "angle": "max",
                         "temps": "3000",
                         "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
@@ -3215,51 +3180,70 @@
                         "temps2",
                         "delai"
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "id": "ZXTHESAHnmqb21ZigHEby",
+            "next_event_id": "732a53c7d0724f0294373aed4bb83917",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "ZXTHESAHnmqb21ZigHEby",
+                "color": "#A360A6",
+                "coordinate": [
+                    -3.39070224761963,
+                    -193.65055847168
+                ]
+            },
+            "actions": [
                 {
-                    "id": "AOfUuzi5L7bAoSMnefgJY",
+                    "id": "6762074e3806493cb090062ab91dd271",
                     "refresh_rate": "0",
-                    "action": "transition",
-                    "type": "Led",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
                     "options": {
-                        "red1": "150",
-                        "green1": "0",
-                        "blue1": "200",
-                        "brightness1": "60",
-                        "red": "150",
-                        "green": "50",
-                        "blue": "200",
-                        "brightness": "100",
-                        "temps": "2000",
-                        "hardware": "For_Central_Led_Riviere_Sud",
-                        "led_debut": "",
-                        "led_fin": ""
-                    }
+                        "num": "[0,1,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "3000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
         {
             "id": "ptTFdHwdCGi0EGuTk3_Zn",
-            "next_event_id": "65EhQzg9UnP-2cHaOzIpH",
+            "next_event_id": "0124f629aacc41cb8453727e978a96d7",
             "event_type": "ActionEvent",
             "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "ptTFdHwdCGi0EGuTk3_Zn",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -201.915893554688
+                    -2.70106506347656,
+                    -202.228591918945
                 ]
             },
             "actions": [
                 {
-                    "id": "EJ7WzPZX_4kGTvZsN2D1o",
+                    "id": "183cdff11fc24d3f85a801e329f64dec",
                     "refresh_rate": "0",
                     "action": "set_angle",
                     "type": "Servo_Multi",
                     "options": {
-                        "num": "[1,1,1,1,1,1]",
+                        "num": "[0,0,1,1,0,0]",
                         "angle": "max",
                         "temps": "3000",
                         "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
@@ -3279,100 +3263,55 @@
         },
         {
             "id": "65EhQzg9UnP-2cHaOzIpH",
-            "next_event_id": "M3BT9AfyvwP01lXvCc5hY",
+            "next_event_id": "sk2vL59nrUv7xd0Opnk46",
             "event_type": "ActionEvent",
             "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "65EhQzg9UnP-2cHaOzIpH",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -211.915893554688
+                    -1.71238112449646,
+                    -211.51872253418
                 ]
             },
             "actions": [
                 {
-                    "id": "JHwf2Rd2y-6mvcgcpT9FK",
+                    "id": "eec196729c8e4da0afe7d39172f46d0c",
                     "refresh_rate": "0",
-                    "action": "balayage",
+                    "action": "vague",
                     "type": "Led",
                     "options": {
-                        "leds": "",
-                        "code1": "rose",
-                        "red1": "150",
-                        "green1": "0",
-                        "blue1": "200",
-                        "code": "cyan",
-                        "red": "0",
-                        "green": "255",
-                        "blue": "255",
-                        "brightness1": "100",
-                        "brightness": "100",
-                        "delai": "4000",
-                        "temps": "4000",
                         "hardware": "For_Central_Led_Fleurs_Sud",
-                        "led_debut": "",
-                        "led_fin": ""
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "240",
+                        "green1": "98",
+                        "blue1": "141",
+                        "brightness1": "50",
+                        "red": "246",
+                        "green": "255",
+                        "blue": "86",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "3000",
+                        "taille_vague": "7"
                     }
                 }
             ]
         },
         {
-            "id": "M3BT9AfyvwP01lXvCc5hY",
-            "next_event_id": "sk2vL59nrUv7xd0Opnk46",
-            "event_type": "ActionEvent",
-            "duration": 6,
-            "event_role": "None",
-            "interface": {
-                "name": "M3BT9AfyvwP01lXvCc5hY",
-                "color": "#FFFFFF",
-                "coordinate": [
-                    0.158493041992188,
-                    -221.915893554688
-                ]
-            },
-            "actions": [
-                {
-                    "id": "AB5aXMRafs_DonLYFGQhS",
-                    "refresh_rate": "0",
-                    "action": "aller_retour",
-                    "type": "Servo_Multi",
-                    "options": {
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "max",
-                        "angle2": "min",
-                        "ntours": "4",
-                        "temps": "3000",
-                        "temps2": "3000",
-                        "delai": "500",
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
-                }
-            ]
-        },
-        {
             "id": "sk2vL59nrUv7xd0Opnk46",
-            "next_event_id": "OD5VAdRl3_19zQ0HgB8N_",
+            "next_event_id": "zOfvzWwSlW0n_i3IYovwr",
             "event_type": "ActionEvent",
             "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "sk2vL59nrUv7xd0Opnk46",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -231.915893554688
+                    0.691301822662354,
+                    -216.762573242188
                 ]
             },
             "actions": [
@@ -3382,87 +3321,28 @@
                     "action": "fade",
                     "type": "RGB",
                     "options": {
-                        "red": "255",
-                        "green": "0",
+                        "red": "107",
+                        "green": "114",
                         "blue": "255",
                         "brightness": "100",
                         "fade_time": "2",
-                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite"
-                    }
-                },
-                {
-                    "id": "k8lyVEd1Z81fJryb185Lp",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Ambiances",
-                        "volume": "75",
-                        "fade_time": "1",
-                        "hardware": ""
-                    }
-                }
-            ]
-        },
-        {
-            "id": "OD5VAdRl3_19zQ0HgB8N_",
-            "next_event_id": "zOfvzWwSlW0n_i3IYovwr",
-            "event_type": "ActionEvent",
-            "duration": 4,
-            "event_role": "None",
-            "interface": {
-                "name": "OD5VAdRl3_19zQ0HgB8N_",
-                "color": "#FFFFFF",
-                "coordinate": [
-                    0.158493041992188,
-                    -241.915893554688
-                ]
-            },
-            "actions": [
-                {
-                    "id": "QCjHtGnPsQ5fzEjPlgB39",
-                    "refresh_rate": "0",
-                    "action": "transition",
-                    "type": "Led",
-                    "options": {
-                        "leds": "",
-                        "red1": "150",
-                        "green1": "0",
-                        "blue1": "200",
-                        "brightness1": "100",
-                        "red": "255",
-                        "green": "0",
-                        "blue": "255",
-                        "brightness": "50",
-                        "temps": "2000",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
-                    }
-                },
-                {
-                    "id": "LxUEqA0LgM9cBSMu735hK",
-                    "refresh_rate": "0",
-                    "action": "play_media_on_channel",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Ambiances",
-                        "media_index": "0",
-                        "transition_time": "1"
+                        "hardware": "For_Entree_RGB_Droite,For_Central_RGB_Gauche,For_Central_RGB_Droite"
                     }
                 }
             ]
         },
         {
             "id": "zOfvzWwSlW0n_i3IYovwr",
-            "next_event_id": "4xU2NuTUZkzwlPS3WYyXq",
+            "next_event_id": "982f41c5e3074adba8db1bd5aab24d3e",
             "event_type": "ActionEvent",
             "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "zOfvzWwSlW0n_i3IYovwr",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -251.915893554688
+                    8.33554267883301,
+                    -176.653839111328
                 ]
             },
             "actions": [
@@ -3470,9 +3350,9 @@
                     "id": "oboF4idOMPdg6XAx7dM5-",
                     "refresh_rate": "0",
                     "action": "fade_turn_on",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
-                        "brightness": "50",
+                        "brightness": "30",
                         "fade_time": "4",
                         "hardware": "For_Central_MONO_Global"
                     }
@@ -3494,7 +3374,7 @@
                     "type": "Servo_Multi",
                     "options": {
                         "num": "[1,1,1,1,1,1]",
-                        "angle": "init",
+                        "angle": "min",
                         "temps": "2000",
                         "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
                     },
@@ -3515,72 +3395,50 @@
             "id": "4xU2NuTUZkzwlPS3WYyXq",
             "next_event_id": "5Eh2-VfpeVj7WF6Eq3P60",
             "event_type": "ActionEvent",
-            "duration": 8,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "4xU2NuTUZkzwlPS3WYyXq",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -261.915893554688
+                    10.6641082763672,
+                    -191.515594482422
                 ]
             },
             "actions": [
                 {
-                    "id": "ruhKdh7xTdB2_ejcYOXcW",
+                    "id": "584e8df59abe43abacd4720b28f92cf0",
                     "refresh_rate": "0",
-                    "action": "play_sound",
-                    "type": "Son",
-                    "options": {
-                        "filename": "FORET/SEQUENCES/AL_SEQ_FOR_ILO_FLEURS_01.wav",
-                        "volume": "80"
-                    }
-                },
-                {
-                    "id": "bu_-vF91THQf7CIA3oI6K",
-                    "refresh_rate": "0",
-                    "action": "vague",
+                    "action": "transition",
                     "type": "Led",
                     "options": {
-                        "leds": "",
-                        "red1": "255",
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
                         "green1": "0",
-                        "blue1": "255",
+                        "blue1": "0",
                         "brightness1": "100",
                         "red": "255",
-                        "green": "0",
+                        "green": "80",
                         "blue": "0",
-                        "brightness": "100",
-                        "delai": "1000",
-                        "temps": "1000",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
+                        "brightness": "40",
+                        "temps": "3000"
                     }
                 },
                 {
-                    "id": "o7kK5HoqBK2qoWWjW6QOl",
+                    "id": "ad63fae65f9b49b3bef6083d8f28514f",
                     "refresh_rate": "0",
-                    "action": "aller_retour",
-                    "type": "Servo_Multi",
+                    "action": "fade",
+                    "type": "RGB",
                     "options": {
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "init",
-                        "angle2": "max",
-                        "ntours": "2",
-                        "temps": "1500",
-                        "temps2": "1500",
-                        "delai": "0",
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "128",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
                 }
             ]
         },
@@ -3592,10 +3450,10 @@
             "event_role": "None",
             "interface": {
                 "name": "5Eh2-VfpeVj7WF6Eq3P60",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    0.158493041992188,
-                    -271.915893554688
+                    11.9250020980835,
+                    -198.571823120117
                 ]
             },
             "actions": [
@@ -3619,10 +3477,10 @@
             "event_role": "None",
             "interface": {
                 "name": "HHFjSmqc8QEbLMi6QyMxB",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -290
+                    13.030460357666,
+                    -204.646896362305
                 ]
             },
             "actions": [
@@ -3665,10 +3523,10 @@
             "event_role": "None",
             "interface": {
                 "name": "QpTazLehzOQwtUUNafUp_",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -300
+                    10.9623050689697,
+                    -211.800811767578
                 ]
             },
             "actions": [
@@ -3711,10 +3569,10 @@
             "event_role": "None",
             "interface": {
                 "name": "7VnSRCcj3kAsoMj5wJB7i",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -310
+                    12.8596954345703,
+                    -219.372146606445
                 ]
             },
             "actions": [
@@ -3738,10 +3596,10 @@
             "event_role": "None",
             "interface": {
                 "name": "GtkTxuld6GWl13ro8Br1B",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -320
+                    19.2566032409668,
+                    -175.710983276367
                 ]
             },
             "actions": [
@@ -3784,10 +3642,10 @@
             "event_role": "None",
             "interface": {
                 "name": "Tsi0jxeNymnBC6IXHu8mn",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -330
+                    21.367546081543,
+                    -184.81428527832
                 ]
             },
             "actions": [
@@ -3830,10 +3688,10 @@
             "event_role": "None",
             "interface": {
                 "name": "oCzzNF6kJXFNgjzQfpk5O",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -340
+                    20.0773220062256,
+                    -192.67024230957
                 ]
             },
             "actions": [
@@ -3857,10 +3715,10 @@
             "event_role": "None",
             "interface": {
                 "name": "e00xSPXIQ1rmEoX4ELyYg",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -350
+                    21.1208877563477,
+                    -197.20573425293
                 ]
             },
             "actions": [
@@ -3903,10 +3761,10 @@
             "event_role": "None",
             "interface": {
                 "name": "DXrd8aYRp-OFYlUM4UVAn",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -360
+                    20.2480850219727,
+                    -204.511444091797
                 ]
             },
             "actions": [
@@ -3928,7 +3786,7 @@
                     "id": "lurOkbIVGoi9Z2rsQwB-D",
                     "refresh_rate": "0",
                     "action": "fade_bg",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "15",
                         "fade_time": "1",
@@ -3945,10 +3803,10 @@
             "event_role": "None",
             "interface": {
                 "name": "n6U5zVAKROFl9agF8ctpU",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -370
+                    20.1302738189697,
+                    -212.116653442383
                 ]
             },
             "actions": [
@@ -3970,7 +3828,7 @@
                     "id": "LOky9xhUmfGD5g63Ux7Ho",
                     "refresh_rate": "0",
                     "action": "fade_bg",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "50",
                         "fade_time": "2",
@@ -3998,10 +3856,10 @@
             "event_role": "None",
             "interface": {
                 "name": "uhAcoibtfFAJAOVQCXBJ0",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -380
+                    20.5845832824707,
+                    -219.495651245117
                 ]
             },
             "actions": [
@@ -4047,10 +3905,10 @@
             "event_role": "None",
             "interface": {
                 "name": "71KFELdh0jYdFMxY5DseF",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -390
+                    28.753604888916,
+                    -175.877349853516
                 ]
             },
             "actions": [
@@ -4058,7 +3916,7 @@
                     "id": "QrCoskt0dL_MOqEv4WyCk",
                     "refresh_rate": "0",
                     "action": "fade_bg",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "100",
                         "fade_time": "1",
@@ -4075,10 +3933,10 @@
             "event_role": "None",
             "interface": {
                 "name": "mlxLIQwAWafT1I5Vm_zO7",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -400
+                    29.4118804931641,
+                    -184.909301757813
                 ]
             },
             "actions": [
@@ -4086,7 +3944,7 @@
                     "id": "4nGdvC6O4u16xpMzMtWnf",
                     "refresh_rate": "0",
                     "action": "fade_bg",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "30",
                         "fade_time": "1",
@@ -4124,10 +3982,10 @@
             "event_role": "None",
             "interface": {
                 "name": "Il2bsS1tGCYtXgcRyn6q1",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -410
+                    28.2114944458008,
+                    -192.895736694336
                 ]
             },
             "actions": [
@@ -4177,10 +4035,10 @@
             "event_role": "None",
             "interface": {
                 "name": "JxudaiKDRO1aThOtmIkUw",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -420
+                    31.8126640319824,
+                    -200.378784179688
                 ]
             },
             "actions": [
@@ -4216,10 +4074,10 @@
             "event_role": "None",
             "interface": {
                 "name": "p7vu--dgQSIq0Chh21tG9",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -430
+                    28.6374435424805,
+                    -204.918960571289
                 ]
             },
             "actions": [
@@ -4273,10 +4131,10 @@
             "event_role": "None",
             "interface": {
                 "name": "_NjsrOPPd-gfN-UQuDPwb",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -440
+                    31.7352180480957,
+                    -212.479446411133
                 ]
             },
             "actions": [
@@ -4319,10 +4177,10 @@
             "event_role": "None",
             "interface": {
                 "name": "mK_9v6AiSHoTxo2EYnDBp",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -450
+                    29.8378295898438,
+                    -219.652725219727
                 ]
             },
             "actions": [
@@ -4365,10 +4223,10 @@
             "event_role": "None",
             "interface": {
                 "name": "wWvN1_e3S641X3e9-To2T",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -460
+                    39.4579811096191,
+                    -176.061141967773
                 ]
             },
             "actions": [
@@ -4411,10 +4269,10 @@
             "event_role": "None",
             "interface": {
                 "name": "TMRQypHCqPrsx2CiNx6-r",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -470
+                    40.3665962219238,
+                    -185.012725830078
                 ]
             },
             "actions": [
@@ -4438,10 +4296,10 @@
             "event_role": "None",
             "interface": {
                 "name": "nJ1jNOnDbSPNngN_7B6xO",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -480
+                    40.0171279907227,
+                    -193.090637207031
                 ]
             },
             "actions": [
@@ -4498,10 +4356,10 @@
             "event_role": "None",
             "interface": {
                 "name": "X-GB-SSyw0Rlmuurx93Pi",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -490
+                    38.9687232971191,
+                    -200.64436340332
                 ]
             },
             "actions": [
@@ -4558,10 +4416,10 @@
             "event_role": "None",
             "interface": {
                 "name": "yvrMnW_27lbi-S4RuYKRF",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -500
+                    39.721866607666,
+                    -208.985580444336
                 ]
             },
             "actions": [
@@ -4598,10 +4456,10 @@
             "event_role": "None",
             "interface": {
                 "name": "tv3WLU8eydfIXe2TAJxCM",
-                "color": "#FFFFFF",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -510
+                    41.6856689453125,
+                    -216.722946166992
                 ]
             },
             "actions": [
@@ -4638,10 +4496,10 @@
             "event_role": "None",
             "interface": {
                 "name": "CHOIX FLEURS",
-                "color": "dark",
+                "color": "#A360A6",
                 "coordinate": [
-                    70,
-                    -520
+                    40.0207061767578,
+                    -223.819931030273
                 ]
             },
             "actions": [
@@ -4681,8 +4539,8 @@
                 "name": "CHEMIN #A Fleurs",
                 "color": "danger",
                 "coordinate": [
-                    140,
-                    0
+                    143.157501220703,
+                    -6.80582427978516
                 ]
             },
             "actions": [
@@ -4719,7 +4577,7 @@
                 "color": "danger",
                 "coordinate": [
                     140,
-                    -10
+                    -13.9918766021729
                 ]
             },
             "actions": [
@@ -4798,7 +4656,7 @@
                 "color": "danger",
                 "coordinate": [
                     140,
-                    -20
+                    -23.9918766021729
                 ]
             },
             "actions": [
@@ -5973,10 +5831,10 @@
             "event_role": "None",
             "interface": {
                 "name": "CHEMIN #B Fleurs",
-                "color": "primary",
+                "color": "#6B72FF",
                 "coordinate": [
-                    69.710693359375,
-                    -532.819030761719
+                    -31.1617164611816,
+                    -270.538848876953
                 ]
             },
             "actions": [
@@ -6009,10 +5867,10 @@
             "event_role": "None",
             "interface": {
                 "name": "h2YN0p3bCd3NQeq0ygHgQ",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -540
+                    -30.6760864257813,
+                    -277.981567382813
                 ]
             },
             "actions": [
@@ -6036,10 +5894,10 @@
             "event_role": "None",
             "interface": {
                 "name": "FJsmlvR47Z15NZpzy-3vt",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -550
+                    -31.2650527954102,
+                    -282.877227783203
                 ]
             },
             "actions": [
@@ -6072,10 +5930,10 @@
             "event_role": "None",
             "interface": {
                 "name": "0Zl9sVAB8-kUmasmotnzc",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -560
+                    -30.4143257141113,
+                    -288.296356201172
                 ]
             },
             "actions": [
@@ -6125,10 +5983,10 @@
             "event_role": "None",
             "interface": {
                 "name": "Zw839cFkron6obV1xEA68",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -570
+                    -31.395938873291,
+                    -295.547882080078
                 ]
             },
             "actions": [
@@ -6168,10 +6026,10 @@
             "event_role": "None",
             "interface": {
                 "name": "sGg0jS09hbSBedNwbJ6Ku",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -580
+                    -30.1525630950928,
+                    -301.228790283203
                 ]
             },
             "actions": [
@@ -6220,10 +6078,10 @@
             "event_role": "None",
             "interface": {
                 "name": "o2bLR3JZBommvIJj1wHv_",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -590
+                    -31.2650527954102,
+                    -308.545745849609
                 ]
             },
             "actions": [
@@ -6272,10 +6130,10 @@
             "event_role": "None",
             "interface": {
                 "name": "PA3kIH0O2GbOkmaicPrjM",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -600
+                    -29.9562473297119,
+                    -316.255310058594
                 ]
             },
             "actions": [
@@ -6315,10 +6173,10 @@
             "event_role": "None",
             "interface": {
                 "name": "xsSJjUW4bFyYqro022YKP",
-                "color": "primary",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -610
+                    -22.4034690856934,
+                    -271.138458251953
                 ]
             },
             "actions": [
@@ -6352,10 +6210,10 @@
             "event_role": "None",
             "interface": {
                 "name": "EOgQP3dvwKmGjZY3hyDCf",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -620
+                    -22.9924354553223,
+                    -279.240692138672
                 ]
             },
             "actions": [
@@ -6399,10 +6257,10 @@
             "event_role": "None",
             "interface": {
                 "name": "b5RwVmo7Yl5CaJL4YV9eo",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -630
+                    -22.0762634277344,
+                    -286.884826660156
                 ]
             },
             "actions": [
@@ -6446,10 +6304,10 @@
             "event_role": "None",
             "interface": {
                 "name": "du169Q15hgdJ4HY51IP2-",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -640
+                    -20.8329010009766,
+                    -294.790740966797
                 ]
             },
             "actions": [
@@ -6491,10 +6349,10 @@
             "event_role": "None",
             "interface": {
                 "name": "r4hIUuxaOOWWnr2CY8_Ki",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -650
+                    -22.272590637207,
+                    -302.892974853516
                 ]
             },
             "actions": [
@@ -6538,10 +6396,10 @@
             "event_role": "None",
             "interface": {
                 "name": "j_qxVFV3DqwbUOpt7rces",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -660
+                    -19.9167289733887,
+                    -310.340789794922
                 ]
             },
             "actions": [
@@ -6585,10 +6443,10 @@
             "event_role": "None",
             "interface": {
                 "name": "JZ_ehkZGaZOdOZIM4o6se",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -670
+                    -21.3564224243164,
+                    -317.788604736328
                 ]
             },
             "actions": [
@@ -6633,10 +6491,10 @@
             "event_role": "None",
             "interface": {
                 "name": "u5nH3e-ytr7Vo1BJnU7Io",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -680
+                    -11.6704483032227,
+                    -271.400543212891
                 ]
             },
             "actions": [
@@ -6703,10 +6561,10 @@
             "event_role": "None",
             "interface": {
                 "name": "7PXnIOhsynSs4YFt8eQHu",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -690
+                    -11.7358932495117,
+                    -279.110137939453
                 ]
             },
             "actions": [
@@ -6739,10 +6597,10 @@
             "event_role": "None",
             "interface": {
                 "name": "MaeOWAlxuG2ts7zebVDsU",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -700
+                    -9.51091384887695,
+                    -286.754272460938
                 ]
             },
             "actions": [
@@ -6765,10 +6623,10 @@
             "event_role": "None",
             "interface": {
                 "name": "uwoSicNcL65vfK-_aYhRJ",
-                "color": "#FFFFFF",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -710
+                    -11.866771697998,
+                    -292.500610351563
                 ]
             },
             "actions": [
@@ -6791,10 +6649,10 @@
             "event_role": "None",
             "interface": {
                 "name": "VWmsP9Hb7OhXCes1v_5cK",
-                "color": "primary",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -720
+                    -9.51090621948242,
+                    -298.377868652344
                 ]
             },
             "actions": [
@@ -6817,10 +6675,10 @@
             "event_role": "None",
             "interface": {
                 "name": "njcjYIDzwUdZV2sF6kgb9",
-                "color": "primary",
+                "color": "#6B72FF",
                 "coordinate": [
-                    70,
-                    -730
+                    -10.8851547241211,
+                    -304.582305908203
                 ]
             },
             "actions": [
@@ -6843,10 +6701,10 @@
             "event_role": "None",
             "interface": {
                 "name": "TRANSITION VERS LABYRINTHE",
-                "color": "secondary",
+                "color": "#061929",
                 "coordinate": [
-                    140,
-                    -300
+                    23.1151084899902,
+                    -346.625762939453
                 ]
             },
             "actions": [
@@ -6874,8 +6732,8 @@
                 "name": "DERIVATION LAB SIMPLE",
                 "color": "secondary",
                 "coordinate": [
-                    140,
-                    -310
+                    23.3764839172363,
+                    -356.516876220703
                 ]
             },
             "actions": [
@@ -6902,8 +6760,8 @@
                 "name": "roOdy_xvDG2gXF4c78qfv",
                 "color": "secondary",
                 "coordinate": [
-                    140,
-                    -320
+                    23.3764839172363,
+                    -366.516876220703
                 ]
             },
             "actions": [
@@ -6981,8 +6839,8 @@
                 "name": "DERIVATION FIN",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    140,
-                    -330
+                    23.3764839172363,
+                    -376.516876220703
                 ]
             },
             "actions": [
@@ -9505,7 +9363,7 @@
                     "id": "98aXHafe87_PNj1I8J-Xp",
                     "refresh_rate": "0",
                     "action": "fade_turn_on",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "60",
                         "fade_time": "6",
@@ -9679,7 +9537,7 @@
                     "id": "80aRLvJC2qffWVmbffg7A",
                     "refresh_rate": "0",
                     "action": "fade_turn_on",
-                    "type": "RGB",
+                    "type": "MONO",
                     "options": {
                         "brightness": "60",
                         "fade_time": "2",
@@ -9991,14 +9849,14 @@
             "id": "48112450c2e645bcb941bbfc054742c1",
             "next_event_id": "uykCtYksTzhfn0D7Qlk08",
             "event_type": "InteractionEvent",
-            "duration": 20,
+            "duration": 30,
             "event_role": "None",
             "interface": {
                 "name": "48112450c2e645bcb941bbfc054742c1",
-                "color": "#FFFFFF",
+                "color": "#705C5F",
                 "coordinate": [
-                    57.0650367736816,
-                    -519.845520019531
+                    19.1521415710449,
+                    -247.725799560547
                 ]
             },
             "actions": [
@@ -10049,8 +9907,8 @@
                 "name": "RESET",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    135.526306152344,
-                    -345.837432861328
+                    18.9027900695801,
+                    -392.354309082031
                 ]
             },
             "actions": [
@@ -10218,8 +10076,8 @@
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon",
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "0",
                         "temps": "700",
                         "temps2": "500",
@@ -10260,8 +10118,8 @@
                 "name": "CHAT_1",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    88.8567581176758,
-                    -173.96842956543
+                    236.611755371094,
+                    -207.517349243164
                 ]
             },
             "actions": [
@@ -10297,8 +10155,8 @@
                 "name": "CHAT_2",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    89.2975311279297,
-                    -183.184051513672
+                    237.052536010742,
+                    -216.732971191406
                 ]
             },
             "actions": [
@@ -10334,8 +10192,8 @@
                 "name": "CHAT_3",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    88.9497146606445,
-                    -192.171020507813
+                    236.704711914063,
+                    -225.719940185547
                 ]
             },
             "actions": [
@@ -10371,8 +10229,8 @@
                 "name": "CHAT_4",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    90.0859375,
-                    -200.470275878906
+                    237.840942382813,
+                    -234.019195556641
                 ]
             },
             "actions": [
@@ -10408,8 +10266,8 @@
                 "name": "CHAT_5",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    89.0371551513672,
-                    -165.013412475586
+                    236.79216003418,
+                    -198.56233215332
                 ]
             },
             "actions": [
@@ -10445,8 +10303,8 @@
                 "name": "CHAT_6",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    90.4961700439453,
-                    -211.697082519531
+                    238.251174926758,
+                    -245.246002197266
                 ]
             },
             "actions": [
@@ -10482,8 +10340,8 @@
                 "name": "CHAT_7",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    91.807746887207,
-                    -222.516906738281
+                    239.562744140625,
+                    -256.065826416016
                 ]
             },
             "actions": [
@@ -10519,8 +10377,8 @@
                 "name": "CHAT_8",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    91.7501754760742,
-                    -232.651138305664
+                    239.505187988281,
+                    -266.200073242188
                 ]
             },
             "actions": [
@@ -10556,8 +10414,8 @@
                 "name": "bfdebafd7a554a0780c493065a4687a9",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    102.767456054688,
-                    -196.666229248047
+                    250.5224609375,
+                    -230.215148925781
                 ]
             },
             "actions": [
@@ -10591,7 +10449,7 @@
             "event_role": "None",
             "interface": {
                 "name": "RESET_copy",
-                "color": "#FFFFFF",
+                "color": "#061929",
                 "coordinate": [
                     -61.6614952087402,
                     20.9936332702637
@@ -10605,17 +10463,6 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
-                        "effect": "sudden",
-                        "duration": "500"
-                    }
-                },
-                {
-                    "id": "33242999f96c4bb69037fd8aa9e45281",
-                    "refresh_rate": "0",
-                    "action": "turn_off",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "For_Central_MONO_Global",
                         "effect": "sudden",
                         "duration": "500"
                     }
@@ -10635,73 +10482,7 @@
                     "action": "set_angle",
                     "type": "Servo_Multi",
                     "options": {
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud",
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "min",
-                        "temps": "1000"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
-                },
-                {
-                    "id": "6503507fc3cc450fbe8668de53a1c65d",
-                    "refresh_rate": "0",
-                    "action": "set_angle",
-                    "type": "Servo_Multi",
-                    "options": {
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord1",
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "min",
-                        "temps": "1000"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
-                },
-                {
-                    "id": "ba79e94ceafc435ea2c1a48f31671f3e",
-                    "refresh_rate": "0",
-                    "action": "set_angle",
-                    "type": "Servo_Multi",
-                    "options": {
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord2",
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "min",
-                        "temps": "1000"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
-                },
-                {
-                    "id": "3c4e4193214c490c9dae6c86826ac09f",
-                    "refresh_rate": "0",
-                    "action": "set_angle",
-                    "type": "Servo_Multi",
-                    "options": {
-                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord3",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud,For_Central_Servo_Multi_Fleurs_Nord1,For_Central_Servo_Multi_Fleurs_Nord2",
                         "num": "[1,1,1,1,1,1]",
                         "angle": "min",
                         "temps": "1000"
@@ -10755,34 +10536,7 @@
                     }
                 },
                 {
-                    "id": "9222ec96d9f44435ba40b613f1f06b4d",
-                    "refresh_rate": "0",
-                    "action": "aller_retour",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "For_Central_Servo_Mono_Grand_Papillon",
-                        "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
-                        "ntours": "0",
-                        "temps": "700",
-                        "temps2": "500",
-                        "delai": "0"
-                    }
-                },
-                {
-                    "id": "e29b9a6a25c64e639357ccc1e8018c53",
-                    "refresh_rate": "0",
-                    "action": "turn_off",
-                    "type": "RGB",
-                    "options": {
-                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
-                        "effect": "sudden",
-                        "duration": "500"
-                    }
-                },
-                {
-                    "id": "c2c7bc9c84834e5c92b30728ba31bd49",
+                    "id": "64d293811001407b94655eb4ec365877",
                     "refresh_rate": "0",
                     "action": "turn_off",
                     "type": "MONO",
@@ -11183,12 +10937,164 @@
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon",
                         "num": "1",
-                        "angle": "max",
-                        "angle2": "min",
+                        "angle": "min",
+                        "angle2": "max",
                         "ntours": "2",
                         "temps": "250",
                         "temps2": "500",
                         "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "732a53c7d0724f0294373aed4bb83917",
+            "next_event_id": "ptTFdHwdCGi0EGuTk3_Zn",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "ZXTHESAHnmqb21ZigHEby_copy",
+                "color": "#A360A6",
+                "coordinate": [
+                    0.276194095611572,
+                    -197.815811157227
+                ]
+            },
+            "actions": [
+                {
+                    "id": "b96a1c99d20b45e29bb4ea6ce52a75a4",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[0,0,1,0,0,0]",
+                        "angle": "max",
+                        "temps": "3000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "0124f629aacc41cb8453727e978a96d7",
+            "next_event_id": "65EhQzg9UnP-2cHaOzIpH",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "ptTFdHwdCGi0EGuTk3_Zn_copy",
+                "color": "#A360A6",
+                "coordinate": [
+                    0.399421215057373,
+                    -206.714157104492
+                ]
+            },
+            "actions": [
+                {
+                    "id": "62a6e9946f57405d82a3f2f2822135bc",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "max",
+                        "temps": "3000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "982f41c5e3074adba8db1bd5aab24d3e",
+            "next_event_id": "4xU2NuTUZkzwlPS3WYyXq",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "ActionEvent",
+                "color": "#A360A6",
+                "coordinate": [
+                    10.2509412765503,
+                    -184.493194580078
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ruhKdh7xTdB2_ejcYOXcW",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/SEQUENCES/AL_SEQ_FOR_ILO_FLEURS_01.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "o7kK5HoqBK2qoWWjW6QOl",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps": "2000",
+                        "temps2": "1000",
+                        "delai": "0",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "bu_-vF91THQf7CIA3oI6K",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "leds": "",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "50",
+                        "red": "255",
+                        "green": "247",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "3000",
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "taille_vague": "7"
                     }
                 }
             ]

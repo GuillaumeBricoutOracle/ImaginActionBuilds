@@ -10,7 +10,7 @@
     "scenarios": {
         "files": [
             "Scenarios/Foret/scenario_FOR_ENTREE_v01.json",
-            "Scenarios/Foret/scenario_FOR_CENTRAL_v04.json",
+            "Scenarios/Foret/scenario_FOR_CENTRAL_v06.json",
             "Scenarios/Foret/scenario_FOR_SCENE_v01.json"
         ]
     },

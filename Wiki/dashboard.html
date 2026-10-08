@@ -131,12 +131,30 @@
           margin: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .hist .t { color: var(--muted); }
 
-  #alerts .alert { display: flex; gap: 10px; padding: 7px 10px; border-radius: 8px;
-                   margin-bottom: 6px; background: var(--surface-2); align-items: baseline; }
-  #alerts .alert .when { color: var(--muted); font-size: 12px; flex: none; }
-  #alerts .alert.error { border-left: 3px solid var(--status-critical); }
-  #alerts .alert.warn { border-left: 3px solid var(--status-warning); }
   .empty { color: var(--muted); }
+
+  /* Aide repliée : un « ? » discret, le texte n'apparaît qu'à la demande. On le
+     lit une fois ; en permanence il encombre. */
+  .help { display: inline-flex; align-items: center; gap: 6px; }
+  .help-btn { width: 20px; height: 20px; padding: 0; border-radius: 50%; font-size: 12px;
+              line-height: 18px; text-align: center; color: var(--muted); flex: none; }
+  .help-btn.on { color: var(--ink); border-color: rgba(255,255,255,.3); }
+  .help-text { display: none; font-size: 11.5px; color: var(--muted); margin: 6px 0 0; }
+  .help-text.show { display: block; }
+
+  /* Matériel du jour (Vue d'ensemble) */
+  #materiel h4 { margin: 12px 0 4px; font-size: 12.5px; color: var(--ink-2); font-weight: 600; }
+  #materiel h4:first-child { margin-top: 0; }
+  #materiel .idle { font-size: 12px; color: var(--muted); margin: 6px 0 0; }
+  #materiel .st-open { color: var(--status-critical); font-weight: 600; }
+  #materiel .st-back { color: var(--status-good); font-weight: 600; }
+
+  /* Une seule machine : la colonne Machine de la table des spectacles n'apporte rien */
+  #shows-table.single-src th:nth-child(3), #shows-table.single-src td:nth-child(3) { display: none; }
+
+  /* Incidents récents groupés */
+  #inc-live .n { color: var(--status-warning); font-weight: 600; white-space: nowrap; }
+  #inc-live .n.err { color: var(--status-critical); }
 
   #feed { max-height: 340px; overflow-y: auto; font-size: 12.5px; }
   #feed .row { padding: 3px 0; border-bottom: 1px solid var(--grid); color: var(--ink-2); }
@@ -188,6 +206,8 @@
   #send-bar .big { padding: 12px 26px; font-size: 15px; font-weight: 700;
                    border-radius: 10px; }
   main { padding-bottom: 110px; }
+  /* hidden doit gagner sur display:flex, sinon la barre reste visible sur tous les onglets */
+  #send-bar[hidden] { display: none; }
 
   /* Mode capture (?capture=1) : la page est photographiée par un navigateur
      headless pour le rapport du jour. On ne garde de l'onglet Spectacles que
@@ -214,11 +234,10 @@
     <span class="pill" id="pill-esp"><span class="dot off"></span>ESP : …</span>
     <span class="pill" id="pill-mail">✉️ …</span>
     <span class="spacer"></span>
-    <button onclick="testEmail()">Mail de test</button>
     <button onclick="location.href='/'">Wiki</button>
   </div>
   <nav id="tabs">
-    <button data-tab="vue" class="active">Vue d'ensemble<span class="badge" id="alert-badge" hidden></span></button>
+    <button data-tab="vue" class="active">Vue d'ensemble</button>
     <button data-tab="spectacles">Spectacles &amp; Stats</button>
     <button data-tab="esp">ESP</button>
     <button data-tab="firmware">Firmware</button>
@@ -231,21 +250,34 @@
 <!-- ═══ ONGLET : VUE D'ENSEMBLE ═══════════════════════════════════════ -->
 <div class="tab active" id="tab-vue">
   <section><div class="tiles" id="vue-tiles"></div></section>
+
+  <!-- Même tri que la section Matériel du rapport du soir (hardware_digest côté
+       serveur) : pannes, appareils jamais joignables, noms inconnus du scénario. -->
   <section>
     <div style="display:flex;align-items:baseline;gap:12px">
-      <h2 style="flex:1">Alertes</h2>
-      <button id="btn-clear-alerts" onclick="clearAlerts()" hidden>Tout effacer</button>
+      <h2 style="margin:0">Matériel aujourd'hui</h2>
+      <span class="lbl" id="mat-scenario" style="flex:1"></span>
+      <span class="help"><button class="help-btn" data-help="help-mat">?</button></span>
     </div>
-    <div id="alerts"><div class="empty">Aucune alerte.</div></div>
+    <p class="help-text" id="help-mat">Calculé depuis le journal Unity, seulement pour les
+      appareils que le scénario du jour utilise. <b>Panne</b> : l'appareil a fonctionné puis a
+      décroché. <b>Jamais joignable</b> : il n'a jamais répondu (débranché ?). <b>Nom
+      inconnu</b> : le scénario vise un appareil absent de la liste du matériel, l'action est
+      jetée. Un appareil tombé la veille et toujours à terre compte sur toute la journée.</p>
+    <div class="panel" id="materiel" style="margin-top:8px"><span class="empty">Calcul en cours…</span></div>
   </section>
+
   <section>
     <div style="display:flex;align-items:baseline;gap:12px">
-      <h2 style="margin-right:4px">Passages hors ligne</h2>
-      <span class="lbl" style="flex:1">comptés uniquement pendant une lecture de
-        scénario, et seulement pour les appareils de ce scénario</span>
+      <h2 style="margin:0">Passages hors ligne</h2>
+      <span class="help" style="flex:1"><button class="help-btn" data-help="help-off">?</button></span>
       <button onclick="resetOfflineStats()" title="Remet les compteurs à zéro">Réinitialiser</button>
     </div>
-    <div class="panel" style="padding:0">
+    <p class="help-text" id="help-off">Suivi en direct par le dashboard (il doit tourner pendant
+      les spectacles) : comptés uniquement pendant une lecture de scénario, et seulement pour les
+      appareils de ce scénario. Le bloc « Matériel aujourd'hui », lui, est reconstitué depuis le
+      journal Unity.</p>
+    <div class="panel" style="padding:0;margin-top:8px">
       <div class="scroll-y" style="max-height:320px">
       <table id="offline-table">
         <thead><tr>
@@ -257,16 +289,17 @@
       </div>
     </div>
   </section>
+
   <section class="split">
     <div class="panel">
       <h3>Activité live</h3>
       <div id="feed"></div>
     </div>
     <div class="panel">
-      <h3>Dernières erreurs / warnings</h3>
+      <h3>Incidents récents <span class="lbl" style="font-weight:400">— regroupés, les plus récents en premier</span></h3>
       <div class="scroll-y">
-      <table id="errors-table">
-        <thead><tr><th>Heure</th><th>Niv.</th><th>Message</th></tr></thead>
+      <table id="inc-live">
+        <thead><tr><th>Dernier</th><th>Fois</th><th>Appareil</th><th>Quoi</th></tr></thead>
         <tbody></tbody>
       </table>
       </div>
@@ -307,15 +340,16 @@
       <button class="primary" id="btn-analyze-shows" onclick="analyzeSelectedShows()">
         Analyser la sélection (0)</button>
       <button onclick="exportShowsCsv()">⬇ CSV spectacles</button>
-      <button onclick="exportEspCsv()">⬇ CSV ESP</button>
-      <span class="lbl">Le tableau suit la période choisie ci-dessus. Une analyse par
-        sélection ne compte que ce qui se passe pendant les spectacles cochés
-        (l'init de session et l'entre-spectacles sont exclus).</span>
+      <button onclick="exportEspCsv()">⬇ CSV appareils</button>
+      <span class="help"><button class="help-btn" data-help="help-shows">?</button></span>
     </div>
+    <p class="help-text" id="help-shows" style="margin:-4px 0 8px">Le tableau suit la période
+      choisie ci-dessus. « Analyser la sélection » ne compte que ce qui se passe pendant les
+      spectacles cochés (l'init de session et l'entre-spectacles sont exclus).</p>
     <div class="panel scroll-y">
       <table id="shows-table">
         <thead><tr><th></th><th>#</th><th>Machine</th><th>Jour</th><th>Début</th><th>Scénario</th><th>Durée</th>
-        <th>Actions</th><th>Sons</th><th>Warns</th><th>Erreurs</th><th>Perdues</th><th>État</th></tr></thead>
+        <th>Actions</th><th>Sons</th><th>Warnings</th><th>Erreurs</th><th>Actions perdues</th><th>État</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -352,33 +386,36 @@
 
   <section>
     <div class="panel">
-      <h3>ESP sur la période — fiabilité &amp; profil horaire</h3>
+      <h3>Appareils du scénario — fiabilité &amp; profil horaire
+        <span class="help" style="float:right"><button class="help-btn" data-help="help-esp-stats">?</button></span></h3>
+      <p class="help-text" id="help-esp-stats" style="margin:0 0 8px">
+        Profil horaire : ↥ envoyés (bleu), ↧ reçus (vert), échecs de connexion (orange),
+        actions perdues (rouge), chacun à sa propre échelle. Un
+        <b style="color:var(--status-critical)">point rouge</b> = heure muette après de
+        l'activité (décrochage). Survole la courbe pour le détail heure par heure. Trié par
+        santé ; clique un en-tête pour trier. Les appareils d'autres maisons sont exclus ; ceux
+        qui n'ont jamais répondu de la période sont listés sous le tableau.</p>
       <div class="scroll-y" style="max-height:calc(100vh - 240px);overflow-x:auto">
       <table id="esp-stats-table" class="esp-fused">
         <thead><tr>
           <th class="sortable" data-k="health" title="Verdict : 🟢 OK · 🟡 à surveiller · 🔴 problème">Santé</th>
-          <th class="sortable" data-k="name">ESP</th>
+          <th class="sortable" data-k="name">Appareil</th>
           <th>Profil horaire <span style="color:var(--series-1)">↥env</span> <span style="color:var(--series-3)">↧reçu</span> <span style="color:var(--status-warning)">échecs</span> <span style="color:var(--status-critical)">perdus</span></th>
           <th class="sortable" data-k="ws_out" title="Actions envoyées par Unity à cet ESP">↥ env.</th>
           <th class="sortable" data-k="ws_in" title="Messages reçus de cet ESP (capteurs, réponses)">↧ reçu</th>
           <th class="sortable" data-k="rx_active_h" title="Nombre d'heures où l'ESP a reçu au moins un message">h. actives</th>
-          <th class="sortable" data-k="rx_gaps" title="Heures muettes entre deux heures actives (décrochages)">décroch.</th>
-          <th class="sortable" data-k="lost" title="Actions non livrées (ESP injoignable)">perdues</th>
-          <th class="sortable" data-k="failures" title="Tentatives de connexion échouées">échecs</th>
-          <th class="sortable" data-k="connects" title="Connexions établies — 1 = stable toute la période">reconn.</th>
+          <th class="sortable" data-k="rx_gaps" title="Heures muettes entre deux heures actives (décrochages)">h. muettes</th>
+          <th class="sortable" data-k="lost" title="Actions non livrées (appareil hors ligne)">actions perdues</th>
+          <th class="sortable" data-k="failures" title="Tentatives de connexion échouées">échecs conn.</th>
+          <th class="sortable" data-k="connects" title="Connexions établies — 1 = stable toute la période">connexions</th>
           <th class="sortable" data-k="connect_ms_avg" title="Temps moyen d'établissement de la connexion">conn. moy.</th>
           <th class="sortable" data-k="connect_ms_trend" title="Dernières vs premières connexions : ↗ rouge = lien qui se dégrade">tendance</th>
-          <th class="sortable" data-k="downtime_s" title="Temps total injoignable (nb de pannes)">indispo.</th>
+          <th class="sortable" data-k="downtime_s" title="Temps total hors ligne (nb de pannes)">hors ligne</th>
         </tr></thead>
         <tbody></tbody>
       </table>
       </div>
-      <p class="empty" style="font-size:11.5px;margin:8px 0 0">
-        Profil horaire : ↥ envoyés (bleu), ↧ reçus (vert), échecs connexion (orange),
-        actions perdues (rouge) — chacun normalisé sur son propre max. Un
-        <b style="color:var(--status-critical)">point rouge</b> = heure muette après activité
-        (décrochage). Survole la courbe pour le détail heure par heure. Trié par santé ;
-        clique un en-tête pour trier.</p>
+      <p id="esp-unplugged" class="empty" style="font-size:12px;margin:8px 0 0"></p>
       <p id="esp-rx-note" class="empty" style="font-size:11.5px;margin:4px 0 0;color:var(--status-warning)"></p>
     </div>
   </section>
@@ -423,7 +460,7 @@
       <select id="esp-statut"><option value="">tous</option>
         <option value="online">en ligne</option><option value="offline">hors ligne</option>
         <option value="unknown">inconnu</option></select>
-      <span class="lbl">Univers</span>
+      <span class="lbl">Maison</span>
       <span id="univers-bar" style="display:flex;gap:6px;flex-wrap:wrap"></span>
       <span class="lbl">Scène</span>
       <span id="scene-bar" style="display:flex;gap:6px;flex-wrap:wrap"></span>
@@ -450,8 +487,8 @@
           <th class="sortable" data-k="scene">Scène</th>
           <th>IP</th>
           <th>Dernière action</th>
-          <th class="sortable" data-k="lost">Perdues</th>
-          <th class="sortable" data-k="failures">Échecs</th>
+          <th class="sortable" data-k="lost">Actions perdues</th>
+          <th class="sortable" data-k="failures">Échecs conn.</th>
           <th>Conn. moy.</th>
           <th></th>
         </tr></thead>
@@ -459,8 +496,8 @@
       </table>
       </div>
     </div>
-    <p class="empty" style="font-size:12px">Clique sur une ligne pour voir le détail
-      (derniers messages échangés, historique). La case sélectionne pour l'envoi groupé.</p>
+    <p class="empty" style="font-size:12px;margin:8px 0 0">Clique sur une ligne pour le détail
+      (derniers messages, historique) ; la case sélectionne pour l'envoi groupé.</p>
   </section>
 </div>
 
@@ -474,6 +511,7 @@
       <span class="spacer"></span>
       <button class="primary" id="btn-deploy-multi" onclick="deploySelected()">
         Déployer la sélection (0)</button>
+      <span class="help"><button class="help-btn" data-help="help-fw">?</button></span>
     </div>
     <div class="panel" style="padding:0">
       <div class="scroll-y" style="max-height:calc(100vh - 300px);overflow-x:auto">
@@ -488,7 +526,7 @@
       </table>
       </div>
     </div>
-    <p class="empty" style="font-size:12px">Binaires nominatifs produits par
+    <p class="help-text" id="help-fw">Binaires nominatifs produits par
       <span class="mono">compilesketchs.py</span> (un .bin par ESP, flashé via
       l'endpoint /update d'AsyncElegantOTA déjà présent sur le parc). Le
       déploiement groupé procède par vagues de 3 ; commence toujours par
@@ -506,6 +544,8 @@
       <button class="primary" onclick="viewReport()">Afficher</button>
       <button onclick="mailReport()">Envoyer par mail</button>
       <span class="lbl" id="report-status"></span>
+      <span class="spacer"></span>
+      <button onclick="testEmail()" title="Vérifie la configuration SMTP (dashboard_config.json)">Mail de test</button>
     </div>
     <iframe id="report-frame" hidden></iframe>
   </section>
@@ -583,7 +623,38 @@ function showTab(name) {
   try { history.replaceState(null, '', '#' + name); } catch { }
   try { updateEspButtons(); } catch { }  // la barre d'envoi ne vit que dans l'onglet ESP
   if (name === 'firmware') { try { refreshFirmware(); } catch { } }
+  if (name === 'rapports' && $('#report-frame').hidden && $('#report-day').value) {
+    try { viewReport(); } catch { }
+  }
 }
+
+/* ─── Aides repliées : un « ? » par bloc ─────────────────────────────────── */
+$$('.help-btn[data-help]').forEach((b) => b.addEventListener('click', () => {
+  const t = $('#' + b.dataset.help);
+  const on = !t.classList.contains('show');
+  t.classList.toggle('show', on);
+  b.classList.toggle('on', on);
+}));
+
+/* ─── Filtre maison ───────────────────────────────────────────────────────
+   Unity ne pilote que les appareils dont le nom contient les jetons de
+   hardwareNameRequiredTokens (AppSettings.json, ex. ["FOR"]). Le dashboard
+   affiche par défaut la même chose : les 110 appareils des autres maisons
+   n'ont rien à faire sur un PC Forêt. */
+const inHouseName = (name) => {
+  const toks = (live && live.house_tokens) || [];
+  const low = String(name || '').toLowerCase();
+  return toks.every((t) => low.includes(String(t).toLowerCase()));
+};
+const inHouse = (e) => e.inHouse !== undefined ? e.inHouse !== false : inHouseName(e.id);
+const houseLabel = () => {
+  // Nom de la maison d'après le CSV quand les appareils filtrés n'en ont qu'une.
+  const maisons = [...new Set(registry.filter(inHouse).map(espUnivers).filter((u) => u && u !== '?'))];
+  if (maisons.length === 1) return `Cette maison : ${maisons[0]}`;
+  const toks = (live && live.house_tokens) || [];
+  return toks.length ? `Cette maison (${toks.join(', ')})` : 'Cette maison';
+};
+const shortName = (name) => String(name || '').replace(/^[A-Za-z]{3}_/, '');
 $$('#tabs button').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab)));
 if (location.hash.length > 1) showTab(location.hash.slice(1));
 
@@ -719,58 +790,134 @@ function renderLive() {
   $('#pill-session').textContent = cur
     ? `Spectacle #${cur.loops + 1} — session de ${fmtDur(cur.duration_s)}`
     : 'Session : aucune';
-  const online = registry.filter((e) => e.status === 'online').length;
-  const known = registry.length;
+  const houseReg = registry.filter(inHouse);
+  const online = houseReg.filter((e) => e.status === 'online').length;
+  const known = houseReg.length;
   const espCls = known === 0 ? 'off' : (online === 0 ? 'critical' : (online < known ? 'warning' : 'good'));
-  $('#pill-esp').innerHTML = `<span class="dot ${espCls}"></span>ESP : ${online}/${known}`;
+  $('#pill-esp').innerHTML = `<span class="dot ${espCls}"></span>Appareils : ${online}/${known}`;
   $('#pill-mail').textContent = live.email_enabled
     ? (live.mail_last_result ? (live.mail_last_result.ok ? '✉️ mails OK' : '✉️ échec dernier mail') : '✉️ mails prêts')
     : '✉️ mails désactivés';
 
-  // Tuiles de la vue d'ensemble (état instantané)
-  const alerts = live.alerts || [];
-  const badge = $('#alert-badge');
-  badge.hidden = alerts.length === 0;
-  badge.textContent = alerts.length;
-  const lostTotal = Object.values(live.esp || {}).reduce((a, e) => a + e.lost, 0);
+  // Tuiles : l'état de CE soir, pas des totaux depuis le début du log.
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const todayShows = showsData.shows.filter((s) => s.start * 1000 >= today.getTime() && !s.open);
+  const lastShow = todayShows[todayShows.length - 1];
+  const mat = (live.today || {}).materiel;
   const lastEv = (live.events || {}).last;
   const vueTiles = [
-    ['Unity', label, cur ? `spectacle #${cur.loops + 1}` : '', cls === 'critical' ? 'bad' : (cls === 'good' ? 'ok' : '')],
-    ['ESP en ligne', `${online}/${known}`, known - online ? `${known - online} absent(s)` : 'tous présents',
-      online < known ? 'bad' : 'ok'],
-    ['Alertes actives', alerts.length, alerts.length ? esc(alerts[alerts.length - 1].title) : 'rien à signaler',
-      alerts.length ? 'bad' : 'ok'],
-    ['Actions perdues', lostTotal, 'depuis le début du log', lostTotal ? 'bad' : 'ok'],
-    ['Dernier event', lastEv ? timePart(lastEv.ts) : '—', lastEv ? `il y a ${ago(lastEv.ts)}` : '', ''],
-    ['Log', fmtDur(live.last_line_age_s) + ' ', 'depuis la dernière ligne', ''],
+    ['Unity', label, cur ? `spectacle #${cur.loops + 1}` : 'aucune session',
+      cls === 'critical' ? 'bad' : (cls === 'good' ? 'ok' : '')],
+    ['Appareils en ligne', `${online}/${known}`,
+      !live.session_open ? 'Unity fermé : statut inconnu'
+        : (known - online ? `${known - online} hors ligne` : 'tous en ligne'),
+      !live.session_open ? '' : (online < known ? 'bad' : 'ok')],
+    ['Spectacles aujourd\'hui', todayShows.length,
+      lastShow ? `dernier à ${timePart(lastShow.start_iso)} (${fmtDur(lastShow.duration_s)})` : 'aucun', ''],
+    ['Actions perdues aujourd\'hui', !mat ? '…' : (mat.no_shows ? '—' : mat.lost_total),
+      !mat ? 'calcul en cours' : (mat.no_shows ? 'aucun spectacle'
+        : (mat.still_down ? `${mat.still_down} appareil(s) toujours hors ligne` : 'appareils du scénario')),
+      mat && !mat.no_shows ? (mat.lost_total ? 'bad' : 'ok') : ''],
+    ['Dernier event', cur && lastEv ? timePart(lastEv.ts) : '—',
+      cur && lastEv ? `il y a ${ago(lastEv.ts)}` : 'Unity fermé', ''],
+    ['Journal', fmtDur(live.last_line_age_s) + ' ', 'depuis la dernière ligne', ''],
   ];
   $('#vue-tiles').innerHTML = vueTiles.map(([l, v, s, mood]) =>
     `<div class="tile"><div class="label">${l}</div>
      <div class="value ${mood}">${v}</div><div class="sub">${s}</div></div>`).join('');
 
-  $('#btn-clear-alerts').hidden = alerts.length === 0;
-  $('#alerts').innerHTML = alerts.length === 0
-    ? '<div class="empty">Aucune alerte.</div>'
-    : alerts.slice().reverse().map((a) => `<div class="alert ${a.severity}">
-        <span class="when">${(a.iso || '').slice(11, 19)}</span>
-        <span style="flex:1"><b>${esc(a.title)}</b> — ${esc(a.detail)}</span>
-        <button data-dismiss="${a.id}" title="Supprimer cette alerte"
-          style="flex:none;padding:2px 9px">×</button></div>`).join('');
-  $('#alerts').querySelectorAll('button[data-dismiss]').forEach((b) =>
-    b.addEventListener('click', async () => {
-      await fetch('/api/dashboard/alerts/dismiss', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: parseInt(b.dataset.dismiss, 10) }),
-      });
-      refreshLive();
-    }));
-
+  renderMateriel(live.today || {});
   renderOfflineTable(live.offline_stats || {});
+  renderIncidentsLive(live.errors_recent || []);
+}
 
-  const rows = (live.errors_recent || []).slice(-40).reverse().map((e) =>
-    `<tr><td>${esc(timePart(e.ts))}</td><td>${esc(e.level)}</td>
-     <td class="mono" title="${esc(e.msg)}">${esc(e.msg.slice(0, 110))}</td></tr>`);
-  $('#errors-table tbody').innerHTML = rows.join('') || '<tr><td colspan="3">—</td></tr>';
+/* ─── Matériel aujourd'hui ─────────────────────────────────────────────── */
+// Données : hardware_digest côté serveur (le même tri que le rapport du soir).
+function renderMateriel(today) {
+  const el = $('#materiel');
+  const mat = today.materiel;
+  $('#mat-scenario').textContent = today.scenario ? `— scénario ${today.scenario}` : '';
+  if (!mat) {
+    el.innerHTML = '<span class="empty">Calcul en cours… (quelques secondes après le démarrage du serveur)</span>';
+    return;
+  }
+  if (mat.no_shows) {
+    el.innerHTML = '<span class="empty">Aucun spectacle terminé aujourd\'hui : le matériel est '
+      + 'évalué à partir du premier spectacle. L\'état en direct est dans l\'onglet ESP.</span>';
+    return;
+  }
+  if (!mat.problems) {
+    el.innerHTML = '<span class="st"><span class="dot good"></span>Aucune panne, tous les '
+      + 'appareils du scénario joignables, aucun nom inconnu.</span>';
+    return;
+  }
+  const table = (heads, rows) => `<table><thead><tr>${heads.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${rows}</tbody></table>`;
+  let html = '';
+  if (mat.outages.length) {
+    html += '<h4>Pannes</h4>' + table(['Appareil', 'Début', 'Hors ligne', 'État', 'Actions perdues'],
+      mat.outages.map((o) => `<tr><td><b>${esc(shortName(o.name))}</b></td>
+        <td>${esc(o.since_txt)}</td>
+        <td>${fmtDur(o.downtime_s)}${o.outages > 1 ? ` (${o.outages} pannes)` : ''}</td>
+        <td class="${o.open ? 'st-open' : 'st-back'}">${o.open ? 'toujours hors ligne' : 'revenu'}</td>
+        <td class="${o.lost ? 'num-bad' : ''}">${o.lost || '0'}</td></tr>`).join(''));
+  }
+  if (mat.unreachable.length) {
+    const withLost = mat.unreachable.filter((u) => u.lost);
+    const idle = mat.unreachable.filter((u) => !u.lost).map((u) => shortName(u.name)).sort();
+    html += '<h4>Jamais joignables (utilisés par le scénario)</h4>';
+    if (withLost.length)
+      html += table(['Appareil', 'Hors ligne', 'Impact'], withLost.map((u) =>
+        `<tr><td><b>${esc(shortName(u.name))}</b></td><td>${esc(u.since_txt)}</td>
+         <td class="num-bad">${u.lost} action(s) perdue(s)</td></tr>`).join(''));
+    if (idle.length)
+      html += `<p class="idle">${withLost.length ? 'Également injoignables' : 'Injoignables'}, mais
+        aucune action ne leur a été envoyée : ${idle.map(esc).join(', ')}.</p>`;
+  }
+  if (mat.missing.length) {
+    html += '<h4>Noms inconnus dans le scénario</h4>' + table(['Nom dans le scénario', 'Impact', 'Diagnostic'],
+      mat.missing.map((m) => `<tr><td><b>${esc(m.name)}</b></td>
+        <td class="num-bad">${m.count} action(s) jetée(s)</td>
+        <td>${m.lookalike ? `existe sous le nom <b>${esc(m.lookalike)}</b>` : 'aucun appareil de ce nom dans la liste du matériel'}</td></tr>`).join(''))
+      + '<p class="idle">À corriger dans le scénario (ou à ajouter à la liste du matériel si l\'appareil existe).</p>';
+  }
+  el.innerHTML = html;
+}
+
+/* ─── Incidents récents, groupés et en clair ───────────────────────────── */
+// Une ligne de log brute n'aide personne à 9 h du matin : on dit QUEL appareil
+// et QUOI, et on compte les répétitions au lieu de les empiler.
+function humanizeIncident(msg) {
+  let m;
+  if ((m = /Connexion échouée vers (\S+) \(/.exec(msg))) return [m[1], 'injoignable'];
+  if ((m = /\[Yeelight\] Connexion échouée (\S+?):/.exec(msg))) return [m[1], 'injoignable (ampoule)'];
+  if ((m = /Socket non ouverte pour (\S+) \(/.exec(msg))) return [m[1], 'action perdue (hors ligne)'];
+  if ((m = /Hardware introuvable : '([^']+)'/.exec(msg))) return [m[1], 'nom inconnu dans le scénario'];
+  if ((m = /Echec envoi vers (\S+?):/.exec(msg))) return [m[1], 'envoi échoué'];
+  if ((m = /\[Son\]\s+(Fichier audio introuvable|Erreur chargement audio|Clip null)/.exec(msg)))
+    return ['Son', m[1].toLowerCase()];
+  if (/Connexion échouée/.test(msg) && /ControllerManager/.test(msg)) return ['Boîtier de contrôle', 'injoignable'];
+  const mm = /^\[([^\]]+)\]\s*(.*)$/.exec(msg);
+  const rest = (mm ? mm[2] : msg).replace(/\s+/g, ' ').trim();
+  return [mm ? mm[1] : '', rest.length > 100 ? rest.slice(0, 100) + '…' : rest];
+}
+function renderIncidentsLive(errors) {
+  const groups = new Map();
+  errors.forEach((e) => {
+    const [who, what] = humanizeIncident(e.msg || '');
+    const key = who + '|' + what;
+    const g = groups.get(key) || { who, what, n: 0, last: '', level: 'WARN', example: e.msg };
+    g.n++;
+    if ((e.ts || '') > g.last) g.last = e.ts || '';
+    if (e.level !== 'WARN') g.level = e.level;
+    groups.set(key, g);
+  });
+  const rows = [...groups.values()].sort((a, b) => b.last.localeCompare(a.last)).slice(0, 40).map((g) =>
+    `<tr title="${esc(g.example)}"><td>${esc(timePart(g.last))}</td>
+     <td class="n ${g.level !== 'WARN' ? 'err' : ''}">${g.n > 1 ? '×' + g.n : ''}</td>
+     <td><b>${esc(shortName(g.who))}</b></td><td>${esc(g.what)}</td></tr>`);
+  $('#inc-live tbody').innerHTML = rows.join('')
+    || '<tr><td colspan="4" class="empty">Aucun incident récent.</td></tr>';
 }
 
 /* ─── Passages hors ligne ────────────────────────────────────────────── */
@@ -793,7 +940,7 @@ function renderOfflineTable(stats) {
         const last = s.last_duration_s != null
           ? esc(fmtDur(s.last_duration_s))
           : (s.currently_off ? 'en cours' : '—');
-        return `<tr><td><b>${esc(name)}</b></td><td>${state}</td>
+        return `<tr><td title="${esc(name)}"><b>${esc(shortName(name))}</b></td><td>${state}</td>
                 <td class="${s.count > 1 ? 'num-bad' : ''}">${s.count}</td>
                 <td>${esc(fmtDur(s.total_s))}</td><td>${last}</td></tr>`;
       }).join('');
@@ -920,7 +1067,17 @@ function visibleShows() {
     return true;
   });
 }
+// Nom court du scénario joué : « CENTRAL_v06 » plutôt que « scenario_FOR_CENTRAL_v0 »
+// tronqué. scenario_detected (serveur, d'après le premier event tiré) prime sur
+// le nom loggué au START SCENARIO, qui est celui du début de la playlist.
+const scenarioLabel = (s) => {
+  const name = s.scenario_detected || s.scenario || '';
+  return name ? name.replace(/^scenario_/i, '').replace(/^[A-Za-z]{3}_/, '') : '—';
+};
+const scenarioTitle = (s) => (s.scenario_detected && s.scenario && s.scenario_detected !== s.scenario)
+  ? `${s.scenario_detected} (démarré comme ${s.scenario})` : (s.scenario_detected || s.scenario || '');
 function renderShows() {
+  $('#shows-table').classList.toggle('single-src', _sourcesList.length <= 1);
   const shows = visibleShows();
   const rows = shows.slice().reverse().map((s) => {
     const state = s.open ? '🟢 en cours' : (s.partial ? '◔ partiel' : '✔');
@@ -930,7 +1087,7 @@ function renderShows() {
       <td>${s.n}</td>
       <td title="${esc(s.src || '')}">${esc((s.src || '—').replace('Cette machine', 'locale').slice(0, 14))}</td>
       <td>${s.day.slice(5)}</td><td>${timePart(s.start_iso)}</td>
-      <td title="${esc(s.scenario || '')}">${esc((s.scenario || '—').slice(0, 22))}</td>
+      <td title="${esc(scenarioTitle(s))}">${esc(scenarioLabel(s))}</td>
       <td>${fmtDur(s.duration_s)}</td><td>${s.ws_out}</td><td>${s.sounds}</td>
       <td class="${s.warns ? 'num-warn' : ''}">${s.warns || ''}</td>
       <td class="${s.errors ? 'num-bad' : ''}">${s.errors || ''}</td>
@@ -948,6 +1105,10 @@ function renderShows() {
   const repCur = repSel.value;
   repSel.innerHTML = showsData.days.slice().reverse()
     .map((d) => `<option value="${d}" ${d === repCur ? 'selected' : ''}>${d}</option>`).join('');
+  // Onglet Rapports ouvert avant l'arrivée des jours : afficher sans attendre un clic.
+  if ($('#tab-rapports').classList.contains('active') && $('#report-frame').hidden && repSel.value) {
+    try { viewReport(); } catch { }
+  }
   // Sélecteur "jour précis" de la barre de période (le plus récent en tête)
   const pdSel = $('#period-day');
   const pdCur = pdSel.value;
@@ -1002,14 +1163,14 @@ function renderStats() {
       spark(durs.slice(-40), 'var(--series-1)')],
     ['Dérive boucle', drift == null ? '—' : (drift > 0 ? '+' : '') + drift + '%',
       '3 derniers vs médiane', Math.abs(drift || 0) > 20 ? 'bad' : '', ''],
-    ['Actions ESP', wsOut, Object.entries(stats.actions_total || {}).slice(0, 2)
+    ['Actions envoyées', wsOut, Object.entries(stats.actions_total || {}).slice(0, 2)
       .map(([a, n]) => `${a}:${n}`).join(' · ') || '—', '',
       spark(serie(actH, 'ws_out'), 'var(--series-1)')],
     ['Actions perdues', lost, `${fails} échec(s) de connexion`, lost ? 'bad' : 'ok', ''],
     ['Sons joués', (stats.sound || {}).plays ?? 0,
       `${(stats.sound || {}).errors ?? 0} erreur(s) audio`, '',
       spark(serie(actH, 'sound'), 'var(--series-2)')],
-    ['Msgs capteurs', (stats.ws_in || {}).count ?? 0, 'reçus des ESP', '',
+    ['Messages reçus', (stats.ws_in || {}).count ?? 0, 'capteurs et réponses des appareils', '',
       spark(serie(actH, 'ws_in'), 'var(--series-3)')],
     ['Warnings', counts.WARN || 0, 'sur la période', '',
       spark(serie(lvlH, 'WARN'), 'var(--status-warning)')],
@@ -1158,7 +1319,7 @@ function renderIncidents() {
     errHtml = `<div style="margin:12px 0 4px;font-weight:600;color:var(--status-critical)">
       À regarder en priorité — erreurs</div>`
       + errs.map((g) => {
-        const { mod, rest } = incidentLabel(g.example);
+        const [who, rest] = humanizeIncident(g.example), mod = shortName(who);
         return `<div style="display:flex;gap:10px;align-items:baseline;padding:4px 0;
             border-left:3px solid var(--status-critical);padding-left:10px;margin-bottom:3px">
           <span class="num-bad" style="flex:none;min-width:46px">${g.count}×</span>
@@ -1177,7 +1338,7 @@ function renderIncidents() {
     warnHtml = `<div style="margin:14px 0 4px;font-weight:600;color:var(--status-warning)">
       Warnings — par volume (souvent du bruit d'exploitation connu)</div>`
       + warns.map((g) => {
-        const { mod, rest } = incidentLabel(g.example);
+        const [who, rest] = humanizeIncident(g.example), mod = shortName(who);
         const w = Math.max(3, Math.round(g.count / max * 100));
         return `<div style="display:flex;gap:10px;align-items:center;padding:3px 0"
             title="${esc(g.example)}&#10;dernier : ${esc(timePart(g.last_ts))}">
@@ -1246,11 +1407,21 @@ function renderLoopChart() {
   }
 
   const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
-  const yOf = (d) => H - pad.b - (d / maxV) * plotH;
+  // Barres : depuis zéro (une barre tronquée ment). Courbe : axe resserré autour
+  // des valeurs observées, sinon 128 spectacles à ±1 s sur une échelle de 12 min
+  // font une ligne plate dont on ne tire rien.
+  let lo = 0, hi = maxV;
+  if (!asBars) {
+    const ds = loops.map((l) => l.duration_s);
+    lo = Math.min(...ds, med); hi = Math.max(...ds, med);
+    const margin = Math.max((hi - lo) * 0.25, med * 0.03, 5);
+    lo = Math.max(0, lo - margin); hi = hi + margin;
+  }
+  const yOf = (d) => H - pad.b - ((d - lo) / (hi - lo || 1)) * plotH;
   const yMed = yOf(med);
   let out = `<line x1="${pad.l}" y1="${H - pad.b}" x2="${W - pad.r}" y2="${H - pad.b}" stroke="var(--baseline)"/>
-    <text x="${pad.l - 4}" y="${pad.t + 8}" text-anchor="end">${fmtDur(maxV)}</text>
-    <text x="${pad.l - 4}" y="${H - pad.b + 4}" text-anchor="end">0</text>`;
+    <text x="${pad.l - 4}" y="${pad.t + 8}" text-anchor="end">${fmtDur(hi)}</text>
+    <text x="${pad.l - 4}" y="${H - pad.b + 4}" text-anchor="end">${asBars ? '0' : fmtDur(lo)}</text>`;
 
   if (asBars) {
     const step = plotW / loops.length;
@@ -1270,7 +1441,9 @@ function renderLoopChart() {
     // ligne de durée, points rouges seulement sur les anomalies (peu nombreux).
     const step = plotW / (loops.length - 1 || 1);
     const xOf = (i) => pad.l + i * step;
-    const bandTop = yOf(med * 1.5), bandBot = yOf(med * 0.5);
+    // Bande « normale » (±50 % de la médiane) bornée à la zone tracée : avec
+    // l'axe resserré elle déborde presque toujours.
+    const bandTop = Math.max(pad.t, yOf(med * 1.5)), bandBot = Math.min(H - pad.b, yOf(med * 0.5));
     out += `<rect x="${pad.l}" y="${bandTop.toFixed(1)}" width="${plotW}" height="${(bandBot - bandTop).toFixed(1)}"
         fill="var(--series-1)" opacity="0.08"/>
       <line x1="${pad.l}" y1="${yMed}" x2="${W - pad.r}" y2="${yMed}" stroke="var(--grid)" stroke-dasharray="4 3"/>
@@ -1479,7 +1652,16 @@ function renderEspStatsTable() {
     for (let i = (arr || []).length - 1; i >= 0 && arr[i] === 0; i--) trailing++;
     return Math.max(0, g - trailing);
   };
-  const entries = Object.entries(stats.esp || {}).map(([name, e]) => {
+  // Hors maison : exclus. Jamais joignables de toute la période et jamais vus
+  // répondre : listés en une ligne sous le tableau, pas en 16 lignes rouges qui
+  // noient les vraies pannes.
+  const unplugged = [];
+  const entries = Object.entries(stats.esp || {}).filter(([name, e]) => {
+    if (!inHouseName(name) || /^[A-Za-z]{3}_(PC|Controller)$/i.test(name)) return false;
+    const never = e.down_open && !(e.connects > 0) && !(e.ws_out > 0) && !e.ever_connected;
+    if (never) { unplugged.push(name); return false; }
+    return true;
+  }).map(([name, e]) => {
     const [health, healthIcon, healthTip] = espHealth(e);
     const recv = (rxSeries[name] || {}).recv || [];
     return { name, ...e, health, healthIcon, healthTip,
@@ -1513,7 +1695,10 @@ function renderEspStatsTable() {
      <td>${e.connect_ms_avg != null ? e.connect_ms_avg + ' ms' : '—'}</td>
      <td>${fmtTrend(e.connect_ms_trend)}</td>
      <td class="${e.downtime_s > 60 ? 'num-bad' : ''}">${e.downtime_s ? fmtDur(e.downtime_s) + (e.outages ? ` (${e.outages}×)` : '') : ''}</td></tr>`).join('')
-    || '<tr><td colspan="13">Aucune activité ESP sur la période.</td></tr>';
+    || '<tr><td colspan="13">Aucune activité sur la période.</td></tr>';
+  $('#esp-unplugged').textContent = unplugged.length
+    ? `Jamais joignables sur la période (débranchés ?) : ${unplugged.map(shortName).sort().join(', ')}.`
+    : '';
 
   // Tooltip de survol sur chaque profil : valeurs des 4 séries à l'heure pointée.
   $$('#esp-stats-table .esp-spark').forEach((svg) => {
@@ -1631,7 +1816,7 @@ function renderEvents() {
     $('#events-unreached').innerHTML =
       `⚠ <b>${total} event(s) jamais atteint(s)</b> sur la période
        (scénario ${esc(stats.events.scenario_guess || '?')}) :
-       ${un.slice(0, 15).map((e) => esc(e.name)).join(', ')}${total > 15 ? '…' : ''}`;
+       ${un.slice(0, 8).map((e) => esc(e.name)).join(' · ')}${total > 8 ? ' …' : ''}`;
   } else {
     $('#events-unreached').textContent = (stats.events || {}).fired_ids?.length
       ? 'Tous les events du scénario ont été atteints sur la période. ✔' : '';
@@ -1639,15 +1824,17 @@ function renderEvents() {
 }
 
 /* ─── Onglet ESP : table de contrôle ─────────────────────────────────── */
-let universFilter = '';   // '' = tous ; piloté par les pills d'univers
+let universFilter = '';   // '' = toutes ; piloté par les pills de maison
 let sceneFilter = '';     // '' = toutes ; piloté par les pills de scène
+let houseOnly = true;     // par défaut : seulement la maison de ce PC (jetons AppSettings)
 function filteredEsp() {
   const q = $('#esp-q').value.toLowerCase();
   const statut = $('#esp-statut').value;
   const { k, dir } = espSortTable;
   const liveEsp = (live && live.esp) || {};
   return registry
-    .filter((e) => e.id && !/^For_(PC|Controller)$/i.test(e.id))
+    .filter((e) => e.id && !/^[A-Za-z]{3}_(PC|Controller)$/i.test(e.id))
+    .filter((e) => !houseOnly || inHouse(e))
     .filter((e) => !q || e.id.toLowerCase().includes(q))
     .filter((e) => !universFilter || espUnivers(e) === universFilter)
     .filter((e) => !sceneFilter || espScene(e) === sceneFilter)
@@ -1669,18 +1856,26 @@ function filteredEsp() {
     });
 }
 function renderEspTable() {
-  // Pills d'univers (maisons) : sélection en un clic, héritée de l'ancienne interface
-  const univs = [...new Set(registry.filter((e) => !/^For_(PC|Controller)$/i.test(e.id || ''))
+  // Pills de maison : « Cette maison » (jetons AppSettings, par défaut), toutes, ou une.
+  const hasTokens = ((live && live.house_tokens) || []).length > 0;
+  if (!hasTokens) houseOnly = false;
+  const univs = [...new Set(registry.filter((e) => !/^[A-Za-z]{3}_(PC|Controller)$/i.test(e.id || ''))
     .map(espUnivers).filter(Boolean))].sort();
   $('#univers-bar').innerHTML =
-    `<button class="${universFilter === '' ? 'on' : ''}" data-univ="">Toutes</button>` +
-    univs.map((u) => `<button class="${universFilter === u ? 'on' : ''}"
+    (hasTokens ? `<button class="${houseOnly ? 'on' : ''}" data-univ="*">${esc(houseLabel())}</button>` : '') +
+    `<button class="${!houseOnly && universFilter === '' ? 'on' : ''}" data-univ="">Toutes</button>` +
+    univs.map((u) => `<button class="${!houseOnly && universFilter === u ? 'on' : ''}"
       data-univ="${esc(u)}">${esc(u)}</button>`).join('');
   $('#univers-bar').querySelectorAll('button').forEach((b) =>
-    b.addEventListener('click', () => { universFilter = b.dataset.univ; renderEspTable(); }));
+    b.addEventListener('click', () => {
+      houseOnly = b.dataset.univ === '*';
+      universFilter = houseOnly ? '' : b.dataset.univ;
+      renderEspTable();
+    }));
 
-  // Pills de scène (colonne ILOT du CSV : Entree, Central, Scene...)
-  const scenes = [...new Set(registry.filter((e) => !/^For_(PC|Controller)$/i.test(e.id || ''))
+  // Pills de scène (colonne ILOT du CSV : Entree, Central, Scene...), sur la sélection de maison
+  const scenes = [...new Set(registry.filter((e) => !/^[A-Za-z]{3}_(PC|Controller)$/i.test(e.id || ''))
+    .filter((e) => !houseOnly || inHouse(e)).filter((e) => !universFilter || espUnivers(e) === universFilter)
     .map(espScene).filter((s) => s && s !== '?'))].sort();
   $('#scene-bar').innerHTML =
     `<button class="${sceneFilter === '' ? 'on' : ''}" data-scene="">Toutes</button>` +
@@ -1716,7 +1911,7 @@ function renderEspTable() {
       <td>${esc(espUnivers(e))}</td>
       <td>${esc(espScene(e))}</td>
       <td class="mono">${esc(espIp(e))}</td>
-      <td>${esc(st.last_out_action ?? '—')} <span class="kv">il y a ${ago(st.last_out)}</span></td>
+      <td>${st.last_out ? `${esc(st.last_out_action ?? '')} <span class="kv">il y a ${ago(st.last_out)}</span>` : '—'}</td>
       <td class="${st.lost ? 'num-bad' : ''}">${st.lost || ''}</td>
       <td class="${st.failures ? 'num-warn' : ''}">${st.failures || ''}</td>
       <td>${st.connect_ms_avg != null ? st.connect_ms_avg + ' ms' : '—'}</td>
@@ -1725,7 +1920,7 @@ function renderEspTable() {
     if (expandedEsp === e.id) rows.push(espDetailRow(e, st));
   }
   $('#esp-table tbody').innerHTML = rows.join('') ||
-    '<tr><td colspan="12" class="empty">Aucun ESP ne correspond aux filtres.</td></tr>';
+    '<tr><td colspan="12" class="empty">Aucun appareil ne correspond aux filtres.</td></tr>';
 
   const tbody = $('#esp-table tbody');
   tbody.querySelectorAll('input[data-esp]').forEach((cb) => {
@@ -1777,7 +1972,7 @@ function updateEspButtons() {
   const bar = $('#send-bar');
   const espTabActive = $('#tab-esp').classList.contains('active');
   bar.hidden = selEsp.size === 0 || !espTabActive;
-  $('#send-bar-count').textContent = `${selEsp.size} ESP`;
+  $('#send-bar-count').textContent = `${selEsp.size} appareil${selEsp.size > 1 ? 's' : ''}`;
 
   const typeOf = {};
   registry.forEach((e) => { typeOf[e.id] = espType(e); });
@@ -2260,11 +2455,6 @@ async function mailReport() {
   });
   alert((await res.json()).detail);
 }
-async function clearAlerts() {
-  await fetch('/api/dashboard/alerts/clear', { method: 'POST',
-    headers: { 'Content-Type': 'application/json' }, body: '{}' });
-  refreshLive();
-}
 async function testEmail() {
   const res = await fetch('/api/dashboard/test-email', { method: 'POST',
     headers: { 'Content-Type': 'application/json' }, body: '{}' });
@@ -2288,11 +2478,6 @@ function startSse() {
     const what = a.sent ? ('↥ ' + a.sent) : (a.received ? ('↧ ' + a.received) : a.status);
     addFeedRow(`<span class="t">${t}</span><b>${esc(a.espId)}</b> ${esc(String(what).slice(0, 140))}`);
   });
-  src.addEventListener('alert', (e) => {
-    const a = JSON.parse(e.data);
-    addFeedRow(`<span class="t">${(a.iso || '').slice(11, 19)}</span>🚨 <b>${esc(a.title)}</b> ${esc(a.detail)}`);
-    refreshLive();
-  });
   src.onerror = () => { };
 }
 async function refreshLive() {
@@ -2314,6 +2499,7 @@ async function refreshShows() {
     _showsRaw = raw;
     showsData = JSON.parse(raw);
     renderShows();
+    if (live) renderLive();
   } catch { }
 }
 
@@ -2376,7 +2562,9 @@ loadSources(); refreshLive(); refreshShows(); refreshStats();
 // En capture, pas de flux SSE ni de minuteries : le navigateur headless attend
 // que le réseau soit au repos pour prendre la photo, et un EventSource ne se
 // termine jamais — c'est ce qui bloquait la capture indéfiniment.
-if (!captureMode) {
+// ?live=0 fait pareil SANS toucher à la mise en page : photo complète d'un
+// onglet tel que l'exploitant le voit (revue, documentation).
+if (!captureMode && _urlParams.get('live') !== '0') {
   setInterval(refreshLive, 5000);
   setInterval(refreshShows, 15000);
   setInterval(refreshStats, 30000);

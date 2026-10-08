@@ -2,12 +2,13 @@
 """ImaginAction Wiki — serveur local de documentation du projet + dashboard de supervision."""
 
 import os, re, json, webbrowser, threading, socket as _socket, time as _time
+import re
 from http.server import HTTPServer, BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs, unquote
 from queue import Queue, Empty, Full
 
 from loganalyzer import LogAnalyzer
-from notifier import Mailer, AlertManager, load_config, unity_process_running
+from notifier import Mailer, AlertManager, load_config, unity_process_running, hardware_digest
 import espcontrol
 import otadeploy
 
@@ -194,6 +195,26 @@ def _get_hardware_actions():
 
 _event_names_cache = {'ts': 0.0, 'map': {}, 'files': {}, 'choices': {}}
 
+def _event_auto_label(ev):
+    """Libellé lisible d'un event sans nom : sa première action, ou son type."""
+    for a in ev.get('actions') or []:
+        act = str(a.get('action') or '').strip()
+        if not act or act == 'status':
+            continue
+        o = a.get('options') or {}
+        hw = str(o.get('hardware') or '').strip()
+        hw = re.sub(r'^[A-Za-z]{3}_', '', hw)          # For_Central_Led_X -> Central_Led_X
+        media = str(o.get('filename') or o.get('file') or '').strip()
+        media = os.path.splitext(os.path.basename(media))[0] if media else ''
+        who = hw or str(o.get('channel') or a.get('type') or '').strip()
+        return ' '.join(x for x in (f'{who} ·' if who else '', act, media) if x).strip()
+    kind = str(ev.get('event_type') or '')
+    role = str(ev.get('event_role') or '')
+    if role in ('Start', 'Stop'):
+        return {'Start': 'Début', 'Stop': 'Fin'}[role]
+    return {'CommentEvent': 'Commentaire', 'InteractionEvent': 'Interaction'}.get(kind, '')
+
+
 def _get_scenario_events():
     """{'map': {id: nom}, 'files': {fichier: {id: nom}},
         'choices': {fichier: [points de choix]}} depuis les JSON de scénario."""
@@ -201,6 +222,7 @@ def _get_scenario_events():
     if now - _event_names_cache['ts'] < 60:
         return _event_names_cache
     mapping, files, choices = {}, {}, {}
+    real = {}     # fichier -> présent hors Test_Media (un vrai scénario, pas une copie de test)
     sa_dir = os.path.join(ASSETS_DIR, 'StreamingAssets')
     if os.path.isdir(sa_dir):
         for dp, _dns, fns in os.walk(sa_dir):
@@ -220,6 +242,8 @@ def _get_scenario_events():
                     if not ev_id:
                         continue
                     name = ((ev.get('interface') or {}).get('name') or '').strip()
+                    if not name or name == ev_id:
+                        name = _event_auto_label(ev)
                     file_map[ev_id] = name or ev_id
                     if name:
                         mapping.setdefault(ev_id, name)
@@ -244,10 +268,38 @@ def _get_scenario_events():
                         })
                 if file_map:
                     files[fn] = file_map
+                    rel = os.path.relpath(dp, sa_dir).replace('\\', '/')
+                    real[fn] = real.get(fn, False) or not rel.startswith('Test_Media')
                 if file_choices:
                     choices[fn] = file_choices
-    _event_names_cache.update(ts=now, map=mapping, files=files, choices=choices)
+    _event_names_cache.update(ts=now, map=mapping, files=files, choices=choices, real=real)
     return _event_names_cache
+
+
+def _detect_show_scenarios(shows):
+    """Ajoute scenario_detected à chaque spectacle : le fichier de scénario qui
+    contient son premier event. Le nom loggué par Unity au START SCENARIO est
+    celui du début de la playlist ; après enchaînement, il ment."""
+    scen = _get_scenario_events()
+    files, real = scen['files'], scen.get('real') or {}
+
+    def rank(fn):
+        # Plusieurs versions partagent les ids : un vrai scénario (hors
+        # Test_Media) d'abord, puis la version numérotée la plus haute.
+        m = re.search(r'_v(\d+)', fn, re.I)
+        return (bool(real.get(fn)), int(m.group(1)) if m else -1, fn)
+
+    for s in shows:
+        fe = s.get('first_event')
+        if not fe:
+            continue
+        cands = [fn for fn, ids in files.items() if fe in ids]
+        if not cands:
+            continue
+        logged = (s.get('scenario') or '') + '.json'
+        pick = logged if logged in cands else max(cands, key=rank)
+        s['scenario_detected'] = os.path.splitext(pick)[0]
+    return shows
 
 
 def _avg(vals):
@@ -544,7 +596,30 @@ def _stats_for_day(date_str, src=''):
                          if (s['start'] or '').startswith(date_str)]
     # Passages hors ligne du jour (pendant les spectacles), pour le rapport.
     stats['offline_episodes'] = _alerts.offline_episodes(date_str)
+    # Pour la section Matériel du rapport : les appareils que le(s) scénario(s)
+    # du jour utilisent (un appareil éteint hors scénario n'intéresse personne)
+    # et les noms d'appareils connus (pour reconnaître un nom mal orthographié).
+    # Le nom loggué par Unity peut être celui du scénario de DÉMARRAGE alors
+    # qu'un autre a tourné (playlist) : on ajoute le scénario reconnu d'après
+    # les events joués (scenario_guess, calculé par _enrich_stats).
+    scope = set()
+    guess = os.path.splitext((stats.get('events') or {}).get('scenario_guess') or '')[0]
+    for name in list(stats.get('scenario_names') or []) + ([guess] if guess else []):
+        scope |= _scenario_hardware(name)
+    stats['scenario_scope'] = sorted(scope)
+    known = set(ana.esp.keys())
+    try:
+        known |= set(_effective_statuses().keys())
+    except Exception:
+        pass
+    stats['known_hardware'] = sorted(known)
+    stats['house_tokens'] = _house_tokens()
     return stats
+
+
+# Matériel du jour (pannes / jamais joignables / noms inconnus), recalculé par
+# le worker toutes les 15 s et servi tel quel dans /api/dashboard/summary.
+_today_cache = {'date': None, 'materiel': None, 'scenario': ''}
 
 
 def _dashboard_worker():
@@ -589,9 +664,15 @@ def _dashboard_worker():
                                    if name in scope}
                 _alerts.track_offline(watched, summary.get('scenario_current'))
                 # Rapport quotidien : stats de la journée, pas du log entier.
+                # Le même calcul alimente la Vue d'ensemble (matériel du jour).
                 _today = _time.strftime('%Y-%m-%d')
+                today_stats = _stats_for_day(_today)
+                _today_cache['date'] = _today
+                _today_cache['materiel'] = hardware_digest(today_stats)
+                _today_cache['scenario'] = os.path.splitext(
+                    (today_stats.get('events') or {}).get('scenario_guess') or '')[0]
                 _alerts.maybe_daily_report(
-                    _stats_for_day(_today),
+                    today_stats,
                     image_provider=lambda d=_today: _capture_spectacles_png(d, max_age_s=0))
             except Exception as exc:
                 print(f'[dashboard] évaluation alertes : {exc}')
@@ -1668,6 +1749,42 @@ def _record_dashboard_send(esp_id, action, options, ok):
     return entry
 
 
+# ─── Filtre maison ────────────────────────────────────────────────────────────
+# Unity ne pilote que les appareils dont le nom contient TOUS les jetons de
+# actionEditor.hardwareNameRequiredTokens (AppSettings.json), ex. ["FOR"] sur un
+# PC Forêt. Le dashboard applique le même filtre : la liste du matériel couvre
+# les quatre maisons, et un PC Forêt n'a que faire des 110 appareils du Banquet.
+_house_cache = {'mtime': None, 'tokens': []}
+
+
+def _house_tokens():
+    path = os.path.join(ASSETS_DIR, 'StreamingAssets', 'AppSettings.json')
+    try:
+        mtime = os.path.getmtime(path)
+    except OSError:
+        return []
+    if _house_cache['mtime'] == mtime:
+        return _house_cache['tokens']
+    tokens = []
+    try:
+        app = json.load(open(path, encoding='utf-8'))
+        raw = (app.get('actionEditor') or {}).get('hardwareNameRequiredTokens') or []
+        tokens = [str(t).strip() for t in raw if str(t).strip()]
+    except Exception:
+        pass
+    _house_cache.update(mtime=mtime, tokens=tokens)
+    return tokens
+
+
+def _in_house(name):
+    """Même règle qu'Unity (MatchesRequiredTokens) : tous les jetons présents,
+    sans tenir compte de la casse. Sans jeton configuré, tout passe."""
+    if not name:
+        return False
+    low = str(name).lower()
+    return all(t.lower() in low for t in _house_tokens())
+
+
 def _get_electronics_catalog():
     global _electronics_catalog
     if _electronics_catalog is not None:
@@ -1777,6 +1894,8 @@ class Handler(BaseHTTPRequestHandler):
             cfg = load_config()
             summary['email_enabled'] = bool(cfg.get('email_enabled'))
             summary['recipients_count'] = len(cfg.get('recipients', []))
+            summary['house_tokens'] = _house_tokens()
+            summary['today'] = dict(_today_cache)
             self._json(summary)
 
         elif p.path == '/api/hardware-actions':
@@ -1810,6 +1929,7 @@ class Handler(BaseHTTPRequestHandler):
                 data_shows = _get_analyzer(srcs[0]).shows_summary()
                 for s in data_shows['shows']:
                     s['src'] = srcs[0] or 'Cette machine'
+                _detect_show_scenarios(data_shows['shows'])
                 self._json(data_shows)
             else:
                 merged_shows, days = [], set()
@@ -1821,6 +1941,7 @@ class Handler(BaseHTTPRequestHandler):
                         merged_shows.append(s)
                     days.update(part['days'])
                 merged_shows.sort(key=lambda s: s['start'])
+                _detect_show_scenarios(merged_shows)
                 self._json({'shows': merged_shows, 'days': sorted(days),
                             'multi': True})
 
@@ -2059,6 +2180,7 @@ class Handler(BaseHTTPRequestHandler):
                     entry['status'] = _effective_status(
                         entry['statusReported'], entry.get('updatedAt'), now, alive)
                     entry['unityAlive'] = alive
+                    entry['inHouse'] = _in_house(esp['id'])
                     c = cat.get(esp['id'].lower())
                     if c:
                         entry['catalog'] = c
@@ -2079,6 +2201,7 @@ class Handler(BaseHTTPRequestHandler):
                             'historyReceived': [],
                             'historySent':     [],
                             'catalog':         c,
+                            'inHouse':         _in_house(c['name']),
                         })
             self._json(data_out)
 

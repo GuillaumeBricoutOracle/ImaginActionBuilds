@@ -34,7 +34,17 @@ RE_WS_OUT       = re.compile(r'^\[WS OUT\] (?:[^\x00-\x7F]+\s+)?(\S+) \(([\d.]+)
 RE_WS_OUT_ACT   = re.compile(r'"action"\s*:\s*"([^"]*)"')
 RE_CONNECTED    = re.compile(r'Connecté :\s+(?:[^\x00-\x7F]+\s+)?(\S+) \(ws://([\d.]+):(\d+)\S*\) en (\d+) ms')
 RE_CONN_FAILED  = re.compile(r'Connexion échouée vers (\S+) \(([\d.]+):(\d+)\) : (.+?)(?: [—-]+ |$)')
-RE_ACTION_LOST  = re.compile(r'Socket non ouverte pour (\S+) \(([\d.]+):(\d+)\).*Action perdue')
+# Pas de « Action perdue » exigé en fin de ligne : la cause (message d'exception
+# Windows) contient un retour à la ligne, qui repousse la fin du message sur la
+# ligne suivante. Le préfixe suffit à identifier la ligne.
+RE_ACTION_LOST  = re.compile(r'Socket non ouverte pour (\S+) \(([\d.]+):(\d+)\)')
+# Ampoules Yeelight (TCP direct, pas de WebSocket) : mêmes notions, autre format.
+RE_YL_CONNECTED = re.compile(r'\[Yeelight\] Connecté : (\S+) ([\d.]+):(\d+)')
+RE_YL_FAILED    = re.compile(r'\[Yeelight\] Connexion échouée (\S+?): (.+?)(?: [—-]+ |$)')
+RE_YL_OUT       = re.compile(r"^\[YEELIGHT OUT\] (\S+) \(([\d.]+):(\d+)\) => action='([^']*)'")
+# Le scénario vise un nom d'appareil absent de la liste du matériel (faute de
+# frappe, renommage) : Unity jette l'action. Invisible sans ça.
+RE_HW_MISSING   = re.compile(r"Hardware introuvable : '([^']+)'")
 RE_SOUND_OK     = re.compile(r"\[Son\]\s+(?:[^\x00-\x7F]+\s+)?Lecture OK : '(.+?)' sur channel '(.+?)'")
 RE_SOUND_ERR    = re.compile(r'\[Son\] (Fichier audio introuvable|Erreur chargement audio|Clip null)')
 RE_BUTTON       = re.compile(r'\[ControllerManager\]\[IN\]\s+(?:[^\x00-\x7F]+\s+)?button=(\S+)')
@@ -137,9 +147,13 @@ class LogAnalyzer:
 
     # ─── Spectacles (une boucle du scénario = un spectacle) ─────────────────
     def _start_show(self, dt, n):
+        # first_event : premier event tiré pendant ce spectacle. Le serveur s'en
+        # sert pour retrouver le scénario RÉELLEMENT joué (le nom loggué au
+        # START SCENARIO est celui du début de playlist, pas forcément le bon).
         self._open_show = {'n': n, 'start': dt.timestamp(), 'end': None,
                            'duration_s': None, 'day': dt.strftime('%Y-%m-%d'),
-                           'partial': False, 'scenario': self._current_scenario}
+                           'partial': False, 'scenario': self._current_scenario,
+                           'first_event': None}
 
     def _close_show(self, dt, partial=False):
         if self._open_show is None:
@@ -250,6 +264,8 @@ class LogAnalyzer:
             ev_id = m.group(1)
             st = self.event_stats[ev_id]
             st['count'] += 1
+            if self._open_show is not None and not self._open_show.get('first_event'):
+                self._open_show['first_event'] = ev_id
             prev_id = None
             if self._last_event is not None:
                 prev_dt, prev_id = self._last_event
@@ -323,6 +339,34 @@ class LogAnalyzer:
             self._rec(dt, 'fail', m.group(1), m.group(4)[:120])
             return
 
+        m = RE_YL_OUT.search(msg)
+        if m:
+            e = self.esp[m.group(1)]
+            e['ws_out'] += 1
+            e['ip'] = m.group(2)
+            e['last_out'] = dt.isoformat()
+            e['actions'][m.group(4)] += 1
+            e['last_out_action'] = m.group(4)
+            self._rec(dt, 'ws_out', m.group(1), m.group(4))
+            return
+
+        m = RE_YL_CONNECTED.search(msg)
+        if m:
+            e = self.esp[m.group(1)]
+            e['connects'] += 1
+            e['ip'] = m.group(2)
+            self._rec(dt, 'connect', m.group(1), 0)   # pas de durée mesurée côté Yeelight
+            return
+
+        m = RE_YL_FAILED.search(msg)
+        if m:
+            e = self.esp[m.group(1)]
+            e['failures'] += 1
+            e['failure_last_cause'] = m.group(2)[:200]
+            e['failure_last'] = dt.isoformat()
+            self._rec(dt, 'fail', m.group(1), m.group(2)[:120])
+            return
+
         m = RE_ACTION_LOST.search(msg)
         if m:
             e = self.esp[m.group(1)]
@@ -330,6 +374,11 @@ class LogAnalyzer:
             e['ip'] = m.group(2)
             e['lost_last'] = dt.isoformat()
             self._rec(dt, 'lost', m.group(1))
+            return
+
+        m = RE_HW_MISSING.search(msg)
+        if m:
+            self._rec(dt, 'missing_hw', m.group(1))
             return
 
         m = RE_SOUND_OK.search(msg)
@@ -377,17 +426,22 @@ class LogAnalyzer:
             for fn in os.listdir(log_dir):
                 if not (fn.startswith(stem + '_') and fn.endswith(ext)):
                     continue
+                # Fin du contenu = la plus tardive entre la date du nom et la
+                # dernière écriture : une archive copiée d'un autre PC ou nommée
+                # à la main peut contenir des jours APRÈS la date de son nom
+                # (une session de 3 jours ne déclenche la rotation qu'à la suivante).
+                try:
+                    end_ts = os.path.getmtime(os.path.join(log_dir, fn))
+                except OSError:
+                    end_ts = None
                 m = date_re.search(fn)
                 if m:
                     end_dt = datetime.strptime(
                         f"{m.group(1)} {m.group(2) or '23'}{m.group(3) or '59'}",
                         '%Y-%m-%d %H%M')
-                    end_ts = end_dt.timestamp()
-                else:
-                    try:
-                        end_ts = os.path.getmtime(os.path.join(log_dir, fn))
-                    except OSError:
-                        continue
+                    end_ts = max(end_ts or 0, end_dt.timestamp())
+                if end_ts is None:
+                    continue
                 out.append((end_ts, fn))
         except OSError:
             pass
@@ -648,7 +702,63 @@ class LogAnalyzer:
                                        'last_out': None, 'last_out_action': None,
                                        'failure_last_cause': None,
                                        'down_since': None, 'downtime': 0.0, 'outages': 0,
+                                       'down_from': None,
                                        'ws_in': 0, 'last_in': None})
+            # Noms de matériel inconnus visés par le scénario : {nom: {count, first, last}}
+            missing_hw = defaultdict(lambda: {'count': 0, 'first': None, 'last': None})
+
+            # État au début de la période. Un échec de connexion n'est logué
+            # qu'une fois par panne : un appareil tombé la VEILLE et jamais
+            # revenu n'a aucune trace aujourd'hui, et compterait 0 s hors
+            # ligne. On relit donc fail/connect d'avant la période pour savoir
+            # qui est encore à terre quand elle commence.
+            # Sessions Unity (epoch). Hors session, l'état d'un appareil est
+            # INCONNU, pas « hors ligne » : Unity fermé entre 9 h 32 et 12 h 26
+            # ne fait pas 3 h de panne. Le temps hors ligne n'est compté que
+            # pendant qu'Unity tourne, et une panne ne traverse pas une
+            # fermeture d'Unity (au redémarrage, le premier échec est relogué).
+            sess_iv = []
+            for sess in self.sessions + ([self.cur_session] if self.cur_session else []):
+                a = sess['start'].timestamp()
+                b = (sess['end'] or self.last_dt or sess['start']).timestamp()
+                if b > a:
+                    sess_iv.append((a, b))
+            sess_iv.sort()
+
+            def in_sessions(a, b):
+                """Durée de [a, b] passée en session Unity."""
+                tot = 0.0
+                for sa, sb in sess_iv:
+                    lo, hi = max(a, sa), min(b, sb)
+                    if hi > lo:
+                        tot += hi - lo
+                return tot
+
+            def session_at(ts):
+                for sa, sb in sess_iv:
+                    if sa <= ts <= sb:
+                        return (sa, sb)
+                return None
+
+            if ranges:
+                t_first = ranges[0][0]
+                carried = {}            # nom -> début de la panne encore ouverte
+                cur_sess = session_at(t_first)
+                if cur_sess:            # seule la session en cours à t_first compte
+                    for ts, kind, a, _b in recs:
+                        if ts >= t_first:
+                            break
+                        if ts < cur_sess[0]:
+                            continue
+                        if kind == 'fail':
+                            carried.setdefault(a, ts)
+                        elif kind == 'connect':
+                            carried.pop(a, None)
+                for name, since in carried.items():
+                    e = esp[name]
+                    e['down_since'] = t_first
+                    e['down_from'] = since
+                    e['outages'] += 1
             ev = defaultdict(lambda: {'count': 0, 'durations': []})
             ev_hour = defaultdict(lambda: defaultdict(lambda: [0.0, 0]))  # {ev: {heure: [somme, n]}}
             # Files séparées : les vraies erreurs sont rares et ne doivent jamais
@@ -733,9 +843,10 @@ class LogAnalyzer:
                     elif kind == 'connect':
                         e = esp[a]
                         e['connects'] += 1
-                        e['connect_ms'].append(b)
+                        if b:                              # 0 = durée non mesurée (Yeelight)
+                            e['connect_ms'].append(b)
                         if e['down_since'] is not None:   # fin de panne
-                            e['downtime'] += ts - e['down_since']
+                            e['downtime'] += in_sessions(e['down_since'], ts)
                             e['down_since'] = None
                     elif kind == 'fail':
                         e = esp[a]
@@ -744,7 +855,13 @@ class LogAnalyzer:
                         esp_hour[a]['fail'][datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H')] += 1
                         if e['down_since'] is None:       # début de panne
                             e['down_since'] = ts
+                            e['down_from'] = ts
                             e['outages'] += 1
+                    elif kind == 'missing_hw':
+                        mh = missing_hw[a]
+                        mh['count'] += 1
+                        mh['first'] = mh['first'] or ts
+                        mh['last'] = ts
                     elif kind == 'lost':
                         esp[a]['lost'] += 1
                         esp_hour[a]['lost'][datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H')] += 1
@@ -790,7 +907,7 @@ class LogAnalyzer:
                 cm = e['connect_ms']
                 downtime = e['downtime']
                 if e['down_since'] is not None:
-                    downtime += max(0.0, range_end - e['down_since'])
+                    downtime += in_sessions(e['down_since'], range_end)
                 # Tendance du temps de connexion : dernières vs premières
                 trend = None
                 if len(cm) >= 6:
@@ -805,6 +922,15 @@ class LogAnalyzer:
                     'failure_last_cause': e['failure_last_cause'],
                     'downtime_s': round(downtime, 1),
                     'outages': e['outages'],
+                    # Toujours hors ligne à la fin de la période, et depuis quand
+                    # (peut être AVANT la période : panne de la veille).
+                    'down_open': e['down_since'] is not None,
+                    'down_since': (datetime.fromtimestamp(e['down_from']).isoformat()
+                                   if e['down_from'] else None),
+                    # A déjà répondu au moins une fois dans tout le journal :
+                    # distingue une panne (il marchait) d'un appareil jamais
+                    # branché ou inexistant.
+                    'ever_connected': (self.esp[name]['connects'] > 0) if name in self.esp else False,
                     'ws_in': e['ws_in'],
                     'last_in': (datetime.fromtimestamp(e['last_in']).isoformat()
                                 if e['last_in'] else None),
@@ -877,6 +1003,11 @@ class LogAnalyzer:
                     'recent': recent[-MAX_RANGE_LOOPS:],
                 },
                 'esp': esp_out,
+                'missing_hardware': [
+                    {'name': n, 'count': mh['count'],
+                     'first': datetime.fromtimestamp(mh['first']).isoformat(),
+                     'last': datetime.fromtimestamp(mh['last']).isoformat()}
+                    for n, mh in sorted(missing_hw.items(), key=lambda kv: -kv[1]['count'])],
                 'scenario_names': sorted(scen_names),
                 'events': {'top': events_top, 'fired_ids': list(ev.keys()),
                            'branches': branches, 'hours': _ev_hours},

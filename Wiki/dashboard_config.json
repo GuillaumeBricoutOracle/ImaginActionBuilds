@@ -1,0 +1,19 @@
+{
+  "email_enabled": true,
+  "alert_emails": false,
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "user": "marius@studio-oracle.fr",
+    "app_password": "omjzuettrgifkzad",
+    "from": ""
+  },
+  "recipients": ["marius@studio-oracle.fr"],
+  "daily_report_time": "18:00",
+  "alert_cooldown_min": 30,
+  "thresholds": {
+    "esp_silence_min": 10,
+    "loop_drift_pct": 20,
+    "log_frozen_s": 180
+  }
+}

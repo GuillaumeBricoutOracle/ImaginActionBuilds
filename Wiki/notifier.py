@@ -14,6 +14,7 @@ si pas d'internet (l'alerte reste visible sur le dashboard).
 
 import json
 import os
+import re
 import smtplib
 import subprocess
 import threading
@@ -99,6 +100,94 @@ def unity_process_running():
         running = True   # dans le doute, pas de fausse alerte
     _unity_check.update(ts=now, running=running)
     return running
+
+
+def hardware_digest(summary):
+    """Tri du matériel d'une période (résultat de stats_range enrichi par le
+    serveur : scenario_scope, known_hardware). Partagé par le rapport du soir
+    et la Vue d'ensemble du dashboard : même logique, mêmes mots.
+
+    Trois cas, du plus grave au moins grave :
+     - pannes : appareils qui ont fonctionné puis décroché (revenus ou non) ;
+     - jamais joignables : appareils que le scénario utilise et qu'Unity n'a
+       pas réussi à joindre une seule fois de toute la période ;
+     - noms inconnus : le scénario vise un appareil absent de la liste du
+       matériel (faute de frappe, renommage) ; l'action est jetée sans bruit.
+    Seuls les appareils du scénario comptent : un appareil hors scénario (ou le
+    boîtier de contrôle, suivi à part) n'empêche aucun spectacle.
+    """
+    esp = summary.get('esp') or {}
+    scope = set(summary.get('scenario_scope') or [])
+    known = summary.get('known_hardware') or []
+    house = [str(t).lower() for t in (summary.get('house_tokens') or [])]
+    # Sans spectacle terminé sur la période, rien à évaluer : les échecs d'une
+    # session d'éditeur où rien n'est branché ne sont pas des pannes.
+    if not ((summary.get('loops') or {}).get('count') or 0):
+        return {'outages': [], 'unreachable': [], 'missing': [], 'still_down': 0,
+                'lost_total': 0, 'problems': False, 'no_shows': True}
+    try:
+        range_start = datetime.fromisoformat((summary.get('ranges') or [[None]])[0][0])
+    except Exception:
+        range_start = None
+
+    def since(e):
+        """« depuis 22:40 », ou « depuis le 03/10 22:40 » si la panne a
+        commencé avant la période (la veille)."""
+        raw = e.get('down_since')
+        if not raw:
+            return '', False
+        try:
+            dt = datetime.fromisoformat(raw)
+        except Exception:
+            return '', False
+        if range_start and dt < range_start:
+            return f'depuis le {dt.strftime("%d/%m %H:%M")}', True
+        return f'depuis {dt.strftime("%H:%M")}', False
+
+    def is_subseq(short, long_):
+        it = iter(long_)
+        return all(ch in it for ch in short)
+
+    def lookalike(name):
+        """Nom connu dont `name` est une version tronquée (ex. « Servo_ » pour
+        « Servo_Multi_ ») : c'est presque toujours la bonne cible."""
+        cands = [k for k in known if len(k) > len(name) and is_subseq(name, k)]
+        return min(cands, key=len) if cands else None
+
+    outages, unreachable = [], []
+    for name, e in esp.items():
+        if not ((e.get('downtime_s') or 0) > 0 or e.get('down_open')):
+            continue
+        if scope and name not in scope:
+            continue
+        if re.search(r'_(PC|Controller)$', name, re.I):   # suivis à part, pas des appareils de scène
+            continue
+        if house and not all(t in name.lower() for t in house):
+            continue
+        since_txt, before = since(e)
+        row = {'name': name, 'since_txt': since_txt, 'since_before_range': before,
+               'downtime_s': e.get('downtime_s') or 0, 'outages': e.get('outages') or 0,
+               'open': bool(e.get('down_open')), 'lost': e.get('lost') or 0}
+        # A marché un jour (dans la période ou avant) = panne ; n'a jamais
+        # répondu de tout le journal = jamais branché ou inexistant.
+        worked = (e.get('connects') or 0) > 0 or (e.get('ws_out') or 0) > 0 \
+            or e.get('ever_connected')
+        (outages if worked else unreachable).append(row)
+    outages.sort(key=lambda r: (-r['open'], -r['downtime_s']))
+    unreachable.sort(key=lambda r: (-r['lost'], r['name']))
+
+    missing = [{'name': m['name'], 'count': m['count'], 'lookalike': lookalike(m['name'])}
+               for m in (summary.get('missing_hardware') or [])]
+
+    return {
+        'outages': outages,
+        'unreachable': unreachable,
+        'missing': missing,
+        'still_down': sum(1 for r in outages if r['open']),
+        'lost_total': sum(r['lost'] for r in outages + unreachable),
+        'problems': bool(outages or unreachable or missing),
+        'no_shows': False,
+    }
 
 
 class Mailer:
@@ -399,6 +488,11 @@ class AlertManager:
         med = loops.get('median_s')
         episodes = summary.get('offline_episodes') or []
 
+        # ── Matériel, d'après le journal Unity (même tri que la Vue d'ensemble)
+        hw = hardware_digest(summary)
+        outages, unreachable, missing = hw['outages'], hw['unreachable'], hw['missing']
+        still_down = hw['still_down']
+
         th = ('padding:6px 10px;text-align:left;font-size:11px;color:#777;'
               'text-transform:uppercase;letter-spacing:.04em;'
               'border-bottom:2px solid #ddd')
@@ -419,6 +513,13 @@ class AlertManager:
             parts = [x for x in ((f'{shorter} plus court(s)' if shorter else ''),
                                  (f'{longer} plus long(s)' if longer else '')) if x]
             problems.append(f'{len(anomalies)} spectacle(s) hors norme ({" / ".join(parts)})')
+        if outages:
+            problems.append(f'{len(outages)} appareil(s) en panne'
+                            + (f' dont {still_down} toujours hors ligne' if still_down else ''))
+        if unreachable:
+            problems.append(f'{len(unreachable)} appareil(s) du scénario jamais joignable(s)')
+        if missing:
+            problems.append(f'{len(missing)} nom(s) de matériel inconnu(s) dans le scénario')
         if episodes:
             problems.append(f'{len(episodes)} passage(s) hors ligne pendant les spectacles')
         if not shows:
@@ -428,7 +529,12 @@ class AlertManager:
         else:
             verdict = '🔴 À vérifier : ' + ', '.join(problems) + '.'
 
-        scen_names = summary.get('scenario_names') or []
+        # Unity loggue le scénario de DÉMARRAGE ; celui réellement joué (reconnu
+        # d'après les events) peut être un autre : on affiche les deux.
+        scen_names = list(summary.get('scenario_names') or [])
+        guess = os.path.splitext((summary.get('events') or {}).get('scenario_guess') or '')[0]
+        if guess and guess not in scen_names:
+            scen_names.append(f'{guess} (d\'après les events joués)')
         scen_line = (f'<p style="margin:2px 0 0;font-size:12.5px;color:#777">Scénario(s) : '
                      f'{", ".join(scen_names)}</p>') if scen_names else ''
 
@@ -450,6 +556,68 @@ class AlertManager:
                           f'{_fmt_duration(med) if med else "—"}.</p>')
         else:
             shows_html = ''
+
+        # ── Section Matériel ────────────────────────────────────────────────
+        def table(headers, rows):
+            head = ''.join(f'<th style="{th}">{h}</th>' for h in headers)
+            return f'<table style="border-collapse:collapse;width:100%"><tr>{head}</tr>{rows}</table>'
+
+        hw_parts = []
+        if outages:
+            rows = ''
+            for o in outages:
+                state, color = ('toujours hors ligne', red) if o['open'] else ('revenu', green)
+                n_out = f' ({o["outages"]} pannes)' if o['outages'] > 1 else ''
+                rows += (f'<tr><td style="{td};font-weight:600">{o["name"]}</td>'
+                         f'<td style="{td}">{o["since_txt"]}</td>'
+                         f'<td style="{td}">{_fmt_duration(o["downtime_s"])}{n_out}</td>'
+                         f'<td style="{td};color:{color};font-weight:600">{state}</td>'
+                         f'<td style="{td};color:{red if o["lost"] else "#1a1a1a"}">{o["lost"]}</td></tr>')
+            hw_parts.append('<h4 style="margin:14px 0 4px;font-size:13px;color:#555">Pannes</h4>'
+                            + table(['Appareil', 'Début', 'Hors ligne', 'État', 'Actions perdues'], rows))
+        if unreachable:
+            # Une ligne par appareil qui a fait perdre des actions ; ceux que le
+            # scénario déclare sans jamais les solliciter tiennent en une phrase.
+            rows, idle = '', []
+            for u in unreachable:
+                if not u['lost']:
+                    idle.append(u['name'])
+                    continue
+                rows += (f'<tr><td style="{td};font-weight:600">{u["name"]}</td>'
+                         f'<td style="{td}">{u["since_txt"]}</td>'
+                         f'<td style="{td};color:{red}">{u["lost"]} action(s) perdue(s)</td></tr>')
+            block = ('<h4 style="margin:14px 0 4px;font-size:13px;color:#555">Jamais joignables '
+                     '(utilisés par le scénario)</h4>')
+            if rows:
+                block += table(['Appareil', 'Hors ligne', 'Impact'], rows)
+            if idle:
+                block += (f'<p style="margin:6px 0 0;font-size:12.5px;color:#777">'
+                          f'{"Également injoignables" if rows else "Injoignables"}, mais aucune '
+                          f'action ne leur a été envoyée : {", ".join(sorted(idle))}.</p>')
+            hw_parts.append(block)
+        if missing:
+            rows = ''
+            for mh in missing:
+                hint = (f'existe sous le nom <b>{mh["lookalike"]}</b>' if mh['lookalike']
+                        else 'aucun appareil de ce nom dans la liste du matériel')
+                rows += (f'<tr><td style="{td};font-weight:600">{mh["name"]}</td>'
+                         f'<td style="{td};color:{red}">{mh["count"]} action(s) jetée(s)</td>'
+                         f'<td style="{td}">{hint}</td></tr>')
+            hw_parts.append('<h4 style="margin:14px 0 4px;font-size:13px;color:#555">Noms inconnus '
+                            'dans le scénario</h4>'
+                            + table(['Nom dans le scénario', 'Impact', 'Diagnostic'], rows)
+                            + '<p style="margin:4px 0 0;font-size:12px;color:#777">À corriger dans le '
+                              'scénario (ou à ajouter à la liste du matériel si l\'appareil existe).</p>')
+
+        title_hw = '<h3 style="margin:22px 0 6px;font-size:15px">Matériel</h3>'
+        if hw_parts:
+            hardware_html = title_hw + ''.join(hw_parts)
+        elif hw.get('no_shows'):
+            hardware_html = (title_hw + '<p style="color:#777">Aucun spectacle terminé : '
+                             'matériel non évalué.</p>')
+        else:
+            hardware_html = (title_hw + f'<p style="color:{green}">Aucune panne, tous les appareils '
+                             f'du scénario joignables, aucun nom inconnu.</p>')
 
         # ── Passages hors ligne pendant les spectacles ──────────────────────
         off_rows = ''
@@ -488,6 +656,11 @@ class AlertManager:
                             f'<tr><th style="{th}">Heure</th><th style="{th}">Appareil</th>'
                             f'<th style="{th}">Scénario</th><th style="{th}">Durée</th></tr>'
                             f'{off_rows}</table>')
+        elif hw_parts:
+            # Le journal Unity montre des problèmes matériel : ne pas afficher
+            # un « tout va bien » contradictoire (ce suivi-ci n'existe que si le
+            # dashboard tournait pendant les spectacles).
+            offline_html = ''
         else:
             offline_html = (title_off
                             + f'<p style="color:{green}">Aucun appareil passé hors ligne pendant un '
@@ -499,6 +672,7 @@ margin:0 auto;color:#1a1a1a;background:#fff;padding:8px 4px">
 {scen_line}
 <p style="margin:6px 0 14px;font-size:14px">{verdict}</p>
 {shows_html}
+{hardware_html}
 {offline_html}
 <p style="color:#999;font-size:11px;margin-top:24px">Généré automatiquement par
 ImaginAction Supervision.</p></div>"""

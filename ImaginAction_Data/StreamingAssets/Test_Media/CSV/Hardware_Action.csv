@@ -1,26 +1,26 @@
 device_type,action_key,action_label,param_key,param_label,param_type,default,allowed,min,max,ui,display_param,dev_state,description,note,device_color,action_icon
 Servo_Mono,aller_retour,Aller/Retour,hardware,Hardware,enum,,,,,dropdown,TRUE,Implémenté,Hardware cible,,#F06292,AllerRetour
 Servo_Mono,aller_retour,Aller/Retour,num,Numero servo,int,1,,1.0,1.0,input,TRUE,Implémenté,Index du servo,Inutile mais a mettre dans le pansement,#F06292,AllerRetour
-Servo_Mono,aller_retour,Aller/Retour,angle,Angle 1,enum,max,"[""min"",""max""]",,,dropdown,TRUE,Implémenté,Première position,,#F06292,AllerRetour
-Servo_Mono,aller_retour,Aller/Retour,angle2,Angle 2,enum,min,"[""min"",""max""]",,,dropdown,TRUE,Implémenté,Seconde position,,#F06292,AllerRetour
+Servo_Mono,aller_retour,Aller/Retour,angle,Angle 1,string,max,"[""min"",""max"",""init""]",0,180,input,TRUE,Implémenté,"Première position : min, max, init ou un angle en degrés (0-180)",,#F06292,AllerRetour
+Servo_Mono,aller_retour,Aller/Retour,angle2,Angle 2,string,min,"[""min"",""max"",""init""]",0,180,input,TRUE,Implémenté,"Seconde position : min, max, init ou un angle en degrés (0-180)",,#F06292,AllerRetour
 Servo_Mono,aller_retour,Aller/Retour,ntours,Nombre de tours,int,3,,1.0,,input,TRUE,Implémenté,Répétitions,,#F06292,AllerRetour
 Servo_Mono,aller_retour,Aller/Retour,temps,Temps aller,int,700,,0.0,,input,FALSE,Implémenté,Temps d'un aller (en ms),,#F06292,AllerRetour
 Servo_Mono,aller_retour,Aller/Retour,temps2,Temps retour,int,500,,0.0,,input,FALSE,Implémenté,Temps d'un retour (en ms),,#F06292,AllerRetour
 Servo_Mono,aller_retour,Aller/Retour,delai,Delai,int,0,,0.0,,input,FALSE,Implémenté,Pause entre chaque aller retour (en ms),,#F06292,AllerRetour
 Servo_Mono,set_angle,Set angle,hardware,Hardware,enum,,,,,dropdown,TRUE,,Hardware cible,,#F06292,SetAngle
 Servo_Mono,set_angle,Set angle,num,Numero servo,int,1,,1.0,1.0,input,TRUE,,Index du servo,,#F06292,SetAngle
-Servo_Mono,set_angle,Set angle,angle,Angle,enum,max,"[""min"",""max""]",,,dropdown,TRUE,,Angle souhaité,,#F06292,SetAngle
+Servo_Mono,set_angle,Set angle,angle,Angle,string,max,"[""min"",""max"",""init""]",0,180,input,TRUE,,"Angle souhaité : min, max, init ou un angle en degrés (0-180)",,#F06292,SetAngle
 Servo_Mono,set_angle,Set angle,temps,Temps,int,700,,0.0,,input,TRUE,,Temps pour passer vers l'angle souhaité (en ms),,#F06292,SetAngle
 Servo_Mono,reset,Reset,hardware,Hardware,enum,,,,,dropdown,TRUE,,Retour à l'état initial,,#F06292,
 Servo_Multi,,,pause,Pause,,,,,,,FALSE,,Pause entre l'aller et le retour (en ms),,#EC407A,
 Servo_Multi,set_angle,Set angle,hardware,Hardware,enum,,,,,dropdown,TRUE,,Hardware cible,,#EC407A,SetAngle
 Servo_Multi,set_angle,Set angle,num,Numero servo,int[],"[0, 0, 0, 0, 0, 0]",,,,multiselect,TRUE,,"Numéro des servos utilisés (ou non) sous la forme: [0, 1, 1, 0, 0, 1] (0 = false, 1 = True)",,#EC407A,SetAngle
-Servo_Multi,set_angle,Set angle,angle,Angle,enum,,"[""min"", ""max""]",,,dropdown,TRUE,,Angle souhaité,,#EC407A,SetAngle
+Servo_Multi,set_angle,Set angle,angle,Angle,string,max,"[""min"",""max"",""init""]",0,180,input,TRUE,,"Angle souhaité : min, max, init ou un angle en degrés (0-180)",,#EC407A,SetAngle
 Servo_Multi,set_angle,Set angle,temps,Temps,float,0,,,,input,TRUE,,Temps pour passer vers l'angle souhaité (en ms),,#EC407A,SetAngle
 Servo_Multi,aller_retour,Aller/Retour,hardware,Hardware,enum,,,,,dropdown,TRUE,,Hardware cible,,#EC407A,AllerRetour
 Servo_Multi,aller_retour,Aller/Retour,num,Numero servo,int[],"[0, 0, 0, 0, 0, 0]",,,,multiselect,TRUE,,"Numéro des servos utilisés (ou non) sous la forme: [0, 1, 1, 0, 0, 1]",,#EC407A,AllerRetour
-Servo_Multi,aller_retour,Aller/Retour,angle,Angle,enum,,"[""min"", ""max""]",,,dropdown,TRUE,,Angle de depart,,#EC407A,AllerRetour
-Servo_Multi,aller_retour,Aller/Retour,angle2,Angle2,enum,,"[""min"", ""max""]",,,dropdown,TRUE,,Angle de fin,,#EC407A,AllerRetour
+Servo_Multi,aller_retour,Aller/Retour,angle,Angle,string,max,"[""min"",""max"",""init""]",0,180,input,TRUE,,"Angle de départ : min, max, init ou un angle en degrés (0-180)",,#EC407A,AllerRetour
+Servo_Multi,aller_retour,Aller/Retour,angle2,Angle2,string,min,"[""min"",""max"",""init""]",0,180,input,TRUE,,"Angle de fin : min, max, init ou un angle en degrés (0-180)",,#EC407A,AllerRetour
 Servo_Multi,aller_retour,Aller/Retour,ntours,Ntours,int,0,,,,input,TRUE,,Nombre d'aller retour,,#EC407A,AllerRetour
 Servo_Multi,aller_retour,Aller/Retour,temps,Temps,float,0,,,,input,FALSE,,Temps d'un aller (en ms),,#EC407A,AllerRetour
 Servo_Multi,aller_retour,Aller/Retour,temps2,Temps2,float,0,,,,input,FALSE,,Temps d'un retour (en ms),,#EC407A,AllerRetour

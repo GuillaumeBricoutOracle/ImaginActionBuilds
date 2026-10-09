@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
-"""Analyseur du log scénario (Logs/scenario_console.txt).
+"""Analyseur des journaux scénario (Logs/scenario_console_<AAAA-MM-JJ>.txt).
 
-Parse le fichier écrit par ScenarioFileLogger (Unity) et maintient des
+Unity (ScenarioFileLogger) écrit UN FICHIER PAR JOUR. L'analyseur lit tous les
+fichiers journaliers d'un dossier, dans l'ordre chronologique, et maintient des
 statistiques : sessions, boucles, events, fiabilité ESP, audio, erreurs.
-Conçu pour un suivi incrémental (tail) : parse tout au démarrage puis
-`poll()` ne lit que les octets ajoutés.
 
-Testable en standalone :  python loganalyzer.py [chemin_du_log]
+Suivi incrémental : `rebuild()` relit la fenêtre de fichiers au démarrage, puis
+`poll()` (toutes les secondes) ne lit que les octets ajoutés au fichier le plus
+récent (le « vivant »). Dès qu'un fichier est ajouté, retiré ou remplacé dans le
+dossier, tout est relu : ce qu'il y a dans Logs/ est exactement ce que le
+dashboard montre.
+
+Testable en standalone :  python loganalyzer.py [dossier_Logs]
+Découper un ancien journal unique en fichiers par jour :
+                          python loganalyzer.py --split ancien.txt [--out Logs/] [--force]
 """
 
 import io
@@ -17,12 +24,14 @@ import statistics
 import sys
 import threading
 import time
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict, deque, namedtuple
 from datetime import datetime, timedelta
 
 # ─── Regex des lignes connues ────────────────────────────────────────────────
 RE_SESSION      = re.compile(r'^=+ SESSION (\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}) =+')
 RE_SESSION_END  = re.compile(r'^=+ FIN SESSION (\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}) \((\d+) boucle')
+# Passage de minuit : le fichier du lendemain reprend la session en cours.
+RE_SESSION_CONT = re.compile(r'^=+ SUITE SESSION (\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}) =+')
 RE_LOOP         = re.compile(r'^-+ BOUCLE #(\d+) [—-]+ (\d{2}:\d{2}:\d{2})')
 RE_LINE         = re.compile(r'^(\d{2}):(\d{2}):(\d{2})\.(\d{3}) \[(\w+) *\] (.*)$')
 
@@ -52,6 +61,15 @@ RE_WS_IN        = re.compile(r'\[WS IN\]')
 RE_WS_IN_NAMED  = re.compile(r'\[WS IN\](?:</color>)?\s+(\S+) <= ')
 RE_WS_IN_SUPPR  = re.compile(r'(\d+) message\(s\) non affiché')
 
+# Fichiers journaliers écrits par Unity : scenario_console_<AAAA-MM-JJ>.txt
+FILE_PREFIX = 'scenario_console_'
+RE_DAY_FILE = re.compile(r'^scenario_console_(\d{4}-\d{2}-\d{2})\.txt$')
+LogFile = namedtuple('LogFile', 'date name size mtime ino')
+# Fichiers-jours chargés d'office (les plus récents). Les plus anciens sont
+# chargés quand on consulte leur période (ensure_coverage) : inutile de
+# parser un mois de nuits pour afficher la journée d'hier.
+DEFAULT_MAX_DAYS = 14
+
 MAX_RECENT_ERRORS = 300
 MAX_RECENT_EVENTS = 200
 MAX_RECENT_LOOPS  = 100     # pour le résumé live (vue d'ensemble)
@@ -63,12 +81,23 @@ MAX_RECORDS       = 800_000   # ~1 semaine de nuits chargées (~450 Mo au plafon
 
 
 class LogAnalyzer:
-    def __init__(self, log_path):
-        self.log_path = log_path
-        self.lock = threading.Lock()
-        self._pos = 0
-        self._buffer = ''
-        self._archives_loaded = set()
+    def __init__(self, log_dir, max_days=None):
+        # Ancien usage (chemin d'un fichier unique) toléré : on prend son dossier.
+        if str(log_dir).lower().endswith('.txt'):
+            log_dir = os.path.dirname(log_dir)
+        self.log_dir = os.path.normpath(log_dir or '.')
+        self.max_days = DEFAULT_MAX_DAYS if max_days is None else max_days
+        self.lock = threading.Lock()           # protège l'état servi à l'API
+        self._rebuild_lock = threading.Lock()  # une seule relecture à la fois
+        self._from_date = None     # 'AAAA-MM-JJ' : fenêtre étendue par ensure_coverage
+        self._cutoff = None        # date du plus ancien fichier de la fenêtre courante
+        self._loaded = []          # noms des fichiers chargés, ordre chronologique
+        self._live = None          # fichier vivant (le plus récent), suivi en tail
+        self._live_ino = None      # identité disque du vivant (détecte un remplacement)
+        self._pos = 0              # octets déjà lus du fichier vivant
+        self._buffer = b''         # fin de ligne incomplète du fichier vivant
+        self._snapshot = {}        # {nom: (taille, mtime, ino)} des fichiers chargés hors vivant
+        self._pending = None       # changement détecté mais pas encore stable (copie en cours)
         self.reset()
 
     # ─── État ────────────────────────────────────────────────────────────────
@@ -183,9 +212,19 @@ class LogAnalyzer:
             self.cur_date = datetime.strptime(m.group(1), '%Y-%m-%d').date()
             start = datetime.strptime(m.group(1) + ' ' + m.group(2), '%Y-%m-%d %H:%M:%S')
             self.last_dt = start
-            self.cur_session = {'start': start, 'end': None, 'crashed': False,
-                                'loops': [], 'counts': Counter(), 'scenario_starts': 0}
-            self._last_event = None
+            self._open_session(start)
+            return
+
+        m = RE_SESSION_CONT.match(line)
+        if m:
+            # Minuit : Unity a basculé sur le fichier du lendemain, la session
+            # continue. Si le fichier de la veille a été retiré du dossier, la
+            # session n'a pas d'en-tête : on l'ouvre ici (implicite).
+            self.cur_date = datetime.strptime(m.group(1), '%Y-%m-%d').date()
+            dt = datetime.strptime(m.group(1) + ' ' + m.group(2), '%Y-%m-%d %H:%M:%S')
+            self.last_dt = dt
+            if self.cur_session is None:
+                self._open_session(dt, implicit=True)
             return
 
         m = RE_SESSION_END.match(line)
@@ -197,9 +236,11 @@ class LogAnalyzer:
             return
 
         m = RE_LOOP.match(line)
-        if m and self.cur_session:
+        if m:
             h, mi, s = (int(x) for x in m.group(2).split(':'))
             dt = self._make_dt(h, mi, s, 0)
+            if self.cur_session is None:
+                self._open_session(dt, implicit=True)
             n = int(m.group(1))
             loops = self.cur_session['loops']
             entry = {'n': n, 'ts': dt, 'duration_s': None}
@@ -222,8 +263,12 @@ class LogAnalyzer:
         msg = m.group(6)
         dt = self._make_dt(h, mi, s, ms)
 
-        if self.cur_session is not None:
-            self.cur_session['counts'][level] += 1
+        if self.cur_session is None:
+            # Lignes sans en-tête SESSION (fichier de la veille retiré, en-tête
+            # perdu) : session implicite, pour que les stats par session et le
+            # temps hors ligne des appareils restent calculables.
+            self._open_session(dt, implicit=True)
+        self.cur_session['counts'][level] += 1
         self.level_per_hour[dt.strftime('%Y-%m-%d %H')][level] += 1
         if len(self.level_per_hour) > 5000:   # ~200 jours d'heures distinctes
             for old in sorted(self.level_per_hour)[:500]:
@@ -246,6 +291,12 @@ class LogAnalyzer:
                     entry['level'] = level
 
         self._parse_message(dt, msg)
+
+    def _open_session(self, start, implicit=False):
+        self.cur_session = {'start': start, 'end': None, 'crashed': False,
+                            'loops': [], 'counts': Counter(), 'scenario_starts': 0,
+                            'implicit': implicit}
+        self._last_event = None
 
     def _close_session(self, crashed):
         self._scenario_running = False
@@ -414,109 +465,175 @@ class LogAnalyzer:
                     self.esp[name]['last_in'] = dt.isoformat()
                 self._rec(dt, 'ws_in', name, 1)
 
-    # ─── Lecture du fichier ──────────────────────────────────────────────────
-    def _list_archives(self):
-        """Archives de rotation, triées : [(epoch_fin_du_contenu, nom_fichier)].
-        La date du nom = moment de la rotation = FIN du contenu de l'archive."""
-        log_dir = os.path.dirname(self.log_path) or '.'
-        stem, ext = os.path.splitext(os.path.basename(self.log_path))
-        date_re = re.compile(r'_(\d{4}-\d{2}-\d{2})(?:_(\d{2})(\d{2}))?' + re.escape(ext) + '$')
+    # ─── Lecture des fichiers (un par jour) ──────────────────────────────────
+    def list_files(self):
+        """Fichiers journaliers du dossier, triés par date : [LogFile(...)]."""
         out = []
         try:
-            for fn in os.listdir(log_dir):
-                if not (fn.startswith(stem + '_') and fn.endswith(ext)):
-                    continue
-                # Fin du contenu = la plus tardive entre la date du nom et la
-                # dernière écriture : une archive copiée d'un autre PC ou nommée
-                # à la main peut contenir des jours APRÈS la date de son nom
-                # (une session de 3 jours ne déclenche la rotation qu'à la suivante).
-                try:
-                    end_ts = os.path.getmtime(os.path.join(log_dir, fn))
-                except OSError:
-                    end_ts = None
-                m = date_re.search(fn)
-                if m:
-                    end_dt = datetime.strptime(
-                        f"{m.group(1)} {m.group(2) or '23'}{m.group(3) or '59'}",
-                        '%Y-%m-%d %H%M')
-                    end_ts = max(end_ts or 0, end_dt.timestamp())
-                if end_ts is None:
-                    continue
-                out.append((end_ts, fn))
+            names = os.listdir(self.log_dir)
         except OSError:
-            pass
-        return sorted(out)
-
-    def parse_full(self, archive_names=None):
-        """(Re)parse : les archives demandées (en ordre chronologique) puis le
-        fichier vivant. Sans argument : fichier vivant seul (démarrage rapide,
-        les archives se chargent ensuite selon la période demandée)."""
-        with self.lock:
-            self.reset()
-            self._pos = 0
-            self._buffer = ''
-            log_dir = os.path.dirname(self.log_path) or '.'
-            selected = []
-            if archive_names:
-                selected = [fn for _end, fn in self._list_archives()
-                            if fn in archive_names]
-            for fn in selected:
-                try:
-                    with io.open(os.path.join(log_dir, fn), 'r',
-                                 encoding='utf-8', errors='replace') as f:
-                        for line in f:
-                            try:
-                                self.feed_line(line)
-                            except Exception:
-                                pass
-                except OSError:
-                    pass
-            self._archives_loaded = set(selected)
-            self._read_new()
-
-    def ensure_coverage(self, t0):
-        """Garantit que les archives couvrant [t0, maintenant] sont chargées.
-        Appelé par le serveur avec le début de la période demandée par
-        l'utilisateur : c'est la période qui pilote ce qu'on lit, rien d'autre."""
-        needed = {fn for end_ts, fn in self._list_archives() if end_ts >= t0}
-        with self.lock:
-            missing = needed - self._archives_loaded
-        if missing:
-            self.parse_full(archive_names=needed | self._archives_loaded)
-
-    def poll(self):
-        """Lit les octets ajoutés depuis le dernier appel (tail incrémental)."""
-        with self.lock:
+            return out
+        for fn in names:
+            m = RE_DAY_FILE.match(fn)
+            if not m:
+                continue
             try:
-                size = os.path.getsize(self.log_path)
+                st = os.stat(os.path.join(self.log_dir, fn))
             except OSError:
-                return
-            if size < self._pos:
-                # Rotation : le fichier vivant a été archivé et recréé — on
-                # continue depuis 0 SANS perdre l'historique en mémoire
-                # (l'ancien contenu est déjà parsé, l'archive le conserve).
-                self._pos = 0
-                self._buffer = ''
-            self._read_new()
+                continue
+            out.append(LogFile(m.group(1), fn, st.st_size, st.st_mtime, st.st_ino))
+        out.sort()
+        return out
+
+    def files_info(self):
+        """Pour l'API : chaque fichier-jour du dossier, chargé ou non."""
+        loaded = set(self._loaded)
+        return [{'date': f.date, 'name': f.name, 'size': f.size,
+                 'loaded': f.name in loaded, 'live': f.name == self._live}
+                for f in self.list_files()]
+
+    def _window(self, files):
+        """Fichiers à charger : les `max_days` plus récents, étendus jusqu'à
+        `_from_date` si une période plus ancienne a été demandée."""
+        if not files:
+            return []
+        cutoff = files[0].date
+        if self.max_days and len(files) > self.max_days:
+            cutoff = files[-self.max_days].date
+        if self._from_date and self._from_date < cutoff:
+            cutoff = self._from_date
+        return [f for f in files if f.date >= cutoff]
+
+    def _feed_bytes(self, data):
+        """Découpe en lignes et parse ; retourne le reste (ligne incomplète)."""
+        lines = data.split(b'\n')
+        rest = lines.pop()
+        for raw in lines:
+            try:
+                self.feed_line(raw.decode('utf-8', 'replace').lstrip('﻿'))
+            except Exception:
+                pass                  # une ligne inattendue ne doit jamais tuer le tail
+        return rest
 
     def _read_new(self):
+        """Lit les octets ajoutés au fichier vivant depuis le dernier appel."""
+        if not self._live:
+            return
         try:
-            with io.open(self.log_path, 'r', encoding='utf-8', errors='replace') as f:
+            with open(os.path.join(self.log_dir, self._live), 'rb') as f:
                 f.seek(self._pos)
                 chunk = f.read()
                 self._pos = f.tell()
         except OSError:
             return
-        if not chunk:
+        if chunk:
+            self._buffer = self._feed_bytes(self._buffer + chunk)
+
+    def _flush_buffer(self):
+        """Dernière ligne sans retour chariot (fichier terminé) : on la parse."""
+        if self._buffer:
+            self._buffer = self._feed_bytes(self._buffer + b'\n')
+
+    def _start_file(self, f):
+        """Passe la lecture sur le fichier `f` (LogFile), qui devient le vivant."""
+        self._live, self._live_ino, self._pos, self._buffer = f.name, f.ino, 0, b''
+        self._loaded.append(f.name)
+        # La date du nom fait foi pour les lignes sans en-tête SESSION.
+        self.cur_date = datetime.strptime(f.date, '%Y-%m-%d').date()
+
+    def rebuild(self):
+        """Relit toute la fenêtre de fichiers dans un état NEUF, puis le
+        substitue à l'état courant. L'API continue de répondre (ancien état)
+        pendant la relecture : seul l'échange final prend le verrou."""
+        with self._rebuild_lock:
+            selected = self._window(self.list_files())
+            fresh = LogAnalyzer(self.log_dir, self.max_days)
+            fresh._from_date = self._from_date
+            fresh._cutoff = selected[0].date if selected else None
+            for f in selected:
+                fresh._start_file(f)
+                fresh._read_new()
+                if f is not selected[-1]:
+                    fresh._flush_buffer()
+            fresh._snapshot = {f.name: (f.size, f.mtime, f.ino) for f in selected
+                               if f.name != fresh._live}
+            # Des fichiers déposés à la main peuvent être dans le désordre :
+            # les requêtes par période supposent des enregistrements triés.
+            fresh.records.sort(key=lambda r: r[0])
+            fresh.shows.sort(key=lambda sh: sh['start'])
+            fresh.sessions.sort(key=lambda se: se['start'])
+            state = {k: v for k, v in fresh.__dict__.items()
+                     if k not in ('lock', '_rebuild_lock')}
+            with self.lock:
+                self.__dict__.update(state)
+
+    parse_full = rebuild    # ancien nom, gardé pour compatibilité
+
+    def ensure_coverage(self, t0):
+        """Charge aussi les fichiers plus anciens que la fenêtre si la période
+        demandée (début t0, epoch) commence avant. Appelé par le serveur :
+        c'est la période consultée qui pilote ce qu'on lit."""
+        try:
+            d = datetime.fromtimestamp(float(t0)).strftime('%Y-%m-%d')
+        except (OverflowError, OSError, ValueError):
             return
-        data = self._buffer + chunk
-        lines = data.split('\n')
-        self._buffer = lines.pop()    # dernière ligne possiblement incomplète
-        for line in lines:
-            try:
-                self.feed_line(line)
-            except Exception:
-                pass                  # une ligne inattendue ne doit jamais tuer le tail
+        cutoff = self._cutoff
+        if cutoff is None or d >= cutoff:
+            return
+        if not any(d <= f.date < cutoff for f in self.list_files()):
+            return                      # rien de plus ancien sur le disque
+        if self._from_date is None or d < self._from_date:
+            self._from_date = d
+        self.rebuild()
+
+    def poll(self):
+        """Toutes les secondes : tail du fichier vivant, ou relecture complète
+        si le dossier a changé (fichier ajouté, retiré, remplacé)."""
+        files = self.list_files()
+        if self._cutoff is None:
+            selected = self._window(files)
+        else:
+            # Fenêtre figée entre deux relectures : un nouveau jour s'ajoute
+            # sans en faire sortir un ancien (sinon relecture chaque nuit).
+            selected = [f for f in files if f.date >= self._cutoff]
+        live = selected[-1] if selected else None
+        live_name = live.name if live else None
+        snap = {f.name: (f.size, f.mtime, f.ino) for f in selected if f.name != live_name}
+
+        if (live_name != self._live and self._live in snap
+                and set(snap) == set(self._snapshot) | {self._live}
+                and all(snap[k] == v for k, v in self._snapshot.items())
+                and snap[self._live][0] >= self._pos
+                and snap[self._live][2] == self._live_ino):
+            # Un fichier plus récent est apparu (minuit, ou fichier déposé) et
+            # rien d'autre n'a bougé, l'ancien vivant compris (ni raccourci ni
+            # remplacé) : on finit l'ancien vivant, on enchaîne sans relecture.
+            with self.lock:
+                self._read_new()
+                self._flush_buffer()
+                self._snapshot = snap
+                self._start_file(live)
+                self._read_new()
+            return
+
+        changed = (snap != self._snapshot or live_name != self._live
+                   or (live is not None and (live.size < self._pos
+                                             or live.ino != self._live_ino)))
+        if changed:
+            # Anti-rebond : un fichier en cours de copie grossit à chaque poll.
+            # On ne relit que lorsque le dossier est stable d'un poll à l'autre.
+            key = (tuple(sorted(snap.items())), live_name,
+                   live.ino if live else None)
+            if self._pending != key:
+                self._pending = key
+                return
+            self._pending = None
+            self.rebuild()
+            return
+
+        self._pending = None
+        with self.lock:
+            self._read_new()
 
     # ─── Résumé pour l'API ───────────────────────────────────────────────────
     def summary(self):
@@ -525,6 +642,7 @@ class LogAnalyzer:
 
     def _summary_unlocked(self):
         now = time.time()
+        log_files = self.files_info()
         all_sessions = self.sessions + ([self.cur_session] if self.cur_session else [])
 
         # Boucles (toutes sessions confondues, dans l'ordre)
@@ -552,6 +670,7 @@ class LogAnalyzer:
                 'end': end.isoformat() if end else None,
                 'open': is_current,
                 'crashed': sess.get('crashed', False),
+                'implicit': sess.get('implicit', False),
                 'loops': len(sess['loops']),
                 'scenario': sess.get('scenario'),
                 'scenario_starts': sess.get('scenario_starts', 0),
@@ -604,8 +723,9 @@ class LogAnalyzer:
 
         return {
             'generated_at': now,
-            'log_path': self.log_path,
-            'log_size': os.path.getsize(self.log_path) if os.path.exists(self.log_path) else 0,
+            'log_dir': self.log_dir,
+            'log_files': log_files,
+            'log_size': sum(f['size'] for f in log_files if f['loaded']),
             'total_lines': self.total_lines,
             'last_line_age_s': round(now - self.last_line_wall, 1) if self.last_line_wall else None,
             'last_ts': self.last_dt.isoformat() if self.last_dt else None,
@@ -684,11 +804,14 @@ class LogAnalyzer:
                 s['end_iso'] = (datetime.fromtimestamp(s['end']).isoformat()
                                 if s['end'] else None)
 
+            # + les jours présents sur disque mais pas (encore) chargés : ils
+            # restent sélectionnables, leur fichier est lu à la demande.
             days = sorted({s['day'] for s in shows} |
                           {sess['start'].strftime('%Y-%m-%d')
                            for sess in self.sessions}
                           | ({self.cur_session['start'].strftime('%Y-%m-%d')}
-                             if self.cur_session else set()))
+                             if self.cur_session else set())
+                          | {f.date for f in self.list_files()})
             return {'shows': shows, 'days': days}
 
     def stats_range(self, ranges):
@@ -1047,13 +1170,128 @@ class LogAnalyzer:
             }
 
 
-if __name__ == '__main__':
-    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), '..', 'Logs', 'scenario_console.txt')
-    analyzer = LogAnalyzer(os.path.normpath(path))
+# ─── Migration : découper un ancien journal unique en fichiers par jour ──────
+def iter_day_lines(path):
+    """Itère (jour 'AAAA-MM-JJ', ligne) sur un ancien journal unique
+    (scenario_console.txt ou archive scenario_console_<date>_<HHMM>.txt).
+    La date vient des en-têtes SESSION ; une heure qui recule de plus de 12 h
+    = minuit passé, un marqueur SUITE SESSION est alors inséré (comme Unity
+    le fait maintenant à la bascule de fichier)."""
+    cur_date = None
+    last_secs = None            # heure (en secondes) de la dernière ligne horodatée
+    pending = []                # lignes lues avant le premier en-tête
+    with open(path, 'rb') as f:
+        for raw in f:
+            line = raw.decode('utf-8', 'replace').rstrip('\r\n').lstrip('﻿')
+            m = (RE_SESSION.match(line) or RE_SESSION_END.match(line)
+                 or RE_SESSION_CONT.match(line))
+            if m:
+                cur_date = datetime.strptime(m.group(1), '%Y-%m-%d').date()
+                hh, mm, ss = (int(x) for x in m.group(2).split(':'))
+                last_secs = hh * 3600 + mm * 60 + ss
+                for p in pending:
+                    yield cur_date.isoformat(), p
+                pending = []
+                yield cur_date.isoformat(), line
+                continue
+            secs = None
+            m = RE_LINE.match(line)
+            if m:
+                secs = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + int(m.group(3))
+            else:
+                m = RE_LOOP.match(line)
+                if m:
+                    hh, mm, ss = (int(x) for x in m.group(2).split(':'))
+                    secs = hh * 3600 + mm * 60 + ss
+            if cur_date is None:
+                pending.append(line)
+                continue
+            if secs is not None:
+                if last_secs is not None and secs < last_secs - 12 * 3600:
+                    cur_date += timedelta(days=1)
+                    yield (cur_date.isoformat(),
+                           f"========== SUITE SESSION {cur_date.isoformat()} "
+                           f"{secs // 3600:02d}:{secs % 3600 // 60:02d}:{secs % 60:02d} ==========")
+                last_secs = secs
+            yield cur_date.isoformat(), line
+    if pending:
+        # Aucun en-tête dans tout le fichier : daté d'après sa dernière écriture.
+        d = datetime.fromtimestamp(os.path.getmtime(path)).date().isoformat()
+        for p in pending:
+            yield d, p
+
+
+def split_legacy(paths, out_dir, force=False):
+    """Répartit un ou plusieurs anciens journaux dans
+    out_dir/scenario_console_<jour>.txt. Refuse d'écrire dans un fichier-jour
+    déjà présent (doublons garantis), sauf `force` (ajout en fin).
+    Retourne (lignes écrites par jour, jours déjà présents)."""
+    paths = [os.path.abspath(p) for p in paths]
+    # Passe 1 : quels jours ? Pour détecter les collisions avant d'écrire.
+    dates = set()
+    for p in paths:
+        for d, _line in iter_day_lines(p):
+            dates.add(d)
+    targets = {d: os.path.join(out_dir, f'{FILE_PREFIX}{d}.txt') for d in dates}
+    existing = sorted(d for d, t in targets.items() if os.path.exists(t))
+    if existing and not force:
+        return Counter(), existing
+    os.makedirs(out_dir, exist_ok=True)
+    handles, counts = {}, Counter()
+    try:
+        for p in paths:
+            for d, line in iter_day_lines(p):
+                h = handles.get(d)
+                if h is None:
+                    h = handles[d] = open(targets[d], 'ab')
+                h.write(line.encode('utf-8') + b'\n')
+                counts[d] += 1
+    finally:
+        for h in handles.values():
+            h.close()
+    return counts, existing
+
+
+def _main(argv):
+    here = os.path.dirname(os.path.abspath(__file__))
+    default_dir = os.path.normpath(os.path.join(here, '..', 'Logs'))
+
+    if argv and argv[0] == '--split':
+        force = '--force' in argv
+        rest = [a for a in argv[1:] if a != '--force']
+        out_dir = None
+        if '--out' in rest:
+            i = rest.index('--out')
+            out_dir = rest[i + 1] if i + 1 < len(rest) else None
+            del rest[i:i + 2]
+        if not rest:
+            print('usage : loganalyzer.py --split ancien.txt [...] [--out dossier] [--force]',
+                  file=sys.stderr)
+            return 2
+        out_dir = os.path.abspath(out_dir or default_dir)
+        counts, existing = split_legacy(rest, out_dir, force=force)
+        if existing and not force:
+            print('Fichiers-jours déjà présents dans ' + out_dir + ' : '
+                  + ', '.join(existing), file=sys.stderr)
+            print('Rien écrit. Retire-les avant, ou --force pour ajouter à leur suite.',
+                  file=sys.stderr)
+            return 1
+        for d in sorted(counts):
+            print(f'{FILE_PREFIX}{d}.txt : {counts[d]} lignes')
+        print(f'-- {sum(counts.values())} lignes réparties sur {len(counts)} jour(s) '
+              f'dans {out_dir} --', file=sys.stderr)
+        return 0
+
+    log_dir = argv[0] if argv else default_dir
+    analyzer = LogAnalyzer(os.path.normpath(log_dir))
     t0 = time.time()
-    analyzer.parse_full()
+    analyzer.rebuild()
     out = analyzer.summary()
     print(json.dumps(out, ensure_ascii=False, indent=2, default=str))
-    print(f"\n-- parse de {out['total_lines']} lignes en {time.time() - t0:.2f}s --",
-          file=sys.stderr)
+    print(f"\n-- {len(out['log_files'])} fichier(s)-jour, {out['total_lines']} lignes "
+          f"en {time.time() - t0:.2f}s --", file=sys.stderr)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(_main(sys.argv[1:]))

@@ -1,0 +1,23 @@
+{
+    "palettes": [
+        {
+            "name": "Palette Par Défaut",
+            "colors": [
+                "#FF0000",
+                "#0000FF",
+                "#00FF00",
+                "#FFFFFF",
+                "#E08C8C"
+            ]
+        },
+        {
+            "name": "LEDS",
+            "colors": [
+                "#FFFFFF",
+                "#FF0000",
+                "#00FF00",
+                "#A37F7F"
+            ]
+        }
+    ]
+}

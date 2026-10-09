@@ -1,0 +1,4 @@
+# Depot de build : git ne touche jamais aux fins de ligne (binaires Unity,
+# JSON ecrits par l'application). Evite les faux "modifie" CRLF/LF entre
+# machines.
+* -text

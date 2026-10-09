@@ -4,7 +4,7 @@
         "electronicsCsv": "Test_Media/CSV/List_Electronic.csv"
     },
     "audio": {
-        "rootFolder": "C:\\Users\\guill\\Documents\\ALICE_CODE\\AlicePyProd\\MEDIAS",
+        "rootFolder": "D:\\Dev\\AliceMedias\\5_AUDIO",
         "catalogCsv": "Test_Media/CSV/List_Son.csv"
     },
     "scenarios": {

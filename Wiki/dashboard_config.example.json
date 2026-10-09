@@ -12,11 +12,13 @@
   },
   "recipients": ["destinataire@exemple.com"],
   "daily_report_time": "22:00",
+  "_comment_log_days": "Unity ecrit un fichier par jour : Logs/scenario_console_<AAAA-MM-JJ>.txt. log_days = nombre de fichiers-jours (les plus recents) charges au demarrage ; les plus anciens se chargent quand on consulte leur periode. Deposer ou retirer un fichier dans Logs/ suffit, le dashboard relit tout seul.",
+  "log_days": 14,
   "log_sources": [
     {
-      "_comment": "Fichiers de logs d'autres machines (copies, cles USB, partages reseau montes). Un selecteur 'Machine' apparait dans le dashboard. Les archives scenario_console_*.txt a cote du fichier sont lues aussi.",
+      "_comment": "Dossiers Logs/ d'autres machines (copies, cles USB, partages reseau montes) contenant leurs fichiers scenario_console_<jour>.txt. Un selecteur 'Machine' apparait dans le dashboard.",
       "name": "PC Banquise",
-      "path": "D:/Copies/Banquise/Logs/scenario_console.txt"
+      "path": "D:/Copies/Banquise/Logs"
     }
   ],
   "alert_cooldown_min": 30,

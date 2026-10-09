@@ -820,7 +820,8 @@ function renderLive() {
       mat && !mat.no_shows ? (mat.lost_total ? 'bad' : 'ok') : ''],
     ['Dernier event', cur && lastEv ? timePart(lastEv.ts) : '—',
       cur && lastEv ? `il y a ${ago(lastEv.ts)}` : 'Unity fermé', ''],
-    ['Journal', fmtDur(live.last_line_age_s) + ' ', 'depuis la dernière ligne', ''],
+    ['Journal', fmtDur(live.last_line_age_s) + ' ',
+      'depuis la dernière ligne' + logFilesHint(live.log_files), ''],
   ];
   $('#vue-tiles').innerHTML = vueTiles.map(([l, v, s, mood]) =>
     `<div class="tile"><div class="label">${l}</div>
@@ -833,6 +834,17 @@ function renderLive() {
 
 /* ─── Matériel aujourd'hui ─────────────────────────────────────────────── */
 // Données : hardware_digest côté serveur (le même tri que le rapport du soir).
+// Fichiers-jours présents dans Logs/ (un par jour) : ce que le dashboard lit.
+// Un fichier non chargé l'est dès qu'on consulte sa période.
+function logFilesHint(files) {
+  if (!Array.isArray(files) || !files.length) return ' · aucun fichier-jour dans Logs/';
+  const loaded = files.filter((f) => f.loaded).length;
+  const first = files[0].date, last = files[files.length - 1].date;
+  const span = first === last ? first : `${first} → ${last}`;
+  return ` · ${files.length} jour${files.length > 1 ? 's' : ''} de journal (${span})`
+    + (loaded < files.length ? `, ${loaded} chargé${loaded > 1 ? 's' : ''}` : '');
+}
+
 function renderMateriel(today) {
   const el = $('#materiel');
   const mat = today.materiel;

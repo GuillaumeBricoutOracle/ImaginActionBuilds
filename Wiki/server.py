@@ -59,14 +59,30 @@ ICONS_DIR     = os.path.join(ASSETS_DIR, 'StreamingAssets', 'ActionIcons')
 PORT          = 5757
 
 # ─── Dashboard : analyse de logs, alertes, mails ─────────────────────────────
-SCENARIO_LOG_PATH = os.path.join(PROJECT_ROOT, 'Logs', 'scenario_console.txt')
+# Un fichier par jour : Logs/scenario_console_<AAAA-MM-JJ>.txt, écrits par
+# ScenarioFileLogger (Unity). Le dashboard montre exactement les fichiers
+# présents dans ce dossier : en déposer ou en retirer un suffit, l'analyseur
+# relit tout seul. Un ancien journal unique se découpe par jour avec :
+#   python loganalyzer.py --split ancien.txt
+SCENARIO_LOG_DIR = os.path.join(PROJECT_ROOT, 'Logs')
 
-_analyzer = LogAnalyzer(SCENARIO_LOG_PATH)
+_analyzer = LogAnalyzer(SCENARIO_LOG_DIR)
+
+
+def _log_days():
+    """Nombre de fichiers-jours chargés d'office (les plus récents). Les plus
+    anciens se chargent quand on consulte leur période. Clé log_days de
+    dashboard_config.json ; None = valeur par défaut de l'analyseur."""
+    try:
+        n = int(load_config().get('log_days') or 0)
+    except (TypeError, ValueError):
+        n = 0
+    return n if n > 0 else None
 _mailer   = Mailer()
 _alerts   = AlertManager(_mailer, broadcast=lambda ev, pl: _sse_broadcast(ev, pl))
 
 # ─── Sources de logs multiples (autres machines) ─────────────────────────────
-# Des fichiers scenario_console.txt d'autres PC (copies, partages réseau montés)
+# Des dossiers Logs/ d'autres PC (copies, clés USB, partages réseau montés)
 # déclarés dans dashboard_config.json ("log_sources"). Un analyseur INDÉPENDANT
 # par source : mélanger les lignes de deux machines dans un même parseur
 # corromprait les sessions/spectacles. Les alertes et le rapport quotidien
@@ -75,8 +91,8 @@ _extra_analyzers = {}
 _extra_lock = threading.Lock()
 
 def _list_sources():
-    sources = [{'src': '', 'name': 'Cette machine', 'path': SCENARIO_LOG_PATH,
-                'exists': os.path.exists(SCENARIO_LOG_PATH)}]
+    sources = [{'src': '', 'name': 'Cette machine', 'path': SCENARIO_LOG_DIR,
+                'exists': os.path.isdir(SCENARIO_LOG_DIR)}]
     for entry in load_config().get('log_sources', []):
         name = str(entry.get('name') or '').strip()
         path = str(entry.get('path') or '').strip()
@@ -95,9 +111,11 @@ def _get_analyzer(src):
             return _extra_analyzers[src]
     for entry in load_config().get('log_sources', []):
         if str(entry.get('name') or '').strip() == src and entry.get('path'):
-            ana = LogAnalyzer(os.path.normpath(str(entry['path'])))
+            # path = dossier des fichiers-jours de cette machine (un ancien
+            # chemin de fichier est toléré : son dossier est pris).
+            ana = LogAnalyzer(os.path.normpath(str(entry['path'])), max_days=_log_days())
             try:
-                ana.parse_full()
+                ana.rebuild()
             except Exception:
                 pass
             with _extra_lock:
@@ -625,7 +643,8 @@ _today_cache = {'date': None, 'materiel': None, 'scenario': ''}
 def _dashboard_worker():
     """Parse initial complet puis tail du log + évaluation des alertes."""
     try:
-        _analyzer.parse_full()
+        _analyzer.max_days = _log_days() or _analyzer.max_days
+        _analyzer.rebuild()
     except Exception as exc:
         print(f'[dashboard] parse initial impossible : {exc}')
     last_alert_check = 0.0
@@ -1950,7 +1969,8 @@ class Handler(BaseHTTPRequestHandler):
             if len(srcs) == 1:
                 ana = _get_analyzer(srcs[0])
                 ranges = _ranges_from_query(qs, ana)
-                # La période demandée pilote le chargement des archives de rotation.
+                # La période demandée pilote le chargement des fichiers-jours
+                # plus anciens que la fenêtre par défaut.
                 try:
                     ana.ensure_coverage(min(t0 for t0, _t1 in ranges))
                 except Exception:

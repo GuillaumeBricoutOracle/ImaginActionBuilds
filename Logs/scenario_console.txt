@@ -5996,3 +5996,845 @@ NetworkHardwareDispatcher.FixedUpdate () (at <9aabcd367ca345acaa5176e09dc5aeb4>:
 17:59:52.068 [INFO ] [DeleteActionBtn] Action supprimée : 11b81166cc4b4b46819347e675042c6a
 18:00:21.389 [INFO ] [YEELIGHT OUT] For_Central_RGB_Gauche (192.168.0.13:55443) => action='turn_off' id=statusBulb : {"id":110,"method":"set_power","params":["off","sudden",0]}
 ========== FIN SESSION 2026-10-08 18:00:22 (0 boucle(s)) ==========
+
+========== SESSION 2026-10-08 18:35:23 ==========
+18:35:23.862 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_PC [] -> ws://192.168.0.2:80/ws
+18:35:23.872 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Controller [] -> ws://192.168.0.3:80/ws
+18:35:23.872 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_Fumee [Fumee] -> ws://192.168.0.74:80/ws
+18:35:23.872 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Sud [Led] -> ws://192.168.0.52:80/ws
+18:35:23.872 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Est [Led] -> ws://192.168.0.53:80/ws
+18:35:23.873 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Nord [Led] -> ws://192.168.0.54:80/ws
+18:35:23.873 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Chenille [Led] -> ws://192.168.0.55:80/ws
+18:35:23.873 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Petit_Papillon [Led] -> ws://192.168.0.56:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Grand_Papillon [Led] -> ws://192.168.0.57:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Sud [Led] -> ws://192.168.0.58:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Ouest [Led] -> ws://192.168.0.59:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Est [Led] -> ws://192.168.0.60:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Arbre_Sud [Led] -> ws://192.168.0.61:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Sud [Servo_Multi] -> ws://192.168.0.62:80/ws
+18:35:23.874 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord1 [Servo_Multi] -> ws://192.168.0.63:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord2 [Servo_Multi] -> ws://192.168.0.64:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord3 [Servo_Multi] -> ws://192.168.0.65:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Petit_Papillon [Servo_Mono] -> ws://192.168.0.66:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Grand_Papillon [Servo_Mono] -> ws://192.168.0.67:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Arbre_Servo [Servo_Multi] -> ws://192.168.0.68:80/ws
+18:35:23.875 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Gauche [Boitier] -> ws://192.168.0.69:80/ws
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Droit [Boitier] -> ws://192.168.0.70:80/ws
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_Parfum [Parfum] -> ws://192.168.0.71:80/ws
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Animatronique [Animatronique] -> ws://192.168.0.72:80/ws
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Distance [Distance] -> ws://192.168.0.73:80/ws
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Parfum
+18:35:23.876 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Controller
+18:35:23.877 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Gauche
+18:35:23.877 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Droit
+18:35:23.877 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Lievre
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Chapelier
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Sud
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Sud
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Centre
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Negatif
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Positif
+18:35:23.878 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Negatif
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Positif
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Centre
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Lievre_Coeur
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Alice_Coeur
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Led_Bougies
+18:35:23.879 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Bulle
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Animatronique
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Gauche
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Droit
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Multi_Distance
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Gauche
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Droite
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Lievre
+18:35:23.880 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Chapelier
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Etage_Haut
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Gauche
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Droite
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_MONO_Global
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Gauche
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Droite
+18:35:23.881 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Chapelier
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AliceNeg
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AlicePos
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Neg
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Pos
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Global
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Controller
+18:35:23.882 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Gauche
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Droite
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Global
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Gauche
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Droite
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Global
+18:35:23.883 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Gauche
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Droite
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Global
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Cheminee
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Neg
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Pos
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Alice_Oeil
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_Animatronique
+18:35:23.884 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Nord
+18:35:23.885 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Sud
+18:35:23.885 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Intensif
+18:35:23.886 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Gauche
+18:35:23.886 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Droite
+18:35:23.887 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Permaculture
+18:35:23.887 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Intensif
+18:35:23.887 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Lapin
+18:35:23.888 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Alice
+18:35:23.888 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Maison
+18:35:23.888 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Gauche
+18:35:23.889 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Droit
+18:35:23.889 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Fumee
+18:35:23.890 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Gauche
+18:35:23.890 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Droit
+18:35:23.890 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Parfum
+18:35:23.890 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Gauche [RGB] -> ws://192.168.0.10:55443/ws
+18:35:23.890 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Droite [RGB] -> ws://192.168.0.11:55443/ws
+18:35:23.891 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_MONO_Global [MONO] -> ws://192.168.0.12:55443/ws
+18:35:23.892 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Gauche [RGB] -> ws://192.168.0.13:55443/ws
+18:35:23.892 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Droite [RGB] -> ws://192.168.0.14:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_MONO_Global [MONO] -> ws://192.168.0.15:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Chat [MONO] -> ws://192.168.0.16:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Panneaux [MONO] -> ws://192.168.0.17:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Global [MONO] -> ws://192.168.0.18:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Gauche [RGB] -> ws://192.168.0.19:55443/ws
+18:35:23.893 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Droite [RGB] -> ws://192.168.0.20:55443/ws
+18:35:23.894 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Foret [MONO] -> ws://192.168.0.21:55443/ws
+18:35:23.894 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Controller
+18:35:23.894 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Gauche
+18:35:23.894 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Droite
+18:35:23.894 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Gauche
+18:35:23.895 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Droite
+18:35:23.895 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Reine
+18:35:23.895 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Roi
+18:35:23.897 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Gauche
+18:35:23.897 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Droite
+18:35:23.897 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_MONO_Global
+18:35:23.897 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Gauche
+18:35:23.897 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Droite
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Roi
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Reine_Pos
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Rein_Neg
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Pos
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Neg
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Neg
+18:35:23.898 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Pos
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Lapin
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Gauche
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Droit
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Parfum
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Gauche
+18:35:23.899 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Droit
+18:35:23.900 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Sud
+18:35:23.900 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Ouest
+18:35:23.900 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Est
+18:35:23.904 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Nord
+18:35:23.904 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Labyrinthe
+18:35:23.904 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Ouest
+18:35:23.904 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Est
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Nord
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Gauche
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Droit
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Labyrinthe_Entree
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Animatronique
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Gauche
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Droit
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_CapteurSon [Capteur_Son] -> ws://192.168.0.26:80/ws
+18:35:23.905 [INFO ] [NetworkHardwareDispatcher] Routing table buildée : 38 hardware(s).
+18:35:23.906 [INFO ] [EditorManager] Chargement additif de la scène : SC_EventTree
+18:35:23.909 [INFO ] [EditorManager] Scène 3D désactivée (AppSettings) : SC_EnviroPreview non chargée.
+18:35:23.909 [INFO ] [EditorManager] Chargement additif de la scène : SC_ActionEditor
+18:35:23.916 [INFO ] [EditorManager] Placeholder 3D créé : viewport=(x:0.00, y:0.50, width:0.33, height:0.50)
+18:35:24.678 [INFO ] [UiFontApplier] 'Boldonse-Regular' occupe 1,97x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,51.
+18:35:24.680 [INFO ] [UiFontApplier] 'bahnschrift' occupe 1,02x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,98.
+18:35:24.680 [INFO ] [UiFontApplier] Polices prêtes : barres='Boldonse-Regular', défaut='bahnschrift'.
+18:35:24.815 [ERROR] [ContexteSon] Dossier audio introuvable ou injoignable : D:\ALICE_CODE\AlicePyProdv2\MEDIAS — catalogue son désactivé. Corrigez audio.rootFolder dans l'onglet Config.
+18:35:26.667 [INFO ] 36 sprites chargés dans la bibliothèque.
+18:35:27.539 [INFO ] [ConsoleTabView] 14 icônes chargées (atlas 2048x2048, pointSize=100, glyph0=384px).
+18:35:27.667 [INFO ] [ActionEditorManager] Échelle UI : canvas='Cnv_Details' mode=ScreenSpaceCamera scaler=ScaleWithScreenSize facteur=1,17
+18:35:27.797 [WARN ] Le sprite 'System' est introuvable !
+18:35:28.011 [INFO ] [ControllerManager] Config du boîtier chargée depuis SO_ControllerConfig.
+18:35:28.014 [INFO ] [ControllerManager] Contrôleur trouvé: For_Controller (192.168.0.3:80)
+18:35:29.538 [WARN ] [ControllerManager] Connexion échouée vers ws://192.168.0.3/ws — retries silencieux toutes les ~2s jusqu'à connexion.
+18:35:32.928 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Timeout connexion (4000 ms) — échecs identiques non reloggués.
+18:35:32.932 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.932 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.932 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.932 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.933 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.934 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.934 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.935 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.938 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.938 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.938 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.940 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.940 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4005 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.940 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.940 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.940 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.941 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4008 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.941 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:35:32.941 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:36:45.972 [INFO ] [WorldState] ScenarioSettings sauvegardés : C:/Users/guill/Documents/ALICE_CODE/ImaginActionBuilds/ImaginAction_Data/StreamingAssets\ScenarioSettings.json
+18:36:45.985 [INFO ] [WorldState] AppSettings chargés depuis C:\Users\guill\Documents\ALICE_CODE\ImaginActionBuilds\ImaginAction_Data\StreamingAssets\AppSettings.json
+18:36:45.987 [INFO ] [WorldState] AppSettings sauvegardés : C:\Users\guill\Documents\ALICE_CODE\ImaginActionBuilds\ImaginAction_Data\StreamingAssets\AppSettings.json
+========== FIN SESSION 2026-10-08 18:36:48 (0 boucle(s)) ==========
+
+========== SESSION 2026-10-08 18:36:53 ==========
+18:36:54.314 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_PC [] -> ws://192.168.0.2:80/ws
+18:36:54.325 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Controller [] -> ws://192.168.0.3:80/ws
+18:36:54.325 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_Fumee [Fumee] -> ws://192.168.0.74:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Sud [Led] -> ws://192.168.0.52:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Est [Led] -> ws://192.168.0.53:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Nord [Led] -> ws://192.168.0.54:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Chenille [Led] -> ws://192.168.0.55:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Petit_Papillon [Led] -> ws://192.168.0.56:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Grand_Papillon [Led] -> ws://192.168.0.57:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Sud [Led] -> ws://192.168.0.58:80/ws
+18:36:54.326 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Ouest [Led] -> ws://192.168.0.59:80/ws
+18:36:54.327 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Est [Led] -> ws://192.168.0.60:80/ws
+18:36:54.327 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Arbre_Sud [Led] -> ws://192.168.0.61:80/ws
+18:36:54.327 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Sud [Servo_Multi] -> ws://192.168.0.62:80/ws
+18:36:54.327 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord1 [Servo_Multi] -> ws://192.168.0.63:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord2 [Servo_Multi] -> ws://192.168.0.64:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord3 [Servo_Multi] -> ws://192.168.0.65:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Petit_Papillon [Servo_Mono] -> ws://192.168.0.66:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Grand_Papillon [Servo_Mono] -> ws://192.168.0.67:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Arbre_Servo [Servo_Multi] -> ws://192.168.0.68:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Gauche [Boitier] -> ws://192.168.0.69:80/ws
+18:36:54.328 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Droit [Boitier] -> ws://192.168.0.70:80/ws
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_Parfum [Parfum] -> ws://192.168.0.71:80/ws
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Animatronique [Animatronique] -> ws://192.168.0.72:80/ws
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Distance [Distance] -> ws://192.168.0.73:80/ws
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Parfum
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Controller
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Gauche
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Droit
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Lievre
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Chapelier
+18:36:54.329 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Sud
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Sud
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Centre
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Negatif
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Positif
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Negatif
+18:36:54.331 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Positif
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Centre
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Lievre_Coeur
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Alice_Coeur
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Led_Bougies
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Bulle
+18:36:54.332 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Animatronique
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Gauche
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Droit
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Multi_Distance
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Gauche
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Droite
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Lievre
+18:36:54.333 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Chapelier
+18:36:54.334 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Etage_Haut
+18:36:54.334 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Gauche
+18:36:54.334 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Droite
+18:36:54.334 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_MONO_Global
+18:36:54.334 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Gauche
+18:36:54.336 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Droite
+18:36:54.336 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Chapelier
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AliceNeg
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AlicePos
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Neg
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Pos
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Global
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Controller
+18:36:54.337 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Gauche
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Droite
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Global
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Gauche
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Droite
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Global
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Gauche
+18:36:54.338 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Droite
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Global
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Cheminee
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Neg
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Pos
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Alice_Oeil
+18:36:54.339 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_Animatronique
+18:36:54.340 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Nord
+18:36:54.340 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Sud
+18:36:54.340 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Intensif
+18:36:54.340 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Gauche
+18:36:54.341 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Droite
+18:36:54.341 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Permaculture
+18:36:54.341 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Intensif
+18:36:54.341 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Lapin
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Alice
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Maison
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Gauche
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Droit
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Fumee
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Gauche
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Droit
+18:36:54.342 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Parfum
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Gauche [RGB] -> ws://192.168.0.10:55443/ws
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Droite [RGB] -> ws://192.168.0.11:55443/ws
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_MONO_Global [MONO] -> ws://192.168.0.12:55443/ws
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Gauche [RGB] -> ws://192.168.0.13:55443/ws
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Droite [RGB] -> ws://192.168.0.14:55443/ws
+18:36:54.344 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_MONO_Global [MONO] -> ws://192.168.0.15:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Chat [MONO] -> ws://192.168.0.16:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Panneaux [MONO] -> ws://192.168.0.17:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Global [MONO] -> ws://192.168.0.18:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Gauche [RGB] -> ws://192.168.0.19:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Droite [RGB] -> ws://192.168.0.20:55443/ws
+18:36:54.345 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Foret [MONO] -> ws://192.168.0.21:55443/ws
+18:36:54.346 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Controller
+18:36:54.346 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Gauche
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Droite
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Gauche
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Droite
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Reine
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Roi
+18:36:54.347 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Gauche
+18:36:54.349 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Droite
+18:36:54.349 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_MONO_Global
+18:36:54.349 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Gauche
+18:36:54.349 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Droite
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Roi
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Reine_Pos
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Rein_Neg
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Pos
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Neg
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Neg
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Pos
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Lapin
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Gauche
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Droit
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Parfum
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Gauche
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Droit
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Sud
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Ouest
+18:36:54.350 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Est
+18:36:54.351 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Nord
+18:36:54.354 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Labyrinthe
+18:36:54.354 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Ouest
+18:36:54.354 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Est
+18:36:54.354 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Nord
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Gauche
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Droit
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Labyrinthe_Entree
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Animatronique
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Gauche
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Droit
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_CapteurSon [Capteur_Son] -> ws://192.168.0.26:80/ws
+18:36:54.355 [INFO ] [NetworkHardwareDispatcher] Routing table buildée : 38 hardware(s).
+18:36:54.357 [INFO ] [EditorManager] Chargement additif de la scène : SC_EventTree
+18:36:54.358 [INFO ] [EditorManager] Scène 3D désactivée (AppSettings) : SC_EnviroPreview non chargée.
+18:36:54.358 [INFO ] [EditorManager] Chargement additif de la scène : SC_ActionEditor
+18:36:54.367 [INFO ] [EditorManager] Placeholder 3D créé : viewport=(x:0.00, y:0.50, width:0.33, height:0.50)
+18:36:54.470 [INFO ] [UiFontApplier] 'Boldonse-Regular' occupe 1,97x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,51.
+18:36:54.471 [INFO ] [UiFontApplier] 'bahnschrift' occupe 1,02x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,98.
+18:36:54.471 [INFO ] [UiFontApplier] Polices prêtes : barres='Boldonse-Regular', défaut='bahnschrift'.
+18:36:54.665 [INFO ] [ContexteSon] Build playlists terminé. kept=34, rejected=799, playlists=3
+18:36:54.670 [INFO ] [ContexteSon] Playlist 'Ambiances' : 5 item(s)
+18:36:54.670 [INFO ] [ContexteSon] Playlist 'Bruitages' : 18 item(s)
+18:36:54.670 [INFO ] [ContexteSon] Playlist 'Musiques' : 11 item(s)
+18:36:55.475 [INFO ] 36 sprites chargés dans la bibliothèque.
+18:36:55.893 [INFO ] [ConsoleTabView] 14 icônes chargées (atlas 2048x2048, pointSize=100, glyph0=384px).
+18:36:55.987 [INFO ] [ActionEditorManager] Échelle UI : canvas='Cnv_Details' mode=ScreenSpaceCamera scaler=ScaleWithScreenSize facteur=1,17
+18:36:56.054 [WARN ] Le sprite 'System' est introuvable !
+18:36:56.195 [INFO ] [ControllerManager] Config du boîtier chargée depuis SO_ControllerConfig.
+18:36:56.197 [INFO ] [ControllerManager] Contrôleur trouvé: For_Controller (192.168.0.3:80)
+18:36:57.717 [WARN ] [ControllerManager] Connexion échouée vers ws://192.168.0.3/ws — retries silencieux toutes les ~2s jusqu'à connexion.
+18:37:00.764 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Timeout connexion (4000 ms) — échecs identiques non reloggués.
+18:37:00.772 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.773 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.773 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.773 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.773 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.773 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.774 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.774 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.774 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.774 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.774 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.775 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.775 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4005 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.775 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4003 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.775 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.776 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4004 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.777 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4006 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.777 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4006 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.778 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4007 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.778 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4007 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.778 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4007 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.778 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4007 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.778 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4008 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.779 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4006 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.779 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4008 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:37:00.779 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4008 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+18:38:01.484 [INFO ] [WorldState] ScenarioSettings sauvegardés : C:/Users/guill/Documents/ALICE_CODE/ImaginActionBuilds/ImaginAction_Data/StreamingAssets\ScenarioSettings.json
+18:38:01.496 [INFO ] [WorldState] AppSettings chargés depuis C:\Users\guill\Documents\ALICE_CODE\ImaginActionBuilds\ImaginAction_Data\StreamingAssets\AppSettings.json
+18:38:01.501 [INFO ] [WorldState] AppSettings sauvegardés : C:\Users\guill\Documents\ALICE_CODE\ImaginActionBuilds\ImaginAction_Data\StreamingAssets\AppSettings.json
+18:39:47.837 [INFO ] [ActionEditor] Test : envoi de l'action 'zWO7P8p3BRAE6SjLQzcz3' à ses cibles.
+18:39:47.839 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=zWO7P8p3BRAE6SjLQzcz3, channel=).
+18:39:47.942 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\SEQUENCES\AL_SEQ_FOR_ILO_FLEURS_04.wav' sur channel 'Bruitages' | scenarioVolume=0,8 | gainFactor=0,5
+18:41:12.512 [INFO ] [DeleteActionBtn] Action supprimée : aoyXUeUt1_T8uxCEQSwP2
+18:42:27.352 [INFO ] [ActionEditor] Test : envoi de l'action 'lKTcE5CQmBP2nFsqOeOoS' à ses cibles.
+18:42:27.353 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=lKTcE5CQmBP2nFsqOeOoS, channel=).
+18:42:27.384 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_A_ILO_10.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:42:37.972 [INFO ] [DeleteActionBtn] Action supprimée : TH7DNYnvxqFcm787aB90S
+18:44:38.466 [INFO ] [ActionEditor] Test : envoi de l'action 'SjfvbiK0JFWHB-cQImeCs' à ses cibles.
+18:44:38.466 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=SjfvbiK0JFWHB-cQImeCs, channel=).
+18:44:38.520 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_B_ILO_08.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:45:04.036 [INFO ] [DynamicDropdown] index=1, actionId=c6d37d4df01f4a3dabfdcd1dcd2e43d6, paramKey=angle
+18:45:04.036 [INFO ] [DynamicDropdown] SetValue(max)
+18:45:24.421 [INFO ] [DeleteActionBtn] Action supprimée : c6d37d4df01f4a3dabfdcd1dcd2e43d6
+18:45:55.876 [INFO ] [Action] 'set_angle' déplacée de 'roOdy_xvDG2gXF4c78qfv' vers 'r4hIUuxaOOWWnr2CY8_Ki' (Ctrl+Z pour annuler).
+18:46:01.524 [INFO ] [Action] 'set_angle' déplacée de 'r4hIUuxaOOWWnr2CY8_Ki' vers 'b5RwVmo7Yl5CaJL4YV9eo' (Ctrl+Z pour annuler).
+18:46:22.034 [INFO ] [DeleteActionBtn] Action supprimée : f97c2d07964242f0887287a0ad502bf7
+18:46:29.639 [INFO ] [DynamicDropdown] index=1, actionId=24fcb01b7fe149878dc2a5747057d992, paramKey=angle2
+18:46:29.639 [INFO ] [DynamicDropdown] SetValue(max)
+18:46:32.987 [INFO ] [DeleteActionBtn] Action supprimée : 24fcb01b7fe149878dc2a5747057d992
+18:46:38.664 [INFO ] [Action] 'aller_retour' déplacée de 'Zw839cFkron6obV1xEA68' vers 'b5RwVmo7Yl5CaJL4YV9eo' (Ctrl+Z pour annuler).
+18:47:09.796 [INFO ] [DeleteActionBtn] Action supprimée : 8af8ebee816a4a8a83eccc86818028c6
+18:47:15.025 [INFO ] [DeleteActionBtn] Action supprimée : eb4c0c0bcbd144d6aca8f1231f128ec0
+18:47:19.086 [INFO ] [DeleteActionBtn] Action supprimée : eab23545cc8c4fb6aeffa667430c40b8
+18:47:49.012 [INFO ] [ActionEditor] Test : envoi de l'action 'ruhKdh7xTdB2_ejcYOXcW' à ses cibles.
+18:47:49.012 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=ruhKdh7xTdB2_ejcYOXcW, channel=).
+18:47:49.075 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\SEQUENCES\AL_SEQ_FOR_ILO_FLEURS_01.wav' sur channel 'Bruitages' | scenarioVolume=0,8 | gainFactor=0,5
+18:48:30.460 [INFO ] [ActionEditor] Test : envoi de l'action 'Bb66TyW9GZUnLss-V9yp9' à ses cibles.
+18:48:30.460 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=Bb66TyW9GZUnLss-V9yp9, channel=).
+18:48:30.508 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\ALICE\AL_DIAL_FOR_ALICE_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:49:55.751 [INFO ] [Action] 'set_angle' déplacée de 'ptTFdHwdCGi0EGuTk3_Zn' vers 'HHFjSmqc8QEbLMi6QyMxB' (Ctrl+Z pour annuler).
+18:50:14.827 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.827 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.828 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.828 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.829 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.829 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.829 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.830 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.830 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.831 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.832 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.833 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.833 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.833 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.833 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.833 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.834 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.837 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.838 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.838 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.839 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.839 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:50:14.839 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:51:21.603 [INFO ] [ActionEditor] Test : envoi de l'action 'hW1izOYNcSC2EJnQkFaQU' à ses cibles.
+18:51:21.603 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=hW1izOYNcSC2EJnQkFaQU, channel=).
+18:51:21.633 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_A_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:51:25.134 [INFO ] [ActionEditor] Test : envoi de l'action 'Bb66TyW9GZUnLss-V9yp9' à ses cibles.
+18:51:25.134 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=Bb66TyW9GZUnLss-V9yp9, channel=).
+18:51:25.151 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\ALICE\AL_DIAL_FOR_ALICE_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:53:40.767 [INFO ] [ActionEditor] Test : envoi de l'action 'RZQOyAXd5wiPIp4Kk2pbq' à ses cibles.
+18:53:40.767 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=RZQOyAXd5wiPIp4Kk2pbq, channel=).
+18:53:40.819 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_D_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:54:04.796 [INFO ] [Action] 'set_angle' déplacée de 'HHFjSmqc8QEbLMi6QyMxB' vers 'QpTazLehzOQwtUUNafUp_' (Ctrl+Z pour annuler).
+18:54:39.208 [INFO ] [Action] 'set_angle' déplacée de 'QpTazLehzOQwtUUNafUp_' vers '7VnSRCcj3kAsoMj5wJB7i' (Ctrl+Z pour annuler).
+18:54:45.784 [INFO ] [DynamicDropdown] index=0, actionId=9e5c77884c6a4970810f830b9f1eafe6, paramKey=angle
+18:54:45.784 [INFO ] [DynamicDropdown] SetValue(min)
+18:56:40.586 [INFO ] [Action] 'set_angle' déplacée de '7VnSRCcj3kAsoMj5wJB7i' vers 'GtkTxuld6GWl13ro8Br1B' (Ctrl+Z pour annuler).
+18:57:06.737 [INFO ] [DynamicDropdown] index=1, actionId=9e5c77884c6a4970810f830b9f1eafe6, paramKey=angle
+18:57:06.737 [INFO ] [DynamicDropdown] SetValue(max)
+18:57:15.935 [INFO ] [ActionEditor] Test : envoi de l'action 'DTKQtT3Es73MxEiXuYNyf' à ses cibles.
+18:57:15.935 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=DTKQtT3Es73MxEiXuYNyf, channel=).
+18:57:15.986 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_C_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:57:52.082 [INFO ] [Action] 'set_angle' déplacée de 'GtkTxuld6GWl13ro8Br1B' vers 'Tsi0jxeNymnBC6IXHu8mn' (Ctrl+Z pour annuler).
+18:58:19.346 [INFO ] [Action] 'set_angle' déplacée de 'GtkTxuld6GWl13ro8Br1B' vers 'oCzzNF6kJXFNgjzQfpk5O' (Ctrl+Z pour annuler).
+18:58:30.472 [INFO ] [DynamicDropdown] index=0, actionId=fe0c13b6d081470c8ad3266cc7bb0b65, paramKey=angle
+18:58:30.472 [INFO ] [DynamicDropdown] SetValue(min)
+18:58:38.470 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.470 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.471 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.471 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.471 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.471 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.471 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.472 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.472 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='7efe4581726f4191b7bde7138b74ee20', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9dfe79b576e84e9b9121356d8e025b07', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9e5c77884c6a4970810f830b9f1eafe6', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='2958042a9e1746a78daba32debaf778c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe0c13b6d081470c8ad3266cc7bb0b65', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.473 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.476 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.476 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.476 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.476 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.476 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.477 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.481 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.482 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.482 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.482 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.482 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.482 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.483 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.483 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.484 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.484 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+18:58:38.484 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+18:58:56.416 [INFO ] [Action] 'set_angle' déplacée de 'oCzzNF6kJXFNgjzQfpk5O' vers 'e00xSPXIQ1rmEoX4ELyYg' (Ctrl+Z pour annuler).
+18:59:09.615 [INFO ] [ActionEditor] Test : envoi de l'action 'Y_1REfszJUsdiuXm_enWk' à ses cibles.
+18:59:09.616 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=Y_1REfszJUsdiuXm_enWk, channel=).
+18:59:09.664 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_E_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+18:59:59.277 [INFO ] [DeleteActionBtn] Action supprimée : lurOkbIVGoi9Z2rsQwB-D
+19:00:16.694 [INFO ] [DeleteActionBtn] Action supprimée : LOky9xhUmfGD5g63Ux7Ho
+19:00:21.806 [INFO ] [DeleteActionBtn] Action supprimée : cGpHiCh8PfJkt4oouetTv
+19:00:25.799 [INFO ] [ActionEditor] Test : envoi de l'action 'Y_1REfszJUsdiuXm_enWk' à ses cibles.
+19:00:25.800 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=Y_1REfszJUsdiuXm_enWk, channel=).
+19:00:25.816 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_E_ILO_01.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+19:00:38.643 [INFO ] [Action] 'play_sound' déplacée de 'uhAcoibtfFAJAOVQCXBJ0' vers 'n6U5zVAKROFl9agF8ctpU' (Ctrl+Z pour annuler).
+19:00:56.877 [INFO ] [DeleteActionBtn] Action supprimée : fe206cbc4e2844b2805d44c8eb5b965e
+19:01:13.086 [INFO ] [Action] 'aller_retour' déplacée de '982f41c5e3074adba8db1bd5aab24d3e' vers 'DXrd8aYRp-OFYlUM4UVAn' (Ctrl+Z pour annuler).
+19:02:32.134 [INFO ] [DeleteActionBtn] Action supprimée : 9K8qpcNbZpkNefi2WBAUt
+19:02:40.517 [INFO ] [EditorInputManager] Modification annulée (annulables : 9, rétablissables : 1).
+19:02:42.346 [INFO ] [EditorInputManager] Modification annulée (annulables : 8, rétablissables : 2).
+19:02:59.022 [INFO ] [Action] 'aller_retour' déplacée de 'DXrd8aYRp-OFYlUM4UVAn' vers 'dfed507a547a469ea2b2848572991688' (Ctrl+Z pour annuler).
+19:03:14.751 [INFO ] [Action] 'set_angle' déplacée de 'e00xSPXIQ1rmEoX4ELyYg' vers 'DXrd8aYRp-OFYlUM4UVAn' (Ctrl+Z pour annuler).
+19:03:49.429 [INFO ] [Action] 'play_sound' déplacée de 'n6U5zVAKROFl9agF8ctpU' vers 'dfed507a547a469ea2b2848572991688' (Ctrl+Z pour annuler).
+19:03:57.363 [INFO ] [ActionEditor] Test : envoi de l'action '9K8qpcNbZpkNefi2WBAUt' à ses cibles.
+19:03:57.363 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=9K8qpcNbZpkNefi2WBAUt, channel=).
+19:03:57.412 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\SEQUENCES\AL_SEQ_FOR_ILO_FLEURS_02.wav' sur channel 'Bruitages' | scenarioVolume=0,75 | gainFactor=0,5
+19:04:02.524 [INFO ] [Action] 'aller_retour' déplacée de 'dfed507a547a469ea2b2848572991688' vers 'n6U5zVAKROFl9agF8ctpU' (Ctrl+Z pour annuler).
+19:04:13.407 [INFO ] [DeleteActionBtn] Action supprimée : 002fb7affdc84435847b801cf02076d0
+19:04:23.182 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.182 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.182 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.185 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.185 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.185 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='7efe4581726f4191b7bde7138b74ee20', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9dfe79b576e84e9b9121356d8e025b07', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9e5c77884c6a4970810f830b9f1eafe6', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.186 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='2958042a9e1746a78daba32debaf778c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.187 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe0c13b6d081470c8ad3266cc7bb0b65', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.187 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='68503cd88c094767a22480423bada146', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.187 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='d5a65b5deb434e919860641a4697455c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.187 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0a8d62005fd64c1baffbb986950391a9', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.187 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.192 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.193 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.193 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.194 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.194 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.194 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.194 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.198 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.200 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.200 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.200 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.200 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.200 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.201 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.201 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.202 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.202 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+19:04:23.203 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:12:40.952 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.953 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.953 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.953 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.954 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.954 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.954 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.954 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.954 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.955 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.956 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.956 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.956 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.956 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.957 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.957 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.958 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.958 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.958 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.959 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.959 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.960 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.960 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.960 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.962 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:40.962 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: SocketException: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:12:54.589 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu. 
+07:13:15.779 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: SocketException: Une requête d’envoi ou de réception de données n’a pas été autorisée car le socket n’est pas connecté et (lors de l’envoi sur un socket datagramme en utilisant un appel sendto) aucune adresse n’a été fournie. 
+07:13:15.978 [INFO ] [Action] 'transition' déplacée de '5Eh2-VfpeVj7WF6Eq3P60' vers '7VnSRCcj3kAsoMj5wJB7i' (Ctrl+Z pour annuler).
+07:13:34.850 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: SocketException: Une requête d’envoi ou de réception de données n’a pas été autorisée car le socket n’est pas connecté et (lors de l’envoi sur un socket datagramme en utilisant un appel sendto) aucune adresse n’a été fournie. 
+07:13:34.850 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: SocketException: Une requête d’envoi ou de réception de données n’a pas été autorisée car le socket n’est pas connecté et (lors de l’envoi sur un socket datagramme en utilisant un appel sendto) aucune adresse n’a été fournie. 
+07:13:37.548 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.548 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.548 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4598 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 17050 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.549 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4597 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4599 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4598 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4598 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4599 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.550 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4599 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4599 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4600 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4600 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4600 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4600 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.551 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4600 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.552 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4601 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.553 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4602 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:37.553 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4602 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:41.068 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Timeout connexion (4000 ms) — échecs identiques non reloggués.
+07:13:43.139 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:43.140 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+07:13:44.333 [INFO ] [ActionEditor] Test : envoi de l'action 'sPymKwwl__wyWTz4KuT3h' à ses cibles.
+07:13:44.334 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=sPymKwwl__wyWTz4KuT3h, channel=).
+07:13:44.370 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\ALICE\AL_DIAL_FOR_ALICE_ILO_02.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+07:15:55.176 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.176 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.177 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.177 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.178 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='7efe4581726f4191b7bde7138b74ee20', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.179 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9dfe79b576e84e9b9121356d8e025b07', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.180 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9e5c77884c6a4970810f830b9f1eafe6', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.180 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='2958042a9e1746a78daba32debaf778c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.180 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe0c13b6d081470c8ad3266cc7bb0b65', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.180 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='68503cd88c094767a22480423bada146', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.181 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='d5a65b5deb434e919860641a4697455c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.181 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0a8d62005fd64c1baffbb986950391a9', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.181 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.181 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.183 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.185 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.188 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.188 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.188 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.188 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.188 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.189 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.189 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.189 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.193 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.193 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:15:55.193 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:17:56.163 [INFO ] [DeleteActionBtn] Action supprimée : 957487cdb2214d0a9cd199225a1fe0d0
+07:18:11.920 [INFO ] [DynamicDropdown] index=1, actionId=3196511f0f0a40b1a125091c4acb7b27, paramKey=angle2
+07:18:11.921 [INFO ] [DynamicDropdown] SetValue(max)
+07:18:55.631 [INFO ] [DeleteActionBtn] Action supprimée : 3196511f0f0a40b1a125091c4acb7b27
+07:20:12.652 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.653 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.653 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.654 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.655 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.655 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.655 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.655 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='7efe4581726f4191b7bde7138b74ee20', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9dfe79b576e84e9b9121356d8e025b07', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9e5c77884c6a4970810f830b9f1eafe6', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='2958042a9e1746a78daba32debaf778c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.656 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe0c13b6d081470c8ad3266cc7bb0b65', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.657 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='68503cd88c094767a22480423bada146', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.657 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='d5a65b5deb434e919860641a4697455c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.657 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0a8d62005fd64c1baffbb986950391a9', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.657 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.658 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.660 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.660 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.660 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.660 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.660 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.661 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.665 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.666 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.666 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.667 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.667 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+07:20:12.667 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+07:20:26.135 [INFO ] [DeleteActionBtn] Action supprimée : fOqMGZyodnqSOFAPzS3fx
+07:23:42.616 [INFO ] [Action] 'fade_turn_on_rgb' déplacée de 'uhAcoibtfFAJAOVQCXBJ0' vers 'n6U5zVAKROFl9agF8ctpU' (Ctrl+Z pour annuler).
+07:25:13.531 [INFO ] [DeleteActionBtn] Action supprimée : QrCoskt0dL_MOqEv4WyCk
+07:25:30.549 [INFO ] [DeleteActionBtn] Action supprimée : 4nGdvC6O4u16xpMzMtWnf
+07:25:50.978 [INFO ] [Action] 'set_angle' déplacée de 'GtkTxuld6GWl13ro8Br1B' vers '71KFELdh0jYdFMxY5DseF' (Ctrl+Z pour annuler).
+07:26:13.214 [INFO ] [DynamicDropdown] index=0, actionId=499fc76062174ea0963cc4f840697d6f, paramKey=angle
+07:26:13.214 [INFO ] [DynamicDropdown] SetValue(min)
+07:26:28.652 [INFO ] [DeleteActionBtn] Action supprimée : 499fc76062174ea0963cc4f840697d6f
+07:26:40.343 [INFO ] [Action] 'set_volume' déplacée de 'mlxLIQwAWafT1I5Vm_zO7' vers '71KFELdh0jYdFMxY5DseF' (Ctrl+Z pour annuler).
+07:26:53.756 [INFO ] [Action] 'set_loop_mode' déplacée de 'mlxLIQwAWafT1I5Vm_zO7' vers '71KFELdh0jYdFMxY5DseF' (Ctrl+Z pour annuler).
+07:27:16.359 [INFO ] [Action] 'fade' déplacée de 'Il2bsS1tGCYtXgcRyn6q1' vers 'mlxLIQwAWafT1I5Vm_zO7' (Ctrl+Z pour annuler).
+07:27:23.826 [INFO ] [Action] 'play_media_on_channel' déplacée de 'Il2bsS1tGCYtXgcRyn6q1' vers 'mlxLIQwAWafT1I5Vm_zO7' (Ctrl+Z pour annuler).
+07:28:19.087 [INFO ] [DeleteActionBtn] Action supprimée : aea0b93af1a94e51a27eeeea7c250040
+07:29:24.751 [INFO ] [Action] 'fade_turn_on' déplacée de '71KFELdh0jYdFMxY5DseF' vers 'mlxLIQwAWafT1I5Vm_zO7' (Ctrl+Z pour annuler).
+07:29:38.215 [INFO ] [Action] 'fade_turn_on' déplacée de 'mlxLIQwAWafT1I5Vm_zO7' vers 'Il2bsS1tGCYtXgcRyn6q1' (Ctrl+Z pour annuler).
+07:31:10.600 [INFO ] [ActionEditor] Test : envoi de l'action 'DjwEqU0PLeaqZ4jIAxB4E' à ses cibles.
+07:31:10.600 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=DjwEqU0PLeaqZ4jIAxB4E, channel=).
+07:31:10.629 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\ALICE\AL_DIAL_FOR_ALICE_FOR_04.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+07:31:21.011 [INFO ] [Action] 'play_sound' déplacée de 'p7vu--dgQSIq0Chh21tG9' vers 'JxudaiKDRO1aThOtmIkUw' (Ctrl+Z pour annuler).
+07:31:28.047 [INFO ] [ActionEditor] Test : envoi de l'action '-73yEIDCS-wpWOrI3wLka' à ses cibles.
+07:31:28.048 [INFO ] [LocalActionDispatcher] 🎬 Handling local action 'play_sound' (id=-73yEIDCS-wpWOrI3wLka, channel=).
+07:31:28.098 [INFO ] [Son] Lecture OK : 'C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS\FORET\DIALOGUES\FLEURS\AL_DIAL_FOR_FLEUR_A_ILO_02.wav' sur channel 'Dialogues' | scenarioVolume=0,8 | gainFactor=1
+07:31:42.198 [INFO ] [DynamicDropdown] index=1, actionId=6vmbFKM_qKArRauZJ1PNw, paramKey=angle
+07:31:42.198 [INFO ] [DynamicDropdown] SetValue(max)
+08:02:38.436 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.711 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:02:38.712 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: SocketException: Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.210 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.211 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.220 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.279 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.279 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.280 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.280 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.281 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.281 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.300 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.300 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.333 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.366 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:08.367 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:12.040 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Une opération a été tentée sur un hôte impossible à atteindre. 
+08:59:18.093 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='cc2b7bacf519430f844d752f5ab48fd4', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.093 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='eec1c0ea65b94116afdb93083fcd7950', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.094 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='8WTNQXT4iM21sOkPRmF68', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.095 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='18accf6dd93a4047a9e46322acf939a1', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.096 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='i-Xe3xZ8c5mo_C4IanjEz', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.097 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6762074e3806493cb090062ab91dd271', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.097 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='183cdff11fc24d3f85a801e329f64dec', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.097 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='uekaW9qaQnjFFdcoFmrJ1', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.097 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='66772a33364240f5b3879b2852af087c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.098 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='7efe4581726f4191b7bde7138b74ee20', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.098 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9dfe79b576e84e9b9121356d8e025b07', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.099 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='9e5c77884c6a4970810f830b9f1eafe6', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.099 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='2958042a9e1746a78daba32debaf778c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.099 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe0c13b6d081470c8ad3266cc7bb0b65', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.099 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='68503cd88c094767a22480423bada146', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.100 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='d5a65b5deb434e919860641a4697455c', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.100 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0a8d62005fd64c1baffbb986950391a9', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.100 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='6vmbFKM_qKArRauZJ1PNw', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.101 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='fe3837a28e0741b489668be05605f6c6', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.103 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='f6b3612440434e44be89744b6c147561', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.104 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Bh3dq8IPQtZvsx-8p9-RA', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.104 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='kGSOoxGvDjw4PPgYNQtiT', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.104 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='KQtyeVKAIDCNRnlqmoXOs', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.104 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='em18C5Mw5ZP7oNk3qP5B0', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.105 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='Ixx70fOu_Mniu5uvFy1iK', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.110 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='yovstFhzoLcNBC4QQ4UYi', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.110 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='70fc822ffa814b6da2be0156aae2e6b9', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.110 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='5824064ba2e04a3188c75b2a54346b1a', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.111 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='e5625a075f94456c8790e29905058d43', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.111 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='79e87cc7e6904c639ea8bb38e2fa8000', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.111 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='0294636f94604a0a8aa0cb91d0a0f9f5', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.112 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='08e55971d6194121adf7ece3b7d44c06', action='stop' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.112 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='19a7d9ecafc44b0cb23af32f6d468120', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.113 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='b96a1c99d20b45e29bb4ea6ce52a75a4', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.113 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='62a6e9946f57405d82a3f2f2822135bc', action='set_angle' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.113 [WARN ] [JSON_Scenario] Type ambigu au save pour actionId='o7kK5HoqBK2qoWWjW6QOl', action='aller_retour' : plusieurs device_type trouvés et options insuffisantes.
+08:59:18.319 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.319 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.319 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.320 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.321 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.321 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.321 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.321 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.321 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+08:59:18.331 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
+========== FIN SESSION 2026-10-09 08:59:22 (0 boucle(s)) ==========

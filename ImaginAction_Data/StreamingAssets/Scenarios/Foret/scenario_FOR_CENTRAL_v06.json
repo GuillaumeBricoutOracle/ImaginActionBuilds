@@ -5,7 +5,7 @@
             "next_event_id": "QgZGml4BtJeFadeNECZ98",
             "event_type": "ActionEvent",
             "duration": 2,
-            "event_role": "None",
+            "event_role": "Start",
             "interface": {
                 "name": "NLWkR6GADI4rdCGhnJSb3",
                 "color": "#F0B24C",
@@ -3012,7 +3012,7 @@
             "next_event_id": "bM25p2_Gk9ZDI8zEGPM6G",
             "event_type": "ActionEvent",
             "duration": 3,
-            "event_role": "Start",
+            "event_role": "None",
             "interface": {
                 "name": "PARTIE 2 - FLEURS",
                 "color": "#061929",
@@ -3352,7 +3352,7 @@
                     "action": "fade_turn_on",
                     "type": "MONO",
                     "options": {
-                        "brightness": "30",
+                        "brightness": "20",
                         "fade_time": "4",
                         "hardware": "For_Central_MONO_Global"
                     }
@@ -3449,11 +3449,11 @@
             "duration": 6,
             "event_role": "None",
             "interface": {
-                "name": "5Eh2-VfpeVj7WF6Eq3P60",
-                "color": "#A360A6",
+                "name": "ALICE Fleurs",
+                "color": "#F0628D",
                 "coordinate": [
-                    11.9250020980835,
-                    -198.571823120117
+                    9.57638168334961,
+                    -198.06526184082
                 ]
             },
             "actions": [
@@ -3465,6 +3465,36 @@
                     "options": {
                         "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_ILO_01.wav",
                         "volume": "80"
+                    }
+                },
+                {
+                    "id": "07671af2453c4013a8c62ede7f6b0aff",
+                    "refresh_rate": "0",
+                    "action": "set_brightness",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "brightness": "40"
+                    }
+                },
+                {
+                    "id": "bebaf204903c432c868dafcb0bb5c1c2",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "10",
+                        "led_fin": "14",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
+                        "brightness": "100",
+                        "temps": "0"
                     }
                 }
             ]
@@ -3479,8 +3509,8 @@
                 "name": "HHFjSmqc8QEbLMi6QyMxB",
                 "color": "#A360A6",
                 "coordinate": [
-                    13.030460357666,
-                    -204.646896362305
+                    7.74653816223145,
+                    -204.589813232422
                 ]
             },
             "actions": [
@@ -3510,8 +3540,32 @@
                         "blue": "255",
                         "brightness": "100",
                         "temps": "2000",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "20",
+                        "led_fin": "24"
                     }
+                },
+                {
+                    "id": "66772a33364240f5b3879b2852af087c",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "3000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3556,8 +3610,32 @@
                         "blue": "150",
                         "brightness": "100",
                         "temps": "2000",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "6",
+                        "led_fin": "10"
                     }
+                },
+                {
+                    "id": "7efe4581726f4191b7bde7138b74ee20",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[0,0,0,1,0,0]",
+                        "angle": "max",
+                        "temps": "2000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3571,8 +3649,8 @@
                 "name": "7VnSRCcj3kAsoMj5wJB7i",
                 "color": "#A360A6",
                 "coordinate": [
-                    12.8596954345703,
-                    -219.372146606445
+                    12.2047004699707,
+                    -219.509155273438
                 ]
             },
             "actions": [
@@ -3584,6 +3662,48 @@
                     "options": {
                         "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_ILO_02.wav",
                         "volume": "80"
+                    }
+                },
+                {
+                    "id": "9dfe79b576e84e9b9121356d8e025b07",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,0,0,1,0,0]",
+                        "angle": "min",
+                        "temps": "1000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "265c07788e274c0aaeb8adfefb205e05",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "10",
+                        "led_fin": "14",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "240",
+                        "green": "178",
+                        "blue": "76",
+                        "brightness": "100",
+                        "temps": "0"
                     }
                 }
             ]
@@ -3629,8 +3749,32 @@
                         "brightness": "100",
                         "temps": "2000",
                         "leds": "8,9,10,11",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "14",
+                        "led_fin": "17"
                     }
+                },
+                {
+                    "id": "9e5c77884c6a4970810f830b9f1eafe6",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[0,0,1,0,0,0]",
+                        "angle": "max",
+                        "temps": "4000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3644,8 +3788,8 @@
                 "name": "Tsi0jxeNymnBC6IXHu8mn",
                 "color": "#A360A6",
                 "coordinate": [
-                    21.367546081543,
-                    -184.81428527832
+                    21.1372890472412,
+                    -185.021514892578
                 ]
             },
             "actions": [
@@ -3670,13 +3814,37 @@
                         "green1": "0",
                         "blue1": "200",
                         "brightness1": "100",
-                        "red": "0",
-                        "green": "50",
-                        "blue": "255",
+                        "red": "255",
+                        "green": "198",
+                        "blue": "55",
                         "brightness": "100",
-                        "temps": "2000",
-                        "hardware": "For_Central_Led_Fleurs_Sud"
+                        "temps": "1500",
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "6",
+                        "led_fin": "10"
                     }
+                },
+                {
+                    "id": "2958042a9e1746a78daba32debaf778c",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[0,1,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "4000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3690,8 +3858,8 @@
                 "name": "oCzzNF6kJXFNgjzQfpk5O",
                 "color": "#A360A6",
                 "coordinate": [
-                    20.0773220062256,
-                    -192.67024230957
+                    20.2154750823975,
+                    -191.749206542969
                 ]
             },
             "actions": [
@@ -3704,6 +3872,28 @@
                         "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_ILO_03.wav",
                         "volume": "80"
                     }
+                },
+                {
+                    "id": "fe0c13b6d081470c8ad3266cc7bb0b65",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "1500",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3711,14 +3901,14 @@
             "id": "e00xSPXIQ1rmEoX4ELyYg",
             "next_event_id": "DXrd8aYRp-OFYlUM4UVAn",
             "event_type": "ActionEvent",
-            "duration": 6,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "e00xSPXIQ1rmEoX4ELyYg",
                 "color": "#A360A6",
                 "coordinate": [
-                    21.1208877563477,
-                    -197.20573425293
+                    20.4301166534424,
+                    -198.264907836914
                 ]
             },
             "actions": [
@@ -3750,21 +3940,43 @@
                         "temps": "2000",
                         "hardware": "For_Central_Led_Fleurs_Sud"
                     }
+                },
+                {
+                    "id": "68503cd88c094767a22480423bada146",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[0,0,0,1,0,0]",
+                        "angle": "min",
+                        "temps": "1500",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
         {
             "id": "DXrd8aYRp-OFYlUM4UVAn",
-            "next_event_id": "n6U5zVAKROFl9agF8ctpU",
+            "next_event_id": "dfed507a547a469ea2b2848572991688",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "DXrd8aYRp-OFYlUM4UVAn",
                 "color": "#A360A6",
                 "coordinate": [
-                    20.2480850219727,
-                    -204.511444091797
+                    19.8994655609131,
+                    -205.511260986328
                 ]
             },
             "actions": [
@@ -3783,15 +3995,37 @@
                     }
                 },
                 {
-                    "id": "lurOkbIVGoi9Z2rsQwB-D",
+                    "id": "f9d641a010cd4272a5deea2de9ecd19d",
                     "refresh_rate": "0",
-                    "action": "fade_bg",
+                    "action": "turn_off",
                     "type": "MONO",
                     "options": {
-                        "brightness": "15",
-                        "fade_time": "1",
-                        "hardware": "For_Central_MONO_Global"
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
                     }
+                },
+                {
+                    "id": "d5a65b5deb434e919860641a4697455c",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "temps": "1000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
                 }
             ]
         },
@@ -3805,45 +4039,49 @@
                 "name": "n6U5zVAKROFl9agF8ctpU",
                 "color": "#A360A6",
                 "coordinate": [
-                    20.1302738189697,
-                    -212.116653442383
+                    22.4063949584961,
+                    -218.51513671875
                 ]
             },
             "actions": [
                 {
-                    "id": "fOqMGZyodnqSOFAPzS3fx",
+                    "id": "0a8d62005fd64c1baffbb986950391a9",
                     "refresh_rate": "0",
-                    "action": "fade",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "1000",
+                        "temps2": "3000",
+                        "delai": "2000",
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "8f48f3b01dca4db981307b523a509844",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
                     "type": "RGB",
                     "options": {
-                        "red": "255",
-                        "green": "50",
+                        "hardware": "",
+                        "red": "200",
+                        "green": "0",
                         "blue": "255",
-                        "brightness": "100",
-                        "fade_time": "2",
-                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite"
-                    }
-                },
-                {
-                    "id": "LOky9xhUmfGD5g63Ux7Ho",
-                    "refresh_rate": "0",
-                    "action": "fade_bg",
-                    "type": "MONO",
-                    "options": {
-                        "brightness": "50",
-                        "fade_time": "2",
-                        "hardware": "For_Central_MONO_Global"
-                    }
-                },
-                {
-                    "id": "cGpHiCh8PfJkt4oouetTv",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Ambiances",
-                        "volume": "20",
-                        "fade_time": "2"
+                        "brightness": "0",
+                        "fade_time": "0"
                     }
                 }
             ]
@@ -3858,8 +4096,8 @@
                 "name": "uhAcoibtfFAJAOVQCXBJ0",
                 "color": "#A360A6",
                 "coordinate": [
-                    20.5845832824707,
-                    -219.495651245117
+                    21.0452899932861,
+                    -225.805068969727
                 ]
             },
             "actions": [
@@ -3870,9 +4108,9 @@
                     "type": "Led",
                     "options": {
                         "code1": "rose",
-                        "red1": "150",
+                        "red1": "0",
                         "green1": "0",
-                        "blue1": "200",
+                        "blue1": "0",
                         "code": "rose",
                         "red": "150",
                         "green": "0",
@@ -3884,16 +4122,6 @@
                         "leds": "",
                         "hardware": "For_Central_Led_Fleurs_Sud"
                     }
-                },
-                {
-                    "id": "9K8qpcNbZpkNefi2WBAUt",
-                    "refresh_rate": "0",
-                    "action": "play_sound",
-                    "type": "Son",
-                    "options": {
-                        "filename": "FORET/SEQUENCES/AL_SEQ_FOR_ILO_FLEURS_02.wav",
-                        "volume": "75"
-                    }
                 }
             ]
         },
@@ -3901,56 +4129,17 @@
             "id": "71KFELdh0jYdFMxY5DseF",
             "next_event_id": "mlxLIQwAWafT1I5Vm_zO7",
             "event_type": "ActionEvent",
-            "duration": 1,
+            "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "71KFELdh0jYdFMxY5DseF",
                 "color": "#A360A6",
                 "coordinate": [
-                    28.753604888916,
-                    -175.877349853516
+                    29.5983238220215,
+                    -175.928146362305
                 ]
             },
             "actions": [
-                {
-                    "id": "QrCoskt0dL_MOqEv4WyCk",
-                    "refresh_rate": "0",
-                    "action": "fade_bg",
-                    "type": "MONO",
-                    "options": {
-                        "brightness": "100",
-                        "fade_time": "1",
-                        "hardware": "For_Central_MONO_Global"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "mlxLIQwAWafT1I5Vm_zO7",
-            "next_event_id": "Il2bsS1tGCYtXgcRyn6q1",
-            "event_type": "ActionEvent",
-            "duration": 6,
-            "event_role": "None",
-            "interface": {
-                "name": "mlxLIQwAWafT1I5Vm_zO7",
-                "color": "#A360A6",
-                "coordinate": [
-                    29.4118804931641,
-                    -184.909301757813
-                ]
-            },
-            "actions": [
-                {
-                    "id": "4nGdvC6O4u16xpMzMtWnf",
-                    "refresh_rate": "0",
-                    "action": "fade_bg",
-                    "type": "MONO",
-                    "options": {
-                        "brightness": "30",
-                        "fade_time": "1",
-                        "hardware": "For_Central_MONO_Global"
-                    }
-                },
                 {
                     "id": "SfjZicKEQdiWxwkmsW7JR",
                     "refresh_rate": "0",
@@ -3975,30 +4164,20 @@
             ]
         },
         {
-            "id": "Il2bsS1tGCYtXgcRyn6q1",
-            "next_event_id": "JxudaiKDRO1aThOtmIkUw",
+            "id": "mlxLIQwAWafT1I5Vm_zO7",
+            "next_event_id": "Il2bsS1tGCYtXgcRyn6q1",
             "event_type": "ActionEvent",
-            "duration": 4,
+            "duration": 2,
             "event_role": "None",
             "interface": {
-                "name": "Il2bsS1tGCYtXgcRyn6q1",
+                "name": "mlxLIQwAWafT1I5Vm_zO7",
                 "color": "#A360A6",
                 "coordinate": [
-                    28.2114944458008,
-                    -192.895736694336
+                    30.6678276062012,
+                    -183.957824707031
                 ]
             },
             "actions": [
-                {
-                    "id": "DjwEqU0PLeaqZ4jIAxB4E",
-                    "refresh_rate": "0",
-                    "action": "play_sound",
-                    "type": "Son",
-                    "options": {
-                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_04.wav",
-                        "volume": "80"
-                    }
-                },
                 {
                     "id": "eFc1cWsknkoL16IcqQ-PG",
                     "refresh_rate": "0",
@@ -4024,6 +4203,84 @@
                         "transition_time": "4",
                         "hardware": ""
                     }
+                },
+                {
+                    "id": "41824737e5244e28a9701a659b5360a2",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Il2bsS1tGCYtXgcRyn6q1",
+            "next_event_id": "JxudaiKDRO1aThOtmIkUw",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "Il2bsS1tGCYtXgcRyn6q1",
+                "color": "#F0628D",
+                "coordinate": [
+                    29.9051170349121,
+                    -190.707321166992
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DjwEqU0PLeaqZ4jIAxB4E",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_04.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "dc48f68da37a426296779bbfe615a71e",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "brightness": "0",
+                        "fade_time": "40"
+                    }
+                },
+                {
+                    "id": "f5fa70de96724cf1bcd982137aaccee1",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "10",
+                        "led_fin": "14",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
+                        "brightness": "100",
+                        "temps": "0"
+                    }
                 }
             ]
         },
@@ -4037,8 +4294,8 @@
                 "name": "JxudaiKDRO1aThOtmIkUw",
                 "color": "#A360A6",
                 "coordinate": [
-                    31.8126640319824,
-                    -200.378784179688
+                    32.4596672058105,
+                    -197.257949829102
                 ]
             },
             "actions": [
@@ -4048,8 +4305,8 @@
                     "action": "set_angle",
                     "type": "Servo_Multi",
                     "options": {
-                        "num": "[1,1,1,1,1,1]",
-                        "angle": "min",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "max",
                         "temps": "2000",
                         "hardware": "For_Central_Servo_Multi_Fleurs_Sud"
                     },
@@ -4063,6 +4320,16 @@
                         "temps2",
                         "delai"
                     ]
+                },
+                {
+                    "id": "-73yEIDCS-wpWOrI3wLka",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/FLEURS/AL_DIAL_FOR_FLEUR_A_ILO_02.wav",
+                        "volume": "80"
+                    }
                 }
             ]
         },
@@ -4076,21 +4343,11 @@
                 "name": "p7vu--dgQSIq0Chh21tG9",
                 "color": "#A360A6",
                 "coordinate": [
-                    28.6374435424805,
-                    -204.918960571289
+                    29.0370635986328,
+                    -204.00553894043
                 ]
             },
             "actions": [
-                {
-                    "id": "-73yEIDCS-wpWOrI3wLka",
-                    "refresh_rate": "0",
-                    "action": "play_sound",
-                    "type": "Son",
-                    "options": {
-                        "filename": "FORET/DIALOGUES/FLEURS/AL_DIAL_FOR_FLEUR_A_ILO_02.wav",
-                        "volume": "80"
-                    }
-                },
                 {
                     "id": "wbO6BH8c96qouEK-Lefxd",
                     "refresh_rate": "0",
@@ -6188,7 +6445,8 @@
                     "options": {
                         "channel": "Musiques",
                         "volume": "20",
-                        "fade_time": "3"
+                        "fade_time": "3",
+                        "hardware": ""
                     }
                 },
                 {
@@ -6198,6 +6456,18 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "2932154104d84885a5ed9bb0efd6645f",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "smooth",
+                        "duration": "500",
+                        "brightness": ""
                     }
                 }
             ]
@@ -6235,16 +6505,19 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "6",
-                        "transition_time": "2"
+                        "transition_time": "2",
+                        "hardware": ""
                     }
                 },
                 {
-                    "id": "aoyXUeUt1_T8uxCEQSwP2",
+                    "id": "eab0fa0fa13345d88cef5b798b03ffaf",
                     "refresh_rate": "0",
-                    "action": "turn_on",
-                    "type": "light_action",
+                    "action": "turn_off",
+                    "type": "MONO",
                     "options": {
-                        
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
                     }
                 }
             ]
@@ -6272,26 +6545,6 @@
                     "options": {
                         "filename": "FORET/DIALOGUES/FLEURS/AL_DIAL_FOR_FLEUR_A_ILO_10.wav",
                         "volume": "80"
-                    }
-                },
-                {
-                    "id": "TH7DNYnvxqFcm787aB90S",
-                    "refresh_rate": "0",
-                    "action": "progression",
-                    "type": "Led",
-                    "options": {
-                        "leds": "0,1,2,3",
-                        "red1": "0",
-                        "green1": "0",
-                        "blue1": "255",
-                        "brightness1": "50",
-                        "red": "0",
-                        "green": "150",
-                        "blue": "255",
-                        "brightness": "100",
-                        "delai": "300",
-                        "temps": "300",
-                        "hardware": "For_Central_Led_Fleurs_Nord"
                     }
                 }
             ]
@@ -6336,7 +6589,8 @@
                         "blue": "0",
                         "brightness": "100",
                         "delai": "0",
-                        "temps": "0"
+                        "temps": "0",
+                        "hardware": "For_Central_Led_Fleurs_Nord"
                     }
                 }
             ]
@@ -11095,6 +11349,77 @@
                         "temps": "3000",
                         "hardware": "For_Central_Led_Fleurs_Sud",
                         "taille_vague": "7"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "dfed507a547a469ea2b2848572991688",
+            "next_event_id": "n6U5zVAKROFl9agF8ctpU",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "Des Stars !",
+                "color": "#6B72FF",
+                "coordinate": [
+                    20.8670120239258,
+                    -212.014877319336
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9K8qpcNbZpkNefi2WBAUt",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/SEQUENCES/AL_SEQ_FOR_ILO_FLEURS_02.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "e2db129c2a8849f5bb68130c37310d1b",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "222",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "100",
+                        "temps": "3000",
+                        "taille_vague": "7"
+                    }
+                },
+                {
+                    "id": "43c072c54000459598509ee3dabee5ea",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "caddc107b2894a26bc1c4b1baba6efcd",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
                     }
                 }
             ]

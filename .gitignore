@@ -1,0 +1,16 @@
+# Fichiers de config propres a chaque machine : jamais partages, jamais
+# ecrases. L'application les cree au demarrage a partir des *.default.json
+# livres avec la build s'ils n'existent pas.
+ImaginAction_Data/StreamingAssets/AppSettings.json
+ImaginAction_Data/StreamingAssets/ScenarioSettings.json
+ImaginAction_Data/StreamingAssets/ColorPalettes.json
+Wiki/dashboard_config.json
+
+# Fichiers generes a l'execution.
+Logs/
+*_BurstDebugInformation_DoNotShip/
+__pycache__/
+Wiki/offline_stats.json
+Wiki/_check_tmp.js
+Thumbs.db
+desktop.ini

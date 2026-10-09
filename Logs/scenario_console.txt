@@ -6838,3 +6838,195 @@ NetworkHardwareDispatcher.FixedUpdate () (at <9aabcd367ca345acaa5176e09dc5aeb4>:
 08:59:18.322 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
 08:59:18.331 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: SocketException: Une opération a été tentée sur un réseau impossible à atteindre. 
 ========== FIN SESSION 2026-10-09 08:59:22 (0 boucle(s)) ==========
+
+========== SESSION 2026-10-09 10:15:59 ==========
+10:15:59.976 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_PC [] -> ws://192.168.0.2:80/ws
+10:15:59.979 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Controller [] -> ws://192.168.0.3:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_Fumee [Fumee] -> ws://192.168.0.74:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Sud [Led] -> ws://192.168.0.52:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Est [Led] -> ws://192.168.0.53:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Fleurs_Nord [Led] -> ws://192.168.0.54:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Chenille [Led] -> ws://192.168.0.55:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Petit_Papillon [Led] -> ws://192.168.0.56:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Grand_Papillon [Led] -> ws://192.168.0.57:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Sud [Led] -> ws://192.168.0.58:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Ouest [Led] -> ws://192.168.0.59:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Riviere_Est [Led] -> ws://192.168.0.60:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Led_Arbre_Sud [Led] -> ws://192.168.0.61:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Sud [Servo_Multi] -> ws://192.168.0.62:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord1 [Servo_Multi] -> ws://192.168.0.63:80/ws
+10:15:59.980 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord2 [Servo_Multi] -> ws://192.168.0.64:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Fleurs_Nord3 [Servo_Multi] -> ws://192.168.0.65:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Petit_Papillon [Servo_Mono] -> ws://192.168.0.66:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Mono_Grand_Papillon [Servo_Mono] -> ws://192.168.0.67:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Servo_Multi_Arbre_Servo [Servo_Multi] -> ws://192.168.0.68:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Gauche [Boitier] -> ws://192.168.0.69:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Boitier_Droit [Boitier] -> ws://192.168.0.70:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_Parfum [Parfum] -> ws://192.168.0.71:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Animatronique [Animatronique] -> ws://192.168.0.72:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_Distance [Distance] -> ws://192.168.0.73:80/ws
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Parfum
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Controller
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Gauche
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Boitier_Droit
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Lievre
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Servo_Chapelier
+10:15:59.981 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Sud
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Sud
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Centre
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Negatif
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Positif
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Negatif
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Lievre_Positif
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_Led_Chapelier_Centre
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Lievre_Coeur
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Led_Alice_Coeur
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_Led_Bougies
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Bulle
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Animatronique
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Gauche
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Boitier_Droit
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_Multi_Distance
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Gauche
+10:15:59.982 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_RGB_Droite
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Lievre
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Chapelier
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Entree_MONO_Etage_Haut
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Gauche
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_RGB_Droite
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Central_MONO_Global
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Gauche
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_RGB_Droite
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Chapelier
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AliceNeg
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_AlicePos
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Neg
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Lievre_Pos
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Ban_Scene_MONO_Global
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Controller
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Gauche
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Droite
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_RGB_Global
+10:15:59.983 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Gauche
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Droite
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_RGB_Global
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Gauche
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Droite
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Global
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Cheminee
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Neg
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Lapin_Pos
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_RGB_Alice_Oeil
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Entree_Animatronique
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Nord
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Permaculture_Sud
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Intensif
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Gauche
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Led_Chemin_Droite
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Permaculture
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Intensif
+10:15:59.984 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Lapin
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Mono_Permaculture_Alice
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Servo_Multi_Maison
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Gauche
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Central_Boitier_Droit
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Fumee
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Gauche
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Boitier_Droit
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Cha_Scene_Parfum
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Gauche [RGB] -> ws://192.168.0.10:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_RGB_Droite [RGB] -> ws://192.168.0.11:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Entree_MONO_Global [MONO] -> ws://192.168.0.12:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Gauche [RGB] -> ws://192.168.0.13:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_RGB_Droite [RGB] -> ws://192.168.0.14:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_MONO_Global [MONO] -> ws://192.168.0.15:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Chat [MONO] -> ws://192.168.0.16:55443/ws
+10:15:59.985 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Panneaux [MONO] -> ws://192.168.0.17:55443/ws
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Global [MONO] -> ws://192.168.0.18:55443/ws
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Gauche [RGB] -> ws://192.168.0.19:55443/ws
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_RGB_Droite [RGB] -> ws://192.168.0.20:55443/ws
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Scene_MONO_Foret [MONO] -> ws://192.168.0.21:55443/ws
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Controller
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Gauche
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_RGB_Droite
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Gauche
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Droite
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Reine
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_MONO_Roi
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Gauche
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_RGB_Droite
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_MONO_Global
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Gauche
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_RGB_Droite
+10:15:59.986 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Roi
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Reine_Pos
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Rein_Neg
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Pos
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Chapelier_Neg
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Neg
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Alice_Pos
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_MONO_Lapin
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Gauche
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Boitier_Droit
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Entree_Parfum
+10:15:59.987 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Gauche
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Boitier_Droit
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Sud
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Ouest
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Est
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Croquet_Nord
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Labyrinthe
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Ouest
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Est
+10:15:59.990 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Led_Palais_Nord
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Gauche
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Croquet_Droit
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Central_Servo_Multi_Labyrinthe_Entree
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Animatronique
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Gauche
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Hardware ignoré par filtre tokens: Pal_Scene_Boitier_Droit
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Loaded hardware: For_Central_CapteurSon [Capteur_Son] -> ws://192.168.0.26:80/ws
+10:15:59.991 [INFO ] [NetworkHardwareDispatcher] Routing table buildée : 38 hardware(s).
+10:15:59.992 [INFO ] [EditorManager] Chargement additif de la scène : SC_EventTree
+10:15:59.993 [INFO ] [EditorManager] Scène 3D désactivée (AppSettings) : SC_EnviroPreview non chargée.
+10:15:59.993 [INFO ] [EditorManager] Chargement additif de la scène : SC_ActionEditor
+10:16:00.052 [INFO ] [EditorManager] Placeholder 3D créé : viewport=(x:0.00, y:0.50, width:0.33, height:0.50)
+10:16:00.764 [INFO ] [UiFontApplier] 'Boldonse-Regular' occupe 1,97x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,51.
+10:16:00.765 [INFO ] [UiFontApplier] 'bahnschrift' occupe 1,02x la hauteur de ligne de 'LiberationSans SDF' — échelle ramenée à 0,98.
+10:16:00.765 [INFO ] [UiFontApplier] Polices prêtes : barres='Boldonse-Regular', défaut='bahnschrift'.
+10:16:01.073 [ERROR] [ContexteSon] Dossier audio introuvable ou injoignable : C:\Users\guill\Documents\ALICE_CODE\AlicePyProd\MEDIAS — catalogue son désactivé. Corrigez audio.rootFolder dans l'onglet Config.
+10:16:02.697 [INFO ] 36 sprites chargés dans la bibliothèque.
+10:16:02.932 [INFO ] [ConsoleTabView] 14 icônes chargées (atlas 2048x2048, pointSize=100, glyph0=384px).
+10:16:02.965 [INFO ] [ActionEditorManager] Échelle UI : canvas='Cnv_Details' mode=ScreenSpaceCamera scaler=ScaleWithScreenSize facteur=2,87
+10:16:03.011 [WARN ] Le sprite 'System' est introuvable !
+10:16:03.141 [INFO ] [ControllerManager] Config du boîtier chargée depuis SO_ControllerConfig.
+10:16:03.143 [INFO ] [ControllerManager] Contrôleur trouvé: For_Controller (192.168.0.3:80)
+10:16:04.715 [WARN ] [ControllerManager] Connexion échouée vers ws://192.168.0.3/ws — retries silencieux toutes les ~2s jusqu'à connexion.
+10:16:08.097 [WARN ] [Yeelight] Connexion échouée For_Central_RGB_Gauche: Timeout connexion (4000 ms) — échecs identiques non reloggués.
+10:16:08.103 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_PC (192.168.0.2:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.103 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Est (192.168.0.53:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.103 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Controller (192.168.0.3:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.103 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Sud (192.168.0.52:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.103 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Entree_Fumee (192.168.0.74:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.105 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Chenille (192.168.0.55:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.105 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Fleurs_Nord (192.168.0.54:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.105 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Petit_Papillon (192.168.0.56:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Grand_Papillon (192.168.0.57:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Sud (192.168.0.58:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Ouest (192.168.0.59:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Arbre_Sud (192.168.0.61:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Led_Riviere_Est (192.168.0.60:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Sud (192.168.0.62:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord2 (192.168.0.64:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.106 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord1 (192.168.0.63:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Petit_Papillon (192.168.0.66:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Mono_Grand_Papillon (192.168.0.67:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Arbre_Servo (192.168.0.68:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Animatronique (192.168.0.72:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Gauche (192.168.0.69:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_CapteurSon (192.168.0.26:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Boitier_Droit (192.168.0.70:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.107 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Distance (192.168.0.73:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4000 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.108 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Central_Servo_Multi_Fleurs_Nord3 (192.168.0.65:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4002 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+10:16:08.108 [WARN ] [NetworkHardwareDispatcher] Connexion échouée vers For_Scene_Parfum (192.168.0.71:80) : Unable to connect to the remote server | cause racine: ObjectDisposedException: Cannot access a disposed object. Object name: 'System.Net.Sockets.Socket'. (échec après 4001 ms) — reconnexion auto toutes les 3s, échecs identiques non reloggués.
+========== FIN SESSION 2026-10-09 12:27:29 (0 boucle(s)) ==========

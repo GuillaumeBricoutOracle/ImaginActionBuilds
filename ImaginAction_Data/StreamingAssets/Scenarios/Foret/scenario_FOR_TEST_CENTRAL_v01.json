@@ -1,0 +1,803 @@
+{
+    "events": [
+        {
+            "id": "653CJ0umBaBlMx1MXkotW",
+            "next_event_id": "XreHjnvP8eqbHSir5031M",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "DEBUT TEST CENTRAL",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0,
+                    0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "aw0v0_l_ULDAX7b0u87Uo",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "-1fBK7mqkxbjRqZBDJvY0",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "i4EF7sr9-XNp6P9qq6ZbU",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "volume": "90",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "abKd-H1lTgUovHCKgqRoW",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "volume": "80",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XreHjnvP8eqbHSir5031M",
+            "next_event_id": "mJkNVymXWXhUZQCQ4XRbX",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB + MONO · son : ambiance 5.1",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -10
+                ]
+            },
+            "actions": [
+                {
+                    "id": "tmz7kBGMpHyB2zXPu3dch",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "YGt2V1HQvB6MO1_IES1Ti",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "EFjKAh5VIniGjkuFOU3UZ",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "IPOVCtE_coMUqiElrFGiO",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "mJkNVymXWXhUZQCQ4XRbX",
+            "next_event_id": "50uzS3IeDpalBb7rDBUCI",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Boitiers rouge / bleu",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -20
+                ]
+            },
+            "actions": [
+                {
+                    "id": "MjQnfDuRPPK1bo3M9mi8G",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "KUViSbb4ED2OZcIQixtg8",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Droit",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "50uzS3IeDpalBb7rDBUCI",
+            "next_event_id": "zI76c8pIB0g2uWWC_nxIg",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds fleurs · son : musique",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -30
+                ]
+            },
+            "actions": [
+                {
+                    "id": "xWpXSrBLM8ykvJRMc3ii1",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud",
+                        "led_debut": "0",
+                        "led_fin": "17",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "lCirFO_uydsj4kGwK1wUX",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Est",
+                        "led_debut": "0",
+                        "led_fin": "16",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "wRZPsuN8dGQmQ78HLx4jR",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Nord",
+                        "led_debut": "0",
+                        "led_fin": "34",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "Cl4n5qBl814kfCKf3K0bv",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "VSJvjnXMGunWn3LR3ideA",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zI76c8pIB0g2uWWC_nxIg",
+            "next_event_id": "VlAD5MdEID_S1hASqRTak",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds riviere + chenille",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -40
+                ]
+            },
+            "actions": [
+                {
+                    "id": "xQSL8f1iPs3gI-j4AI6gT",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Est",
+                        "led_debut": "0",
+                        "led_fin": "34",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "uAI55wPV5y568YSs3Q2dn",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "32",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "6xkoQKTH0tul2fWrdnQKs",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Riviere_Sud",
+                        "led_debut": "0",
+                        "led_fin": "34",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "JOeMRbnPjm8uNP2IWRBl2",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Chenille",
+                        "led_debut": "0",
+                        "led_fin": "12",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "60",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "VlAD5MdEID_S1hASqRTak",
+            "next_event_id": "zBBL8SY4oI9__o1bc1z8O",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds papillons + arbre",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -50
+                ]
+            },
+            "actions": [
+                {
+                    "id": "q0HiXLlLMTSVuBJHy5r-c",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Petit_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "19",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "200",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "BYQ-ds2kz_41NpByD90Aw",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Grand_Papillon",
+                        "led_debut": "0",
+                        "led_fin": "19",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "200",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "9FrMy5nypxqJvjXvfCTO3",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Arbre_Sud",
+                        "led_debut": "0",
+                        "led_fin": "47",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zBBL8SY4oI9__o1bc1z8O",
+            "next_event_id": "cvnTjQQNuEQ_N62O4zfRB",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos papillons · son : dialogue",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -60
+                ]
+            },
+            "actions": [
+                {
+                    "id": "D822DdP06Vb3cw70mdB_A",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_Servo_Mono_Grand_Papillon,For_Central_Servo_Mono_Petit_Papillon",
+                        "num": "1",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "1500",
+                        "temps2": "1500",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "_SWJeePn2UGNAFfOU4RSe",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "lkFNGN7P880k4ggF0VJMP",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_02.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "cvnTjQQNuEQ_N62O4zfRB",
+            "next_event_id": "UAhlkLorL1IJWpC1uzZ67",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos fleurs + arbre",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -70
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PJJHDUBgOVWl0zliqvx9Z",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "WmxbRu2QWiMdC1dLe4QuL",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord1",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "JEWcH_EyFcbJLaqrr1aDI",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord2",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "IvcbHwLu6Y-0LZcl7yd1k",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Nord3",
+                        "num": "[1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "rFn0VXEwlaXmxd5xweUnY",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Arbre_Servo",
+                        "num": "[1]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "UAhlkLorL1IJWpC1uzZ67",
+            "next_event_id": "P-yr-CF2HIUqVGzYkKbRo",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Son : bruitage",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0,
+                    -80
+                ]
+            },
+            "actions": [
+                {
+                    "id": "aRAACcFBUrU9xf4fS_n5g",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_01.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "P-yr-CF2HIUqVGzYkKbRo",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#F26D5F",
+                "coordinate": [
+                    0,
+                    -90
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6Cn20GZQyBjMe4UXxdceq",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "6Lo2HiGkDXG7Lw8koMf_f",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "For_Central_Led_Fleurs_Sud,For_Central_Led_Fleurs_Est,For_Central_Led_Fleurs_Nord,For_Central_Led_Chenille,For_Central_Led_Petit_Papillon,For_Central_Led_Grand_Papillon,For_Central_Led_Riviere_Sud,For_Central_Led_Riviere_Ouest,For_Central_Led_Riviere_Est,For_Central_Led_Arbre_Sud"
+                    }
+                },
+                {
+                    "id": "cuUCPU8p9dlLapF3-JvsJ",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "qtv4Wu7U_9B7bl3muG-AD",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Central_RGB_Gauche,For_Central_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "l7DIcDUdzoWyKXcBsEgmZ",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Central_Servo_Mono_Grand_Papillon,For_Central_Servo_Mono_Petit_Papillon"
+                    }
+                },
+                {
+                    "id": "6F77pH_tP3vWng-r1BpO8",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "For_Central_Servo_Multi_Fleurs_Sud,For_Central_Servo_Multi_Fleurs_Nord1,For_Central_Servo_Multi_Fleurs_Nord2,For_Central_Servo_Multi_Fleurs_Nord3,For_Central_Servo_Multi_Arbre_Servo"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "3YZNkioyEkBrLGYPz9dGN",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "QZDjV1fE52CNdgQAERV_1",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "awbXcslk36abcoMNLUUie",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "K7-ys-355FULkrLSc4oKS",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

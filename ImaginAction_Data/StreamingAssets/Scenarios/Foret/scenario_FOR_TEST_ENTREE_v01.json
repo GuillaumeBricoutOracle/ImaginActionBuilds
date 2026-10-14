@@ -1,0 +1,423 @@
+{
+    "events": [
+        {
+            "id": "PTUHiWGLmJMamXbbVPV0p",
+            "next_event_id": "G29y1MlrizYSaTM2G5T77",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "DEBUT TEST ENTREE",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "dQYACA2YQ1hXZYOxFfdYe",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "f0GH8iqIBpBXrDg2idjKY",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "jUnWwIS4fLJca7N-78YMj",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "volume": "90",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "8jO5nYGolrCAIv8BvlO-K",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "volume": "80",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "G29y1MlrizYSaTM2G5T77",
+            "next_event_id": "4MxLFsFMo1W3vn6Tc7rcR",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB rouge · son : ambiance 5.1",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "b5CktyHt3d4mBQ6GXg-FH",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "yatdIG8sFOlNPsL-ycQT5",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4MxLFsFMo1W3vn6Tc7rcR",
+            "next_event_id": "TultKPSBGDbq9XcKmjMtJ",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB vert",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6IoTAaR4oe5ny6Uv1GN-w",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TultKPSBGDbq9XcKmjMtJ",
+            "next_event_id": "6eB4ctzVAB84YgKirg00g",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB bleu · son : musique",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JJUPkIjtbVQO1Y8DcpSZN",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "uBl-ATlAmOlfxFsWJ4PI_",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "AnvX9NTcSRo5LWlKUgLpB",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6eB4ctzVAB84YgKirg00g",
+            "next_event_id": "ZDFjJqeKX_Xz9yJ5muVnx",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "MONO global · son : dialogue",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "jeO0G7VlJIT7An-Q8yWR6",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "QqyJZZfPs3QfBSQgCQyd4",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Entree_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "9A0-tGLdnkmvqMamNeqk9",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "BsOcoCIy7JLZFdzkHvN43",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_CHE_02.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ZDFjJqeKX_Xz9yJ5muVnx",
+            "next_event_id": "-gQlZvx225HzXrw-kY0JE",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Fumee 3 s",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OIZ99xBhZgFJWZ93xoVr3",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "1",
+                        "diffusion": "3000",
+                        "pause": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-gQlZvx225HzXrw-kY0JE",
+            "next_event_id": "52k6R05vU_5dnq_qQHPRm",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Tout allume · son : bruitage",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "N93-8jh0egzJmfwjazUiB",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "3RDORqLLl7qp-k2o0LbhH",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Entree_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "eTEcghnYRVlHDs8Qa9eY4",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_01.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "52k6R05vU_5dnq_qQHPRm",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#F26D5F",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "pxRRjePFTuSm1xu1dcsqG",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "v_5ZMzEWrjtAdFZ2bvPMx",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Entree_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "2FtCNs9KDiDQiyoE0j6fw",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee"
+                    }
+                },
+                {
+                    "id": "yI4DNQvcDS4hlTg9U89sZ",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "GFTvLZVyvfbMjEZ5HAAWe",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "l5By_3G3s9vpdb9-84oUT",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "94-28lZg7ujtPtcozBzn0",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

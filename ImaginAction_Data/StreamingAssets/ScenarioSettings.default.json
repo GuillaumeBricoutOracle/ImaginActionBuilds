@@ -14,6 +14,11 @@
             "Scenarios/Foret/scenario_FOR_SCENE_v01.json"
         ]
     },
+    "testScenarios": {
+        "entree": "Scenarios/Foret/scenario_FOR_TEST_ENTREE_v01.json",
+        "central": "Scenarios/Foret/scenario_FOR_TEST_CENTRAL_v01.json",
+        "scene": "Scenarios/Foret/scenario_FOR_TEST_SCENE_v01.json"
+    },
     "controller": {
         "espTestConfigJson": "ControllerActions.json"
     },

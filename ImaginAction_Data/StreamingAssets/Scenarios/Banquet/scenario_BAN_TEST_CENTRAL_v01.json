@@ -1,0 +1,596 @@
+{
+    "events": [
+        {
+            "id": "Gqtt9Rcsos2lLLjWLN1ig",
+            "next_event_id": "8gCXmPPnZOkdNpFqa0twi",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "DEBUT TEST CENTRAL",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BkmmGtqYQmxeVWDWdFozL",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "x6fymiZEN7ULsMmqk16Zn",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "F3nTIFWxH_eT-15gUKFsf",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "volume": "90",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "C5tqSPq6x1exbDZKpd8eZ",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "volume": "80",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8gCXmPPnZOkdNpFqa0twi",
+            "next_event_id": "9RC3SetYF6bgYQ_aMasR5",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB + MONO · son : ambiance 5.1",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "r2t85IhcbDzrRudrYJQBB",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Ban_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "bclXwpvcmxOY2OhZSZKeF",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Ban_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "BZnx572WCxDxTVYfG8B-a",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Central_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "Pa4wDUDY5EL2Fnzg41H4i",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9RC3SetYF6bgYQ_aMasR5",
+            "next_event_id": "-tiO426LcAYP4NjeZCWEw",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Boitiers rouge / bleu",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EeZvEgsRVl_s_LeZ0GFz9",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Central_Boitier_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "PiST4PPMkmQNzHhwuBh6E",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Central_Boitier_Droit",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-tiO426LcAYP4NjeZCWEw",
+            "next_event_id": "Vbb-UGxQLsUzPl4Un6b0z",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds chapelier · son : musique",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "q4nD1HspmZ1RVUFPGIUku",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Chapelier_Centre",
+                        "led_debut": "0",
+                        "led_fin": "16",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "Sg6HwPJTjQl2K0L6zXPcr",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Chapelier_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "15",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "wE8TanAMy3Fiq7aAS1oHA",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Chapelier_Positif",
+                        "led_debut": "0",
+                        "led_fin": "45",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "ztjqZfV_IKA99GMT_frkW",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Chapelier_Sud",
+                        "led_debut": "0",
+                        "led_fin": "37",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "120",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "p4hv_RQwvkSlTKYRqvYwJ",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "0pQi1TOdK-R-D5HTUewxr",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Vbb-UGxQLsUzPl4Un6b0z",
+            "next_event_id": "F8yLUCa5qbE6GqFrWDwse",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds lievre",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OvoV9dxeo3YdGm4v_0EAm",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Centre",
+                        "led_debut": "0",
+                        "led_fin": "16",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "KrYnc1d9cv5K8Y9wghx-F",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Negatif",
+                        "led_debut": "0",
+                        "led_fin": "27",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "-l4hQh4jcT670Y11PadqL",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Positif",
+                        "led_debut": "0",
+                        "led_fin": "42",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "0ixGRPytSL6Sz1bQoDjJV",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Lievre_Sud",
+                        "led_debut": "0",
+                        "led_fin": "39",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "80",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "F8yLUCa5qbE6GqFrWDwse",
+            "next_event_id": "hnpuAUdX2dEcESHT7nV1g",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos chapelier · son : dialogue",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "iHiWTQE-qG91ktcecxWBl",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Ban_Central_Servo_Chapelier",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "gstrS-HhGPJANShAGOlT4",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "1PqqW1L8mtI_T3zm__8Kq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "BANQUET/DIALOGUES/ALICE/AL_DIAL_BAN_ALICE_01.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hnpuAUdX2dEcESHT7nV1g",
+            "next_event_id": "AMU2TuXqKxVr6Ws6eY2d_",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos lievre · son : bruitage",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Y9YJfS-0Ue2uz8qcI-K9e",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Ban_Central_Servo_Lievre",
+                        "num": "[1,1,1,1,1,0]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "1VfXMK5kDOayJ4rLYYolT",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "BANQUET/BRUITAGES/AL_BRUIT_BAN_ENTREE_Grimpe_Fleche.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AMU2TuXqKxVr6Ws6eY2d_",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#F26D5F",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BSM9WKpo-LJjDGxZ7ZIXb",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Central_Boitier_Gauche,Ban_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "qhKyTF77MOdfAINoy38pP",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Ban_Central_Led_Chapelier_Centre,Ban_Central_Led_Chapelier_Negatif,Ban_Central_Led_Chapelier_Positif,Ban_Central_Led_Chapelier_Sud,Ban_Central_Led_Lievre_Centre,Ban_Central_Led_Lievre_Negatif,Ban_Central_Led_Lievre_Positif,Ban_Central_Led_Lievre_Sud"
+                    }
+                },
+                {
+                    "id": "4NK11y1GzJg-IgSWHMOCU",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "6xqEVTRpRdtQkvSUpF8yO",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Ban_Central_RGB_Gauche,Ban_Central_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "Ps8EuPafnNPDF4yjcp4_B",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Ban_Central_Servo_Chapelier,Ban_Central_Servo_Lievre"
+                    }
+                },
+                {
+                    "id": "D0bko2fVOMSSnhZnsL7rn",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "0zLgRDM-2NRByRN48f8SM",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "WMIfCyqrCNmchXGCafVU6",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "EQwJexYiE3zVH6mVGPYBx",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1554,15 +1554,6 @@
                     "options": {
                         "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
                     }
-                },
-                {
-                    "id": "eec1c0ea65b94116afdb93083fcd7950",
-                    "refresh_rate": "0",
-                    "action": "stop",
-                    "type": "Boitier",
-                    "options": {
-                        "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
-                    }
                 }
             ]
         },
@@ -10915,7 +10906,7 @@
                         "next_event_id": "uykCtYksTzhfn0D7Qlk08",
                         "sensor_hardware": "For_Central_Boitier_Gauche",
                         "sensor_variable": "status",
-                        "expected": "FINISHED"
+                        "expected": "COLORBOX_STATUS_FINISHED"
                     }
                 },
                 {
@@ -10928,7 +10919,7 @@
                         "next_event_id": "s6KKnY37d_2hsE_3ccyHy",
                         "sensor_hardware": "For_Central_Boitier_Droit",
                         "sensor_variable": "status",
-                        "expected": "FINISHED"
+                        "expected": "COLORBOX_STATUS_FINISHED"
                     }
                 }
             ]

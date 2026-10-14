@@ -1500,6 +1500,7 @@ def _int_safe(s):
         return 0
 
 _electronics_catalog = None
+_electronics_catalog_mtime = None     # mtime du CSV chargé : relu dès qu'il change
 _electronics_catalog_lock = threading.Lock()
 
 # ─── Fraîcheur des statuts ────────────────────────────────────────────────────
@@ -1804,26 +1805,37 @@ def _in_house(name):
     return all(t.lower() in low for t in _house_tokens())
 
 
+def _electronics_csv_path():
+    """Chemin de la feuille électronique (ScenarioSettings.json peut le redéfinir)."""
+    settings_path = os.path.join(ASSETS_DIR, 'StreamingAssets', 'ScenarioSettings.json')
+    csv_rel = 'Test_Media/CSV/List_Electronic.csv'
+    if os.path.isfile(settings_path):
+        try:
+            s = json.load(open(settings_path, encoding='utf-8'))
+            csv_rel = s.get('dataSources', {}).get('electronicsCsv', csv_rel)
+        except Exception:
+            pass
+    return os.path.join(ASSETS_DIR, 'StreamingAssets', csv_rel.replace('/', os.sep))
+
+
 def _get_electronics_catalog():
-    global _electronics_catalog
-    if _electronics_catalog is not None:
+    """{nom en minuscules: fiche} depuis List_Electronic.csv. Mis en cache,
+    mais relu dès que le fichier change : un renommage ou un changement
+    d'îlot dans la feuille se voit sans redémarrer le serveur."""
+    global _electronics_catalog, _electronics_catalog_mtime
+    csv_path = _electronics_csv_path()
+    try:
+        mtime = os.path.getmtime(csv_path)
+    except OSError:
+        mtime = None
+    if _electronics_catalog is not None and mtime == _electronics_catalog_mtime:
         return _electronics_catalog
     with _electronics_catalog_lock:
-        if _electronics_catalog is not None:
+        if _electronics_catalog is not None and mtime == _electronics_catalog_mtime:
             return _electronics_catalog
         import csv as _csv
         catalog = {}
         try:
-            settings_path = os.path.join(ASSETS_DIR, 'StreamingAssets', 'ScenarioSettings.json')
-            csv_rel = 'Test_Media/CSV/List_Electronic.csv'
-            if os.path.isfile(settings_path):
-                try:
-                    s = json.load(open(settings_path, encoding='utf-8'))
-                    csv_rel = s.get('dataSources', {}).get('electronicsCsv', csv_rel)
-                except Exception:
-                    pass
-            csv_path = os.path.join(ASSETS_DIR, 'StreamingAssets',
-                                    csv_rel.replace('/', os.sep))
             if os.path.isfile(csv_path):
                 with open(csv_path, encoding='utf-8-sig', newline='') as f:
                     for row in _csv.DictReader(f):
@@ -1850,6 +1862,7 @@ def _get_electronics_catalog():
         except Exception:
             pass
         _electronics_catalog = catalog
+        _electronics_catalog_mtime = mtime
         return catalog
 
 

@@ -22,7 +22,7 @@ For_Central_Servo_Multi_Arbre_Servo,,192.168.0.68,68,Foret,Central,Servo_Multi,_
 For_Central_Boitier_Gauche,0c:b8:15:f8:d1:78,192.168.0.69,69,Foret,Central,Boitier,_Gauche,,,,,,,,,,,,,,,
 For_Central_Boitier_Droit,58:bf:25:9d:d3:c0,192.168.0.70,70,Foret,Central,Boitier,_Droit,,,,,,,,,,,,,,,
 For_Scene_Parfum,ec:62:60:9c:99:88,192.168.0.71,71,Foret,Scene,Parfum,,,,,,,,,,,,,,,,
-For_Central_Animatronique,ec:62:60:9c:73:08,192.168.0.72,72,Foret,Central,Animatronique,,,,,,,,,,,,,,,,
+For_Scene_Animatronique,ec:62:60:9c:73:08,192.168.0.72,72,Foret,Scene,Animatronique,,,,,,,,,,,,,,,,
 For_Central_Distance,ec:62:60:84:d6:f4,192.168.0.73,73,Foret,Central,Distance,,,,,,,,,,,,,,,,
 Ban_Entree_Parfum,7c:9e:bd:7b:ac:e8,192.168.0.50,50,Banquet,Entree,Parfum,,,,,,,,,,,,,,,,
 Ban_Controller,CC:7B:5C:1E:8E:38,192.168.0.3,3,Banquet,,,,,,,,,,,,,,,,,,

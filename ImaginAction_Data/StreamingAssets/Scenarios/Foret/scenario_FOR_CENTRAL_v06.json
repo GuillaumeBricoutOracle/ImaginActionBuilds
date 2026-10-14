@@ -11156,7 +11156,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_01"
                     }
                 },
@@ -11193,7 +11193,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_02"
                     }
                 },
@@ -11230,7 +11230,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_03"
                     }
                 },
@@ -11267,7 +11267,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_04"
                     }
                 },
@@ -11304,7 +11304,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_05"
                     }
                 },
@@ -11341,7 +11341,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_06"
                     }
                 },
@@ -11378,7 +11378,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_07"
                     }
                 },
@@ -11415,7 +11415,7 @@
                     "action": "anim",
                     "type": "Animatronique",
                     "options": {
-                        "hardware": "For_Central_Animatronique",
+                        "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_08"
                     }
                 },

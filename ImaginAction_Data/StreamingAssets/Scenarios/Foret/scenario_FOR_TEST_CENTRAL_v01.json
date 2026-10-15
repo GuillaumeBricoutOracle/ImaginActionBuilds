@@ -10,8 +10,8 @@
                 "name": "DEBUT TEST CENTRAL",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    0,
-                    0
+                    0.0,
+                    -0.0
                 ]
             },
             "actions": [
@@ -71,8 +71,8 @@
                 "name": "RGB + MONO · son : ambiance 5.1",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -10
+                    0.0,
+                    -10.0
                 ]
             },
             "actions": [
@@ -138,8 +138,8 @@
                 "name": "Boitiers rouge / bleu",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -20
+                    0.0,
+                    -20.0
                 ]
             },
             "actions": [
@@ -179,8 +179,8 @@
                 "name": "Leds fleurs · son : musique",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -30
+                    0.0,
+                    -30.0
                 ]
             },
             "actions": [
@@ -278,8 +278,8 @@
                 "name": "Leds riviere + chenille",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -40
+                    0.0,
+                    -40.0
                 ]
             },
             "actions": [
@@ -375,8 +375,8 @@
                 "name": "Leds papillons + arbre",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -50
+                    0.0,
+                    -50.0
                 ]
             },
             "actions": [
@@ -452,8 +452,8 @@
                 "name": "Servos papillons · son : dialogue",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -60
+                    0.0,
+                    -60.0
                 ]
             },
             "actions": [
@@ -461,7 +461,7 @@
                     "id": "D822DdP06Vb3cw70mdB_A",
                     "refresh_rate": "0",
                     "action": "aller_retour",
-                    "type": "MONO",
+                    "type": "Servo_Mono",
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon,For_Central_Servo_Mono_Petit_Papillon",
                         "num": "1",
@@ -506,8 +506,8 @@
                 "name": "Servos fleurs + arbre",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -70
+                    0.0,
+                    -70.0
                 ]
             },
             "actions": [
@@ -525,17 +525,7 @@
                         "temps": "2000",
                         "temps2": "2000",
                         "delai": "0"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 },
                 {
                     "id": "WmxbRu2QWiMdC1dLe4QuL",
@@ -551,17 +541,7 @@
                         "temps": "2000",
                         "temps2": "2000",
                         "delai": "0"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 },
                 {
                     "id": "JEWcH_EyFcbJLaqrr1aDI",
@@ -577,17 +557,7 @@
                         "temps": "2000",
                         "temps2": "2000",
                         "delai": "0"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 },
                 {
                     "id": "IvcbHwLu6Y-0LZcl7yd1k",
@@ -603,17 +573,7 @@
                         "temps": "2000",
                         "temps2": "2000",
                         "delai": "0"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 },
                 {
                     "id": "rFn0VXEwlaXmxd5xweUnY",
@@ -629,17 +589,7 @@
                         "temps": "2000",
                         "temps2": "2000",
                         "delai": "0"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 }
             ]
         },
@@ -650,14 +600,23 @@
             "duration": 3,
             "event_role": "None",
             "interface": {
-                "name": "Son : bruitage",
+                "name": "Capteur son (ecoute) · son : bruitage",
                 "color": "#4DB6AC",
                 "coordinate": [
-                    0,
-                    -80
+                    0.0,
+                    -80.0
                 ]
             },
             "actions": [
+                {
+                    "id": "Z291tg57xFSwtyBE2ptrc",
+                    "refresh_rate": "0",
+                    "action": "listen",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
+                    }
+                },
                 {
                     "id": "aRAACcFBUrU9xf4fS_n5g",
                     "refresh_rate": "0",
@@ -680,8 +639,8 @@
                 "name": "RESET",
                 "color": "#F26D5F",
                 "coordinate": [
-                    0,
-                    -90
+                    0.0,
+                    -90.0
                 ]
             },
             "actions": [
@@ -692,6 +651,15 @@
                     "type": "Boitier",
                     "options": {
                         "hardware": "For_Central_Boitier_Gauche,For_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "aprHbULS2TzFkNBdZls-8",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Capteur_Son",
+                    "options": {
+                        "hardware": "For_Central_CapteurSon"
                     }
                 },
                 {
@@ -729,7 +697,7 @@
                     "id": "l7DIcDUdzoWyKXcBsEgmZ",
                     "refresh_rate": "0",
                     "action": "reset",
-                    "type": "MONO",
+                    "type": "Servo_Mono",
                     "options": {
                         "hardware": "For_Central_Servo_Mono_Grand_Papillon,For_Central_Servo_Mono_Petit_Papillon"
                     }
@@ -741,17 +709,7 @@
                     "type": "Servo_Multi",
                     "options": {
                         "hardware": "For_Central_Servo_Multi_Fleurs_Sud,For_Central_Servo_Multi_Fleurs_Nord1,For_Central_Servo_Multi_Fleurs_Nord2,For_Central_Servo_Multi_Fleurs_Nord3,For_Central_Servo_Multi_Arbre_Servo"
-                    },
-                    "options_order": [
-                        "arduino",
-                        "num",
-                        "angle",
-                        "angle2",
-                        "ntours",
-                        "temps",
-                        "temps2",
-                        "delai"
-                    ]
+                    }
                 },
                 {
                     "id": "3YZNkioyEkBrLGYPz9dGN",

@@ -1,0 +1,1474 @@
+{
+    "events": [
+        {
+            "id": "7xYqOWrytlRjipOwZoYc-",
+            "next_event_id": "gQQf57mNier7Xa8qQNDBZ",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "7xYqOWrytlRjipOwZoYc-",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NyumJQWpFdn8nuUbkwYz9",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "p00MTCO6Atm_tnPQE0TgW",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "aZHCJoPTrV88rgAP9z-a6",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "loop_mode": "repeat"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gQQf57mNier7Xa8qQNDBZ",
+            "next_event_id": "ShJjUlR4zXqkeSaFhF4yH",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "gQQf57mNier7Xa8qQNDBZ",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "fdJ85SOsfqW2RKwUb_SDJ",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "1",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Scene_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "jraApUbOXODQ9ugnnWDRZ",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "0"
+                    }
+                },
+                {
+                    "id": "c8VAY9Z15ODDkql56xZHb",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Scene_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "ElPouTRvgg1by9QgcsRnX",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "loop_mode": "loop"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ShJjUlR4zXqkeSaFhF4yH",
+            "next_event_id": "OB_VFbkiXf0wVKRwEftJB",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "ShJjUlR4zXqkeSaFhF4yH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "daW6HaSJZWCxe6FS7vkxT",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "60",
+                        "fade_time": "6",
+                        "hardware": "For_Scene_MONO_Foret"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "OB_VFbkiXf0wVKRwEftJB",
+            "next_event_id": "lrtYsJJ-DcrRzxr5XN8BM",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "OB_VFbkiXf0wVKRwEftJB",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vCbWuX3p6wMZORaSmZcGS",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "3RbN4e3wxHYnqQUFWN5dy",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "2",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "lrtYsJJ-DcrRzxr5XN8BM",
+            "next_event_id": "AuYmXTnnoHyIpuhtpPcNz",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "lrtYsJJ-DcrRzxr5XN8BM",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "dO60sZXAucBYu4nZ_XNzQ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_01.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AuYmXTnnoHyIpuhtpPcNz",
+            "next_event_id": "KMDHw3cdJu2zdoYQ07MaN",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "AuYmXTnnoHyIpuhtpPcNz",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "LnoAid2a30f3drwEpyceG",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "90",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "KMDHw3cdJu2zdoYQ07MaN",
+            "next_event_id": "q8yqL9k7kEktjhNXOrE8z",
+            "event_type": "ActionEvent",
+            "duration": 12,
+            "event_role": "None",
+            "interface": {
+                "name": "KMDHw3cdJu2zdoYQ07MaN",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "iGzJjdh0eNhl_N1Eca7w0",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_02.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "yw_UyFDJSB-_ZIG2_UlA1",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "LKEQqC261hOTudLw3ezFM",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "60",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "q8yqL9k7kEktjhNXOrE8z",
+            "next_event_id": "w75CNff2SrQY24gOURTni",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHAT_ronron",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Tf1nkDtw2UQ6iOaYueeNJ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHAT_Ronron.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "0nnqIniT3O3lgERAp2Jy3",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "1",
+                        "blue": "150",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "XhXWHkG-oMXZ_QMR206Sw",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "150",
+                        "green": "1",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "w75CNff2SrQY24gOURTni",
+            "next_event_id": "h8GJxGpzFq8c5ILO1G8XE",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "w75CNff2SrQY24gOURTni",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "WOQSlsGikncolCDCkpAgr",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "50",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_MONO_Foret"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "h8GJxGpzFq8c5ILO1G8XE",
+            "next_event_id": "ixnFQ-NRsk9JhLIABaYIa",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHAT_Yeux",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -90.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "FtNkMZcfidxGSdeNSyfA4",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "75",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "rEuqyvpfb98UQPHlstiJd",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "0",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ixnFQ-NRsk9JhLIABaYIa",
+            "next_event_id": "NukhH5WNEfdFqNE5WtmQ7",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "ixnFQ-NRsk9JhLIABaYIa",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -100.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "R46kc6DCBzC9zBvzKwWci",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_01.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "hTXoBOPO7N2H_nqiaX98C",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_03"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "NukhH5WNEfdFqNE5WtmQ7",
+            "next_event_id": "IJOt9X_7J-p4yNvoMl7Hy",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "NukhH5WNEfdFqNE5WtmQ7",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -110.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "18u2qsYsIu4BE5jfABbNv",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "80",
+                        "fade_time": "10",
+                        "hardware": "For_Scene_MONO_Chat"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IJOt9X_7J-p4yNvoMl7Hy",
+            "next_event_id": "G5rxeqaozMdt9FLACx7oV",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "IJOt9X_7J-p4yNvoMl7Hy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -120.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "K8gX9aPcUQU3io_U1kNdE",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_03.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "G5rxeqaozMdt9FLACx7oV",
+            "next_event_id": "yenqp6BtjAWZBlJxkGBTK",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "G5rxeqaozMdt9FLACx7oV",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -130.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hdyj62y-tAMD-bxFiXaLQ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_02.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "LWyhlxd8DzDDcv0fG4s8V",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "20",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_MONO_Foret"
+                    }
+                },
+                {
+                    "id": "jKWGwt-bGWxarM_gd-T9h",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_05"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "yenqp6BtjAWZBlJxkGBTK",
+            "next_event_id": "7jIfgLmqbMVeYRsovBELh",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "yenqp6BtjAWZBlJxkGBTK",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -140.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "sY578vuUWZbifaiTiqR2n",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_04.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7jIfgLmqbMVeYRsovBELh",
+            "next_event_id": "g7xeSGsXJIl4eAXy_obfI",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "7jIfgLmqbMVeYRsovBELh",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -150.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "yD9jLnoelVduEVAkV-RtK",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_03.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "pc9sMzrrQG8dpmWX3uUS5",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_03"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "g7xeSGsXJIl4eAXy_obfI",
+            "next_event_id": "KNYCFOI7_bceR38ODC0Z7",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "CHAT_04",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -160.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Ik6KKFk3ho8jo1_UiDPr_",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_05.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "KNYCFOI7_bceR38ODC0Z7",
+            "next_event_id": "ehaoiZTTnKvAAn24c3aBE",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "KNYCFOI7_bceR38ODC0Z7",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -170.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3T75Ff4EtvAhZBfGBhHNQ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_04.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "yqxU-5bfvMXKx3GJDXQJ-",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_08"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ehaoiZTTnKvAAn24c3aBE",
+            "next_event_id": "H1Ha70EjUztUVjjBXUpCa",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "ehaoiZTTnKvAAn24c3aBE",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -180.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Mgnv7BCXxgHI5BiUiaVGm",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_06.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "H1Ha70EjUztUVjjBXUpCa",
+            "next_event_id": "-gpKl0_ytsjLOKtJnyz1X",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "H1Ha70EjUztUVjjBXUpCa",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -190.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "wJJ3H2vWA3-9d5tARHQ6p",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "150",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Scene_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "eqnC6ZsYn2buMF8HInqcM",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "200",
+                        "green": "150",
+                        "blue": "1",
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Scene_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "PIyCeZVKmNK9QigZcg9tw",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "fade_time": "3",
+                        "is_rgb": "false",
+                        "hardware": "For_Scene_MONO_Chat"
+                    }
+                },
+                {
+                    "id": "B0rRoBHqOr_NOGafyGr_r",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "20",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_MONO_Foret"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-gpKl0_ytsjLOKtJnyz1X",
+            "next_event_id": "J9EQfsAvWVPJ5BBtVMkxv",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Panneaux",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -200.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Qah2B_odmCVlrQQd_yo0d",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "100",
+                        "fade_time": "5",
+                        "hardware": "For_Scene_MONO_Panneaux"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "J9EQfsAvWVPJ5BBtVMkxv",
+            "next_event_id": "33p-vcrYT8bbF7rih66mC",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "J9EQfsAvWVPJ5BBtVMkxv",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -210.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "sJibnb_fPBINNQktIWahB",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_07.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "33p-vcrYT8bbF7rih66mC",
+            "next_event_id": "qXjUd0erYGOzAxYcaUJYk",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "33p-vcrYT8bbF7rih66mC",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -220.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "eWLLHfumYi6JFzsnlHBMy",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "brightness": "60",
+                        "fade_time": "3",
+                        "hardware": "For_Scene_MONO_Chat"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qXjUd0erYGOzAxYcaUJYk",
+            "next_event_id": "HAIVMsuFMNt6kfBES9edj",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "qXjUd0erYGOzAxYcaUJYk",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -230.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NA4uxFbM9UKn722buT4uc",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_05.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "fNZxoN8EQt2N200J_lfct",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_05"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "HAIVMsuFMNt6kfBES9edj",
+            "next_event_id": "ukF671vnwdWPfyqLKPqgA",
+            "event_type": "ActionEvent",
+            "duration": 11,
+            "event_role": "None",
+            "interface": {
+                "name": "HAIVMsuFMNt6kfBES9edj",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -240.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "shgj1zfr0-oG7pa7KIRVg",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_06.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "3shjnXPpTkULMubqft75I",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "1",
+                        "blue": "100",
+                        "brightness": "20",
+                        "fade_time": "2",
+                        "hardware": "For_Scene_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "UyKXWpH4ipwvl1Qo-QZw-",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_03"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ukF671vnwdWPfyqLKPqgA",
+            "next_event_id": "i_zBUa_Mz63dwI6RI3-Un",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "ukF671vnwdWPfyqLKPqgA",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -250.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kbgCsILMZyliDK9ndDXIP",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_08.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "i_zBUa_Mz63dwI6RI3-Un",
+            "next_event_id": "GhR9GDH9AntaeYuGKQGIy",
+            "event_type": "ActionEvent",
+            "duration": 18,
+            "event_role": "None",
+            "interface": {
+                "name": "i_zBUa_Mz63dwI6RI3-Un",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -260.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hbRXMu8CrzKRLi42C2cia",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_07.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "1BkXFemA5V6yUTxPSsS86",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "100",
+                        "blue": "1",
+                        "brightness": "20",
+                        "fade_time": "2",
+                        "hardware": "For_Scene_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "s548Cxk7zm3t5rxf8xgqJ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "1",
+                        "green": "150",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2",
+                        "hardware": "For_Scene_RGB_Gauche"
+                    }
+                },
+                {
+                    "id": "qWRNLmo-DIEH56d4HO3qS",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_08"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "GhR9GDH9AntaeYuGKQGIy",
+            "next_event_id": "1UBQr0dYXyKeAm4UBi5UH",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "GhR9GDH9AntaeYuGKQGIy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -270.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-TiclYjc-ZdJwqHAdD-Ae",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_09.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1UBQr0dYXyKeAm4UBi5UH",
+            "next_event_id": "nQzp1mt7wJCpomrSHqOVq",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "1UBQr0dYXyKeAm4UBi5UH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -280.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "gfGjO7lmznYiqH2f70IDU",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_08.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "BTeKEYIuhDUFg-nbrudNn",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "red": "255",
+                        "green": "100",
+                        "blue": "1",
+                        "brightness": "100",
+                        "fade_time": "2",
+                        "hardware": "For_Scene_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "ixoKcvGOf1xNaPoL4Yjdd",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_08"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nQzp1mt7wJCpomrSHqOVq",
+            "next_event_id": "tvg0aodEi4lTuO0LR55sI",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "nQzp1mt7wJCpomrSHqOVq",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -290.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "X7mKl5I8mVIQurz6FqWRO",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_10.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tvg0aodEi4lTuO0LR55sI",
+            "next_event_id": "Fg3a-xCVXCiZVqarJbN0u",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "tvg0aodEi4lTuO0LR55sI",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -300.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ookK6pUsBZWWA0d9WwCxN",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_09.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "xURKQiiv871pkkUhTqXml",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_05"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Fg3a-xCVXCiZVqarJbN0u",
+            "next_event_id": "EXL21nk2M-IwLb7szo1Dh",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "Fg3a-xCVXCiZVqarJbN0u",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -310.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0NI0ULTb-RZdrQKXkjDz_",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_11.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EXL21nk2M-IwLb7szo1Dh",
+            "next_event_id": "d-9Jch0a77zaJki2WiAyD",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "EXL21nk2M-IwLb7szo1Dh",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -320.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "AKqfHgmlefVaSqseHLUIU",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "20",
+                        "fade_time": "8"
+                    }
+                },
+                {
+                    "id": "NqM_ZMvef5ttPaFcitv5N",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "d-9Jch0a77zaJki2WiAyD",
+            "next_event_id": "I8vwUXl_pD6EHtMypLOqE",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "d-9Jch0a77zaJki2WiAyD",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -330.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "SJ4IF4z0_lcgGkMr9eWPA",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_10.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "R8CYPoNDzI74m1OoDg-Tt",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_03"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "I8vwUXl_pD6EHtMypLOqE",
+            "next_event_id": "IV6KqUX3ZVJYpAfSbSZTr",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "I8vwUXl_pD6EHtMypLOqE",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -340.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "aBSZP8cd7C3jKtsWIAtmi",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/ALICE/AL_DIAL_FOR_ALICE_FOR_12.wav",
+                        "volume": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IV6KqUX3ZVJYpAfSbSZTr",
+            "next_event_id": "1T5p2SyjV0BChGOWerZc-",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "CHAT_DernierDial",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -350.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "l-KpOPWoE-PQaoL3tPN4t",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "FORET/DIALOGUES/CHAT/AL_DIAL_FOR_CHAT_FOR_11.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "HDXVBsK8X3cA6hvn0JCJM",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "50",
+                        "fade_time": "10"
+                    }
+                },
+                {
+                    "id": "2Equ8lIll6qrS2_PIJrUs",
+                    "refresh_rate": "0",
+                    "action": "anim",
+                    "type": "Animatronique",
+                    "options": {
+                        "hardware": "For_Scene_Animatronique",
+                        "anim_name": "FOR_CHAT_08"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1T5p2SyjV0BChGOWerZc-",
+            "next_event_id": "bL1Kt-2VQoorGvsK7qnwD",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "1T5p2SyjV0BChGOWerZc-",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -360.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NdsK9pPqOPKvGxySI3EIn",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "fade_time": "9",
+                        "is_rgb": "false",
+                        "hardware": "For_Scene_MONO_Panneaux,For_Scene_MONO_Foret,For_Scene_MONO_Chat"
+                    }
+                },
+                {
+                    "id": "aVnGlvdyStrxZUQIyPXn0",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "fade_time": "10",
+                        "is_rgb": "true",
+                        "hardware": "For_Scene_RGB_Gauche,For_Scene_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bL1Kt-2VQoorGvsK7qnwD",
+            "next_event_id": "b4d6f8a0c2e4568a9c0e2b4d6f8a1c35",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "bL1Kt-2VQoorGvsK7qnwD",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -370.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "14fKgq3Ahu83CODsE-NOS",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "0",
+                        "fade_time": "8"
+                    }
+                },
+                {
+                    "id": "rbtf-K3LXVlil4o0iSZCI",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "0",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "b4d6f8a0c2e4568a9c0e2b4d6f8a1c35",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -380.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1a3c5e7f9b246d8e0a2c4e6f8b0d3f59",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Scene_RGB_Gauche,For_Scene_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "6b8d0f2a4c6e8135a7c9e1b3d5f7a924",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Scene_MONO_Foret,For_Scene_MONO_Chat,For_Scene_MONO_Panneaux",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                }
+            ]
+        }
+    ]
+}

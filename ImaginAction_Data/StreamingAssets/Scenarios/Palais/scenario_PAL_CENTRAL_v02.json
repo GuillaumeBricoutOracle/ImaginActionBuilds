@@ -1,0 +1,5081 @@
+{
+    "events": [
+        {
+            "id": "LShsj8rKI3URZmk40tzr0",
+            "next_event_id": "1VyUkLHYfAYh1ueSlo7uY",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "Start",
+            "interface": {
+                "name": "LShsj8rKI3URZmk40tzr0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Np80E1vh_WBxwUjI7kZsH",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1VyUkLHYfAYh1ueSlo7uY",
+            "next_event_id": "Yv5vA92dHSwPSHbhXYYKd",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "1VyUkLHYfAYh1ueSlo7uY",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NJkPhe2_SSM3jlNtp64iR",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "2"
+                    }
+                },
+                {
+                    "id": "JCy-BqJvn1efatJ98UG_D",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "CESLX5oZcy5EzV3i5wn9X",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "19UHdHlSm1g-eXzcQScKk",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "50",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Yv5vA92dHSwPSHbhXYYKd",
+            "next_event_id": "9xImrwHY2hac4lvx4qGvz",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Yv5vA92dHSwPSHbhXYYKd",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "bc7TGfIh0L0n6FtvIbPYp",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Sud",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9xImrwHY2hac4lvx4qGvz",
+            "next_event_id": "IB2jakLSn9hUTNFvKeqGo",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "9xImrwHY2hac4lvx4qGvz",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "AEvFHOgTtIvT4mpvThXDd",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IB2jakLSn9hUTNFvKeqGo",
+            "next_event_id": "b2C7aSkjozubGEW9bTyvW",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "IB2jakLSn9hUTNFvKeqGo",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "qM8IF7HOiyj_Fk2tUIexi",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "1",
+                        "transition_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "b2C7aSkjozubGEW9bTyvW",
+            "next_event_id": "R7QnZ38ukE7_Cm0qCwbPc",
+            "event_type": "ActionEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "b2C7aSkjozubGEW9bTyvW",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "_H995wpJXle9HzCpgyYh3",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "G8Aernc8_9SL5J02relAm",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "50",
+                        "blue": "50",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "R7QnZ38ukE7_Cm0qCwbPc",
+            "next_event_id": "IyKltsOGIB8PIX42I41E0",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "R7QnZ38ukE7_Cm0qCwbPc",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "s36y2cncKo7y4M4b6mzRs",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Attrape_Flamand.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IyKltsOGIB8PIX42I41E0",
+            "next_event_id": "5J9Nq0pScKCSQ8SFxPIKd",
+            "event_type": "ActionEvent",
+            "duration": 15,
+            "event_role": "None",
+            "interface": {
+                "name": "IyKltsOGIB8PIX42I41E0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "C64pw6k-iRmEay8SyLXh7",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/REINE/AL_DIAL_PAL_REINE_ILO_01.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "fe6pyyrvDBGm6JWMF831-",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps2": "1000",
+                        "delai": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5J9Nq0pScKCSQ8SFxPIKd",
+            "next_event_id": "rqau3WC799m1HQho6J5Rk",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "5J9Nq0pScKCSQ8SFxPIKd",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3lJSzdn_RAz7eixcPu-gJ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_Bleu_01.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "1P-_Dv-jQWGshyrHSS2Fn",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "min",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "fg6WQ0HzrJi7OKUM5V5_l",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Ouest",
+                        "leds": "0,1",
+                        "code1": "blue",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "3000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "rqau3WC799m1HQho6J5Rk",
+            "next_event_id": "Aa4HlCMnnJG3CSmVZE_6-",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "rqau3WC799m1HQho6J5Rk",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -90.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "XPRiszrvG83W03zjwkcEU",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                },
+                {
+                    "id": "71ZMrJ8mQdX8I3SM-bU6f",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Foule_React_Malice.wav",
+                        "volume": "85"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Aa4HlCMnnJG3CSmVZE_6-",
+            "next_event_id": "a0Hz6fMGFL93RO5AUAhJy",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "Aa4HlCMnnJG3CSmVZE_6-",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -100.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "rfa-RkbH-3LDLgsRSlCt7",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_Violet_01.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "1NLmGn_ET6rtMKxbf5kWv",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "max",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "oaNKzcw-GWAlIf0SZ8GX_",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Est",
+                        "leds": "0,1",
+                        "code1": "magenta",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "a0Hz6fMGFL93RO5AUAhJy",
+            "next_event_id": "gJcR6oNMLcAqG-wK1A5Xx",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "a0Hz6fMGFL93RO5AUAhJy",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -110.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "huzuc-hWU7Av5a0kqSH5T",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                },
+                {
+                    "id": "4U1rdFflTJefLlnQk8ioo",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gJcR6oNMLcAqG-wK1A5Xx",
+            "next_event_id": "ic0cXqMD044paF7Te70oj",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX CROQUET",
+                "color": "#212529",
+                "coordinate": [
+                    0.0,
+                    -120.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "a16c080f29f847a988eafa2d53cadb26",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "25e7bd1873d54cac89650ef2787a4243",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "lfvwzszYGWkFmnn3eEL4L",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "3ad933cd77384e6d8cfe549b68b737c3",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "ic0cXqMD044paF7Te70oj",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "lfvwzszYGWkFmnn3eEL4L",
+            "next_event_id": "_l-PFxOUm11CzC5Nv3MzY",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN BLEU #A",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40.0,
+                    -130.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "SN4L8Jnk8svxVC9z9tSvi",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/SEQUENCES/AL_SEQ_PAL_ILO_Alice_Joue.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "2KioM2PZaq-oJpdXxyrNi",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Est",
+                        "leds": "0,1",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "jWv_wVSHu2PBodJ7JRAdL",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Ouest",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "6e841bf876f043a6af61cc0987481dfe",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "_l-PFxOUm11CzC5Nv3MzY",
+            "next_event_id": "FVvwDDiY4-4hPZPGBWgYT",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "_l-PFxOUm11CzC5Nv3MzY",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -140.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BvzLlOk3iE1a0ewZ5VRl9",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "max",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "FVvwDDiY4-4hPZPGBWgYT",
+            "next_event_id": "xdwCdE0TJqiIBkbm-9yZP",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "FVvwDDiY4-4hPZPGBWgYT",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -150.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3F7Mm3ut2D6fR13yz6iHT",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "max",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xdwCdE0TJqiIBkbm-9yZP",
+            "next_event_id": "2xMLSjAvgf2cKMo6QGM-G",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "xdwCdE0TJqiIBkbm-9yZP",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40.0,
+                    -160.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5IjymZ2X4CGhzgkZ6T1Ka",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_01.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2xMLSjAvgf2cKMo6QGM-G",
+            "next_event_id": "IBGGnO7XyoV184MegO4mZ",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "2xMLSjAvgf2cKMo6QGM-G",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40.0,
+                    -170.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Tfa1uHDsQL6oiTrNbXUkx",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Foule_React_Bouhou.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "SbRcCz5ebYAQC6_HJC8Te",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "init",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "IBGGnO7XyoV184MegO4mZ",
+            "next_event_id": "we0qn-rMqPZzAyhxXeD-C",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "IBGGnO7XyoV184MegO4mZ",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    40.0,
+                    -180.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "HFaaTzO75qJ-ieyT3Qjmj",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/REINE/AL_DIAL_PAL_REINE_ILO_02.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "uffSKe-8QQ2cXQcFS6hMW",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "3",
+                        "transition_time": "1"
+                    }
+                },
+                {
+                    "id": "KQlcBLZDF8wNTZi5UxByK",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "30",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "_pLMToUTl0en5gZQTqPgv",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ic0cXqMD044paF7Te70oj",
+            "next_event_id": "eoXCdy_iFP5T6C5DTMO1H",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN VIOLET #B",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -130.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "H-tXxg_xw4J2YGXTMhGQo",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/SEQUENCES/AL_SEQ_PAL_ILO_Alice_Joue.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "JjMw6wu7f6gA6YhOhPuF3",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Ouest",
+                        "leds": "0,1",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "8wwswbMcFKEQou2WxLtU6",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Est",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "5613c659aea34962a01941b7843092bb",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "eoXCdy_iFP5T6C5DTMO1H",
+            "next_event_id": "LgOY53MM_XeoJGCOlxn2X",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "eoXCdy_iFP5T6C5DTMO1H",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -140.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EmzCqP60YKjKVmqO4NSzP",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "max",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "LgOY53MM_XeoJGCOlxn2X",
+            "next_event_id": "3ZMtvdZJmMlYxhYvhlsz9",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "LgOY53MM_XeoJGCOlxn2X",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -150.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Henr5cKoPZKH3rDXcNkjI",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit_Est2",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "min",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3ZMtvdZJmMlYxhYvhlsz9",
+            "next_event_id": "g-mlmH1KPyChSG_UU64Ts",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "3ZMtvdZJmMlYxhYvhlsz9",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -160.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "EWiTNBsLSPymb9iQafx9c",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_02.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "n-yORsqSrBu-YLoNr5LDi",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "g-mlmH1KPyChSG_UU64Ts",
+            "next_event_id": "6Iv2QGGlOEs8Vwr907mZy",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "g-mlmH1KPyChSG_UU64Ts",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -170.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OljnBJHEy7Jj1pjgljT73",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Foule_React_Bouhou2.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "8XVm5wlQJ_a_43ECgZF2g",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6Iv2QGGlOEs8Vwr907mZy",
+            "next_event_id": "we0qn-rMqPZzAyhxXeD-C",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "6Iv2QGGlOEs8Vwr907mZy",
+                "color": "#DC3545",
+                "coordinate": [
+                    0.0,
+                    -180.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ff3vVQu1KDkixSVQFIOXQ",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/REINE/AL_DIAL_PAL_REINE_ILO_03.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "JwohpQr2enFLfLWws1IkL",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "we0qn-rMqPZzAyhxXeD-C",
+            "next_event_id": "6nNWA0TVXfk-JTBfgOoek",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "#TRAME PRINCIPALE",
+                "color": "#6C757D",
+                "coordinate": [
+                    40.0,
+                    -190.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8ywdKsU-LebFnaATF3Ha5",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/SEQUENCES/AL_SEQ_PAL_ILO_Reine_Joue.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6nNWA0TVXfk-JTBfgOoek",
+            "next_event_id": "WWgAWBkJcw_Usd4jMqC5i",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "6nNWA0TVXfk-JTBfgOoek",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -200.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "eyJa-2abd67xnXbFkMpWY",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Nord",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "delai": "200",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WWgAWBkJcw_Usd4jMqC5i",
+            "next_event_id": "Dnx6Bk-n83rwCwG413hA0",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "WWgAWBkJcw_Usd4jMqC5i",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -210.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "J0_41FvkCUOTdxZvqVOZ_",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "0,0,1,0,0,0",
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "angle": "min",
+                        "temps": "600"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Dnx6Bk-n83rwCwG413hA0",
+            "next_event_id": "YbfoFvHNlVNdkNk5vY69o",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "Dnx6Bk-n83rwCwG413hA0",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -220.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "UlQxe4KnE4aFcSkGxEpr3",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche_Nord2",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "min",
+                        "temps": "400"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "YbfoFvHNlVNdkNk5vY69o",
+            "next_event_id": "hI78qCE1135tmqC5q8fPq",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "YbfoFvHNlVNdkNk5vY69o",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -230.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DahXCGf4IDbnOhaaj9Ast",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,0,0,0,1,0",
+                        "angle": "max",
+                        "temps": "250"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hI78qCE1135tmqC5q8fPq",
+            "next_event_id": "Nhks-1Mam96I3ELnYg9uD",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "hI78qCE1135tmqC5q8fPq",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -240.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "q-o8zy6Szxt1bSZ6A2Nta",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ROI/AL_DIAL_PAL_ROI_ILO_01.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "x9Oiv9YNEyXGOZmu6Mrtp",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Nhks-1Mam96I3ELnYg9uD",
+            "next_event_id": "neJIRbk8O750CgHxLd6iI",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Nhks-1Mam96I3ELnYg9uD",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -250.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "HmC1VM5Zr7uXa9qRBojHp",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/REINE/AL_DIAL_PAL_REINE_ILO_04.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "CvmPnDyfRrUu7Lc9-N8Aa",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "4",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "neJIRbk8O750CgHxLd6iI",
+            "next_event_id": "3MKPEpIUjE_acecbnGy21",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "neJIRbk8O750CgHxLd6iI",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -260.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "nxP8v64hPc2LbfRXIAAGO",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_03.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3MKPEpIUjE_acecbnGy21",
+            "next_event_id": "-3TAxXVbf4cstCgJ30pPm",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "3MKPEpIUjE_acecbnGy21",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -270.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JKgI38037SVHKtzoY9eMY",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Foule_React_Insultes.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "_nRM0ZCtDnR0S-e5lI8rH",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,0,0,0,1,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "ix1851nDp681rJX6_RGsp",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "zURGuSlXuhF3saJ4QiH_t",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "init",
+                        "temps": "700"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-3TAxXVbf4cstCgJ30pPm",
+            "next_event_id": "FIrvGdd3gz3iI3_-08PDW",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "-3TAxXVbf4cstCgJ30pPm",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -280.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "y66IzSxtUFHClT8-qC44Y",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ROI/AL_DIAL_PAL_ROI_ILO_02.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "FIrvGdd3gz3iI3_-08PDW",
+            "next_event_id": "Ihy-oZZXypMjLw33J6vVX",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "FIrvGdd3gz3iI3_-08PDW",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -290.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Q9Dii_xijVbFFUXATiF7t",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/REINE/AL_DIAL_PAL_REINE_ILO_05.wav",
+                        "volume": "85"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Ihy-oZZXypMjLw33J6vVX",
+            "next_event_id": "9krzJ612RUaGtcjVW7M1M",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "Ihy-oZZXypMjLw33J6vVX",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -300.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DSBJ5P2-xHpzqyZu-tgIR",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ROI/AL_DIAL_PAL_ROI_ILO_03.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9krzJ612RUaGtcjVW7M1M",
+            "next_event_id": "q08qoMqxndCxfCkCttnmN",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "9krzJ612RUaGtcjVW7M1M",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -310.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "s1q-KaSbP8MsnSc0O-Eso",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_04.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "q08qoMqxndCxfCkCttnmN",
+            "next_event_id": "n9UyyP059iQRW7H3IujVi",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "q08qoMqxndCxfCkCttnmN",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -320.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "_sU0e23ChWkl83zaw7d0f",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ROI/AL_DIAL_PAL_ROI_ILO_04.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "n9UyyP059iQRW7H3IujVi",
+            "next_event_id": "8mdyvEIS0ixOm5Ybkeyhe",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "n9UyyP059iQRW7H3IujVi",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -330.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9p2uH05yv0oRDXy5APueq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Foule_React_Insultes_02.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8mdyvEIS0ixOm5Ybkeyhe",
+            "next_event_id": "aLMZTuyNchFnSAICqT64t",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "LABYRINTHE",
+                "color": "#198754",
+                "coordinate": [
+                    40.0,
+                    -340.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "I9Rm5C28z5QrzZJ_yVZtJ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "50",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "Y_vchYwdUWHYTI3novdtd",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "6",
+                        "transition_time": "3"
+                    }
+                },
+                {
+                    "id": "Gx1ZGD4ikZARVIoxfprFZ",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "aLMZTuyNchFnSAICqT64t",
+            "next_event_id": "EDHbNgovb33HZ6j7h3MBs",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "aLMZTuyNchFnSAICqT64t",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -350.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "t2mBe5GDCFLI7rfIRPLy0",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "0,1,31,32",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EDHbNgovb33HZ6j7h3MBs",
+            "next_event_id": "UVnuGfhsF-dP1e6fKRTJB",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "EDHbNgovb33HZ6j7h3MBs",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -360.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hKr5BnSCISWNxMbFuArmb",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_05.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "PWlmbQhxwyeSjeJAcYrf4",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "UVnuGfhsF-dP1e6fKRTJB",
+            "next_event_id": "NC5j2N1tMDjYA2ZdI4L4W",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "UVnuGfhsF-dP1e6fKRTJB",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -370.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0Qxcq1U6luGwlxFkNblHH",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "33,34",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "nrWfh4ldTm1RLMYC4bZzc",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "min",
+                        "temps": "1500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "NC5j2N1tMDjYA2ZdI4L4W",
+            "next_event_id": "SkgPPRFXTF43MnK56rWD-",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "NC5j2N1tMDjYA2ZdI4L4W",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -380.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "O110a5y0u5qLacGB3lsKs",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "SkgPPRFXTF43MnK56rWD-",
+            "next_event_id": "oug2u5DCLj9fjhWrJtoJS",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "SkgPPRFXTF43MnK56rWD-",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -390.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1vweUgQvxYlFAOKP73bkZ",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "2,3",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "jRQPhY4rEw9oxNZwd7L-A",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "max",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "oug2u5DCLj9fjhWrJtoJS",
+            "next_event_id": "vTeW4FxM7etc0_Q_jfwHi",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "oug2u5DCLj9fjhWrJtoJS",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -400.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4Og9TSHHYPknVLjXsWQDB",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "3wZ1vQc3mok0JfgPrkBPD",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "vTeW4FxM7etc0_Q_jfwHi",
+            "next_event_id": "XDRMrXb1uZKxVvUuN65uy",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "LAB CHOIX 1",
+                "color": "#212529",
+                "coordinate": [
+                    40.0,
+                    -410.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "f4f36297487148028833b3b1993e97c9",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "269a19b078f248c496e43eb6bfebb5c6",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "TScNmoFBDikj4g4PVQ0GF",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "6c79f071b60b43efa67294ad021a8f64",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "XDRMrXb1uZKxVvUuN65uy",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TScNmoFBDikj4g4PVQ0GF",
+            "next_event_id": "bY1-ZhcX27-4S86Fs2paQ",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "LAB CHEMIN #A",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -420.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "v1otwaNRy80XQdaTWfFHM",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "33,34,35,36,37,38",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1",
+                        "delai": "1000"
+                    }
+                },
+                {
+                    "id": "f6c4c90f3b2948d9b8581392a8df4867",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bY1-ZhcX27-4S86Fs2paQ",
+            "next_event_id": "k0iOQQEtTYdtMiDUcq8xH",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "bY1-ZhcX27-4S86Fs2paQ",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -430.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5ksmcwxYwlbatXCTkxeMo",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ENTREE_Steps_Herbe.wav",
+                        "volume": "50"
+                    }
+                },
+                {
+                    "id": "tYIMO1lxrOlVzvn_s5XTn",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "k0iOQQEtTYdtMiDUcq8xH",
+            "next_event_id": "gkGRzknrs-CkW54QAAqQH",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "k0iOQQEtTYdtMiDUcq8xH",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -440.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "KFkpZqpTR5esl_VhH8Fcx",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_06.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gkGRzknrs-CkW54QAAqQH",
+            "next_event_id": "GDTJxSycqIcosHuBzA2x6",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "gkGRzknrs-CkW54QAAqQH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    80.0,
+                    -450.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "pqpJPHN2qiE3WKVEWaiPo",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "2",
+                        "transition_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "GDTJxSycqIcosHuBzA2x6",
+            "next_event_id": "Nmd0vJLEYyEVKJUgWn17T",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "GDTJxSycqIcosHuBzA2x6",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -460.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "nacaqkMun3JSGW2xHoA3F",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Murs_Labyrinthe.wav",
+                        "volume": "85"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Nmd0vJLEYyEVKJUgWn17T",
+            "next_event_id": "tbdNJuM2Sbeq9h2UbuM__",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Nmd0vJLEYyEVKJUgWn17T",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -470.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Zwbvd1Wwd6UddSI8uJgfo",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "min",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tbdNJuM2Sbeq9h2UbuM__",
+            "next_event_id": "Zu_CtQ6BxhF8d414_HIts",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "tbdNJuM2Sbeq9h2UbuM__",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    80.0,
+                    -480.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4Uy8EuueoxLOx4Ly_xLVA",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_07.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Zu_CtQ6BxhF8d414_HIts",
+            "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "DEVIATION  CENTRE",
+                "color": "#6C757D",
+                "coordinate": [
+                    80.0,
+                    -490.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "UW3_aK7uiyf6XduloIrQI",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "38,39,40,41,11,12,13",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "FWKVW5r2SocVWSYpdwO91",
+            "next_event_id": "yA5JurSxQK52BIrvMCbKn",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "FWKVW5r2SocVWSYpdwO91",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    200.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vTdD8sR-ifSDRnvUDw64L",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_08.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "yA5JurSxQK52BIrvMCbKn",
+            "next_event_id": "d4PTnU7usuL74oghLaAwS",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "yA5JurSxQK52BIrvMCbKn",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    200.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "lzWOzj-dqIqlAPcGw25Wu",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "11,12",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "d4PTnU7usuL74oghLaAwS",
+            "next_event_id": "6ixR6cFU3-Os96N0yjRGU",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "d4PTnU7usuL74oghLaAwS",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    200.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "O9ICV6E-dcedIXiQ9Uxnm",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6ixR6cFU3-Os96N0yjRGU",
+            "next_event_id": "JQ_H7q2PBfPj0q7siWVCm",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "6ixR6cFU3-Os96N0yjRGU",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    200.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6w3L2VmwlohmIrJGN8QUZ",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "10,9",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "JQ_H7q2PBfPj0q7siWVCm",
+            "next_event_id": "b_cxK1HQ3TWuxiod_Q_1z",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "JQ_H7q2PBfPj0q7siWVCm",
+                "color": "#0D6EFD",
+                "coordinate": [
+                    200.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "CXWp04ZOfNcq1ch4GSnRh",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "b_cxK1HQ3TWuxiod_Q_1z",
+            "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "LAB CHOIX 2",
+                "color": "#212529",
+                "coordinate": [
+                    200.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "d04175a8f60e4423af59dce0d13bed01",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "8b45851bf4bd4e9cb1be23a4688ae113",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "810f41b0a132432bb9955c4a36fecdee",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "lPTvJ5yyNfk9MoO00EET6",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "mnOVZGBLg4ioLmSkO8gIh",
+            "next_event_id": "8m1e8ux5y-BsnKJ-xMDG9",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "#CENTRE LAB",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -500.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Dp38joarv71e9zz-P9gf0",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "11,12,13",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                },
+                {
+                    "id": "58e392b14d274a8d98cd0151e0a04b19",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8m1e8ux5y-BsnKJ-xMDG9",
+            "next_event_id": "KfajEyhWr3uNuOTLqoypt",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "8m1e8ux5y-BsnKJ-xMDG9",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -510.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JvoYSsRxDolckTVFnDPIf",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_09.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "BjG_GNm4w-Oc49yJDSelI",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "10,9",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "KfajEyhWr3uNuOTLqoypt",
+            "next_event_id": "Ql8isN9wpuuvb51SA1ov1",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "KfajEyhWr3uNuOTLqoypt",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -520.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PFesQbhOlvGhKHwK7b5jY",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "max",
+                        "temps": "1000",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps2": "1000",
+                        "delai": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Ql8isN9wpuuvb51SA1ov1",
+            "next_event_id": "xLjWJZS7Ri8eZW3Qp8w84",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Ql8isN9wpuuvb51SA1ov1",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -530.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "jBgrUdhYO8rSFxIn-ccbp",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_01.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xLjWJZS7Ri8eZW3Qp8w84",
+            "next_event_id": "WEz9fKT6OZ4kPGk0nSDr1",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "xLjWJZS7Ri8eZW3Qp8w84",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -540.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hpurgd6itPX2f2-lb1GCv",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_10.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WEz9fKT6OZ4kPGk0nSDr1",
+            "next_event_id": "M7LxM20D48Yc0B1-v-0Ey",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "WEz9fKT6OZ4kPGk0nSDr1",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -550.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JEiTAw17IABWoNY8mhZ4Y",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "1",
+                        "angle": "max",
+                        "temps": "1000",
+                        "angle2": "min",
+                        "ntours": "1",
+                        "temps2": "1000",
+                        "delai": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "M7LxM20D48Yc0B1-v-0Ey",
+            "next_event_id": "y-4XTDWpL87y35YCrO47r",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "M7LxM20D48Yc0B1-v-0Ey",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -560.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "akRc0gOLsEeKdUnLJ7VYd",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_02.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "y-4XTDWpL87y35YCrO47r",
+            "next_event_id": "Mlv0HrPCU6AIGI5PBqk5X",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "y-4XTDWpL87y35YCrO47r",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -570.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "WlKbN2nxQ4nFJO5KpJmMI",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_03.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Mlv0HrPCU6AIGI5PBqk5X",
+            "next_event_id": "me98BHnZax8Fn6YLmpx7r",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Mlv0HrPCU6AIGI5PBqk5X",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -580.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BP0-i1CZ7jAmaMfUdtR2G",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_04.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "me98BHnZax8Fn6YLmpx7r",
+            "next_event_id": "WK5NWUqDKgOvscTEKZrjp",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "me98BHnZax8Fn6YLmpx7r",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -590.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "oNWMShyfMEtTV1qep_J4Y",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "Db-gB2CvLQT04VDh52VYV",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "23,24",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "500",
+                        "red": "",
+                        "green": ""
+                    }
+                },
+                {
+                    "id": "N4vALm-_c2wBAtrnMLN3s",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "min",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "jF7s4Xz9NUsDemrTVyNm_",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WK5NWUqDKgOvscTEKZrjp",
+            "next_event_id": "TnvqOdnGy1JJVW_g-7thJ",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "WK5NWUqDKgOvscTEKZrjp",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -600.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "WZ3Qnhv7JMUiTbJpDaDPB",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_05.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "j0tleHBkcIbdallYA4e0Z",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "max",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "gEQjcniZlfdrR9vaiT8C4",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                },
+                {
+                    "id": "0eBObKaXCrfgJOuoE4hOK",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "14,15",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "TnvqOdnGy1JJVW_g-7thJ",
+            "next_event_id": "8AmmfVR1w8gP02YDMsXmh",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "TnvqOdnGy1JJVW_g-7thJ",
+                "color": "#198754",
+                "coordinate": [
+                    80.0,
+                    -610.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ew0XeUYdCHp5AkF2oddrn",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "20",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "gsJ53bevND3wP_aI40B7W",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,1,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8AmmfVR1w8gP02YDMsXmh",
+            "next_event_id": "Sj40ADU_VaploqDs_HBXy",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX CENTRE LAB",
+                "color": "#212529",
+                "coordinate": [
+                    80.0,
+                    -620.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "a290ad287b8843838be1b5c44f90b3cb",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "3b90d62e5a9848f4b7503c903b9536b2",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "BJ9xt45i6tKwGSRawGcJw",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "9f17f2c19db644efba740db060f92674",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "Sj40ADU_VaploqDs_HBXy",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Sj40ADU_VaploqDs_HBXy",
+            "next_event_id": "Hg6FQK2gql7jeLow1lILm",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "#A_A_B",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -630.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0Lcu-ckk2QSARG-HWowa8",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "14,15,16,17,18,19",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                },
+                {
+                    "id": "HsVzn4p36WKEDe_OQqV92",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Murs_Labyrinthe.wav",
+                        "volume": "85"
+                    }
+                },
+                {
+                    "id": "3ff5157dc61744409b039e8d94dc8431",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Hg6FQK2gql7jeLow1lILm",
+            "next_event_id": "7RxykKFrwck51QmUHLvKR",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "Hg6FQK2gql7jeLow1lILm",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -640.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Lux2yAmRZa2dSpSomS4X3",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,0,0,1,0",
+                        "angle": "max",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7RxykKFrwck51QmUHLvKR",
+            "next_event_id": "v7uZaH8Z0Hcl5JWh96If8",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "7RxykKFrwck51QmUHLvKR",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    80.0,
+                    -650.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "z_LYPU8fCcEtIDPSnh2q1",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_11.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "v7uZaH8Z0Hcl5JWh96If8",
+            "next_event_id": "iFGWh4-ZLV99XF79Iavgu",
+            "event_type": "ActionEvent",
+            "duration": 11,
+            "event_role": "None",
+            "interface": {
+                "name": "v7uZaH8Z0Hcl5JWh96If8",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -660.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-Dgd80I3t5n-x_UAQRvFm",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_06.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "Z2fHH_FjV401ezf-lP9EP",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "200",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "dsEB2Kcs0vcAsCdLE841W",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "19,20,21,22",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "iFGWh4-ZLV99XF79Iavgu",
+            "next_event_id": "vpceyoJQrxioujtzHlqMl",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "iFGWh4-ZLV99XF79Iavgu",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -670.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "RZqxoRwCgkifKi-JpUsCE",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_12.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "vpceyoJQrxioujtzHlqMl",
+            "next_event_id": "QUMoahRxMvvYg6oHdWMhB",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "vpceyoJQrxioujtzHlqMl",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -680.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "WE8lF8VrNZUQ9Fl4Tm02z",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_07.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "QUMoahRxMvvYg6oHdWMhB",
+            "next_event_id": "CrcY8ouzf8E1He54gwxqS",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "QUMoahRxMvvYg6oHdWMhB",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -690.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8IVy94ZKfshqslo8LCEi7",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_13.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "CrcY8ouzf8E1He54gwxqS",
+            "next_event_id": "BJ9xt45i6tKwGSRawGcJw",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "VERS SORTIE",
+                "color": "#DC3545",
+                "coordinate": [
+                    80.0,
+                    -700.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "F3sBog2dXLBu9Y8nkrW7X",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "22,21,20,,19,18,17,16,15,14",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "a7mR6mJXCxiFnfBsovgVt",
+            "next_event_id": "BJ9xt45i6tKwGSRawGcJw",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "a7mR6mJXCxiFnfBsovgVt",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -60.0
+                ]
+            },
+            "actions": []
+        },
+        {
+            "id": "XDRMrXb1uZKxVvUuN65uy",
+            "next_event_id": "_oaNrYgnhBUVGEfIPaABO",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #B Droite",
+                "color": "#198754",
+                "coordinate": [
+                    40.0,
+                    -420.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "t2TXETrBghN3iYclL6kZQ",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "33,34",
+                        "code1": "blue",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "255",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness1": "100",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "ehseIFChYA0anlIbftlhN",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "78c23f5e81f74235be2077f0635fdb85",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "_oaNrYgnhBUVGEfIPaABO",
+            "next_event_id": "zc6_J5FNFN74D80CJO4Yk",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "_oaNrYgnhBUVGEfIPaABO",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    40.0,
+                    -430.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "E7VeZxPvtbVfJsxfZSD9O",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "2,3,4,5,6",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                },
+                {
+                    "id": "6bSKEbqB6YD8VSk6jaEP-",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "2",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zc6_J5FNFN74D80CJO4Yk",
+            "next_event_id": "nXwHO6gB-THWpqOpxWqUw",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "zc6_J5FNFN74D80CJO4Yk",
+                "color": "#198754",
+                "coordinate": [
+                    40.0,
+                    -440.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "LeYa7va9OVuF7DSvPRQgp",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_14.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "R_-9n2BZW96uR2E1o-mEj",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Murs_Labyrinthe.wav",
+                        "volume": "85"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nXwHO6gB-THWpqOpxWqUw",
+            "next_event_id": "kNMzL1BnCB4SlnCVs2Quc",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "nXwHO6gB-THWpqOpxWqUw",
+                "color": "#198754",
+                "coordinate": [
+                    40.0,
+                    -450.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "O5qGScQk4crg3og0iAWan",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "max",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "kNMzL1BnCB4SlnCVs2Quc",
+            "next_event_id": "pxa3br3LNHcII-bsazo2r",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "kNMzL1BnCB4SlnCVs2Quc",
+                "color": "#198754",
+                "coordinate": [
+                    40.0,
+                    -460.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "p6nin23qzLWg0FYY8Mv6N",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_15.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pxa3br3LNHcII-bsazo2r",
+            "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "DEVIATION CENTRE",
+                "color": "#6C757D",
+                "coordinate": [
+                    40.0,
+                    -470.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "BRDhUo81smLTx2KmKFzON",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "7,8,9,10,11,12,13",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "delai": "3",
+                        "temps": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ryFHg3J6kdYiefxW0dBZK",
+            "next_event_id": "THG7SORNPgvrqQF14yL4W",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "ryFHg3J6kdYiefxW0dBZK",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "dflpvNNtjCMHr_VRponWL",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_16.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "THG7SORNPgvrqQF14yL4W",
+            "next_event_id": "r_EhToSs1b_MBIZhDuBBm",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "THG7SORNPgvrqQF14yL4W",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "lH6EFsXHS7skE_2DJlU1j",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "47IcEXBrD7izPqYv_RGBu",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "a8PIxc9xRtI_gqjqmSM21",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "33",
+                        "code1": "green",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "r_EhToSs1b_MBIZhDuBBm",
+            "next_event_id": "ni0nTAiM6pl73AxKPN1nl",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "r_EhToSs1b_MBIZhDuBBm",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -90.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Wg5VSKCj8CbPLqgJ_JTsm",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                },
+                {
+                    "id": "NdYu4xhOuG3y8YB-PI3hR",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "qYaQoVUAAYXRBKHVYgvCQ",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "32",
+                        "code1": "magenta",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "code": "magenta",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ni0nTAiM6pl73AxKPN1nl",
+            "next_event_id": "",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX #B",
+                "color": "#212529",
+                "coordinate": [
+                    200.0,
+                    -100.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8340a2517dfb4ab0a23c001c7f355fcb",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "3ab7afdb12f94c6fb85e1c492bcd3439",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "zy7kbKvovUanojG0LAysH",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "6f14cc173a3445309f617c62e2c33880",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "lPTvJ5yyNfk9MoO00EET6",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zy7kbKvovUanojG0LAysH",
+            "next_event_id": "lPTvJ5yyNfk9MoO00EET6",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #A_B",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    200.0,
+                    -110.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OVgr2MMWL2It4bvwo6EJs",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "11,12",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "740dea2c34634880a75aa8c5d56fa402",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "lPTvJ5yyNfk9MoO00EET6",
+            "next_event_id": "UhhS_P0v7h1Q-p25Fyimm",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "lPTvJ5yyNfk9MoO00EET6",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -120.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "PKQe_0mxUgrnDuXlfJRaL",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "10,9,8,7,6",
+                        "code1": "rose",
+                        "red1": "150",
+                        "green1": "0",
+                        "blue1": "200",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "4afgrrFCd7m_jnBxFWB7s",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/AL_BRUIT_PAL_ILO_Murs_Labyrinthe.wav",
+                        "volume": "85"
+                    }
+                },
+                {
+                    "id": "5ad1ce4bd0f54f47831e523405ae06ed",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "UhhS_P0v7h1Q-p25Fyimm",
+            "next_event_id": "F7ZhKSypsPHCxYpqE58a8",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "UhhS_P0v7h1Q-p25Fyimm",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -130.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "RPouhU47MbdD8t0CHdw5x",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "num": "0,1,0,0,0,0",
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "temps": "2000",
+                        "angle": "max"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "F7ZhKSypsPHCxYpqE58a8",
+            "next_event_id": "1bMv_pwqi1g3XpcL3tae8",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "F7ZhKSypsPHCxYpqE58a8",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -140.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vKnN1lAW1kj14kUyzTab1",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_17.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "ngAAr5o_XEEHlpzj4xUke",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1bMv_pwqi1g3XpcL3tae8",
+            "next_event_id": "mGt0yDhmKeh_DGqdNsGDy",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "1bMv_pwqi1g3XpcL3tae8",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -150.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5z4BksdN_SRvVrOInbr7e",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "40",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "zk_oRlfR4c_YWrTf19Bn7",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "code": "dark blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "139"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "mGt0yDhmKeh_DGqdNsGDy",
+            "next_event_id": "kzQZVpjOxTCcJ8wF92cVX",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "mGt0yDhmKeh_DGqdNsGDy",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -160.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "YyYvXpzpfK5w8G2jmKAGy",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "50",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "UpvYNWKBzCg-uDLNDMEiJ",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "7,8",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "kzQZVpjOxTCcJ8wF92cVX",
+            "next_event_id": "y81aE-QgNMfIh5rsBvczb",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "kzQZVpjOxTCcJ8wF92cVX",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -170.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "gRFDwPviZBwloSGCRYpRa",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "xtYWL257i2xnSjjAQ-xsd",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "6,5",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "y81aE-QgNMfIh5rsBvczb",
+            "next_event_id": "U7lI16dy32QAU9Y8hfx8-",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "y81aE-QgNMfIh5rsBvczb",
+                "color": "#DC3545",
+                "coordinate": [
+                    200.0,
+                    -180.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "mPe2iaPs7C-LN2bF0IB1Q",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "U7lI16dy32QAU9Y8hfx8-",
+            "next_event_id": "hyWL13As24qJ0pzCYp7mj",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX #A_B",
+                "color": "#212529",
+                "coordinate": [
+                    200.0,
+                    -190.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4240f4281b9c41c4b84847aa87d89c7f",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "8e38088f2b494c3fa64b7a709241f5bb",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+                        "sensor_hardware": "Pal_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "c96194f9e5624b9f8e92b00b6ed9f382",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "hyWL13As24qJ0pzCYp7mj",
+                        "sensor_hardware": "Pal_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hyWL13As24qJ0pzCYp7mj",
+            "next_event_id": "5sxnhYLroXUHW60IJkwtW",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "CHEMIN #A_B_B",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -200.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Dz6N9Tzeo_pAcnHOF3Iez",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "200",
+                        "blue": "200",
+                        "brightness": "70",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "LKz0YF4V9TBTepGgE1iW2",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "6,5,4,3,2",
+                        "code1": "green",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "green",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "1000",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "aaa738c539ee4169ab6b065e64a4b7ad",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5sxnhYLroXUHW60IJkwtW",
+            "next_event_id": "z9jv99r8n4l7v32o0l_A9",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "5sxnhYLroXUHW60IJkwtW",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -210.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "xP1LEYMBqUJ2B-mGbHjaH",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "AcdNf3Qf7MT75RdQFvejP",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_18.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "z9jv99r8n4l7v32o0l_A9",
+            "next_event_id": "0Qj7gT4IyhLbmnZsaXe16",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "z9jv99r8n4l7v32o0l_A9",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -220.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kA88qlD86Q4o8178NHylb",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_08.wav",
+                        "volume": "70"
+                    }
+                },
+                {
+                    "id": "FCdBHxdkN585Fd47Z4co_",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "20",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0Qj7gT4IyhLbmnZsaXe16",
+            "next_event_id": "1J1KoE3ExSaFlyghWmn69",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "0Qj7gT4IyhLbmnZsaXe16",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -230.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "aK3bjziV-5YT0aO_cZkUx",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_19.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1J1KoE3ExSaFlyghWmn69",
+            "next_event_id": "Zr63S6Ceb8YZ1SV6ucnQn",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "1J1KoE3ExSaFlyghWmn69",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -240.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1hvVqngZxQwh_csw8RBh6",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/CHAT/AL_DIAL_PAL_CHAT_ILO_09.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Zr63S6Ceb8YZ1SV6ucnQn",
+            "next_event_id": "CAsGLm3TRe892KtSTfQoG",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Zr63S6Ceb8YZ1SV6ucnQn",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -250.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9hiKu1Nx7YEJd0OT1PUSq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_ILO_20.wav",
+                        "volume": "70"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "CAsGLm3TRe892KtSTfQoG",
+            "next_event_id": "mnOVZGBLg4ioLmSkO8gIh",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "CAsGLm3TRe892KtSTfQoG",
+                "color": "#198754",
+                "coordinate": [
+                    200.0,
+                    -260.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JyDqD3KbcExqmfzseJ2F5",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "2,3,4,5,6,7,8,9,10",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "delai": "500",
+                        "temps": "1",
+                        "code1": "",
+                        "code": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "BJ9xt45i6tKwGSRawGcJw",
+            "next_event_id": "qKLINUbUIan2a3rm4ibjr",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "#SORTIE",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -630.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VnGJWAfHIJCrz5RAKCfMz",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "leds": "23,24,25,26,27,28,29",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "800",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "_sRzGC_gZBFhu5hALlUfw",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "fade_time": "2",
+                        "is_rgb": "false"
+                    }
+                },
+                {
+                    "id": "idpwbIAdtFNTVefO3rdnZ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "150",
+                        "brightness": "60",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "QAtv1nl5EHLaAZ_HNsyWC",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "init",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "b5MzIXB4LL4WPwfY27Yij",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "Awh-tpyEF8wTucPquuoKP",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "0,0,0,0,1,0",
+                        "angle": "init",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "vomeJlZDlaRswxBI0i1Xq",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "49c7987d605e4bbca28c64125baebdb2",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit,Pal_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qKLINUbUIan2a3rm4ibjr",
+            "next_event_id": "vlIL57tmQ5I57Ey51uG2e",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "qKLINUbUIan2a3rm4ibjr",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -640.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ZZ43Z-wTtkXryHr5ksFVY",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Ouest",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness1": "0",
+                        "brightness": "100",
+                        "delai": "2",
+                        "leds": ""
+                    }
+                },
+                {
+                    "id": "iidAYwNM5ItfaapvXUNap",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Est",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "2"
+                    }
+                },
+                {
+                    "id": "CuxVUgvgsTqV1tpqSBfCC",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "10",
+                        "transition_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "vlIL57tmQ5I57Ey51uG2e",
+            "next_event_id": "hc2XmOqkv4i2Sq2XlMBQ1",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "vlIL57tmQ5I57Ey51uG2e",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -650.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "qMfLZKHdqTtiMxfKnd3fo",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "150",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "c871jt9W3fxyg9Ke3esCF",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "200",
+                        "brightness": "60",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "AxuzKfdXppghT-fx681tG",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hc2XmOqkv4i2Sq2XlMBQ1",
+            "next_event_id": "SQXPIIKOR4MhPKhI7P4hd",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "hc2XmOqkv4i2Sq2XlMBQ1",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -660.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VKSOzY9vGxSnmefgMrf7y",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Nord",
+                        "leds": "",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "SQXPIIKOR4MhPKhI7P4hd",
+            "next_event_id": "nAUdLq8RKqlT9AgNT6Bao",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "SQXPIIKOR4MhPKhI7P4hd",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -670.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "SMjchvOS86t-okYzjaUet",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Ouest",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "4"
+                    }
+                },
+                {
+                    "id": "SNGoez6kC1kqTU5TVnnuG",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Est",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nAUdLq8RKqlT9AgNT6Bao",
+            "next_event_id": "_XgDghz2Y55uslJD-CaUA",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "nAUdLq8RKqlT9AgNT6Bao",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -680.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "z4i6CRRITBMIN966uxLLs",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "0",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "VBg_ESXhrz6yFY3Q4LFoz",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "_XgDghz2Y55uslJD-CaUA",
+            "next_event_id": "EZX8qJSFZDsrsq6CpqgzY",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "_XgDghz2Y55uslJD-CaUA",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -690.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "TsXl0ENXxvI9Wd9zl-bv2",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Ouest",
+                        "leds": "",
+                        "code1": "blue",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "255",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness1": "100",
+                        "brightness": "100",
+                        "temps": "4",
+                        "delai": "200"
+                    }
+                },
+                {
+                    "id": "Lx_6-wUIFJ6X0XioVeZsc",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Est",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EZX8qJSFZDsrsq6CpqgzY",
+            "next_event_id": "Ii6WGp0av4CjY_195Kf4C",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "EZX8qJSFZDsrsq6CpqgzY",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -700.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "HKJlh5F9UeFjZBPD1_ntl",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Nord",
+                        "leds": "",
+                        "code1": "yellow",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "brightness1": "0",
+                        "temps": "2"
+                    }
+                },
+                {
+                    "id": "JPdN42ryzwUtzURyjXJOI",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Ii6WGp0av4CjY_195Kf4C",
+            "next_event_id": "RFMqaCfK04u-4xvCshtn1",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Ii6WGp0av4CjY_195Kf4C",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -710.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "LwDTOmmhpfndhZ6tqO9V0",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Ouest",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "2000",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "yaPLpUDAb1HLAjz2g6AZr",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Est",
+                        "leds": "",
+                        "code1": "red",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "code": "red",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "2000",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "RFMqaCfK04u-4xvCshtn1",
+            "next_event_id": "1de87c2cca5741e1993eb240246a0fdd",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "FIN",
+                "color": "#FFC107",
+                "coordinate": [
+                    120.0,
+                    -720.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "vnktzjvbKw0SO1r8BTxKR",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "fade_time": "3",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "ko4bOp8GaaKVg90npAkst",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Nord",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "0",
+                        "delai": "300",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "_NP1vWhuO4KmjjCgbt0uc",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1de87c2cca5741e1993eb240246a0fdd",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    120.0,
+                    -730.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c565c79f173a486dbc0d7c057fcfe060",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite,Pal_Central_MONO_Global,40",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "548b8943dd854188a0c1f0fdb500ef99",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "c12cee20e61c43cc9d9b219a205273cf",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "41eabef3f867408eac4c3ba631550af9",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "431a24f9306442fa94b425e29a98a07f",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "5d0b9fb85b104a95bb71fc4bb195e50a",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Droit_Est2",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "e675d82db26d47f1ac9ec96132062177",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Croquet_Gauche_Nord2",
+                        "num": "0,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "f6a918d86d4b44579658981b488560a1",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Labyrinthe_Entree",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "3dc9d14a3ee14f38919385dd7569cf56",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Sud,Pal_Central_Led_Croquet_Ouest,Pal_Central_Led_Croquet_Est,Pal_Central_Led_Croquet_Nord,Pal_Central_Led_Labyrinthe,Pal_Central_Led_Palais_Ouest,Pal_Central_Led_Palais_Est,Pal_Central_Led_Palais_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "10",
+                        "temps": "100"
+                    }
+                }
+            ]
+        }
+    ]
+}

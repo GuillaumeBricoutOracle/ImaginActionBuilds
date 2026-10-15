@@ -1,0 +1,619 @@
+{
+    "events": [
+        {
+            "id": "51vCGoPBvLcvmFKaM506g",
+            "next_event_id": "tltMc8bjPgv_hwOBLvBxE",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "DEBUT TEST CENTRAL",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "jh9Zjr_RfmSRbo-pFqBoa",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "mOrHL6NydWgt63cJq6cFl",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "CvNqN0ouGhx2h7_65tPFZ",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "volume": "90",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "noK2F8S0Vkl78az2dQMHb",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "volume": "80",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tltMc8bjPgv_hwOBLvBxE",
+            "next_event_id": "sWYbcq4iHFWV_y31cA1sl",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB gauche rouge / droite bleu / global blanc · son : ambiance 5.1",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "LR2pI3n5UiZPTEzZCmj5r",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "XzJublvt_iY9Hb8bYbtaK",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "KKO_2ORjtQxAZvP15eXoa",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "255",
+                        "brightness": "60",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "j6nOA3EHbnJzGAHyyXG0R",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sWYbcq4iHFWV_y31cA1sl",
+            "next_event_id": "H6SRiEmYJu7B9fr0bdqjf",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Boitiers rouge / bleu",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "u5MHO1x_lW-5B0yS265v0",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "YeKzx-psVtQBlf6RBvFb7",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "H6SRiEmYJu7B9fr0bdqjf",
+            "next_event_id": "7m-QUlKdRWV2zq24m0F9Y",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds chemin · son : musique",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "amdgepxpFsK-um1-3iAoY",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "led_debut": "0",
+                        "led_fin": "17",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "160",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "ySQDwp9gvoj_RH0OoUmue",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "led_debut": "0",
+                        "led_fin": "17",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "160",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "-nBD8C-kvzDei6x8I3OGP",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "l1a3FZKm8ibTtns01o5uG",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7m-QUlKdRWV2zq24m0F9Y",
+            "next_event_id": "gYoVoT8M3ARBsir1_wz3F",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds intensif + permaculture",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "2hysFCfftxoBSctg_wI-E",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "led_debut": "0",
+                        "led_fin": "24",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "80",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "rzvfO5c6YFwHj6-pHXDpx",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Nord",
+                        "led_debut": "0",
+                        "led_fin": "6",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "200",
+                        "blue": "60",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "e4WD7Do268_anm13mTfGt",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "led_debut": "0",
+                        "led_fin": "20",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "200",
+                        "blue": "60",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "gYoVoT8M3ARBsir1_wz3F",
+            "next_event_id": "fOHwQTdsmjdKGBtca1JRC",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos intensif (6) · son : dialogue",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3aFKU4rMTmXllnwrpmbJ9",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "oZ6wXdqlI0WUJYnNuYQhB",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "BxyC57oGnkRH8rtGt6pVb",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_01.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "fOHwQTdsmjdKGBtca1JRC",
+            "next_event_id": "XYY8btFRvEJWMheBzdLoS",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos maison (5)",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "bONtMJRhJVp6CvUY0KuC3",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "[1,1,1,1,1,0]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XYY8btFRvEJWMheBzdLoS",
+            "next_event_id": "VUi9Qky0W8AUMcoj7kOPc",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos permaculture (5) · son : bruitage",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "M7Q1RowO-SMBhq84WY6Ul",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "num": "[1,1,1,1,1]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "VrBTC2K16MdygCjYTf0qS",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ENTREE_Ouverture_Portail.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "VUi9Qky0W8AUMcoj7kOPc",
+            "next_event_id": "DoHsFouOVwwgFunXj5Uyt",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos mono Alice + Lapin",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "f1az7AaeVmiXqiAVLvcsw",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Mono",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice",
+                        "num": "1",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "1500",
+                        "temps2": "1500",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "xHMmP_H_1rhwRh2wKBi5E",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Mono",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "1500",
+                        "temps2": "1500",
+                        "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "DoHsFouOVwwgFunXj5Uyt",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#F26D5F",
+                "coordinate": [
+                    0.0,
+                    -90.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JNXlewq_0gMWfBRi5r9qP",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Gauche,Cha_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "yEOTBn5OqCo0DjbuzmXJ0",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite,Cha_Central_Led_Chemin_Gauche,Cha_Central_Led_Intensif,Cha_Central_Led_Permaculture_Nord,Cha_Central_Led_Permaculture_Sud"
+                    }
+                },
+                {
+                    "id": "guereC_w1ImBnCxG4Zggb",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "cm3qjthCXTqH-dm8mRYEf",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif,Cha_Central_Servo_Multi_Maison,Cha_Central_Servo_Multi_Permaculture"
+                    }
+                },
+                {
+                    "id": "ppUeyJloHFzEyfkbejY7P",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Servo_Mono",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice,Cha_Central_Servo_Mono_Permaculture_Lapin"
+                    }
+                },
+                {
+                    "id": "WEmWNhBWXDTg8edk8GDFx",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "sF4kmQ97VyFC_2O5pSNxn",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "cHojO6rMgN4tzp-TQGaPQ",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "jm9y0uonqDy6ykt7CkNyh",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

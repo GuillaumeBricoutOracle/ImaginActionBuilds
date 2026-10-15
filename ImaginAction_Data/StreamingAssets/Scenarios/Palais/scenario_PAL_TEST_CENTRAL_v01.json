@@ -1,0 +1,629 @@
+{
+    "events": [
+        {
+            "id": "jwt6YlWV7TL4VN4O7CAmS",
+            "next_event_id": "Y0HBhJ6HFDZJAHakiEkmp",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "DEBUT TEST CENTRAL",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    0.0,
+                    -0.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Asr4_l0JVSbABHFNZlq83",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "volume": "70",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "THhoHnb_LtqUmXTYC_Q8I",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "vQSzoLrYW4CAhtKPMeEPt",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "volume": "90",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "9KVJEgbh65n4VwUcX2vxc",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "volume": "80",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Y0HBhJ6HFDZJAHakiEkmp",
+            "next_event_id": "be3FLjgfcxX8zHpEwHyUo",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "RGB gauche rouge / droite bleu + MONO global · son : ambiance 5.1",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -10.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JwUjcqq7rq2TigkMljHo8",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "Je5NX9zdHpPkn4-7xcXfz",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "VSnw2-v4IDDHs7LWL4ga3",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "brightness": "100",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "QZOamU2Io4x8BJqv25USs",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "be3FLjgfcxX8zHpEwHyUo",
+            "next_event_id": "t_d3WEhjKueW828yIHA3X",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Boitiers rouge / bleu",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -20.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "_AV6bkcq6FWaj2p18pG8I",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "TWMd2RigmeqYLxjqt6_2R",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Droit",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "t_d3WEhjKueW828yIHA3X",
+            "next_event_id": "rSQ9EHfM75HND9YtzohJP",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds croquet · son : musique",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -30.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "qrsIgN-kfF7VobZFzPFkD",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Est",
+                        "led_debut": "0",
+                        "led_fin": "20",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "140",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "VQNye7weSXqu_i6DeD-44",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Nord",
+                        "led_debut": "0",
+                        "led_fin": "33",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "140",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "4VghYjUXq98AdTn-FyZit",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "20",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "140",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "wfRefpigUVqZwdidMsx7r",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Sud",
+                        "led_debut": "0",
+                        "led_fin": "9",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "140",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "GPEt4a4ejyZejR9v5kK2V",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "-RkjViJjay57vOgE132U1",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "rSQ9EHfM75HND9YtzohJP",
+            "next_event_id": "bQYRgeYa7aeboPpGQs4w1",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "Leds labyrinthe + palais",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -40.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OYvl641DVFxvsiKmNujzX",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Labyrinthe",
+                        "led_debut": "0",
+                        "led_fin": "40",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "200",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "P1oet3rl5HZ3hjzWyfL6E",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Est",
+                        "led_debut": "0",
+                        "led_fin": "4",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "200",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "QEbkd89m6-kXWXjXio4Ip",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Nord",
+                        "led_debut": "0",
+                        "led_fin": "20",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "200",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                },
+                {
+                    "id": "Ddxk4wVT7x21f44sMPE1z",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Palais_Ouest",
+                        "led_debut": "0",
+                        "led_fin": "4",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "200",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "2000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bQYRgeYa7aeboPpGQs4w1",
+            "next_event_id": "g9LhFkwS97L6C4n59FZG-",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos croquet gauche (5) · son : dialogue",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -50.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "GWQHT3hsTenHjWjPLJSeq",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Multi_Croquet_Gauche",
+                        "num": "[1,1,1,1,1,0]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "XtL0zUeH1jCX5OjcHHLNE",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "SFiGH2Xj2J4-8TFOdIOal",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/DIALOGUES/ALICE/AL_DIAL_PAL_ALICE_JAR_04.wav",
+                        "volume": "90"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "g9LhFkwS97L6C4n59FZG-",
+            "next_event_id": "-C_z1gApP8nPzO3T_LtG-",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos croquet droit (4)",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -60.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "1Ta4A1AlLcEu7X4qs853Q",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Multi_Croquet_Droit",
+                        "num": "[1,1,1,1,0,0]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "-C_z1gApP8nPzO3T_LtG-",
+            "next_event_id": "UFYrD6UuxG7fYZmDHoVuC",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "Servos labyrinthe entree (5) · son : bruitage",
+                "color": "#4DB6AC",
+                "coordinate": [
+                    0.0,
+                    -70.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "xf0E2p_Umn5z6C7P-pgQp",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Multi_Labyrinthe_Entree",
+                        "num": "[1,1,1,1,1,0]",
+                        "angle": "init",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "2000",
+                        "temps2": "2000",
+                        "delai": "0"
+                    }
+                },
+                {
+                    "id": "Sfi5zs8xTMU_-ond5ZeZe",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "PALAIS/BRUITAGES/JARDIN/AL_BRUIT_PAL_JAR_Croquet-Hit-Balle.wav",
+                        "volume": "80"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "UFYrD6UuxG7fYZmDHoVuC",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#F26D5F",
+                "coordinate": [
+                    0.0,
+                    -80.0
+                ]
+            },
+            "actions": [
+                {
+                    "id": "0ZJxYc7_uQnZt5r7uweEz",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Pal_Central_Boitier_Gauche,Pal_Central_Boitier_Droit"
+                    }
+                },
+                {
+                    "id": "TYtZXi69uQIoGxZ6-Rps4",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Pal_Central_Led_Croquet_Est,Pal_Central_Led_Croquet_Nord,Pal_Central_Led_Croquet_Ouest,Pal_Central_Led_Croquet_Sud,Pal_Central_Led_Labyrinthe,Pal_Central_Led_Palais_Est,Pal_Central_Led_Palais_Nord,Pal_Central_Led_Palais_Ouest"
+                    }
+                },
+                {
+                    "id": "5SgGogqM7UuFF9x-144bt",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Pal_Central_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "QpIksR4XdGRS-MDFDQDvf",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Pal_Central_RGB_Gauche,Pal_Central_RGB_Droite",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "LG9HJjHJ939smisdE0kOB",
+                    "refresh_rate": "0",
+                    "action": "reset",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Pal_Central_Servo_Multi_Croquet_Gauche,Pal_Central_Servo_Multi_Croquet_Droit,Pal_Central_Servo_Multi_Labyrinthe_Entree"
+                    }
+                },
+                {
+                    "id": "ZDfOe_IOXxWPdp-08gWGG",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Ambiances",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "BVzjDIhKcoH7Hor6Sh6L9",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "lEq1U3dc_GaXyreJlY5gY",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Dialogues",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "stYTLXYHKAYy3b1RNnf3l",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Bruitages",
+                        "fade_time": "0.5",
+                        "hardware": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -5294,7 +5294,7 @@
                     "options": {
                         "channel": "Ambiances",
                         "media_index": "4",
-                        "transition_time": "3",
+                        "transition_time": "5",
                         "hardware": ""
                     }
                 },
@@ -5352,7 +5352,7 @@
                     "type": "Son",
                     "options": {
                         "channel": "Ambiances",
-                        "volume": "60",
+                        "volume": "30",
                         "fade_time": "2",
                         "hardware": ""
                     }
@@ -5683,7 +5683,7 @@
                     "type": "Son",
                     "options": {
                         "channel": "Musiques",
-                        "volume": "40",
+                        "volume": "30",
                         "fade_time": "2",
                         "hardware": ""
                     }
@@ -5774,7 +5774,7 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "7",
-                        "transition_time": "2",
+                        "transition_time": "4",
                         "hardware": ""
                     }
                 }
@@ -6335,7 +6335,8 @@
                     "type": "Son",
                     "options": {
                         "channel": "Musiques",
-                        "fade_time": "2"
+                        "fade_time": "4",
+                        "hardware": ""
                     }
                 },
                 {
@@ -7824,18 +7825,7 @@
                 ]
             },
             "actions": [
-                {
-                    "id": "z3kkDloU0KSd24daAoGBe",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "volume": "10",
-                        "fade_time": "2",
-                        "hardware": ""
-                    }
-                }
+                
             ]
         },
         {

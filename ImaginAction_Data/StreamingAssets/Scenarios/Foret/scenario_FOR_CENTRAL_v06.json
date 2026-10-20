@@ -5,7 +5,7 @@
             "next_event_id": "QgZGml4BtJeFadeNECZ98",
             "event_type": "ActionEvent",
             "duration": 2,
-            "event_role": "None",
+            "event_role": "Start",
             "interface": {
                 "name": "NLWkR6GADI4rdCGhnJSb3",
                 "color": "#F0B24C",
@@ -4991,7 +4991,7 @@
             "next_event_id": "WFtupqfpHqmwtrO3Nqwa_",
             "event_type": "ActionEvent",
             "duration": 2,
-            "event_role": "Start",
+            "event_role": "None",
             "interface": {
                 "name": "CHEMIN #A Fleurs",
                 "color": "#FF4D4D",

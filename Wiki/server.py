@@ -11,6 +11,7 @@ from loganalyzer import LogAnalyzer
 from notifier import Mailer, AlertManager, load_config, unity_process_running, hardware_digest
 import espcontrol
 import otadeploy
+import reportdata
 
 # ─── ESP Monitor (in-memory) ──────────────────────────────────────────────────
 _esp_registry: dict = {}
@@ -67,6 +68,102 @@ PORT          = 5757
 SCENARIO_LOG_DIR = os.path.join(PROJECT_ROOT, 'Logs')
 
 _analyzer = LogAnalyzer(SCENARIO_LOG_DIR)
+
+# ─── Résumés de spectacle remontés par les AUTRES maisons (ESP MoiresLog, BLE) ───
+# Chaque maison distante envoie, via son ESP et le récepteur Forêt, un résumé
+# compact par spectacle terminé (POST /api/dashboard/ingest). On les range ici,
+# dédupliqués par (maison, début). Ce store est vide partout sauf sur le PC dont
+# l'ESP joue le rôle récepteur (Forêt) : même code sur les quatre PC.
+_REMOTE_SHOWS_FILE = os.path.join(SCENARIO_LOG_DIR, 'remote_shows.jsonl')
+_remote_shows = {}
+_remote_lock = threading.Lock()
+
+def _remote_load():
+    try:
+        with open(_REMOTE_SHOWS_FILE, 'r', encoding='utf-8') as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    s = json.loads(line)
+                except ValueError:
+                    continue
+                m = str(s.get('m', '')).strip()
+                if m:
+                    _remote_shows[(m, int(s.get('s', 0) or 0))] = s
+    except OSError:
+        pass
+
+def _remote_add(summary):
+    """Ajoute (ou remplace) un résumé, idempotent sur (maison, début). Retourne True si nouveau."""
+    m = str(summary.get('m', '')).strip()
+    if not m:
+        return False
+    try:
+        st = int(summary.get('s', 0) or 0)
+    except (TypeError, ValueError):
+        st = 0
+    key = (m, st)
+    with _remote_lock:
+        is_new = key not in _remote_shows
+        _remote_shows[key] = summary
+        if is_new:
+            try:
+                os.makedirs(SCENARIO_LOG_DIR, exist_ok=True)
+                with open(_REMOTE_SHOWS_FILE, 'a', encoding='utf-8') as fh:
+                    fh.write(json.dumps(summary, ensure_ascii=False) + '\n')
+            except OSError:
+                pass
+    return is_new
+
+_remote_load()
+
+# ─── Données d'interprétation pour le rapport quotidien (reportdata) ──────────
+# Spectacles (3 scénarios/univers), choix aux boîtiers, incidents ESP, autres
+# maisons (résumés BLE). Tout est déduit des logs, sans les modifier.
+_scenario_index_cache = {'idx': None, 'day': None}
+
+def _scenario_index():
+    today = _time.strftime('%Y-%m-%d')
+    if _scenario_index_cache['idx'] is None or _scenario_index_cache['day'] != today:
+        try:
+            # Build : ASSETS_DIR = StreamingAssets -> Scenarios juste dessous.
+            # Projet Unity : ASSETS_DIR = Assets -> StreamingAssets/Scenarios.
+            dirs = [os.path.join(ASSETS_DIR, 'Scenarios'),
+                    os.path.join(ASSETS_DIR, 'StreamingAssets', 'Scenarios')]
+            _scenario_index_cache['idx'] = reportdata.load_scenario_index(dirs)
+        except Exception as exc:
+            print(f'[rapport] index scénarios : {exc}')
+            _scenario_index_cache['idx'] = {}
+        _scenario_index_cache['day'] = today
+    return _scenario_index_cache['idx']
+
+def _remote_for_day(_date_str):
+    with _remote_lock:
+        return list(_remote_shows.values())
+
+def _report_data(date_str, src=''):
+    """Dict d'interprétation des logs du jour pour le rapport (reportdata.compute)."""
+    ana = _get_analyzer(src)
+    try:
+        from datetime import datetime as _dt2
+        ana.ensure_coverage(_dt2.strptime(date_str, '%Y-%m-%d').timestamp())
+    except Exception:
+        pass
+    shows = ana.shows_summary()['shows']
+    _detect_show_scenarios(shows)   # scénario réellement joué (le START ment après enchaînement)
+    with ana.lock:
+        records = list(ana.records)
+        esp = {k: dict(v) for k, v in ana.esp.items()}
+    try:
+        episodes = _alerts.offline_episodes(date_str)
+    except Exception:
+        episodes = []
+    return reportdata.compute(date_str, shows, records, esp,
+                              remote_shows=_remote_for_day(date_str),
+                              offline_episodes=episodes,
+                              scenario_index=_scenario_index())
 
 
 def _log_days():
@@ -692,7 +789,8 @@ def _dashboard_worker():
                     (today_stats.get('events') or {}).get('scenario_guess') or '')[0]
                 _alerts.maybe_daily_report(
                     today_stats,
-                    image_provider=lambda d=_today: _capture_spectacles_png(d, max_age_s=0))
+                    image_provider=lambda d=_today: _capture_spectacles_png(d, max_age_s=0),
+                    data_provider=lambda d=_today: _report_data(d))
             except Exception as exc:
                 print(f'[dashboard] évaluation alertes : {exc}')
 
@@ -1955,6 +2053,12 @@ class Handler(BaseHTTPRequestHandler):
                         'scenario_running': _analyzer.summary().get('scenario_running', False),
                         'firmwares': entries})
 
+        elif p.path == '/api/dashboard/remote':
+            with _remote_lock:
+                items = sorted(_remote_shows.values(),
+                               key=lambda s: (str(s.get('m', '')), int(s.get('s', 0) or 0)))
+            self._json({'shows': items})
+
         elif p.path == '/api/dashboard/shows':
             srcs = [s.strip() for s in qs.get('src', [''])[0].split(',')] or ['']
             if len(srcs) == 1:
@@ -2029,7 +2133,8 @@ class Handler(BaseHTTPRequestHandler):
                 label = f"du {date} — {len(srcs)} machines"
             image_url = f'/api/dashboard/report-image?date={date}'
             self._json({'date': date, 'image': image_url,
-                        'html': _alerts.build_report_html(stats, label, image_src=image_url)})
+                        'html': _alerts.build_report_html(stats, label, image_src=image_url,
+                                                          report_data=_report_data(date))})
 
         elif p.path == '/api/scan':
             self._json(scan())
@@ -2562,15 +2667,25 @@ class Handler(BaseHTTPRequestHandler):
 
         elif p.path == '/api/dashboard/report-now':
             date = (data.get('date') or _time.strftime('%Y-%m-%d')).strip()
-            stats = _stats_for_day(date)
             png = _capture_spectacles_png(date, max_age_s=0)   # envoi manuel : image neuve
             _mailer.send(f'[ImaginAction] Rapport du {date}',
-                         _alerts.build_report_html(stats, f'du {date}',
+                         _alerts.build_report_html(None, f'du {date}', report_data=_report_data(date),
                                                    image_src='cid:spectacles' if png else None),
                          images={'spectacles': png} if png else None)
             self._json({'ok': True,
                         'detail': f"Rapport du {date} mis en file d'envoi"
                                   + ('' if png else ' (sans image : capture indisponible)') + '.'})
+            return
+
+        elif p.path == '/api/dashboard/ingest':
+            # Résumé d'un spectacle d'une autre maison, remonté par l'ESP MoiresLog
+            # (récepteur Forêt). Champs courts : m maison, s début, e fin, sc scénario,
+            # p partiel, er/wa/lo erreurs/avertissements/perdus, so sons, ws commandes.
+            if not isinstance(data, dict) or not data.get('m'):
+                self._json({'error': "Résumé invalide (champ 'm' manquant)"}, 400)
+                return
+            is_new = _remote_add(data)
+            self._json({'ok': True, 'new': is_new})
             return
 
         else:

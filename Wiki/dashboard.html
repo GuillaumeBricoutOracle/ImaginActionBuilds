@@ -290,6 +290,14 @@
     </div>
   </section>
 
+  <section id="sec-remote" style="display:none">
+    <div style="display:flex;align-items:center;gap:8px">
+      <h2 style="margin:0">Autres maisons</h2>
+      <span class="lbl" style="font-weight:400">— résumés de spectacle remontés par BLE (MoiresLog)</span>
+    </div>
+    <div class="panel" id="remote" style="margin-top:8px"></div>
+  </section>
+
   <section class="split">
     <div class="panel">
       <h3>Activité live</h3>
@@ -2502,6 +2510,34 @@ async function refreshLive() {
     renderLive(); renderEspTable();
   } catch { }
 }
+async function refreshRemote() {
+  try {
+    const d = await fetch('/api/dashboard/remote').then((x) => x.json());
+    const shows = (d && d.shows) || [];
+    const sec = $('#sec-remote');
+    if (!shows.length) { sec.style.display = 'none'; return; }
+    sec.style.display = '';
+    const byHouse = {};
+    shows.forEach((s) => { (byHouse[s.m] = byHouse[s.m] || []).push(s); });
+    const row = (s) => {
+      const t = s.e ? new Date(s.e * 1000).toLocaleString() : '';
+      const f = [];
+      if (s.p) f.push('<span style="color:#c77">partiel</span>');
+      if (s.er) f.push(s.er + ' err');
+      if (s.wa) f.push(s.wa + ' warn');
+      if (s.lo) f.push(s.lo + ' perdu' + (s.lo > 1 ? 's' : ''));
+      return `<tr><td>${esc(t)}</td><td>${esc(s.sc || '')}</td><td>${s.du || 0}s</td>`
+           + `<td>${f.join(' · ') || '<span style="color:#2e7d32">OK</span>'}</td></tr>`;
+    };
+    $('#remote').innerHTML = Object.keys(byHouse).sort().map((h) => {
+      const rows = byHouse[h].sort((a, b) => (b.s || 0) - (a.s || 0)).slice(0, 8).map(row).join('');
+      return `<h3 style="margin:10px 0 4px">${esc(h)}</h3>`
+           + `<table style="width:100%"><tr><th style="text-align:left">Fin</th>`
+           + `<th style="text-align:left">Scénario</th><th style="text-align:left">Durée</th>`
+           + `<th style="text-align:left">État</th></tr>${rows}</table>`;
+    }).join('');
+  } catch { }
+}
 let _showsRaw = '';
 async function refreshShows() {
   try {
@@ -2579,6 +2615,7 @@ loadSources(); refreshLive(); refreshShows(); refreshStats();
 if (!captureMode && _urlParams.get('live') !== '0') {
   setInterval(refreshLive, 5000);
   setInterval(refreshShows, 15000);
+  setInterval(refreshRemote, 20000); refreshRemote();
   setInterval(refreshStats, 30000);
   // Onglet Firmware : se tient à jour seul quand il est visible (état
   // scenario_running, statuts en ligne), sauf pendant un flash en cours.

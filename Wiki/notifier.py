@@ -445,9 +445,10 @@ class AlertManager:
             print(f'[notifier] lecture des passages hors ligne : {exc}')
 
     # ─── Rapport quotidien ───────────────────────────────────────────────────
-    def maybe_daily_report(self, summary, image_provider=None):
-        """image_provider : callable -> octets PNG de l'onglet Spectacles du
-        jour, appelé seulement au moment de l'envoi (la capture est coûteuse)."""
+    def maybe_daily_report(self, summary, image_provider=None, data_provider=None):
+        """data_provider : callable -> dict d'interprétation des logs du jour
+        (reportdata.compute), appelé seulement au moment de l'envoi. Si fourni,
+        le nouveau rapport est envoyé ; sinon on retombe sur l'ancien (image)."""
         cfg = load_config()
         report_time = cfg.get('daily_report_time', '22:00')
         now = datetime.now()
@@ -461,6 +462,24 @@ class AlertManager:
         if (now.hour, now.minute) < (hh, mm):
             return
         self._last_report_day = today
+        report_data = None
+        if data_provider:
+            try:
+                report_data = data_provider()
+            except Exception as exc:
+                print(f'[notifier] interprétation du rapport : {exc}')
+        if report_data is not None:
+            png = None
+            if image_provider:
+                try:
+                    png = image_provider()
+                except Exception as exc:
+                    print(f'[notifier] capture du rapport : {exc}')
+            self.mailer.send(f'[ImaginAction] Rapport du {today}',
+                             self.build_report_html(None, f'du {today}', report_data=report_data,
+                                                    image_src='cid:spectacles' if png else None),
+                             images={'spectacles': png} if png else None)
+            return
         png = None
         if image_provider:
             try:
@@ -472,8 +491,59 @@ class AlertManager:
                                                 image_src='cid:spectacles' if png else None),
                          images={'spectacles': png} if png else None)
 
-    def build_report_html(self, summary, date_label='', image_src=None):
+    def build_report_html(self, summary, date_label='', image_src=None, report_data=None):
         """Rapport HTML lisible, styles inline (compatible clients mail).
+
+        Si report_data est fourni (interprétation des logs : spectacles, choix,
+        incidents ESP, autres maisons), on construit le NOUVEAU rapport et on
+        ignore summary/image. Sinon, ancien rapport basé sur l'image capturée.
+        """
+        if report_data is not None:
+            return self._build_report_html_v2(report_data, date_label, image_src)
+        return self._build_report_html_legacy(summary, date_label, image_src)
+
+    def _build_report_html_v2(self, d, date_label='', image_src=None):
+        import reportdata
+        red, amber, green = '#c62828', '#b26a00', '#2e7d32'
+        esp = d['esp']
+        skipped = sum(1 for sp in d['spectacles'] for sc in sp['scenarios'] if sc.get('short'))
+        rem_err = sum(r['errors'] for r in d['remote'].values())
+        problems = []
+        if esp['total_reconnects']:
+            problems.append(f"{esp['total_reconnects']} déconnexion(s) ESP")
+        if esp.get('n_never'):
+            problems.append(f"{esp['n_never']} ESP jamais joignable(s)")
+        if skipped:
+            problems.append(f"{skipped} scénario(s) écourté(s)")
+        if rem_err:
+            problems.append(f"{rem_err} erreur(s) dans les autres maisons")
+        if not d['spectacles'] and not d['remote']:
+            verdict, vcolor = 'Aucun spectacle joué.', '#777'
+        elif not problems:
+            extra = f", {d['n_partial']} scénario(s) isolé(s)" if d['n_partial'] else ''
+            verdict = f"✅ {d['n_complete']} spectacle(s) complet(s){extra}, rien à signaler."
+            vcolor = green
+        else:
+            verdict, vcolor = '🔴 À vérifier : ' + ', '.join(problems) + '.', red
+        # Graphique des durées : capture de l'onglet Spectacles & Stats (le visuel que
+        # l'exploitant juge le plus parlant), au-dessus des tableaux détaillés.
+        chart = ''
+        if image_src:
+            chart = (f'<img src="{image_src}" alt="Spectacles et statistiques du jour" '
+                     f'style="display:block;width:100%;max-width:700px;border-radius:8px;'
+                     f'border:1px solid #ddd;margin:4px 0 16px">')
+        return (
+            '<div style="font-family:system-ui,\'Segoe UI\',sans-serif;max-width:720px;'
+            'margin:0 auto;color:#1a1a1a;background:#fff;padding:10px 6px">'
+            f'<h2 style="font-size:19px;margin:0 0 2px">ImaginAction — Rapport {date_label}</h2>'
+            f'<p style="margin:4px 0 10px;font-size:14px;color:{vcolor};font-weight:600">{verdict}</p>'
+            + chart + reportdata.render_html(d, date_label) +
+            '<p style="color:#999;font-size:11px;margin-top:22px">Généré automatiquement par '
+            'ImaginAction Supervision — interprétation des journaux, sans modification des logs.</p></div>'
+        )
+
+    def _build_report_html_legacy(self, summary, date_label='', image_src=None):
+        """Ancien rapport basé sur l'image capturée.
 
         Le cœur du rapport est une IMAGE : la capture de l'onglet Spectacles &
         Stats du jour (tuiles, graphique des durées avec anomalies en rouge et

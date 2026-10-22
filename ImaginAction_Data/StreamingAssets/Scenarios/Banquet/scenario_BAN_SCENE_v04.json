@@ -4,14 +4,14 @@
             "id": "HACdVHpLCNYbqlgyNVMJ2",
             "next_event_id": "2miZFVkHBTS738ugNXnTM",
             "event_type": "ActionEvent",
-            "duration": 2,
-            "event_role": "Start",
+            "duration": 1,
+            "event_role": "None",
             "interface": {
                 "name": "HACdVHpLCNYbqlgyNVMJ2",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -4.06452560424805,
-                    -2.77888679504395
+                    40.3440284729004,
+                    15.2548065185547
                 ]
             },
             "actions": [
@@ -24,6 +24,17 @@
                         "channel": "Musiques",
                         "volume": "50",
                         "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "d48cc439a8ad48dc832cec3a814a8c96",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "loop_mode": "loop",
+                        "hardware": ""
                     }
                 }
             ]
@@ -38,8 +49,8 @@
                 "name": "2miZFVkHBTS738ugNXnTM",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -5.70563507080078,
-                    -7.48335075378418
+                    37.7703971862793,
+                    8.34172630310059
                 ]
             },
             "actions": [
@@ -78,6 +89,20 @@
                         "brightness1": "100",
                         "connections": "0"
                     }
+                },
+                {
+                    "id": "34f985ba76824207b438a3ddcaa60794",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Ban_Scene_RGB_Gauche,Ban_Scene_RGB_Droite",
+                        "red": "64",
+                        "green": "255",
+                        "blue": "108",
+                        "brightness": "60",
+                        "fade_time": "3"
+                    }
                 }
             ]
         },
@@ -91,8 +116,8 @@
                 "name": "CgAjjJGbTqCNJATmmYm52",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -4.10182189941406,
-                    -14.7978992462158
+                    40.9611396789551,
+                    1.19077968597412
                 ]
             },
             "actions": [
@@ -132,8 +157,8 @@
                 "name": "ghMKtGFivqFWPwF6qHSUs",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -5.44454956054688,
-                    -19.6880874633789
+                    39.6184120178223,
+                    -3.3231258392334
                 ]
             },
             "actions": [
@@ -170,8 +195,8 @@
                 "name": "7plpGawu5m5KM1iX6PsUq",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -4.92237854003906,
-                    -26.8534469604492
+                    40.1405830383301,
+                    -10.4884853363037
                 ]
             },
             "actions": [
@@ -220,8 +245,8 @@
                 "name": "v2HcjUqXbsJUY2Y2XhT_Y",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -4.69858932495117,
-                    -35.1377410888672
+                    40.364372253418,
+                    -18.7727794647217
                 ]
             },
             "actions": [
@@ -232,9 +257,9 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "Ban_Scene_RGB_Gauche,Ban_Scene_RGB_Droite",
-                        "red": "50",
-                        "green": "255",
-                        "blue": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "246",
                         "brightness": "100",
                         "fade_time": "4"
                     }
@@ -251,8 +276,8 @@
                 "name": "CLIGNOTTE",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    5.23787117004395,
-                    -2.75288963317871
+                    50.3008346557617,
+                    13.6120719909668
                 ]
             },
             "actions": [
@@ -307,8 +332,8 @@
                 "name": "yNkWLGtXqsiNWivAuycYv",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    6.15890121459961,
-                    -10.4503192901611
+                    51.2218627929688,
+                    5.91464233398438
                 ]
             },
             "actions": [
@@ -352,8 +377,8 @@
                 "name": "xB7pXAcgIGXJHd-qC_bxH",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    5.3299732208252,
-                    -18.0556392669678
+                    50.392936706543,
+                    -1.69067764282227
                 ]
             },
             "actions": [
@@ -407,24 +432,7 @@
                         "brightness": "0",
                         "temps": "1000"
                     }
-                }
-            ]
-        },
-        {
-            "id": "qHpcVy6LI3yjETuVyFNwB",
-            "next_event_id": "LeNumpfPmfFfaG4oJ7ksb",
-            "event_type": "ActionEvent",
-            "duration": 8,
-            "event_role": "None",
-            "interface": {
-                "name": "qHpcVy6LI3yjETuVyFNwB",
-                "color": "#4F4FB7",
-                "coordinate": [
-                    4.7773551940918,
-                    -25.6609649658203
-                ]
-            },
-            "actions": [
+                },
                 {
                     "id": "KQsj2Gg3CPtbpxqkYUuNv",
                     "refresh_rate": "0",
@@ -434,7 +442,24 @@
                         "hardware": "Ban_Scene_Animatronique",
                         "anim_name": "BAN_CHA_02"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "id": "qHpcVy6LI3yjETuVyFNwB",
+            "next_event_id": "LeNumpfPmfFfaG4oJ7ksb",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "qHpcVy6LI3yjETuVyFNwB",
+                "color": "#4F4FB7",
+                "coordinate": [
+                    49.8403167724609,
+                    -9.2960033416748
+                ]
+            },
+            "actions": [
                 {
                     "id": "SDfVxwLEMw18qC8m84l1l",
                     "refresh_rate": "0",
@@ -492,8 +517,8 @@
                 "name": "LeNumpfPmfFfaG4oJ7ksb",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    6.43520545959473,
-                    -33.6346969604492
+                    51.4981689453125,
+                    -17.2697353363037
                 ]
             },
             "actions": [
@@ -527,8 +552,8 @@
                 "name": "Zu_cKTn_V4Gi7SkFsAPZ9",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    16.7750797271729,
-                    -3.02571296691895
+                    61.8380432128906,
+                    13.3392486572266
                 ]
             },
             "actions": [
@@ -553,8 +578,8 @@
                 "name": "FvqyMhBFhP3pjmceI537p",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    17.9396858215332,
-                    -9.64836692810059
+                    63.0026473999023,
+                    6.71659469604492
                 ]
             },
             "actions": [
@@ -578,14 +603,14 @@
             "id": "KR4gagXOlq54Cqq_CFDMh",
             "next_event_id": "2ALjzfCp6QeZRNL72ZDe-",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 8,
             "event_role": "None",
             "interface": {
                 "name": "KR4gagXOlq54Cqq_CFDMh",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    16.5832672119141,
-                    -15.7024059295654
+                    61.6462287902832,
+                    0.662555694580078
                 ]
             },
             "actions": [
@@ -625,8 +650,8 @@
                 "name": "2ALjzfCp6QeZRNL72ZDe-",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    16.5832672119141,
-                    -25.7024059295654
+                    61.6462287902832,
+                    -9.33744430541992
                 ]
             },
             "actions": [
@@ -683,10 +708,10 @@
             "event_role": "None",
             "interface": {
                 "name": "v8t4rp77xDD543G2s1XpL",
-                "color": "#F7F671",
+                "color": "#6B72FF",
                 "coordinate": [
-                    16.0283699035645,
-                    -34.4076385498047
+                    61.5656814575195,
+                    -18.2893371582031
                 ]
             },
             "actions": [
@@ -711,8 +736,8 @@
                 "name": "ALLUMAGE COEUR DEBUT",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    25.5850028991699,
-                    -3.34494209289551
+                    70.6479644775391,
+                    13.02001953125
                 ]
             },
             "actions": [
@@ -741,8 +766,8 @@
                 "name": "e0bSZrkuOrgvWql3XJBVW",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    26.8384628295898,
-                    -9.46319770812988
+                    71.9014282226563,
+                    6.90176391601563
                 ]
             },
             "actions": [
@@ -771,8 +796,8 @@
                 "name": "yf_8hMHWui8MHgbafvKO2",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    25.2727127075195,
-                    -15.2264633178711
+                    70.3356781005859,
+                    1.13849830627441
                 ]
             },
             "actions": [
@@ -806,14 +831,14 @@
             "id": "qKxU8EoeHvjaChL7piWvk",
             "next_event_id": "uxD3M4sxbNVoke0YAceoM",
             "event_type": "ActionEvent",
-            "duration": 6,
+            "duration": 1,
             "event_role": "None",
             "interface": {
                 "name": "qKxU8EoeHvjaChL7piWvk",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    27.5752868652344,
-                    -22.0949630737305
+                    72.6382446289063,
+                    -5.73000144958496
                 ]
             },
             "actions": [
@@ -847,14 +872,14 @@
             "id": "uxD3M4sxbNVoke0YAceoM",
             "next_event_id": "Y_4q8RexUWu7mUFj3Fr4C",
             "event_type": "ActionEvent",
-            "duration": 19,
+            "duration": 18,
             "event_role": "None",
             "interface": {
                 "name": "uxD3M4sxbNVoke0YAceoM",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    25.364818572998,
-                    -27.4898147583008
+                    70.4277801513672,
+                    -11.1248531341553
                 ]
             },
             "actions": [
@@ -904,8 +929,8 @@
                 "name": "Y_4q8RexUWu7mUFj3Fr4C",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    33.6814765930176,
-                    -4.01726531982422
+                    78.7444381713867,
+                    12.3476963043213
                 ]
             },
             "actions": [
@@ -958,6 +983,18 @@
                         "red": "0",
                         "green": "0"
                     }
+                },
+                {
+                    "id": "679d76a4d87a459ca67f4a0a4f73a05d",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "effect": "smooth",
+                        "duration": "500",
+                        "brightness": "70"
+                    }
                 }
             ]
         },
@@ -965,14 +1002,14 @@
             "id": "VFeJm_4sfNHwtpWqb6fdX",
             "next_event_id": "EFZ08cJ72opsgAjnxtQo9",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "VFeJm_4sfNHwtpWqb6fdX",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    35.953052520752,
-                    -13.9309749603271
+                    81.0160140991211,
+                    2.43398666381836
                 ]
             },
             "actions": [
@@ -1032,7 +1069,7 @@
             "id": "EFZ08cJ72opsgAjnxtQo9",
             "next_event_id": "D00igvDIWDPhDuAJJDdMR",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX LIEVRE 1",
@@ -1043,15 +1080,6 @@
                 ]
             },
             "actions": [
-                {
-                    "id": "c8f1257ae9d54300b734a79679020d5b",
-                    "refresh_rate": "1",
-                    "action": "status",
-                    "type": "Boitier",
-                    "options": {
-                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
-                    }
-                },
                 {
                     "id": "8b46a43391c34e29b4806c104ac3380a",
                     "refresh_rate": "1",
@@ -1076,6 +1104,15 @@
                         "sensor_hardware": "Ban_Scene_Boitier_Droit",
                         "sensor_variable": "status",
                         "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "c8f1257ae9d54300b734a79679020d5b",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
                     }
                 }
             ]
@@ -1150,6 +1187,18 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
                     }
+                },
+                {
+                    "id": "bba282a3c72e4f0eb8bbe8202dc778e0",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "4",
+                        "transition_time": "3",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -1163,8 +1212,8 @@
                 "name": "d0lVgbeTmvqQl3RNEPorw",
                 "color": "#1E90FF",
                 "coordinate": [
-                    -14.3197040557861,
-                    -84.3092651367188
+                    -13.7694635391235,
+                    -83.6072311401367
                 ]
             },
             "actions": [
@@ -1176,6 +1225,16 @@
                     "options": {
                         "filename": "BANQUET/DIALOGUES/LIEVRE/AL_DIAL_BAN_SCENE_LIEVRE_02.wav",
                         "volume": "70"
+                    }
+                },
+                {
+                    "id": "46a6cfc43d36430b89df7ae6e36516de",
+                    "refresh_rate": "0",
+                    "action": "set_brightness",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "brightness": "100"
                     }
                 }
             ]
@@ -1190,18 +1249,21 @@
                 "name": "RoSQdrSXyuyYS6I_ePy_0",
                 "color": "#1E90FF",
                 "coordinate": [
-                    -16.5948753356934,
-                    -89.3889846801758
+                    -18.37841796875,
+                    -90.2617797851563
                 ]
             },
             "actions": [
                 {
-                    "id": "yNBdeKyKIeCsa91QHpfj3",
+                    "id": "5dcdf1f772ff41d69ffe33e449a223b8",
                     "refresh_rate": "0",
-                    "action": "turn_on",
-                    "type": "MONO",
+                    "action": "set_volume",
+                    "type": "Son",
                     "options": {
-                        "hardware": "Ban_Scene_MONO_Lievre_Pos"
+                        "channel": "Musiques",
+                        "volume": "35",
+                        "fade_time": "2",
+                        "hardware": ""
                     }
                 }
             ]
@@ -1210,7 +1272,7 @@
             "id": "H_vUJewNYdgCN1Hln2W5R",
             "next_event_id": "cLZIMPdVYu54Z7mcEol6z",
             "event_type": "ActionEvent",
-            "duration": 13,
+            "duration": 12,
             "event_role": "None",
             "interface": {
                 "name": "H_vUJewNYdgCN1Hln2W5R",
@@ -1318,7 +1380,7 @@
             "id": "Gqlmu2xiUDun2bOVcM-K3",
             "next_event_id": "gGwGvX8IZTY840W5amM6C",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "Gqlmu2xiUDun2bOVcM-K3",
@@ -1394,7 +1456,7 @@
             "id": "5301caS2qljNSRAfMU5QN",
             "next_event_id": "qF9DMiJnL2dqEPJFvTdR8",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 11,
             "event_role": "None",
             "interface": {
                 "name": "5301caS2qljNSRAfMU5QN",
@@ -1503,6 +1565,15 @@
                         "brightness": "100",
                         "fade_time": "2"
                     }
+                },
+                {
+                    "id": "0654d350e8de471796ead878332cc9a6",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AlicePos"
+                    }
                 }
             ]
         },
@@ -1558,17 +1629,6 @@
                     }
                 },
                 {
-                    "id": "hE4N9MMzT0VY3-brhkbn_",
-                    "refresh_rate": "0",
-                    "action": "fade_bg",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "Ban_Scene_MONO_Global",
-                        "brightness": "30",
-                        "fade_time": "4"
-                    }
-                },
-                {
                     "id": "za8huruON-dASMGgiEviF",
                     "refresh_rate": "0",
                     "action": "fade",
@@ -1576,7 +1636,7 @@
                     "options": {
                         "hardware": "Ban_Scene_RGB_Droite",
                         "red": "255",
-                        "green": "100",
+                        "green": "0",
                         "blue": "0",
                         "brightness": "100",
                         "fade_time": "2"
@@ -1588,7 +1648,7 @@
             "id": "ES8WaOBBnWrd-9J3AXKay",
             "next_event_id": "hvgOobDEJ4W2u3ZgptnQd",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX #A ALICE",
@@ -1640,7 +1700,7 @@
             "id": "hvgOobDEJ4W2u3ZgptnQd",
             "next_event_id": "BLdJfpwZw9qNfZKZsGPeb",
             "event_type": "ActionEvent",
-            "duration": 2,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "CHEMIN ALICE BLEU #A_A",
@@ -1683,7 +1743,7 @@
                     "type": "Son",
                     "options": {
                         "filename": "BANQUET/BRUITAGES/AL_BRUIT_BAN_SCENE_Coeur_Point_03.wav",
-                        "volume": "80",
+                        "volume": "90",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -1697,6 +1757,18 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
                     }
+                },
+                {
+                    "id": "81302f69fba54e8ca33b3d51b2157c7b",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "0",
+                        "transition_time": "5",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -1704,7 +1776,7 @@
             "id": "BLdJfpwZw9qNfZKZsGPeb",
             "next_event_id": "K8EbcdgR-4Y3KllVv7H9J",
             "event_type": "ActionEvent",
-            "duration": 4,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "BLdJfpwZw9qNfZKZsGPeb",
@@ -1721,22 +1793,11 @@
                     "action": "play_sound",
                     "type": "Son",
                     "options": {
-                        "filename": "BANQUET/DIALOGUES/ALICE/AL_DIAL_BAN_SCENE_ALICE_03.wav\tBANQUET/DIALOGUES/ALICE/AL_DIAL_BAN_SCENE_ALICE_03.wav",
+                        "filename": "BANQUET/DIALOGUES/ALICE/AL_DIAL_BAN_SCENE_ALICE_03.wav",
                         "volume": "70",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
-                    }
-                },
-                {
-                    "id": "zgtbce1TSQXIgyKplIrU9",
-                    "refresh_rate": "0",
-                    "action": "fade_turn_on",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "Ban_Scene_MONO_AlicePos",
-                        "brightness": "70",
-                        "fade_time": "1"
                     }
                 },
                 {
@@ -1746,8 +1807,18 @@
                     "type": "MONO",
                     "options": {
                         "hardware": "Ban_Scene_MONO_Global",
-                        "brightness": "30",
-                        "fade_time": "1"
+                        "brightness": "60",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "54c744c1933d4f3b8836b7b6f9e0019f",
+                    "refresh_rate": "0",
+                    "action": "set_brightness",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AlicePos",
+                        "brightness": "80"
                     }
                 }
             ]
@@ -1762,8 +1833,8 @@
                 "name": "K8EbcdgR-4Y3KllVv7H9J",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -20.1410179138184,
-                    -154.894104003906
+                    -22.1731567382813,
+                    -154.398468017578
                 ]
             },
             "actions": [
@@ -1796,15 +1867,6 @@
                     }
                 },
                 {
-                    "id": "RyoMtuBKqSPxjSaYHcEnV",
-                    "refresh_rate": "0",
-                    "action": "turn_off",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "Ban_Scene_MONO_Alice_Pos"
-                    }
-                },
-                {
                     "id": "gMSnkXAvVMGeBWx2MZEz2",
                     "refresh_rate": "0",
                     "action": "fade_bg",
@@ -1814,6 +1876,27 @@
                         "brightness": "70",
                         "fade_time": "1"
                     }
+                },
+                {
+                    "id": "e797115d2dbf46968f0ab145c8d41997",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "2",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "RyoMtuBKqSPxjSaYHcEnV",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Alice_Pos"
+                    }
                 }
             ]
         },
@@ -1821,13 +1904,13 @@
             "id": "aojY-453KBhv7d1v4aq_1",
             "next_event_id": "UruYPx_VIsjJdsKAfDPQx",
             "event_type": "ActionEvent",
-            "duration": 6,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "aojY-453KBhv7d1v4aq_1",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -19.4011497497559,
+                    -19.995922088623,
                     -161.934631347656
                 ]
             },
@@ -1871,14 +1954,14 @@
             "id": "UruYPx_VIsjJdsKAfDPQx",
             "next_event_id": "rmicrsyGAmpYI8fu7IBob",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 6,
             "event_role": "None",
             "interface": {
                 "name": "UruYPx_VIsjJdsKAfDPQx",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -20.1014404296875,
-                    -169.492767333984
+                    -18.9862422943115,
+                    -169.046676635742
                 ]
             },
             "actions": [
@@ -1931,14 +2014,14 @@
             "id": "rmicrsyGAmpYI8fu7IBob",
             "next_event_id": "PdutTz8Igg5F92mlm-73u",
             "event_type": "ActionEvent",
-            "duration": 14,
+            "duration": 13,
             "event_role": "None",
             "interface": {
                 "name": "rmicrsyGAmpYI8fu7IBob",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -9.06201934814453,
-                    -140.733413696289
+                    -7.87247323989868,
+                    -140.981231689453
                 ]
             },
             "actions": [
@@ -1983,14 +2066,14 @@
             "id": "PdutTz8Igg5F92mlm-73u",
             "next_event_id": "z4WwD1yn8jR05570rnMiX",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 11,
             "event_role": "None",
             "interface": {
                 "name": "PdutTz8Igg5F92mlm-73u",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -9.88867568969727,
-                    -148.131622314453
+                    -8.69912910461426,
+                    -148.379440307617
                 ]
             },
             "actions": [
@@ -2049,8 +2132,8 @@
                 "name": "z4WwD1yn8jR05570rnMiX",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -8.89913749694824,
-                    -156.000305175781
+                    -7.70959138870239,
+                    -156.248123168945
                 ]
             },
             "actions": [
@@ -2075,9 +2158,9 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Gauche",
                         "code": "magenta",
-                        "red": "255",
-                        "green": "0",
-                        "blue": "255"
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141"
                     }
                 },
                 {
@@ -2087,11 +2170,20 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "Ban_Scene_RGB_Gauche",
-                        "red": "255",
-                        "green": "39",
-                        "blue": "167",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
                         "brightness": "100",
                         "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "4c90bd7c0bd04ed7b8a8bcfc82976361",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Alice_Pos"
                     }
                 }
             ]
@@ -2106,8 +2198,8 @@
                 "name": "nJiOcaLThD5jf3gIbK9AL",
                 "color": "#40E0D0",
                 "coordinate": [
-                    -9.43196296691895,
-                    -164.211547851563
+                    -8.24241638183594,
+                    -164.459365844727
                 ]
             },
             "actions": [
@@ -2161,6 +2253,17 @@
                         "brightness": "30",
                         "fade_time": "2"
                     }
+                },
+                {
+                    "id": "3724dc1dc76c4bca9291e30a40e8f2f6",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Neg",
+                        "brightness": "70",
+                        "fade_time": "1"
+                    }
                 }
             ]
         },
@@ -2168,7 +2271,7 @@
             "id": "UHV90_3qwFXNh_cZn1cWx",
             "next_event_id": "mqg3yE1G3KOJb-A-Uy_i7",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX #A_A",
@@ -2259,6 +2362,87 @@
                     }
                 },
                 {
+                    "id": "9MrpVCKLzjPaJ8NEx3XVj",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Global"
+                    }
+                },
+                {
+                    "id": "K0hLlgHb5IPXF4gMl06PU",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "7",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "5b02bdbf2ae34c17b79a132c302ee118",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "7PP-6Z-H_5tdEm8FalJrf",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "70",
+                        "fade_time": "3",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "96c00c121ff341258ec09b1f405c29e5",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "70",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "28a48b47d2084baca2a57b128c909916",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Neg",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "wHzXbeHRVImxjUJbcV2_p",
+            "next_event_id": "ifDhLJBX8ndjQk1-fd-WH",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "wHzXbeHRVImxjUJbcV2_p",
+                "color": "#FF33AC",
+                "coordinate": [
+                    -66.0694732666016,
+                    -230.425521850586
+                ]
+            },
+            "actions": [
+                {
                     "id": "JdLwdYj8Q--GSnMGDi4I7",
                     "refresh_rate": "0",
                     "action": "balayage",
@@ -2303,65 +2487,6 @@
                         "temps": "2000",
                         "connections": "0"
                     }
-                },
-                {
-                    "id": "9MrpVCKLzjPaJ8NEx3XVj",
-                    "refresh_rate": "0",
-                    "action": "turn_off",
-                    "type": "MONO",
-                    "options": {
-                        "hardware": "Ban_Scene_MONO_Global"
-                    }
-                },
-                {
-                    "id": "K0hLlgHb5IPXF4gMl06PU",
-                    "refresh_rate": "0",
-                    "action": "play_media_on_channel",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "media_index": "8",
-                        "transition_time": "2",
-                        "hardware": ""
-                    }
-                },
-                {
-                    "id": "5b02bdbf2ae34c17b79a132c302ee118",
-                    "refresh_rate": "0",
-                    "action": "stop",
-                    "type": "Boitier",
-                    "options": {
-                        "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "wHzXbeHRVImxjUJbcV2_p",
-            "next_event_id": "ifDhLJBX8ndjQk1-fd-WH",
-            "event_type": "ActionEvent",
-            "duration": 10,
-            "event_role": "None",
-            "interface": {
-                "name": "wHzXbeHRVImxjUJbcV2_p",
-                "color": "#FF33AC",
-                "coordinate": [
-                    -64.09619140625,
-                    -230.823989868164
-                ]
-            },
-            "actions": [
-                {
-                    "id": "7PP-6Z-H_5tdEm8FalJrf",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "volume": "70",
-                        "fade_time": "3",
-                        "hardware": ""
-                    }
                 }
             ]
         },
@@ -2375,8 +2500,8 @@
                 "name": "ifDhLJBX8ndjQk1-fd-WH",
                 "color": "#FF33AC",
                 "coordinate": [
-                    -63.4925727844238,
-                    -236.23405456543
+                    -63.3976974487305,
+                    -237.714004516602
                 ]
             },
             "actions": [
@@ -2432,14 +2557,14 @@
             "id": "EZRZB_Nv5GowL4y8ScYO8",
             "next_event_id": "s7kY_RmevSpuxzyX4E9VI",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 3,
             "event_role": "None",
             "interface": {
                 "name": "EZRZB_Nv5GowL4y8ScYO8",
                 "color": "#FF33AC",
                 "coordinate": [
-                    -65.2071380615234,
-                    -243.517974853516
+                    -65.1122665405273,
+                    -244.997924804688
                 ]
             },
             "actions": [
@@ -2464,7 +2589,7 @@
                     "options": {
                         "hardware": "Ban_Scene_MONO_AlicePos",
                         "brightness": "70",
-                        "fade_time": "2"
+                        "fade_time": "1"
                     }
                 },
                 {
@@ -2490,8 +2615,8 @@
                 "name": "s7kY_RmevSpuxzyX4E9VI",
                 "color": "#FF33AC",
                 "coordinate": [
-                    -63.1837196350098,
-                    -251.114700317383
+                    -63.2596130371094,
+                    -252.594635009766
                 ]
             },
             "actions": [
@@ -2589,6 +2714,18 @@
                         "brightness": "30",
                         "fade_time": "1"
                     }
+                },
+                {
+                    "id": "d3f9fd2b041e47b8b02c5a324562eb4b",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -2596,7 +2733,7 @@
             "id": "pht4GrJqoIoE1KAQaZ6bq",
             "next_event_id": "Ew-qRkowymvB4i_merfXU",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 6,
             "event_role": "None",
             "interface": {
                 "name": "pht4GrJqoIoE1KAQaZ6bq",
@@ -2644,7 +2781,7 @@
             "id": "Ew-qRkowymvB4i_merfXU",
             "next_event_id": "6AxKiQEz9eRhucjHS03Zf",
             "event_type": "ActionEvent",
-            "duration": 12,
+            "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "Ew-qRkowymvB4i_merfXU",
@@ -2704,7 +2841,7 @@
             "id": "6AxKiQEz9eRhucjHS03Zf",
             "next_event_id": "qEzh6XLJzvV-ryKdBAXKu",
             "event_type": "ActionEvent",
-            "duration": 8,
+            "duration": 1,
             "event_role": "None",
             "interface": {
                 "name": "FIN #A_A_A",
@@ -2715,17 +2852,6 @@
                 ]
             },
             "actions": [
-                {
-                    "id": "O_OfkYUc4N6G9hlPmTo1r",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "volume": "50",
-                        "fade_time": "5"
-                    }
-                },
                 {
                     "id": "F8Q2S9YNv1toWlQch-iN1",
                     "refresh_rate": "0",
@@ -3456,6 +3582,17 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
                     }
+                },
+                {
+                    "id": "3e13be3780a14d3998d3884fe84e24d7",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AlicePos",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
                 }
             ]
         },
@@ -3527,7 +3664,7 @@
             "id": "G_ksExaZzDHU9uA15zu5i",
             "next_event_id": "v4wM41UaeqETRsjTCy3-l",
             "event_type": "ActionEvent",
-            "duration": 3,
+            "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "G_ksExaZzDHU9uA15zu5i",
@@ -3646,7 +3783,7 @@
             "id": "kawdyI6rCmNRyKYQuGWO0",
             "next_event_id": "HqdSopqt6B-GipNxojM9-",
             "event_type": "ActionEvent",
-            "duration": 16,
+            "duration": 14,
             "event_role": "None",
             "interface": {
                 "name": "kawdyI6rCmNRyKYQuGWO0",
@@ -3706,7 +3843,7 @@
             "id": "HqdSopqt6B-GipNxojM9-",
             "next_event_id": "4aQ-JzNIVucXyUuxFNI7P",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "HqdSopqt6B-GipNxojM9-",
@@ -3749,6 +3886,18 @@
                     "options": {
                         "hardware": "Ban_Scene_MONO_AliceNeg"
                     }
+                },
+                {
+                    "id": "5b91ec9d2e99419a83808d545392e452",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -3756,7 +3905,7 @@
             "id": "4aQ-JzNIVucXyUuxFNI7P",
             "next_event_id": "cMsDeqxjoZlheJw9zvsHR",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 6,
             "event_role": "None",
             "interface": {
                 "name": "4aQ-JzNIVucXyUuxFNI7P",
@@ -3816,7 +3965,7 @@
             "id": "cMsDeqxjoZlheJw9zvsHR",
             "next_event_id": "oRqtB3UtLPFPh6HFNFDdV",
             "event_type": "ActionEvent",
-            "duration": 11,
+            "duration": 12,
             "event_role": "None",
             "interface": {
                 "name": "cMsDeqxjoZlheJw9zvsHR",
@@ -3866,7 +4015,7 @@
             "id": "oRqtB3UtLPFPh6HFNFDdV",
             "next_event_id": "VQAdnCmKxMd_r0Iywk6S_",
             "event_type": "ActionEvent",
-            "duration": 12,
+            "duration": 7,
             "event_role": "None",
             "interface": {
                 "name": "oRqtB3UtLPFPh6HFNFDdV",
@@ -3938,7 +4087,7 @@
             "id": "VQAdnCmKxMd_r0Iywk6S_",
             "next_event_id": "lYOUbxwX03qoG2cWXMX01",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "VQAdnCmKxMd_r0Iywk6S_",
@@ -3957,9 +4106,9 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Gauche",
                         "code": "rose",
-                        "red": "150",
-                        "green": "0",
-                        "blue": "200"
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141"
                     }
                 },
                 {
@@ -3969,11 +4118,23 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "Ban_Scene_RGB_Gauche",
-                        "red": "155",
-                        "green": "0",
-                        "blue": "255",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
                         "brightness": "100",
                         "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "425a02ba7fe648cc8d7205f14608de93",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AliceNeg",
+                        "effect": "smooth",
+                        "duration": "500",
+                        "brightness": "70"
                     }
                 }
             ]
@@ -4001,8 +4162,8 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit",
                         "code": "magenta",
-                        "red": "255",
-                        "green": "0",
+                        "red": "107",
+                        "green": "114",
                         "blue": "255"
                     }
                 },
@@ -4013,11 +4174,23 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "Ban_Scene_RGB_Droite",
-                        "red": "150",
-                        "green": "0",
+                        "red": "107",
+                        "green": "114",
                         "blue": "255",
                         "brightness": "100",
                         "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "6bad7a61edee440eac076815e9036cc6",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "effect": "smooth",
+                        "duration": "500",
+                        "brightness": "70"
                     }
                 }
             ]
@@ -4026,14 +4199,14 @@
             "id": "vEZnQnBnO5llJercn1qAS",
             "next_event_id": "-zN1Ola6W4fmBF5mJEiHk",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX #A_B",
                 "color": "#1A1A33",
                 "coordinate": [
-                    52.8580017089844,
-                    -192.256408691406
+                    53.0992393493652,
+                    -196.158248901367
                 ]
             },
             "actions": [
@@ -4133,7 +4306,8 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "8",
-                        "transition_time": "1"
+                        "transition_time": "0",
+                        "hardware": ""
                     }
                 },
                 {
@@ -4173,7 +4347,7 @@
             "id": "EL3n-S62F7KgyoxUbw9c0",
             "next_event_id": "9YCFRIPXczYFhfGfc5MF0",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 6,
             "event_role": "None",
             "interface": {
                 "name": "EL3n-S62F7KgyoxUbw9c0",
@@ -4191,8 +4365,9 @@
                     "type": "Son",
                     "options": {
                         "channel": "Musiques",
-                        "volume": "50",
-                        "fade_time": "3"
+                        "volume": "60",
+                        "fade_time": "3",
+                        "hardware": ""
                     }
                 }
             ]
@@ -4201,7 +4376,7 @@
             "id": "9YCFRIPXczYFhfGfc5MF0",
             "next_event_id": "8LxEqxjPEnOccp902uj1l",
             "event_type": "ActionEvent",
-            "duration": 19,
+            "duration": 18,
             "event_role": "None",
             "interface": {
                 "name": "9YCFRIPXczYFhfGfc5MF0",
@@ -4253,8 +4428,9 @@
                     "type": "Son",
                     "options": {
                         "channel": "Musiques",
-                        "volume": "25",
-                        "fade_time": "3"
+                        "volume": "30",
+                        "fade_time": "6",
+                        "hardware": ""
                     }
                 }
             ]
@@ -4263,7 +4439,7 @@
             "id": "8LxEqxjPEnOccp902uj1l",
             "next_event_id": "rlc4b_B2DebA-Sm3_fVIF",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 2,
             "event_role": "None",
             "interface": {
                 "name": "8LxEqxjPEnOccp902uj1l",
@@ -4315,7 +4491,7 @@
             "id": "rlc4b_B2DebA-Sm3_fVIF",
             "next_event_id": "VZQiVCYN37YvCd39TYstm",
             "event_type": "ActionEvent",
-            "duration": 11,
+            "duration": 6,
             "event_role": "None",
             "interface": {
                 "name": "rlc4b_B2DebA-Sm3_fVIF",
@@ -4366,7 +4542,7 @@
             "id": "VZQiVCYN37YvCd39TYstm",
             "next_event_id": "ibhMA95bptygWFWY4ljR1",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 9,
             "event_role": "None",
             "interface": {
                 "name": "VZQiVCYN37YvCd39TYstm",
@@ -4398,6 +4574,18 @@
                     "options": {
                         "hardware": "Ban_Scene_MONO_Lievre_Neg"
                     }
+                },
+                {
+                    "id": "a3a75577690d4248b107128551d59cdf",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "5",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -4405,7 +4593,7 @@
             "id": "ibhMA95bptygWFWY4ljR1",
             "next_event_id": "VlVIRyICUI_zQWxGqj67L",
             "event_type": "ActionEvent",
-            "duration": 5,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "ibhMA95bptygWFWY4ljR1",
@@ -4423,7 +4611,7 @@
                     "type": "Son",
                     "options": {
                         "filename": "BANQUET/DIALOGUES/ALICE/AL_DIAL_BAN_SCENE_ALICE_12.wav",
-                        "volume": "70",
+                        "volume": "50",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -4446,6 +4634,17 @@
                     "options": {
                         "hardware": "Ban_Scene_MONO_Lievre_Neg"
                     }
+                },
+                {
+                    "id": "a5e1bf81de2143f99b2a4ad44abafea1",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "8",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -4453,7 +4652,7 @@
             "id": "VlVIRyICUI_zQWxGqj67L",
             "next_event_id": "qEzh6XLJzvV-ryKdBAXKu",
             "event_type": "ActionEvent",
-            "duration": 11,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "FIN #A_B_A",
@@ -4470,8 +4669,8 @@
                     "action": "play_sound",
                     "type": "Son",
                     "options": {
-                        "filename": "BANQUET/SEQUENCES/AL_SEQ_BAN_ENTREE_Showpelier_Fin_01.wav",
-                        "volume": "70",
+                        "filename": "BANQUET/SEQUENCES/AL_SEQ_BAN_SCENE_Showpelier_Fin_01.wav",
+                        "volume": "100",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -4583,6 +4782,17 @@
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
                     }
+                },
+                {
+                    "id": "6dc07ef1de454ca998971d0b1bf5043e",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AliceNeg",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
                 }
             ]
         },
@@ -4608,7 +4818,7 @@
                     "type": "Son",
                     "options": {
                         "channel": "Musiques",
-                        "volume": "50",
+                        "volume": "60",
                         "fade_time": "4",
                         "hardware": ""
                     }
@@ -4619,14 +4829,14 @@
             "id": "2HrkgFNHpciiyKhkNoJ5Z",
             "next_event_id": "gLHH4tKriA7-Jofdx7Mcf",
             "event_type": "ActionEvent",
-            "duration": 19,
+            "duration": 18,
             "event_role": "None",
             "interface": {
                 "name": "2HrkgFNHpciiyKhkNoJ5Z",
                 "color": "#C200FF",
                 "coordinate": [
-                    54.5109558105469,
-                    -236.597732543945
+                    52.7684593200684,
+                    -236.205673217773
                 ]
             },
             "actions": [
@@ -4674,6 +4884,18 @@
                         "brightness": "70",
                         "fade_time": "3"
                     }
+                },
+                {
+                    "id": "32c19dd9cd05499d871b55a6cdbd4345",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "4",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -4681,7 +4903,7 @@
             "id": "gLHH4tKriA7-Jofdx7Mcf",
             "next_event_id": "7GnMiAQlaKLKqQksZmq5R",
             "event_type": "ActionEvent",
-            "duration": 16,
+            "duration": 12,
             "event_role": "None",
             "interface": {
                 "name": "gLHH4tKriA7-Jofdx7Mcf",
@@ -4726,6 +4948,17 @@
                         "brightness": "30",
                         "fade_time": "1"
                     }
+                },
+                {
+                    "id": "d4fa3f2a853a40bebf260c2c44c3bf0f",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "loop_mode": "repeat",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -4733,14 +4966,14 @@
             "id": "7GnMiAQlaKLKqQksZmq5R",
             "next_event_id": "_xf7-QLmXTufBX9T1h2qp",
             "event_type": "ActionEvent",
-            "duration": 13,
+            "duration": 10,
             "event_role": "None",
             "interface": {
                 "name": "7GnMiAQlaKLKqQksZmq5R",
                 "color": "#C200FF",
                 "coordinate": [
-                    55.8810768127441,
-                    -251.747482299805
+                    56.1860122680664,
+                    -250.767318725586
                 ]
             },
             "actions": [
@@ -4784,7 +5017,7 @@
             "id": "_xf7-QLmXTufBX9T1h2qp",
             "next_event_id": "oN7tW4unYiqAn83jxKdri",
             "event_type": "ActionEvent",
-            "duration": 8,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "_xf7-QLmXTufBX9T1h2qp",
@@ -4833,7 +5066,7 @@
             "id": "oN7tW4unYiqAn83jxKdri",
             "next_event_id": "RauWSSm54KElRKT3nwyl8",
             "event_type": "ActionEvent",
-            "duration": 6,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "oN7tW4unYiqAn83jxKdri",
@@ -4893,7 +5126,7 @@
             "id": "RauWSSm54KElRKT3nwyl8",
             "next_event_id": "w99AJhTTcfylZnOReLxxw",
             "event_type": "ActionEvent",
-            "duration": 8,
+            "duration": 7,
             "event_role": "None",
             "interface": {
                 "name": "RauWSSm54KElRKT3nwyl8",
@@ -4945,7 +5178,7 @@
             "id": "w99AJhTTcfylZnOReLxxw",
             "next_event_id": "0JxfXhbzfRb0FvUxKzqBs",
             "event_type": "ActionEvent",
-            "duration": 8,
+            "duration": 7,
             "event_role": "None",
             "interface": {
                 "name": "w99AJhTTcfylZnOReLxxw",
@@ -5036,6 +5269,17 @@
                     "options": {
                         "hardware": "Ban_Scene_MONO_Lievre_Pos"
                     }
+                },
+                {
+                    "id": "ff23c49cd5424e13bcafffc6d54c4b43",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "5",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -5043,7 +5287,7 @@
             "id": "8HFHuswZGXj9V3qErEEue",
             "next_event_id": "qEzh6XLJzvV-ryKdBAXKu",
             "event_type": "ActionEvent",
-            "duration": 12,
+            "duration": 10,
             "event_role": "None",
             "interface": {
                 "name": "FIN #A_B_B",
@@ -5061,7 +5305,7 @@
                     "type": "Son",
                     "options": {
                         "filename": "BANQUET\\SEQUENCES\\AL_SEQ_BAN_SCENE_Showpelier_Fin_02.wav",
-                        "volume": "70",
+                        "volume": "100",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -5151,6 +5395,17 @@
                     "type": "Boitier",
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "f4d736944b29497cbfd7dd926d12c268",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "effect": "sudden",
+                        "duration": "500"
                     }
                 }
             ]
@@ -5532,6 +5787,17 @@
                         "brightness": "70",
                         "fade_time": "2"
                     }
+                },
+                {
+                    "id": "bf8a555ab10f4dc4ac0e1312bd484eb9",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AlicePos",
+                        "brightness": "50",
+                        "fade_time": "5"
+                    }
                 }
             ]
         },
@@ -5627,7 +5893,7 @@
             "id": "Sus_0bVn9IcsWUu4HvFfI",
             "next_event_id": "0oqHSNojNaWqEr2_n5tkO",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX #B",
@@ -5638,15 +5904,6 @@
                 ]
             },
             "actions": [
-                {
-                    "id": "c2be3a8bfcfb4b389886f39737ffbeec",
-                    "refresh_rate": "1",
-                    "action": "status",
-                    "type": "Boitier",
-                    "options": {
-                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
-                    }
-                },
                 {
                     "id": "14c78446b6f24375b50bb7ca93052bcd",
                     "refresh_rate": "1",
@@ -5671,6 +5928,15 @@
                         "sensor_hardware": "Ban_Scene_Boitier_Droit",
                         "sensor_variable": "status",
                         "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "c2be3a8bfcfb4b389886f39737ffbeec",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
                     }
                 }
             ]
@@ -5734,9 +6000,9 @@
                     "type": "RGB",
                     "options": {
                         "hardware": "Ban_Scene_RGB_Gauche,Ban_Scene_RGB_Droite",
-                        "red": "255",
-                        "green": "0",
-                        "blue": "255",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
                         "brightness": "100",
                         "fade_time": "2"
                     }
@@ -5765,7 +6031,7 @@
             "id": "C7bXxihuZ7AliXn6YXKAg",
             "next_event_id": "UfVBGytTz9gLB6ATEtVxF",
             "event_type": "ActionEvent",
-            "duration": 13,
+            "duration": 7,
             "event_role": "None",
             "interface": {
                 "name": "C7bXxihuZ7AliXn6YXKAg",
@@ -5831,7 +6097,7 @@
             "id": "UfVBGytTz9gLB6ATEtVxF",
             "next_event_id": "HKrgQdUaxsB6r2o8BbIlH",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "UfVBGytTz9gLB6ATEtVxF",
@@ -5868,14 +6134,13 @@
                     }
                 },
                 {
-                    "id": "7WdPyhApE9Ig7MWFPD4U8",
+                    "id": "5ae5249a009f4b818310fad4bc84b98b",
                     "refresh_rate": "0",
-                    "action": "fade_turn_on",
+                    "action": "set_brightness",
                     "type": "MONO",
                     "options": {
                         "hardware": "Ban_Scene_MONO_AlicePos",
-                        "brightness": "70",
-                        "fade_time": "2"
+                        "brightness": "100"
                     }
                 }
             ]
@@ -5944,7 +6209,7 @@
             "id": "y4aM-LXrUoxjbVd8ewKeB",
             "next_event_id": "wERPU-1qNen5FyqnqS0JD",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 4,
             "event_role": "None",
             "interface": {
                 "name": "y4aM-LXrUoxjbVd8ewKeB",
@@ -5989,6 +6254,18 @@
                         "brightness": "30",
                         "fade_time": "1"
                     }
+                },
+                {
+                    "id": "65a53fa5811540199aa1ef865414842f",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "5",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
                 }
             ]
         },
@@ -5996,7 +6273,7 @@
             "id": "wERPU-1qNen5FyqnqS0JD",
             "next_event_id": "DupkW2Pw5yLgjZmMYKdY2",
             "event_type": "ActionEvent",
-            "duration": 7,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "wERPU-1qNen5FyqnqS0JD",
@@ -6102,16 +6379,16 @@
         },
         {
             "id": "qynfyBCoWLmpOrzGWSITW",
-            "next_event_id": "_H6ikbNkbo9FGaBOFj-1t",
+            "next_event_id": "4d7da4d3f3ea410fbafb351204aabe18",
             "event_type": "ActionEvent",
-            "duration": 14,
-            "event_role": "None",
+            "duration": 5,
+            "event_role": "Start",
             "interface": {
                 "name": "qynfyBCoWLmpOrzGWSITW",
                 "color": "#5332FF",
                 "coordinate": [
-                    140.221374511719,
-                    -162.933349609375
+                    140.129013061523,
+                    -161.317184448242
                 ]
             },
             "actions": [
@@ -6122,7 +6399,7 @@
                     "type": "Son",
                     "options": {
                         "filename": "BANQUET\\SEQUENCES\\AL_SEQ_BAN_SCENE_Lievre_Sucre.wav",
-                        "volume": "70",
+                        "volume": "80",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -6145,9 +6422,21 @@
                     "action": "fade_turn_on",
                     "type": "MONO",
                     "options": {
-                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
-                        "brightness": "90",
+                        "hardware": "Ban_Scene_MONO_Lievre_Neg",
+                        "brightness": "70",
                         "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "472ff30c613c470dbe7481ffb908bce0",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "6",
+                        "transition_time": "2",
+                        "hardware": ""
                     }
                 }
             ]
@@ -6253,6 +6542,15 @@
                         "brightness": "100",
                         "fade_time": "1"
                     }
+                },
+                {
+                    "id": "69c815e3a0254008ab79e28520c11ab3",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_AlicePos"
+                    }
                 }
             ]
         },
@@ -6297,6 +6595,15 @@
                         "brightness": "100",
                         "fade_time": "2"
                     }
+                },
+                {
+                    "id": "6ea5616163874d64a74b8ad26aa5300f",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos"
+                    }
                 }
             ]
         },
@@ -6304,26 +6611,17 @@
             "id": "8KSvCmRHP_FstMg35h-Wy",
             "next_event_id": "3axaGDf5pESjDHgfN6cO3",
             "event_type": "InteractionEvent",
-            "duration": 15,
+            "duration": 45,
             "event_role": "None",
             "interface": {
                 "name": "CHOIX #B_A",
                 "color": "#1A1A33",
                 "coordinate": [
-                    157.928176879883,
-                    -189.018188476563
+                    156.335144042969,
+                    -191.07975769043
                 ]
             },
             "actions": [
-                {
-                    "id": "49677630b31f49e4aa4630abc9ecdca2",
-                    "refresh_rate": "1",
-                    "action": "status",
-                    "type": "Boitier",
-                    "options": {
-                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
-                    }
-                },
                 {
                     "id": "be94ded8027c47c793f33573a391ee27",
                     "refresh_rate": "1",
@@ -6348,6 +6646,15 @@
                         "sensor_hardware": "Ban_Scene_Boitier_Droit",
                         "sensor_variable": "status",
                         "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "49677630b31f49e4aa4630abc9ecdca2",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Ban_Scene_Boitier_Gauche,Ban_Scene_Boitier_Droit"
                     }
                 }
             ]
@@ -6432,6 +6739,17 @@
                     "type": "Boitier",
                     "options": {
                         "hardware": "Ban_Scene_Boitier_Droit,Ban_Scene_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "5a6232bf36f84c5ca511a9d1bd8f8ba9",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "effect": "sudden",
+                        "duration": "500"
                     }
                 }
             ]
@@ -6671,12 +6989,13 @@
                     }
                 },
                 {
-                    "id": "75amM1BV-7Z5luC5tZKws",
+                    "id": "5965451455574b7c9fa5bd7f16f3632b",
                     "refresh_rate": "0",
-                    "action": "turn_on",
+                    "action": "set_brightness",
                     "type": "MONO",
                     "options": {
-                        "hardware": "Ban_Scene_MONO_AlicePos"
+                        "hardware": "Ban_Scene_MONO_AlicePos",
+                        "brightness": "80"
                     }
                 }
             ]
@@ -6745,7 +7064,7 @@
             "id": "gMg4CpLxFMmk9JqlCvW2H",
             "next_event_id": "TUXSSc763ll9iowhsbeZA",
             "event_type": "ActionEvent",
-            "duration": 12,
+            "duration": 11,
             "event_role": "None",
             "interface": {
                 "name": "gMg4CpLxFMmk9JqlCvW2H",
@@ -6795,7 +7114,7 @@
             "id": "TUXSSc763ll9iowhsbeZA",
             "next_event_id": "Tv0Z142hot28z2nwDmMBq",
             "event_type": "ActionEvent",
-            "duration": 9,
+            "duration": 8,
             "event_role": "None",
             "interface": {
                 "name": "TUXSSc763ll9iowhsbeZA",
@@ -6861,7 +7180,7 @@
                     "type": "Son",
                     "options": {
                         "filename": "BANQUET/SEQUENCES/AL_SEQ_BAN_SCENE_Showpelier_Fin_01.wav",
-                        "volume": "70",
+                        "volume": "100",
                         "fade_other": "false",
                         "other_volume": "0",
                         "fade_time": "0"
@@ -6898,6 +7217,17 @@
                         "temps": "2000",
                         "connections": "0"
                     }
+                },
+                {
+                    "id": "281a409ec33c46028827d16a6768a7f7",
+                    "refresh_rate": "0",
+                    "action": "fade_bg",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Global",
+                        "brightness": "80",
+                        "fade_time": "2"
+                    }
                 }
             ]
         },
@@ -6905,7 +7235,7 @@
             "id": "dbc4r1t0Ld4DxGXs5ZoZ6",
             "next_event_id": "vtaVpH_cXufiwwMTsEfmK",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "dbc4r1t0Ld4DxGXs5ZoZ6",
@@ -7002,7 +7332,7 @@
                     "type": "MONO",
                     "options": {
                         "hardware": "Ban_Scene_MONO_Global",
-                        "fade_time": "3",
+                        "fade_time": "5",
                         "is_rgb": "false"
                     }
                 }
@@ -7774,7 +8104,8 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "9",
-                        "transition_time": "2"
+                        "transition_time": "2",
+                        "hardware": ""
                     }
                 },
                 {
@@ -7783,12 +8114,38 @@
                     "action": "fade_turn_on_rgb",
                     "type": "RGB",
                     "options": {
-                        "hardware": "Ban_Scene_RGB_Gauche,Ban_Scene_RGB_Droite",
-                        "red": "0",
-                        "green": "100",
-                        "blue": "255",
+                        "hardware": "Ban_Scene_RGB_Gauche",
+                        "red": "141",
+                        "green": "255",
+                        "blue": "94",
                         "brightness": "100",
                         "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "ed015aa2490d4df08053a2246635a1c3",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Ban_Scene_RGB_Droite",
+                        "red": "240",
+                        "green": "98",
+                        "blue": "141",
+                        "brightness": "100",
+                        "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "4bbd839b1330404288beed0801b69483",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "60",
+                        "fade_time": "2",
+                        "hardware": ""
                     }
                 },
                 {
@@ -7842,24 +8199,13 @@
             "event_role": "None",
             "interface": {
                 "name": "_-8kU8hVNNk5SH7ceRXY8",
-                "color": "#FFFFFF",
+                "color": "#F0B24C",
                 "coordinate": [
-                    84.9248962402344,
-                    -315.807250976563
+                    86.4751434326172,
+                    -313.750305175781
                 ]
             },
             "actions": [
-                {
-                    "id": "wT3ZmWyndnsTjIvIbLUrV",
-                    "refresh_rate": "0",
-                    "action": "set_volume",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "volume": "50",
-                        "fade_time": "2"
-                    }
-                },
                 {
                     "id": "A7lVEaoMy7MxImWNr4Hi8",
                     "refresh_rate": "0",
@@ -7891,7 +8237,7 @@
                     "type": "MONO",
                     "options": {
                         "hardware": "Ban_Scene_MONO_Global",
-                        "brightness": "90",
+                        "brightness": "70",
                         "fade_time": "3"
                     }
                 }
@@ -7905,10 +8251,10 @@
             "event_role": "None",
             "interface": {
                 "name": "qQRzLngMmH7PMErurc2sk",
-                "color": "#FFFFFF",
+                "color": "#F0B24C",
                 "coordinate": [
-                    84.9248962402344,
-                    -325.807250976563
+                    88.9192962646484,
+                    -321.915283203125
                 ]
             },
             "actions": [
@@ -7978,10 +8324,10 @@
             "event_role": "None",
             "interface": {
                 "name": "cABnjhr3uZj2pQO57-yfU",
-                "color": "#FFFFFF",
+                "color": "#F0B24C",
                 "coordinate": [
-                    84.9248962402344,
-                    -335.807250976563
+                    88.048713684082,
+                    -329.508422851563
                 ]
             },
             "actions": [
@@ -8028,14 +8374,14 @@
             "id": "VcAL6PfhUr8jwDqHRnyal",
             "next_event_id": "svjZBoKjXKDxlu47iqaM5",
             "event_type": "ActionEvent",
-            "duration": 10,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "VcAL6PfhUr8jwDqHRnyal",
-                "color": "#FFFFFF",
+                "color": "#F0B24C",
                 "coordinate": [
-                    84.9248962402344,
-                    -345.807250976563
+                    86.4099960327148,
+                    -337.408782958984
                 ]
             },
             "actions": [
@@ -8086,6 +8432,27 @@
                         "brightness": "70",
                         "fade_time": "5"
                     }
+                },
+                {
+                    "id": "iNFdo9VL0Uk-Kx0qsl_du",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "is_rgb": "false",
+                        "hardware": "Ban_Scene_MONO_Global",
+                        "fade_time": "4"
+                    }
+                },
+                {
+                    "id": "jeDPUinWDui1AR3-7_pBy",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "9"
+                    }
                 }
             ]
         },
@@ -8093,14 +8460,14 @@
             "id": "svjZBoKjXKDxlu47iqaM5",
             "next_event_id": "c354286d6dd842c085008661506bbca3",
             "event_type": "ActionEvent",
-            "duration": 15,
+            "duration": 5,
             "event_role": "None",
             "interface": {
                 "name": "FIN Global",
-                "color": "#F4A460",
+                "color": "#F0B24C",
                 "coordinate": [
-                    84.9248962402344,
-                    -355.807220458984
+                    87.1269378662109,
+                    -345.309143066406
                 ]
             },
             "actions": [
@@ -8113,27 +8480,6 @@
                         "is_rgb": "true",
                         "hardware": "Ban_Scene_RGB_Gauche,Ban_Scene_RGB_Droite",
                         "fade_time": "10"
-                    }
-                },
-                {
-                    "id": "jeDPUinWDui1AR3-7_pBy",
-                    "refresh_rate": "0",
-                    "action": "pause_channel",
-                    "type": "Son",
-                    "options": {
-                        "channel": "Musiques",
-                        "fade_time": "9"
-                    }
-                },
-                {
-                    "id": "iNFdo9VL0Uk-Kx0qsl_du",
-                    "refresh_rate": "0",
-                    "action": "fade_turn_off",
-                    "type": "MONO",
-                    "options": {
-                        "is_rgb": "false",
-                        "hardware": "Ban_Scene_MONO_Global",
-                        "fade_time": "4"
                     }
                 },
                 {
@@ -8193,8 +8539,8 @@
                 "name": "RESET",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    84.9248962402344,
-                    -365.807220458984
+                    87.1781463623047,
+                    -356.896636962891
                 ]
             },
             "actions": [
@@ -8262,8 +8608,8 @@
                 "name": "CommentEvent",
                 "color": "#4F4FB7",
                 "coordinate": [
-                    -16.4145240783691,
-                    -1.93747901916504
+                    36.4513397216797,
+                    17.9039611816406
                 ]
             },
             "actions": [
@@ -8452,8 +8798,8 @@
                 "name": "CommentEvent",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    147.643783569336,
-                    -216.990737915039
+                    151.435455322266,
+                    -217.758987426758
                 ]
             },
             "actions": [
@@ -8471,8 +8817,8 @@
                 "name": "CommentEvent",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    146.528778076172,
-                    -186.429306030273
+                    147.420944213867,
+                    -185.784957885742
                 ]
             },
             "actions": [
@@ -8498,6 +8844,99 @@
                 
             ],
             "comment_text": "VICTOIRE LIEVRE"
+        },
+        {
+            "id": "d7efdd36c7594be0841ab564d35cab1c",
+            "next_event_id": "txFkZHeKbdWh2lsxT5a0M",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    162.872055053711,
+                    -204.019088745117
+                ]
+            },
+            "actions": [
+                
+            ],
+            "comment_text": "> BOITIER DROIT"
+        },
+        {
+            "id": "a15824a30af243ffa1663d1e6645f019",
+            "next_event_id": "tp5M3yhFI2pAXL6RciILP",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    172.057800292969,
+                    -127.523414611816
+                ]
+            },
+            "actions": [
+                
+            ],
+            "comment_text": "BOITIER DROIT > CHEMIN ALICE #A_B"
+        },
+        {
+            "id": "4d7da4d3f3ea410fbafb351204aabe18",
+            "next_event_id": "5c435e9a7c0e4ee5a4ee317fbfd7c8e3",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "ActionEvent",
+                "color": "#6B72FF",
+                "coordinate": [
+                    140.072250366211,
+                    -168.678604125977
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9c56d1aa0cbd4e6f8fa4b8c870773f88",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Neg",
+                        "fade_time": "23"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5c435e9a7c0e4ee5a4ee317fbfd7c8e3",
+            "next_event_id": "_H6ikbNkbo9FGaBOFj-1t",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "ActionEvent",
+                "color": "#6B72FF",
+                "coordinate": [
+                    143.868270874023,
+                    -173.428634643555
+                ]
+            },
+            "actions": [
+                {
+                    "id": "247540736adf4b82991428932bb575e1",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Ban_Scene_MONO_Lievre_Pos",
+                        "brightness": "90",
+                        "fade_time": "1"
+                    }
+                }
+            ]
         }
     ]
 }

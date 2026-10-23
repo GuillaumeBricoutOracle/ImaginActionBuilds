@@ -1,0 +1,4052 @@
+{
+    "events": [
+        {
+            "id": "6eTb-UyDGZhFgY_edWKBV",
+            "next_event_id": "1W4dcOyKJT6h8T36gN49R",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "Start",
+            "interface": {
+                "name": "6eTb-UyDGZhFgY_edWKBV",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -19.0907878875732,
+                    -68.8645706176758
+                ]
+            },
+            "actions": [
+                {
+                    "id": "YGdoPnAiN4u2qoQx4oCqr",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "35",
+                        "fade_time": "0"
+                    }
+                },
+                {
+                    "id": "IwEJIC20PTKPPl9vo9fn-",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "loop_mode": "repeat",
+                        "channel": "Musiques"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1W4dcOyKJT6h8T36gN49R",
+            "next_event_id": "Y11tOMNaO24rKKdeIN6MX",
+            "event_type": "ActionEvent",
+            "duration": 13,
+            "event_role": "None",
+            "interface": {
+                "name": "1W4dcOyKJT6h8T36gN49R",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -21.6787204742432,
+                    -77.8593444824219
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9SkUDceC0sLHP66kfh_fd",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "3",
+                        "transition_time": "2"
+                    }
+                },
+                {
+                    "id": "1yylOhZJySLqdyeSAZ1fw",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche",
+                        "red": "150",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "QssGvUklxvv_SYGmwHwYI",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "150",
+                        "blue": "150",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Y11tOMNaO24rKKdeIN6MX",
+            "next_event_id": "ISTWTVScwbPplj1grF9Og",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "Y11tOMNaO24rKKdeIN6MX",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -19.9249172210693,
+                    -86.5760650634766
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Ei6W29AW9fXfe1ylboifg",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "0,1,2,3,4",
+                        "red1": "255",
+                        "green1": "140",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "140",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "500",
+                        "temps": "0",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "code1": "orange",
+                        "code": "orange",
+                        "connections": "0"
+                    }
+                },
+                {
+                    "id": "F0p8hurpG94LHyS6GqPxW",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "0,1,2,3,4",
+                        "red1": "255",
+                        "green1": "100",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "500",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "icTF6bBkf_DutJomVCpoU",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ISTWTVScwbPplj1grF9Og",
+            "next_event_id": "ZkmjQ9u1KDCx1auZWWwUQ",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "ISTWTVScwbPplj1grF9Og",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -20.053243637085,
+                    -94.8864212036133
+                ]
+            },
+            "actions": [
+                {
+                    "id": "YxxM8TyJDNAinikH3C-GW",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_01.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "d69a233594384b03a8ba0dc8c7ab3ee3",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "158",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ZkmjQ9u1KDCx1auZWWwUQ",
+            "next_event_id": "qWeYkkFeCLh5SLpHh3PWY",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "ZkmjQ9u1KDCx1auZWWwUQ",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -18.7058048248291,
+                    -101.400192260742
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JC1mJEdZTCiSJ-s-Txnze",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_01.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "MblpAqDBQTZPn7_ZzRsvV",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "min",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "89b3939efc5043c7bcb38a1e30c0ccb3",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "led_debut": "0",
+                        "led_fin": "1",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "46",
+                        "blue": "104",
+                        "brightness": "100",
+                        "temps": "1500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qWeYkkFeCLh5SLpHh3PWY",
+            "next_event_id": "qxLEVb1FFLO0EmI5MB1nK",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "qWeYkkFeCLh5SLpHh3PWY",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -19.138313293457,
+                    -109.959609985352
+                ]
+            },
+            "actions": [
+                {
+                    "id": "CdFZ757DRVRw9Z8piz0G9",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Maison_Proche.wav",
+                        "volume": "85"
+                    }
+                },
+                {
+                    "id": "hYZ6Vm2rqedPNEVss38BW",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "c58822d9ab58422e9c04d5d135237da7",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "qxLEVb1FFLO0EmI5MB1nK",
+            "next_event_id": "hoVmXvSqMVP3Qdf1MkuuV",
+            "event_type": "ActionEvent",
+            "duration": 11,
+            "event_role": "None",
+            "interface": {
+                "name": "qxLEVb1FFLO0EmI5MB1nK",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -8.0751838684082,
+                    -78.0948944091797
+                ]
+            },
+            "actions": [
+                {
+                    "id": "RByysSJGEzNvBYFCuWbqt",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_02.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "KlGVtLWoMNItmdeKFWAAC",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "141",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "lCv4PSNROyLopfoThxi4x",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "hoVmXvSqMVP3Qdf1MkuuV",
+            "next_event_id": "0h_SgSV7k2nqAF6hgOQ38",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "hoVmXvSqMVP3Qdf1MkuuV",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -8.0751838684082,
+                    -88.0948944091797
+                ]
+            },
+            "actions": [
+                {
+                    "id": "S2kdrE0k_22wyE05SW25L",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_02.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "8dXm7Puu0ljFfgVHRoNpv",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "0h_SgSV7k2nqAF6hgOQ38",
+            "next_event_id": "rbk97CrEGM_5_TsTyR-lV",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "0h_SgSV7k2nqAF6hgOQ38",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -8.0751838684082,
+                    -98.0948944091797
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ARzkk_TxSsRCMjftz0hYF",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Maison_React_01.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "13eWfijnGlkaECFAVG6ug",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite"
+                    }
+                },
+                {
+                    "id": "k64MvXFPLeVaEB5wSgabH",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "rbk97CrEGM_5_TsTyR-lV",
+            "next_event_id": "ZQrWNH6wksTtgaNxT-api",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "rbk97CrEGM_5_TsTyR-lV",
+                "color": "#BA6C00",
+                "coordinate": [
+                    -8.0751838684082,
+                    -108.09489440918
+                ]
+            },
+            "actions": [
+                {
+                    "id": "DO9nV8-_iQHaIahEEgnu9",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_03.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "kosqzrOaaboLY-ZeBgbaO",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "FtQrGfwSxfIEvYB4FYUJQ",
+                    "refresh_rate": "0",
+                    "action": "turn_on",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ZQrWNH6wksTtgaNxT-api",
+            "next_event_id": "RRpVRylurOaxAU72syj4D",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "ZQrWNH6wksTtgaNxT-api",
+                "color": "#BA6C00",
+                "coordinate": [
+                    3.0396671295166,
+                    -77.8514709472656
+                ]
+            },
+            "actions": [
+                {
+                    "id": "eAJ1hyPgfqthZaVLOL4Lj",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_03.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "1c306b4416b4477ca60d78945e8f2f0a",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "min",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "RRpVRylurOaxAU72syj4D",
+            "next_event_id": "YhIgrm4eOArValhtCYDWp",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "RRpVRylurOaxAU72syj4D",
+                "color": "#BA6C00",
+                "coordinate": [
+                    4.01762199401855,
+                    -85.6704559326172
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OuEGTsGSHsXYjvXOvLJqP",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_04.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "mWm9gw_R0it1GCr28grRt",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "YhIgrm4eOArValhtCYDWp",
+            "next_event_id": "nNSIrL9m3KOZvJlH82lfq",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "YhIgrm4eOArValhtCYDWp",
+                "color": "#BA6C00",
+                "coordinate": [
+                    5.50963544845581,
+                    -92.4552459716797
+                ]
+            },
+            "actions": [
+                {
+                    "id": "8e76d7450f434010ae88d18f071ecde9",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "min",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nNSIrL9m3KOZvJlH82lfq",
+            "next_event_id": "e7jFdOBFzAAm8FymbZlQj",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "nNSIrL9m3KOZvJlH82lfq",
+                "color": "#BA6C00",
+                "coordinate": [
+                    4.91151428222656,
+                    -97.9609451293945
+                ]
+            },
+            "actions": [
+                {
+                    "id": "XlnVANwC21ybNbeYpCnXN",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Maison_React_Happy.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "EWqy3dZELETm5Edm7jK_t",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit",
+                        "code": "yellow",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0"
+                    }
+                },
+                {
+                    "id": "eG5vBGciaJFxQ3BrhxqMz",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "202",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "Zt_9sta6D1X23P_vi4tWN",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "0,1,2,3,4",
+                        "red1": "255",
+                        "green1": "100",
+                        "blue1": "",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "2000",
+                        "led_debut": "0",
+                        "led_fin": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e7jFdOBFzAAm8FymbZlQj",
+            "next_event_id": "P8faT2D7SqxhLr93FR0QL",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "e7jFdOBFzAAm8FymbZlQj",
+                "color": "#BA6C00",
+                "coordinate": [
+                    4.91151428222656,
+                    -107.960945129395
+                ]
+            },
+            "actions": [
+                {
+                    "id": "H5kUt9sq7KVoAF_ljrj7G",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_05.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "Ye23iG1FteIUzyscGITIi",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "P8faT2D7SqxhLr93FR0QL",
+            "next_event_id": "JyoaGqjxDHR-KPhUxwRnj",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "P8faT2D7SqxhLr93FR0QL",
+                "color": "#BA6C00",
+                "coordinate": [
+                    6.46427154541016,
+                    -116.201148986816
+                ]
+            },
+            "actions": [
+                {
+                    "id": "T2AtZnijfbc5tw4fyCW4p",
+                    "refresh_rate": "0",
+                    "action": "couleur_boitier",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Gauche",
+                        "code": "blue",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255"
+                    }
+                },
+                {
+                    "id": "PWvMLdSefgMHYOvW9WWkd",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche",
+                        "red": "0",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "zHRl3AwCuwpXTaC2rh1Qx",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "0,1,2,3,4",
+                        "red1": "255",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "f5d8e905c8ff49cfa632a796f7563c3a",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "JyoaGqjxDHR-KPhUxwRnj",
+            "next_event_id": "0QN1MFuli-HIjejbeEhRL",
+            "event_type": "InteractionEvent",
+            "duration": 45,
+            "event_role": "None",
+            "interface": {
+                "name": "CHOIX",
+                "color": "#BA6C00",
+                "coordinate": [
+                    17.9546909332275,
+                    -129.203155517578
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c53d38078d9a4d08af0843fa5414a92e",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "As3XFDAzRg0DIGftXcPaT",
+                        "sensor_hardware": "Cha_Central_Boitier_Gauche",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "dc88fd3dbc254140bf093ab9e730b06b",
+                    "refresh_rate": "1",
+                    "action": "complete_event_if_equals",
+                    "type": "System",
+                    "options": {
+                        "hardware": "",
+                        "next_event_id": "0QN1MFuli-HIjejbeEhRL",
+                        "sensor_hardware": "Cha_Central_Boitier_Droit",
+                        "sensor_variable": "status",
+                        "expected": "COLORBOX_STATUS_FINISHED"
+                    }
+                },
+                {
+                    "id": "d0b5d491d12c4b6b8745ad975f67e8a0",
+                    "refresh_rate": "1",
+                    "action": "status",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Gauche,Cha_Central_Boitier_Droit"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "As3XFDAzRg0DIGftXcPaT",
+            "next_event_id": "1f9yMhHT5ITGQBQx3FgsU",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "BLEU #A PERMACULTURE",
+                "color": "#1B48B8",
+                "coordinate": [
+                    40,
+                    -170
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Jjr-miWLfSYYDafX4pb-R",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Maison_React_01.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "S48ictCYhbYZ52tGzgKq1",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "50",
+                        "blue": "255",
+                        "brightness": "100",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "hV5Ea1cqyABs8wsMbryEt",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "40",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "j4pUnaEwTPQ0n5zqxMWcD",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "0,1,2,3,4",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "green": "66",
+                        "red": "0",
+                        "blue": "255",
+                        "brightness": "0",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "VjmDI88oJFxN0p-8lcs8O",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "0,1,2,3,4",
+                        "red1": "0",
+                        "green1": "69",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "14",
+                        "blue": "255",
+                        "brightness": "0",
+                        "temps": "500"
+                    }
+                },
+                {
+                    "id": "OeITMjIuhHQ345T4jsR4P",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "1"
+                    }
+                },
+                {
+                    "id": "ea9b54397fd94e3c8612ca6b5c5291fe",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit,Cha_Central_Boitier_Gauche"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1f9yMhHT5ITGQBQx3FgsU",
+            "next_event_id": "0549547f64734bf8b0104a9d167b96be",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "1f9yMhHT5ITGQBQx3FgsU",
+                "color": "#1B48B8",
+                "coordinate": [
+                    40.2944831848145,
+                    -177.354385375977
+                ]
+            },
+            "actions": [
+                {
+                    "id": "O5Gm2IlHVlAXuNH9esIkF",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "4",
+                        "transition_time": "2",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "t59sdm2VM3ygxmZ80yW6j",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "2000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "205454d04f8d44a88e9327ddf9dd716c",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "led_debut": "0",
+                        "led_fin": "6",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "41",
+                        "green": "41",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "b4a2b719e4274ff1805b07e8966d8cb1",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "OWA3iohWYXzzybjvXRHu-",
+            "next_event_id": "t1Jz-zdCBX6xvx9gt2K9N",
+            "event_type": "ActionEvent",
+            "duration": 12,
+            "event_role": "None",
+            "interface": {
+                "name": "OWA3iohWYXzzybjvXRHu-",
+                "color": "#1B48B8",
+                "coordinate": [
+                    41.4906883239746,
+                    -189.585754394531
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-2pv4bDd3FbxDoyxitJm3",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_06.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "e1fILXN3ysCnlLliKYw9j",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "e4639376a73a4a9d861215e0152adc94",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps": "2000",
+                        "temps2": "3000",
+                        "delai": "4000"
+                    }
+                },
+                {
+                    "id": "8b776d53dfbd47e2adb04155e176c892",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "12",
+                        "green": "255",
+                        "blue": "244",
+                        "brightness": "100",
+                        "delai": "1200",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "t1Jz-zdCBX6xvx9gt2K9N",
+            "next_event_id": "biTrficE0K2LE6LiXJXrj",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "t1Jz-zdCBX6xvx9gt2K9N",
+                "color": "#1B48B8",
+                "coordinate": [
+                    41.9277610778809,
+                    -198.136505126953
+                ]
+            },
+            "actions": [
+                {
+                    "id": "iZIt55bsTenOmhyXCVFtW",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "leds": "",
+                        "red1": "50",
+                        "green1": "255",
+                        "blue1": "50",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "255",
+                        "blue": "172",
+                        "brightness": "100",
+                        "delai": "100",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "oC-0QSc4wm47323uc0MnZ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "30",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "LGbdOXprTlg2elXSravsc",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "fade_time": "1",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "mOxaxL112i56FzukgohJ0",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "4",
+                        "hardware": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "biTrficE0K2LE6LiXJXrj",
+            "next_event_id": "OE5UdAO1kQ8VBWRDjn9rA",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "biTrficE0K2LE6LiXJXrj",
+                "color": "#1B48B8",
+                "coordinate": [
+                    41.9277610778809,
+                    -208.136505126953
+                ]
+            },
+            "actions": [
+                {
+                    "id": "i70nJuQV7WtPcxmfSFFht",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_ILO_Prendre_Temps.wav",
+                        "volume": "80"
+                    }
+                },
+                {
+                    "id": "TV4p0VK6r8HBkZK9zkUSI",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "leds": "",
+                        "red1": "11",
+                        "green1": "165",
+                        "blue1": "255",
+                        "brightness1": "0",
+                        "red": "0",
+                        "green": "223",
+                        "blue": "2",
+                        "brightness": "100",
+                        "delai": "50",
+                        "temps": "4500",
+                        "taille_vague": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "OE5UdAO1kQ8VBWRDjn9rA",
+            "next_event_id": "meqmavzfgWSycfGP7NsfY",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "OE5UdAO1kQ8VBWRDjn9rA",
+                "color": "#1B48B8",
+                "coordinate": [
+                    54.5228385925293,
+                    -178.093658447266
+                ]
+            },
+            "actions": [
+                {
+                    "id": "oJ3VM7ngTzSSaWlVLgfKW",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "3fbe010e83924198af8883b41829b7a8",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "117",
+                        "green": "233",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "6000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "meqmavzfgWSycfGP7NsfY",
+            "next_event_id": "aUU7BpxmbQDb8DVzyMIjz",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "meqmavzfgWSycfGP7NsfY",
+                "color": "#1B48B8",
+                "coordinate": [
+                    54.5228385925293,
+                    -188.093658447266
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hknJbLjMOZisbiC76mdYz",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps": "2000",
+                        "temps2": "3000",
+                        "delai": "4000"
+                    }
+                },
+                {
+                    "id": "0957b5ac72794ad59e7d35cf04783fc3",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Nord",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "215",
+                        "green": "212",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "6449aa83ef554034bdf5bfed95339a92",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "red": "27",
+                        "green": "233",
+                        "blue": "126",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "aUU7BpxmbQDb8DVzyMIjz",
+            "next_event_id": "dv45kw-3GgcD8HT_ugy3c",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "aUU7BpxmbQDb8DVzyMIjz",
+                "color": "#1B48B8",
+                "coordinate": [
+                    54.5228385925293,
+                    -198.093658447266
+                ]
+            },
+            "actions": [
+                {
+                    "id": "OCwsEjXcH7XopebTx3qD9",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_04.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "TTOgmz9DD7fvAfcLo96Tr",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice",
+                        "num": "1",
+                        "angle": "max",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "LyCmxl46UrbR9-9FUXgiN",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "num": "1,0,0,1,0,0",
+                        "angle": "max",
+                        "temps": "2000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "dv45kw-3GgcD8HT_ugy3c",
+            "next_event_id": "FO_DEHL68xHWSzTJMV3Un",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "dv45kw-3GgcD8HT_ugy3c",
+                "color": "#1B48B8",
+                "coordinate": [
+                    54.5228385925293,
+                    -208.093658447266
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6EBbziMuIjn6MXZfeQNTE",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_08.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "VS1RfTZX1VV790mXKrwvr",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "angle": "max",
+                        "num": "0,1,1,0,0,0",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "PW7-Bw8Hq0QmF5V2gK3oB",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Nord",
+                        "leds": "",
+                        "red1": "50",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "50",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "lEFqoOgRPF3BZwxy4cxaz",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Légumes_Poussent.wav",
+                        "volume": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "FO_DEHL68xHWSzTJMV3Un",
+            "next_event_id": "C76NoIBpn2t6jOlsSzxhf",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "FO_DEHL68xHWSzTJMV3Un",
+                "color": "#1B48B8",
+                "coordinate": [
+                    65.3950119018555,
+                    -178.704315185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Ab9agaN2IImCLEH0f9Czx",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "num": "0,0,0,0,1,0",
+                        "angle": "max",
+                        "temps": "2000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "C76NoIBpn2t6jOlsSzxhf",
+            "next_event_id": "WuT8bnQ93ZWY-ff-Dvejz",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "C76NoIBpn2t6jOlsSzxhf",
+                "color": "#1B48B8",
+                "coordinate": [
+                    65.3950119018555,
+                    -188.704315185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "O3zVSQc-DGhvAHCZw_WeM",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_05.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "a4ea02feba5348ff81830929198189ea",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "red": "233",
+                        "green": "210",
+                        "blue": "27",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WuT8bnQ93ZWY-ff-Dvejz",
+            "next_event_id": "zcyIGuDL9fR8F7HHhU8NB",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "WuT8bnQ93ZWY-ff-Dvejz",
+                "color": "#1B48B8",
+                "coordinate": [
+                    65.3950119018555,
+                    -198.704315185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ubTWqBuhgqkqE3XLQEiF6",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_09.wav",
+                        "volume": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "zcyIGuDL9fR8F7HHhU8NB",
+            "next_event_id": "ryjgGSJrtRMEOv9KWScMe",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "zcyIGuDL9fR8F7HHhU8NB",
+                "color": "#1B48B8",
+                "coordinate": [
+                    65.3950119018555,
+                    -208.704315185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "3XCTie201IxlvcVq6ysBV",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_06.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "RhW4Jw5I7FEdiXijzPZvt",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice",
+                        "num": "1",
+                        "angle": "max",
+                        "temps": "1500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "ryjgGSJrtRMEOv9KWScMe",
+            "next_event_id": "LNi7AxdIMexbn4F_9H8fQ",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "ryjgGSJrtRMEOv9KWScMe",
+                "color": "#1B48B8",
+                "coordinate": [
+                    65.3950119018555,
+                    -218.704315185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kGyEsdj9_J69vITu5yHyU",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_10.wav",
+                        "volume": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "LNi7AxdIMexbn4F_9H8fQ",
+            "next_event_id": "iKCGyglq8UsL2cB-utjEb",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "#A FIN",
+                "color": "#1B48B8",
+                "coordinate": [
+                    75.6136779785156,
+                    -214.089263916016
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kUphiytmW5O_MDyS8Cm8Q",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "min",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "jvuLRl9QcNRikUBgRaCuH",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "Izjuy5rjEh1WmQj4hzOXS",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "100",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "30",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "ATC8aoAlxhsDnf9Q8AMYP",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Légumes_Poussent.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "vqQjYR6-b1cb16CAeMBsh",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "leds": "",
+                        "red1": "50",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "3xSmxY7BfVcgL-OPu-8VA",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Nord",
+                        "leds": "",
+                        "red1": "50",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "2500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0QN1MFuli-HIjejbeEhRL",
+            "next_event_id": "EJ5wpUKEduWx7ruykuWkX",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "JAUNE #B INTENSIF",
+                "color": "#B9A90B",
+                "coordinate": [
+                    -36.1531105041504,
+                    -170.228622436523
+                ]
+            },
+            "actions": [
+                {
+                    "id": "JUndmPEi8qeJ9x4hUMAK_",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "150",
+                        "blue": "0",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "qUgAfiR9jLCxkkim6jPq5",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "5",
+                        "transition_time": "1",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "-8b2LUWHeWjbtkl7qb55A",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,0,0,0,0,0]",
+                        "angle": "min",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "b54c0ebdfb7d47ac954f50842049e6ca",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit,Cha_Central_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "6dcd88b1ce7e47418c9abd4b2857c87e",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche,Cha_Central_Led_Chemin_Droite",
+                        "led_debut": "0",
+                        "led_fin": "5",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "149",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "1000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "EJ5wpUKEduWx7ruykuWkX",
+            "next_event_id": "aWArRBSIle7pnB2bwD9lH",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "EJ5wpUKEduWx7ruykuWkX",
+                "color": "#FFC107",
+                "coordinate": [
+                    -34.3703193664551,
+                    -177.601516723633
+                ]
+            },
+            "actions": [
+                {
+                    "id": "d6860cc83ce743c1b0452d67317882f2",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "led_debut": "0",
+                        "led_fin": "6",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "149",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "fwEW9Jr9GJITvYFi-m3pp",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "40",
+                        "fade_time": "2",
+                        "hardware": ""
+                    }
+                }
+            ]
+        },
+        {
+            "id": "aWArRBSIle7pnB2bwD9lH",
+            "next_event_id": "38PMBLyp-W2JHzcGHo5V7",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "aWArRBSIle7pnB2bwD9lH",
+                "color": "#FFC107",
+                "coordinate": [
+                    -35.5509300231934,
+                    -185.048278808594
+                ]
+            },
+            "actions": [
+                {
+                    "id": "j4YVqSnQYoepfEblDxEK7",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_ILO_Faire_Vite.wav",
+                        "volume": "90"
+                    }
+                },
+                {
+                    "id": "v1et-ss3Kpj8Zm39ofw3w",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "loop_mode": "loop",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "8f5df82e78984f2cb11faf1500e355e3",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "led_debut": "0",
+                        "led_fin": "20",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "149",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "80",
+                        "temps": "0"
+                    }
+                },
+                {
+                    "id": "d63b8b6c14ec4c30a399dbaddeac9ee5",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,1,0,0,0,0]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "2",
+                        "temps": "1000",
+                        "temps2": "300",
+                        "delai": "1400"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "38PMBLyp-W2JHzcGHo5V7",
+            "next_event_id": "PZD9vAr1kiILkaqCYUSFw",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "38PMBLyp-W2JHzcGHo5V7",
+                "color": "#FFC107",
+                "coordinate": [
+                    -34.5796318054199,
+                    -193.072036743164
+                ]
+            },
+            "actions": [
+                {
+                    "id": "M1ZQFJY5a7Nm3zzxydkmJ",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "0f00c45c500648dca4dacbf47909c14c",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,1,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "600"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "DVQXYdYCMT1uqpH8gol4u",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "39",
+                        "blue": "5",
+                        "brightness": "100",
+                        "delai": "50",
+                        "temps": "3000",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "taille_vague": "9",
+                        "connections": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "PZD9vAr1kiILkaqCYUSFw",
+            "next_event_id": "1diQjEBkbp6qG-t2YKQNz",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "PZD9vAr1kiILkaqCYUSFw",
+                "color": "#FFC107",
+                "coordinate": [
+                    -32.4426498413086,
+                    -200.412445068359
+                ]
+            },
+            "actions": [
+                {
+                    "id": "4kcT30Hzn7_8K_IZ62eVJ",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "50",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "5"
+                    }
+                },
+                {
+                    "id": "7aaed3a8d7fd419494a57fddfd48cc4a",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,1,0,0,0]",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "3000",
+                        "temps2": "300",
+                        "delai": "1400"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "1diQjEBkbp6qG-t2YKQNz",
+            "next_event_id": "JXF8FMAGL-nQva6M4gghb",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "1diQjEBkbp6qG-t2YKQNz",
+                "color": "#FFC107",
+                "coordinate": [
+                    -28.7627086639404,
+                    -209.423446655273
+                ]
+            },
+            "actions": [
+                {
+                    "id": "17c8e387741a4fa9ba4eccf19c28373b",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "30",
+                        "temps": "3000",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "taille_vague": "4",
+                        "connections": "0"
+                    }
+                },
+                {
+                    "id": "KAv0k5ogNNFgN_PH2Q4Np",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,0,1,0,0]",
+                        "angle": "max",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "JXF8FMAGL-nQva6M4gghb",
+            "next_event_id": "p7Kl-1K46jfer4zr0iH9G",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "JXF8FMAGL-nQva6M4gghb",
+                "color": "#FFC107",
+                "coordinate": [
+                    -21.4215278625488,
+                    -169.758239746094
+                ]
+            },
+            "actions": [
+                {
+                    "id": "kiy5-Qt3hUvWgckEU2bvT",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_08.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "kHMaDESk1wXLND-_2gPsy",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "angle": "max",
+                        "num": "[0,0,1,0,0,0]",
+                        "temps": "2000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "p7Kl-1K46jfer4zr0iH9G",
+            "next_event_id": "6730c41ef78241fba8b833c84abcd1e0",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "p7Kl-1K46jfer4zr0iH9G",
+                "color": "#FFC107",
+                "coordinate": [
+                    -19.9614486694336,
+                    -177.032760620117
+                ]
+            },
+            "actions": [
+                {
+                    "id": "pWCp2b8djGA2MNMsT0dGC",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_14.wav",
+                        "volume": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8bVebMGQL2fWKhZI3UFeH",
+            "next_event_id": "6bl16e1W5zGSvYybdO2Z5",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "8bVebMGQL2fWKhZI3UFeH",
+                "color": "#FFC107",
+                "coordinate": [
+                    -21.2720031738281,
+                    -191.495040893555
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Jv3Yaj9yFuYrBBD6ThulA",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,0,0,0,1]",
+                        "angle": "max",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "6bl16e1W5zGSvYybdO2Z5",
+            "next_event_id": "K6q9BJoZw4dCLvuvtWEFU",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "6bl16e1W5zGSvYybdO2Z5",
+                "color": "#FFC107",
+                "coordinate": [
+                    -20.6002330780029,
+                    -196.582565307617
+                ]
+            },
+            "actions": [
+                {
+                    "id": "x2NBmdl3olHISjBu5cJID",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_09.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "0bc279b57bec4f8482fddfe7f2733c20",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,1,0,0,0]",
+                        "angle": "min",
+                        "temps": "2000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "K6q9BJoZw4dCLvuvtWEFU",
+            "next_event_id": "LTAML5_mTVmC8Kgu1WCt9",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "K6q9BJoZw4dCLvuvtWEFU",
+                "color": "#FFC107",
+                "coordinate": [
+                    -21.4352130889893,
+                    -205.022109985352
+                ]
+            },
+            "actions": [
+                {
+                    "id": "wF8lbFEkzQpPlnnbXhbQp",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "0,0,0,0,1,1",
+                        "angle": "max",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "LTAML5_mTVmC8Kgu1WCt9",
+            "next_event_id": "GuEYY5L40hBPNw1c49QpV",
+            "event_type": "ActionEvent",
+            "duration": 11,
+            "event_role": "None",
+            "interface": {
+                "name": "LTAML5_mTVmC8Kgu1WCt9",
+                "color": "#FFC107",
+                "coordinate": [
+                    -11.6158962249756,
+                    -170.629547119141
+                ]
+            },
+            "actions": [
+                {
+                    "id": "hdkQ1ju1BkfLLakdYxwer",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_15.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "_JcF1j6tt5O7_kvVAgWnD",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "leds": "",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "50",
+                        "delai": "100",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "RETFGpWjyZjrd9H8gAlle",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "6-BvIUSUuBayNqJhRC1c_",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "0,1,0,0,0,0",
+                        "angle": "min",
+                        "temps": "2500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "GuEYY5L40hBPNw1c49QpV",
+            "next_event_id": "xXMDJkLBZlrFv5pILDMFU",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "GuEYY5L40hBPNw1c49QpV",
+                "color": "#FFC107",
+                "coordinate": [
+                    -11.6158962249756,
+                    -180.629547119141
+                ]
+            },
+            "actions": [
+                {
+                    "id": "5MeSXovmW-ScOw1lmqC7C",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/ALICE/AL_DIAL_CHA_ILO_ALICE_10.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "YeD12ZgNujHaEnc3YXeUy",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "angle": "max",
+                        "num": "[0,0,1,0,0,0]",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "051736df9616492bb03babc9c1a4014e",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "250",
+                        "temps": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xXMDJkLBZlrFv5pILDMFU",
+            "next_event_id": "HhLU33puQ2PJV-WoFzEX-",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "xXMDJkLBZlrFv5pILDMFU",
+                "color": "#FFC107",
+                "coordinate": [
+                    -11.6158962249756,
+                    -190.629547119141
+                ]
+            },
+            "actions": [
+                {
+                    "id": "S2I2edEXUwWTkb1JAR-02",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_16.wav",
+                        "volume": "75"
+                    }
+                },
+                {
+                    "id": "b1c3549ef2674e73a1bae63db699a278",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,0,0,1,1]",
+                        "angle": "init",
+                        "temps": "2500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "HhLU33puQ2PJV-WoFzEX-",
+            "next_event_id": "etmTZtxH_te42u1Bl0u08",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "HhLU33puQ2PJV-WoFzEX-",
+                "color": "#FFC107",
+                "coordinate": [
+                    -11.6158962249756,
+                    -200.629547119141
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Zblkgt4_yuN_ZEmuVtl5L",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "45",
+                        "fade_time": "3",
+                        "hardware": ""
+                    }
+                },
+                {
+                    "id": "_4p6hMs7El_7IZpnEy2qM",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,1,0,0,0,0]",
+                        "angle": "max",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "etmTZtxH_te42u1Bl0u08",
+            "next_event_id": "IXU8GoQWZVNukr0Vfmziy",
+            "event_type": "ActionEvent",
+            "duration": 7,
+            "event_role": "None",
+            "interface": {
+                "name": "etmTZtxH_te42u1Bl0u08",
+                "color": "#FFC107",
+                "coordinate": [
+                    -1.17281484603882,
+                    -170.580703735352
+                ]
+            },
+            "actions": [
+                {
+                    "id": "nbOER3mFRdtIqVffwMNcp",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on_rgb",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "nH-wFVWWMiUyAN-72oMkq",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/BRUITAGES/AL_BRUIT_ILO_Maison_Proche.wav",
+                        "volume": "100"
+                    }
+                },
+                {
+                    "id": "m-oq1QHyU5-w1JLeoACgP",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "leds": "",
+                        "red1": "255",
+                        "green1": "50",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "1500"
+                    }
+                },
+                {
+                    "id": "1f5d2084bb7c49c991cd1f3e6b731f9d",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,0,1,0,0]",
+                        "angle": "init",
+                        "temps": "2500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "IXU8GoQWZVNukr0Vfmziy",
+            "next_event_id": "iKCGyglq8UsL2cB-utjEb",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "#B JAUNE FIN",
+                "color": "#EEE8AA",
+                "coordinate": [
+                    0.359892606735229,
+                    -181.032791137695
+                ]
+            },
+            "actions": [
+                
+            ]
+        },
+        {
+            "id": "iKCGyglq8UsL2cB-utjEb",
+            "next_event_id": "1XSFuDMHr9QeuBl79n_GV",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "TRAME PRINCIPALE",
+                "color": "#6C757D",
+                "coordinate": [
+                    38.9942970275879,
+                    -285.755737304688
+                ]
+            },
+            "actions": [
+                {
+                    "id": "Ui5bhJztGxSBcOQ9m73GD",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "red": "0",
+                        "green": "150",
+                        "blue": "255",
+                        "brightness": "50",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "YBV1KbFNS1oLrhG_BZmsz",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "2",
+                        "transition_time": "2"
+                    }
+                },
+                {
+                    "id": "B4oQgUo0jlyG35zwAtrTU",
+                    "refresh_rate": "0",
+                    "action": "set_loop_mode",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "loop_mode": "default"
+                    }
+                },
+                {
+                    "id": "AzklS37L26LrE-jN-r10T",
+                    "refresh_rate": "0",
+                    "action": "aller_retour",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "min",
+                        "angle2": "max",
+                        "ntours": "1",
+                        "temps": "1500",
+                        "temps2": "2500",
+                        "delai": "2500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "1XSFuDMHr9QeuBl79n_GV",
+            "next_event_id": "xmz7fTEbwWpjFIsuNTsje",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "1XSFuDMHr9QeuBl79n_GV",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -296.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "VGNGwO7n6SVWCKQiIHi28",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "45",
+                        "fade_time": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "xmz7fTEbwWpjFIsuNTsje",
+            "next_event_id": "A9V38yzKR4YJw5Oqb3FNH",
+            "event_type": "ActionEvent",
+            "duration": 3,
+            "event_role": "None",
+            "interface": {
+                "name": "xmz7fTEbwWpjFIsuNTsje",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -306.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "UHW5AVQ_t1Es8WFwKlqZN",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "50",
+                        "fade_time": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "A9V38yzKR4YJw5Oqb3FNH",
+            "next_event_id": "WdoW-WXD8BwbvwAtOC20n",
+            "event_type": "ActionEvent",
+            "duration": 4,
+            "event_role": "None",
+            "interface": {
+                "name": "A9V38yzKR4YJw5Oqb3FNH",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -316.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "IB4fY9m06TjKshFNZT-Y2",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "500",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "evGvj-Jidt3VwfWuVn9Kt",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "100",
+                        "green": "255",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "500",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "SMKXrGaHWcC-EOS0_0V9O",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "25",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "WdoW-WXD8BwbvwAtOC20n",
+            "next_event_id": "Wrgmd-tzFJis8wXrixiKa",
+            "event_type": "ActionEvent",
+            "duration": 9,
+            "event_role": "None",
+            "interface": {
+                "name": "WdoW-WXD8BwbvwAtOC20n",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -326.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "TqK0-yMEjcOUEDmIAa34j",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/DIALOGUES/LAPIN/AL_DIAL_CHA_ILO_LAPIN_18.wav",
+                        "volume": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Wrgmd-tzFJis8wXrixiKa",
+            "next_event_id": "6DSwXaGO1u10ZcaZGUnl6",
+            "event_type": "ActionEvent",
+            "duration": 16,
+            "event_role": "None",
+            "interface": {
+                "name": "Wrgmd-tzFJis8wXrixiKa",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -336.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "c7AsqDPLimgorV0QCQ5-E",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_ILO_Etage_Fiole.wav",
+                        "volume": "90"
+                    }
+                },
+                {
+                    "id": "gg2cL4wDDgHr0AUyvkVCQ",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "",
+                        "red1": "255",
+                        "green1": "100",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "200",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "300",
+                        "temps": "1"
+                    }
+                },
+                {
+                    "id": "Mb16eChfJDXwLo9vEHzQp",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "",
+                        "red1": "100",
+                        "green1": "255",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "100",
+                        "green": "0",
+                        "blue": "200",
+                        "brightness": "100",
+                        "delai": "300",
+                        "temps": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6DSwXaGO1u10ZcaZGUnl6",
+            "next_event_id": "RpuXzynfogY8pCrgcF_Fn",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "6DSwXaGO1u10ZcaZGUnl6",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -346.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "NoiLJeOH-ppHHcp3UXuOX",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite",
+                        "fade_time": "3",
+                        "is_rgb": "true"
+                    }
+                },
+                {
+                    "id": "u50ha9G26yckT9VKQ3oMQ",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "30",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "5Q6GkZ5PEBs-LO_7gP7Zh",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "green1": "0",
+                        "red1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "3000"
+                    }
+                },
+                {
+                    "id": "ZyMnHepjtskzmCTWiIVF7",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "green1": "0",
+                        "red1": "0",
+                        "blue1": "0",
+                        "brightness1": "0",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "temps": "3000"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "RpuXzynfogY8pCrgcF_Fn",
+            "next_event_id": "AKUdm2D4jneFkICLicT-b",
+            "event_type": "ActionEvent",
+            "duration": 8,
+            "event_role": "None",
+            "interface": {
+                "name": "RpuXzynfogY8pCrgcF_Fn",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -356.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "rYNMv1Cf6-TjCRPmSvAaf",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "100",
+                        "green": "0",
+                        "blue": "255",
+                        "brightness": "70",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "tu4KfJXHked6at6W2MtKo",
+                    "refresh_rate": "0",
+                    "action": "play_media_on_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "media_index": "5",
+                        "transition_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "AKUdm2D4jneFkICLicT-b",
+            "next_event_id": "rSx6fXop7X0UM8Q3XnI3R",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "AKUdm2D4jneFkICLicT-b",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -366.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "-mD2WzgQMeb3X9lA96oJx",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "[0,1,1,0,0]",
+                        "angle": "max",
+                        "temps": "2500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "GQ5FoNcfeRGQT4s4Xb8nF",
+                    "refresh_rate": "0",
+                    "action": "fade",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "fade_time": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "rSx6fXop7X0UM8Q3XnI3R",
+            "next_event_id": "nDuaF8bzVtxIKxyPAYa3X",
+            "event_type": "ActionEvent",
+            "duration": 13,
+            "event_role": "None",
+            "interface": {
+                "name": "rSx6fXop7X0UM8Q3XnI3R",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -376.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7xs1hPiH80LZjvoGI6oc9",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "[1,0,0,1,1]",
+                        "angle": "max",
+                        "temps": "4000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "A0zjZiIDWi0Fk171y3hvo",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_ILO_Alice_Géante.wav",
+                        "volume": "90"
+                    }
+                },
+                {
+                    "id": "0P1vKmxIklbnyiakMK97e",
+                    "refresh_rate": "0",
+                    "action": "set_volume",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "volume": "20",
+                        "fade_time": "2"
+                    }
+                },
+                {
+                    "id": "x4SUrG37iocQK_epfx7qm",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "2500"
+                    }
+                },
+                {
+                    "id": "oKRpgtKmK28try4fwFXWB",
+                    "refresh_rate": "0",
+                    "action": "transition",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "255",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "0",
+                        "temps": "2500"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "nDuaF8bzVtxIKxyPAYa3X",
+            "next_event_id": "okZOm6WX8tSgq2mzmbtDD",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "nDuaF8bzVtxIKxyPAYa3X",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    39.1239624023438,
+                    -386.126190185547
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ZfJT4WhzsXOXqMokBQP4_",
+                    "refresh_rate": "0",
+                    "action": "play_sound",
+                    "type": "Son",
+                    "options": {
+                        "filename": "CHAUMIERE/SEQUENCES/AL_SEQ_CHA_ILO_Lapin_Arrive.wav",
+                        "volume": "75"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "okZOm6WX8tSgq2mzmbtDD",
+            "next_event_id": "XW4dfvu7xWffio1XvkYwo",
+            "event_type": "ActionEvent",
+            "duration": 6,
+            "event_role": "None",
+            "interface": {
+                "name": "okZOm6WX8tSgq2mzmbtDD",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    41.1977195739746,
+                    -392.956237792969
+                ]
+            },
+            "actions": [
+                {
+                    "id": "CEDYesOsWkInfrtyl3oRe",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "5000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "IO8BNA6QO0wW09ajUz2pH",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Droite",
+                        "connections": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "1",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "brightness1": "100"
+                    }
+                },
+                {
+                    "id": "Ap9dzNm6CPqIrxnA2jJiP",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "red": "255",
+                        "green": "100",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "150",
+                        "temps": "1",
+                        "leds": "",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "brightness1": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "XW4dfvu7xWffio1XvkYwo",
+            "next_event_id": "919fd22a251c4bf7b4dff82ccf3b52a3",
+            "event_type": "ActionEvent",
+            "duration": 5,
+            "event_role": "None",
+            "interface": {
+                "name": "XW4dfvu7xWffio1XvkYwo",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    41.1977195739746,
+                    -402.956237792969
+                ]
+            },
+            "actions": [
+                {
+                    "id": "6RUktjmiXEraNrIhE-Unb",
+                    "refresh_rate": "0",
+                    "action": "pause_channel",
+                    "type": "Son",
+                    "options": {
+                        "channel": "Musiques",
+                        "fade_time": "3"
+                    }
+                },
+                {
+                    "id": "DSq08kDpVrY6MjvU2PIfh",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Global",
+                        "fade_time": "2",
+                        "is_rgb": "true"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "919fd22a251c4bf7b4dff82ccf3b52a3",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "Stop",
+            "interface": {
+                "name": "RESET",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    41.1977195739746,
+                    -412.956237792969
+                ]
+            },
+            "actions": [
+                {
+                    "id": "e212106f4b2240e2a95351c1592c8b8c",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "713bf4fdb5be489a93c78bdeada09347",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit,Cha_Central_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "cb2cc41467534ea1b40d99bd17a0fcf6",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "3ba8a989a7774cacbc6cbac36349f529",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "c482f26ef2174a27be386b5525834611",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "17796518689a4a3884e0878bdb061781",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice",
+                        "num": "1",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "bda8f56115754b02ba18ed27b9b385c5",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "num": "1,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "96cc158bf9854eccb7dbe53c2bb5aed6",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "0,1,1,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "d18a31dc465e4e1991fdb295bc001d3d",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche,Cha_Central_Led_Chemin_Droite,Cha_Central_Led_Permaculture_Sud,Cha_Central_Led_Permaculture_Nord,Cha_Central_Led_Intensif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "10",
+                        "temps": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "cfdb62188787430cb0fd352237452997",
+            "next_event_id": "As3XFDAzRg0DIGftXcPaT",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    37.2651443481445,
+                    -166.354141235352
+                ]
+            },
+            "actions": [
+                
+            ],
+            "comment_text": "BLEU #A PERMACULTURE"
+        },
+        {
+            "id": "8981f95dc4c049f685b05830498db0a8",
+            "next_event_id": "0QN1MFuli-HIjejbeEhRL",
+            "event_type": "CommentEvent",
+            "duration": 0,
+            "event_role": "None",
+            "interface": {
+                "name": "CommentEvent",
+                "color": "#FFFFFF",
+                "coordinate": [
+                    -47.6884613037109,
+                    -166.476196289063
+                ]
+            },
+            "actions": [
+                
+            ],
+            "comment_text": "JAUNE #B INTENSIF"
+        },
+        {
+            "id": "a485452afc39407a8c8de653b8b7ea5c",
+            "next_event_id": "",
+            "event_type": "ActionEvent",
+            "duration": 10,
+            "event_role": "None",
+            "interface": {
+                "name": "RESET_copy",
+                "color": "#03071F",
+                "coordinate": [
+                    -70.0607528686523,
+                    -135.226257324219
+                ]
+            },
+            "actions": [
+                {
+                    "id": "7f024bc2489647d88c32bda54d09c0f7",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "Cha_Central_RGB_Gauche,Cha_Central_RGB_Droite,Cha_Central_RGB_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "2cc95f5a393f4bd595e32b722c3425cc",
+                    "refresh_rate": "0",
+                    "action": "stop",
+                    "type": "Boitier",
+                    "options": {
+                        "hardware": "Cha_Central_Boitier_Droit,Cha_Central_Boitier_Gauche"
+                    }
+                },
+                {
+                    "id": "71124db4a8bb405badf935abd106e8bd",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[1,1,1,1,1,1]",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "88149854616346b684569bcd5bc65943",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "1,0,0,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "136dcf064c734a968eef52cb4af9b19c",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Lapin",
+                        "num": "1",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "835b1a452cde430281fb33799cb26847",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Mono_Permaculture_Alice",
+                        "num": "1",
+                        "angle": "init",
+                        "temps": "1000"
+                    }
+                },
+                {
+                    "id": "43fa2596e3804ef6bb3a7ce40e204ac4",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Permaculture",
+                        "num": "1,0,0,1,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "4838a348ae6c4f2dbd3f3668ea9f6595",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Maison",
+                        "num": "0,1,1,0,0,0",
+                        "angle": "init",
+                        "temps": "1000"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "724c4bb74a1247faa4717177d39e77f7",
+                    "refresh_rate": "0",
+                    "action": "balayage",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Chemin_Gauche,Cha_Central_Led_Chemin_Droite,Cha_Central_Led_Permaculture_Sud,Cha_Central_Led_Permaculture_Nord,Cha_Central_Led_Intensif",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "10",
+                        "temps": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6730c41ef78241fba8b833c84abcd1e0",
+            "next_event_id": "8bVebMGQL2fWKhZI3UFeH",
+            "event_type": "ActionEvent",
+            "duration": 2,
+            "event_role": "None",
+            "interface": {
+                "name": "ActionEvent",
+                "color": "#FFD214",
+                "coordinate": [
+                    -20.4786891937256,
+                    -184.218078613281
+                ]
+            },
+            "actions": [
+                {
+                    "id": "ccabfae09a7a4a6a88f9fa1282d2b86b",
+                    "refresh_rate": "0",
+                    "action": "set_angle",
+                    "type": "Servo_Multi",
+                    "options": {
+                        "hardware": "Cha_Central_Servo_Multi_Intensif",
+                        "num": "[0,0,0,0,1,0]",
+                        "angle": "max",
+                        "temps": "1500"
+                    },
+                    "options_order": [
+                        "arduino",
+                        "num",
+                        "angle",
+                        "angle2",
+                        "ntours",
+                        "temps",
+                        "temps2",
+                        "delai"
+                    ]
+                },
+                {
+                    "id": "29f59480e9944fb380b911913dc77c88",
+                    "refresh_rate": "0",
+                    "action": "vague",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Intensif",
+                        "leds": "",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "255",
+                        "green": "0",
+                        "blue": "0",
+                        "brightness": "100",
+                        "delai": "30",
+                        "temps": "3000",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "taille_vague": "4",
+                        "connections": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0549547f64734bf8b0104a9d167b96be",
+            "next_event_id": "OWA3iohWYXzzybjvXRHu-",
+            "event_type": "ActionEvent",
+            "duration": 1,
+            "event_role": "None",
+            "interface": {
+                "name": "ActionEvent",
+                "color": "#0000FF",
+                "coordinate": [
+                    45.6425628662109,
+                    -183.958999633789
+                ]
+            },
+            "actions": [
+                {
+                    "id": "9528726718dc45d2b8400d0ff3cd19ae",
+                    "refresh_rate": "0",
+                    "action": "progression",
+                    "type": "Led",
+                    "options": {
+                        "hardware": "Cha_Central_Led_Permaculture_Sud",
+                        "led_debut": "0",
+                        "led_fin": "0",
+                        "red1": "0",
+                        "green1": "0",
+                        "blue1": "0",
+                        "brightness1": "100",
+                        "red": "0",
+                        "green": "83",
+                        "blue": "255",
+                        "brightness": "100",
+                        "delai": "200",
+                        "temps": "0"
+                    }
+                }
+            ]
+        }
+    ]
+}

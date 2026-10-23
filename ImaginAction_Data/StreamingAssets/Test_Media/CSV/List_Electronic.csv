@@ -127,7 +127,7 @@ Pal_Scene_MONO_Alice_Pos,44:23:7C:DC:69:19,192.168.0.27,27,Palais,Scene,MONO,_Al
 Pal_Scene_MONO_Lapin,44:23:7C:DC:6D:20,192.168.0.28,28,Palais,Scene,MONO,_Lapin,,,,,,,,,,,,,,,
 Pal_Entree_Boitier_Gauche,78:21:84:9f:65:cc,192.168.0.50,50,Palais,Entree,Boitier,_Gauche,,,,,,,,,,,,,,,
 Pal_Entree_Boitier_Droit,0c:b8:15:f7:81:64,192.168.0.51,51,Palais,Entree,Boitier,_Droit,,,,,,,,,,,,,,,
-Pal_Entree_Parfum,ec:62:60:9c:95:c8,192.168.0.52,52,Palais,Entree,Parfum,,,,,,,,,,,,,,,,
+Pal_Entree_Parfum,ec:62:60:9c:95:c8,192.168.0.77,77,Palais,Entree,Parfum,,,,,,,,,,,,,,,,
 Pal_Central_Boitier_Gauche,0c:b8:15:f6:64:d4,192.168.0.53,53,Palais,Central,Boitier,_Gauche,,,,,,,,,,,,,,,
 Pal_Central_Boitier_Droit,0C-B8-15-F8-DF-90,192.168.0.54,54,Palais,Central,Boitier,_Droit,,,,,,,,,,,,,,,
 Pal_Central_Led_Croquet_Sud,ec:62:60:9c:68:e8,192.168.0.55,55,Palais,Central,Led,_Croquet_Sud,9,,,,,,,,,,,,,,

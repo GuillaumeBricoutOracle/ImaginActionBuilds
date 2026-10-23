@@ -86,7 +86,8 @@
                     "options": {
                         "channel": "Musiques",
                         "media_index": "0",
-                        "transition_time": "0"
+                        "transition_time": "0",
+                        "hardware": ""
                     }
                 },
                 {
@@ -109,8 +110,9 @@
                     "action": "set_loop_mode",
                     "type": "Son",
                     "options": {
-                        "channel": "Ambiances",
-                        "loop_mode": "loop"
+                        "channel": "Musiques",
+                        "loop_mode": "loop",
+                        "hardware": ""
                     }
                 }
             ]
@@ -136,7 +138,7 @@
                     "action": "fade_turn_on",
                     "type": "MONO",
                     "options": {
-                        "brightness": "60",
+                        "brightness": "80",
                         "fade_time": "6",
                         "hardware": "For_Scene_MONO_Foret"
                     }
@@ -166,7 +168,8 @@
                     "options": {
                         "channel": "Musiques",
                         "volume": "60",
-                        "fade_time": "3"
+                        "fade_time": "3",
+                        "hardware": ""
                     }
                 },
                 {
@@ -730,14 +733,14 @@
                     }
                 },
                 {
-                    "id": "B0rRoBHqOr_NOGafyGr_r",
+                    "id": "f7897b1963b94de0b07a8e2f95cdc516",
                     "refresh_rate": "0",
-                    "action": "fade_bg",
+                    "action": "fade_turn_off",
                     "type": "MONO",
                     "options": {
-                        "brightness": "20",
                         "fade_time": "3",
-                        "hardware": "For_Scene_MONO_Foret"
+                        "is_rgb": "false",
+                        "hardware": "For_Scene_MONO_Global"
                     }
                 }
             ]
@@ -858,6 +861,17 @@
                     "options": {
                         "hardware": "For_Scene_Animatronique",
                         "anim_name": "FOR_CHAT_05"
+                    }
+                },
+                {
+                    "id": "dd45bef9133d48aab7714499d9ea9255",
+                    "refresh_rate": "0",
+                    "action": "fade_turn_on",
+                    "type": "MONO",
+                    "options": {
+                        "hardware": "For_Scene_MONO_Chat",
+                        "brightness": "70",
+                        "fade_time": "3"
                     }
                 }
             ]

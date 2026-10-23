@@ -38,8 +38,8 @@
                 "name": "1PIk3HYYmL6tdfH3hPHWB",
                 "color": "#2C549D",
                 "coordinate": [
-                    0,
-                    -10
+                    -0.209125995635986,
+                    -8.66920185089111
                 ]
             },
             "actions": [
@@ -81,6 +81,18 @@
                         "fade_time": "5",
                         "hardware": "For_Entree_RGB_Droite"
                     }
+                },
+                {
+                    "id": "e64e074b41a94fc987727428c9f75077",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Scene_Parfum",
+                        "ntours": "1",
+                        "diffusion": "15000",
+                        "pause": "0"
+                    }
                 }
             ]
         },
@@ -94,8 +106,8 @@
                 "name": "1xaGr1-VPYI9I5ykzi5Lf",
                 "color": "#2C549D",
                 "coordinate": [
-                    -0.0418190956115723,
-                    -17.6023178100586
+                    -0.231933116912842,
+                    -15.5015563964844
                 ]
             },
             "actions": [
@@ -318,7 +330,7 @@
                 "color": "#2C549D",
                 "coordinate": [
                     12.2917976379395,
-                    -21.2497310638428
+                    -20.7280578613281
                 ]
             },
             "actions": [
@@ -383,8 +395,8 @@
                 "name": "2qDwxZD_n71jqxYuZhkKF",
                 "color": "#2C549D",
                 "coordinate": [
-                    20.1882171630859,
-                    -5.35822677612305
+                    20.0205345153809,
+                    -3.29016542434692
                 ]
             },
             "actions": [
@@ -820,6 +832,18 @@
                         "filename": "FORET/BRUITAGES/AL_BRUIT_FOR_CHENILLE_Hooka_03.wav",
                         "volume": "100"
                     }
+                },
+                {
+                    "id": "pByOVGxYelXAnqAv5eucb",
+                    "refresh_rate": "0",
+                    "action": "fumee_anim",
+                    "type": "Fumee",
+                    "options": {
+                        "hardware": "For_Entree_Fumee",
+                        "ntours": "1",
+                        "diffusion": "5000",
+                        "pause": "3000"
+                    }
                 }
             ]
         },
@@ -838,18 +862,6 @@
                 ]
             },
             "actions": [
-                {
-                    "id": "pByOVGxYelXAnqAv5eucb",
-                    "refresh_rate": "0",
-                    "action": "fumee_anim",
-                    "type": "Fumee",
-                    "options": {
-                        "hardware": "For_Entree_Fumee",
-                        "ntours": "2",
-                        "diffusion": "5000",
-                        "pause": "3000"
-                    }
-                },
                 {
                     "id": "zOdegtTay_VdciOWZpb_n",
                     "refresh_rate": "0",
@@ -999,7 +1011,7 @@
                     "options": {
                         "hardware": "For_Entree_Fumee",
                         "ntours": "1",
-                        "diffusion": "6000",
+                        "diffusion": "4000",
                         "pause": "1000"
                     }
                 },
@@ -1125,7 +1137,7 @@
         },
         {
             "id": "BerZWPH0kqw-MQ2qUd4y0",
-            "next_event_id": "nJQN2RhKTgGUlSMFnQzQv",
+            "next_event_id": "5f0e2b7c9a414d3f8c6b1d2e4a597013",
             "event_type": "ActionEvent",
             "duration": 4,
             "event_role": "None",
@@ -1148,24 +1160,7 @@
                         "is_rgb": "true",
                         "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite"
                     }
-                }
-            ]
-        },
-        {
-            "id": "nJQN2RhKTgGUlSMFnQzQv",
-            "next_event_id": "5f0e2b7c9a414d3f8c6b1d2e4a597013",
-            "event_type": "ActionEvent",
-            "duration": 5,
-            "event_role": "None",
-            "interface": {
-                "name": "nJQN2RhKTgGUlSMFnQzQv",
-                "color": "#2C549D",
-                "coordinate": [
-                    60.6568069458008,
-                    -24.4425067901611
-                ]
-            },
-            "actions": [
+                },
                 {
                     "id": "7NZ9mp0-zl4_AK8QDpa1a",
                     "refresh_rate": "0",
@@ -1189,22 +1184,11 @@
                 "name": "RESET",
                 "color": "#FFFFFF",
                 "coordinate": [
-                    61.928352355957,
-                    -30.3348579406738
+                    61.7903289794922,
+                    -25.7455978393555
                 ]
             },
             "actions": [
-                {
-                    "id": "7c1d3e5f8a924b6c0d2e4f6a8c1b3d50",
-                    "refresh_rate": "0",
-                    "action": "turn_off",
-                    "type": "RGB",
-                    "options": {
-                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
-                        "effect": "sudden",
-                        "duration": "500"
-                    }
-                },
                 {
                     "id": "9e2f4a6c8b135d7e0f2a4c6e8b0d2f47",
                     "refresh_rate": "0",
@@ -1212,6 +1196,17 @@
                     "type": "MONO",
                     "options": {
                         "hardware": "For_Entree_MONO_Global",
+                        "effect": "sudden",
+                        "duration": "500"
+                    }
+                },
+                {
+                    "id": "7c1d3e5f8a924b6c0d2e4f6a8c1b3d50",
+                    "refresh_rate": "0",
+                    "action": "turn_off",
+                    "type": "RGB",
+                    "options": {
+                        "hardware": "For_Entree_RGB_Gauche,For_Entree_RGB_Droite",
                         "effect": "sudden",
                         "duration": "500"
                     }
